@@ -6,6 +6,6 @@ This will be a log for all our discussions and what not, until we finalize the f
 
 ### What should our app be about?
 1. At a high level
-..* A Game
-..* A Messaging app
-..* A Social Shopping app
+  *A Game
+  *A Messaging app
+  *A Social Shopping app
