@@ -90,8 +90,10 @@ This will be a log for all our discussions and what not, until we finalize the f
 ### Use Case 1: Starting the Game
 ####Objective
 * To start playing the game
+
 ####Pre-conditions
 * Player can connect to a LAN (if playing multiplayer)
+
 ####Post-conditions
 * Success
   - Single player game starts
@@ -99,13 +101,17 @@ This will be a log for all our discussions and what not, until we finalize the f
 * Failure
   - App crashes
   - Player disconnect from the LAN
+
 ####Actors
 * 1-4 Players
+
 ####Triggers
 * Player launches the app
+
 ####Normal flow 
 * Start Screen
   - Choose Single player 
+
 ####Alternative flow 1
 * Start Screen
   * Choose Multiplayer
