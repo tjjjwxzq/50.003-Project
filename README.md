@@ -81,11 +81,11 @@ This will be a log for all our discussions and what not, until we finalize the f
 
 ### Use Cases
 * Starting the game
-* Interact with objects
-* Interact with NPCs (dialogues to tell more of the story)
-* Interact with other players
+* Interacting with objects
+* Interacting with enemies
+* Interacting with other players
 * Action word trigger points
-* End game
+* Ending of a level block
 
 ### Use Case 1: Starting the Game
 ####Objective
@@ -127,43 +127,148 @@ This will be a log for all our discussions and what not, until we finalize the f
 ####Interacts with(???)  
 ####Open issues(???)
 
-### Use Case 2: Starting the Game
+### Use Case 2: Interacting with in-game objects
 ####Objective
-* To start playing the game
+* To interact with an in-game object (immersive experience; player collaboration)
 ####Pre-conditions
-* Player can connect to a LAN (if playing multiplayer)
+* Players have started the game
 ####Post-conditions
 * Success
-  - Single player game starts
-  - Players able to join lobby and start the game
+  - Object responds if player chooses to interact
+  - Nothing changes if player chooses not to interact
 * Failure
   - App crashes
-  - Player disconnect from the LAN
+  - Player disconnect from the LAN (for multiplayer)
 ####Actors
 * 1-4 Players
 ####Triggers
-* Player launches the app
+* Player walks over in-game object
 ####Normal flow 
-* Start Screen
-  - Choose Single player 
-####Alternative flow 1
-* Start Screen
-  * Choose Multiplayer
-    - Join game
-      * Exit lobby
-      * Starting room: initial action word choice
-####Alternative flow 2
-* Start Screen 
-  - Choose Multiplayer 
-    * Host game
-      - Exit lobby
-      - Starting room: initial action word choice
+* Dialogue pops up, prompts player 
+  - Player chooses to interact further
+    * Object responds 
+     - Aesthetic changes to environment
+     - Trigger action word prompts
+     - Affect global mechanics (eg. increased gravity) 
+     - Reveal more storyline
+####Alternative flow 
+* Dialogue pops up, prompts player 
+  - Player chooses not to interact further
 ####Exception flow
-* Start Screen
-  - Choose Multiplyaer
-    * Join game/Host game
-      - Disconnect from LAN
-      - Return to Start Screen
+* Multiple players try to interact with the object at the same time (??)
 ####Interacts with(???)  
 ####Open issues(???)
+* How to prevent multiple players from interacting with the same object simultaneously?
 
+###Use Case 3: Interacting with enemies 
+####Objective
+* Kill/avoid enemy or get killed by enemies
+####Pre-conditions
+* Players have started the game
+* There are enemies on the map
+####Post-conditions
+* Player kills enemy 
+  - enemy disappears
+  - enemy respawns after a while/ is permanently gone
+* Enermy kills player
+  - player respawns at original spawn point
+####Actors
+* 1- 4 players
+####Triggers
+* Attack and collide into enemy
+* Collide into enemy without attacking
+####Normal flow
+* Press A button
+ - Collide with enemy
+  * Enemy dies
+####Alternative flow
+* Collide with enemy
+  - Player dies (haha)
+####Interacts with(???)
+* Trigger action words prompt
+####Open issues(???)
+
+###User Case 4: Interacting with other players
+####Objective
+* To interact with other players
+####Pre-conditions
+* Players have started the game
+* Multiplayer game
+####Post-conditions
+* Players gain new information
+####Actors
+* 2-4 Players
+####Triggers
+* Players collide (overlap) with each other and press the A button
+####Normal flow (aesthetic interaction)
+* One player moves over the other, interaction prompt appears (change in color, or dialogue pop-up)  
+  -  Any one player presses the A button to interact
+    - Triggers aesthetic change (sound or animation)
+####Alternative flow (information passing)
+* One player moves over the other, interaction prompt appears (change in color, or dialogue pop-up)  
+  - Any one player presses the A button to interact
+    - Dialogue appears with information
+####Exception flow (multiple players trying to interact together)
+* More than two players overlap/collide, try to interact
+  - The first pair that starts to interact is no longer interactable with other players for the duration of their interaction
+    * Interacting pairs interact as normal
+####Interacts with(???)
+####Open issues(???)
+
+
+###User Case 5: Triggering action word prompts
+####Objective
+* To allow players to choose story elements that will affect gameplay
+####Pre-conditions
+* Players have started the game
+####Post-conditions
+* Map is altered
+* Story is added to
+* Triggering next level block
+####Actors
+1-4 Players
+####Triggers
+* Interact with some key object
+* Unlocked post boss-fight
+* End of level-block 
+####Normal flow
+* Action word bubbles appear on screen 
+ - Player jumps to touch a bubble and presses A button to choose word
+  * Dialogue appears to elaborate on the chosen scenario
+    - Map is altered in some way
+      * Aesthetic changes
+      * New objects appear on the map
+      * Unlock NPC dialogue 
+####Interacts with
+* Interacting with objects
+* Ending of level block
+* Interacting with enemies
+####Open issues(???)
+
+
+###User Case 6: Ending of level block
+####Objective
+* Allow user to progress to the next level/end the game
+####Pre-conditions
+* Player have started the game
+* Players have finished the main quest for each level
+####Post-conditions
+* Players choose action words to set the next level
+ - Players advance to next level block
+####Actors
+1-4 Players
+####Triggers
+* Players finish main level quest
+####Normal flow
+* Main level quest is completed
+  - Dialogue appears on each player's screen to notify them on quest completion and story progression
+    * Direction prompt appears on players screens to prompt them to move to gathering point (denoted by some structure?)
+      - All players reach gathering point
+       * Action word selection for the next level is triggered
+        - Players advance to next level
+####Interacts with
+* Interacting with objects
+* Ending of level block
+* Interacting with enemies
+####Open issues(???)
+* How to categorize and track story elements in the game? (to determine how next level is generated based on the chosen action word)
