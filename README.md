@@ -133,9 +133,11 @@ This will be a log for all our discussions and what not, until we finalize the f
       - Disconnect from LAN
       - Return to Start Screen
 
-####Interacts with(???)  
+####Interacts with
+* Triggering action word prompts 
 
-####Open issues(???)
+####Open issues
+* Do all players have to give assent before the game starts or can the host choose to start whenever it wishes?
 
 ### Use Case 2: Interacting with in-game objects
 ####Objective
@@ -172,11 +174,11 @@ This will be a log for all our discussions and what not, until we finalize the f
   - Player chooses not to interact further
 
 ####Exception flow
-* Multiple players try to interact with the object at the same time (??)
+* Multiple players try to interact with the object at the same time 
 
-####Interacts with(???)  
+####Interacts with
 
-####Open issues(???)
+####Open issues
 * How to prevent multiple players from interacting with the same object simultaneously?
 
 ###Use Case 3: Interacting with enemies 
@@ -210,10 +212,10 @@ This will be a log for all our discussions and what not, until we finalize the f
 * Collide with enemy
   - Player dies (haha)
 
-####Interacts with(???)
+####Interacts with
 * Trigger action words prompt
 
-####Open issues(???)
+####Open issues
 
 ###User Case 4: Interacting with other players
 ####Objective
@@ -247,9 +249,9 @@ This will be a log for all our discussions and what not, until we finalize the f
   - The first pair that starts to interact is no longer interactable with other players for the duration of their interaction
     * Interacting pairs interact as normal
 
-####Interacts with(???)
+####Interacts with
 
-####Open issues(???)
+####Open issues
 
 
 ###User Case 5: Triggering action word prompts
@@ -286,7 +288,7 @@ This will be a log for all our discussions and what not, until we finalize the f
 * Ending of level block
 * Interacting with enemies
 
-####Open issues(???)
+####Open issues
 
 
 ###User Case 6: Ending of level block
@@ -320,5 +322,5 @@ This will be a log for all our discussions and what not, until we finalize the f
 * Ending of level block
 * Interacting with enemies
 
-####Open issues(???)
+####Open issues
 * How to categorize and track story elements in the game? (to determine how next level is generated based on the chosen action word)
