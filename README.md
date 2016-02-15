@@ -324,3 +324,30 @@ This will be a log for all our discussions and what not, until we finalize the f
 
 ####Open issues
 * How to categorize and track story elements in the game? (to determine how next level is generated based on the chosen action word)
+
+## Week 4 15/2/2016
+
+###Procedural Story and Map generation
+* Tile-based side-scrolling maps with different tile sets (triggered by player choice)
+* Three general atmospheric themes coupled with play styles:
+ - Action and Adventure (normal)
+ - Espionage (cone of light)
+ - Horror (small halo of light around players)
+* Plot styles (determined by first action word choice, probably na adjective):
+  - ABC plot
+  - Accumulation of elements
+  - Series of villains
+  - Geographic progression
+  - Event-driven
+* Same action words in different contexts can have different associations
+* Each action word is associated with a set of story paragraphs, one of which will be randomly chosen when that action word is chosen, and will appear to the player. At the end of the game the story paragraphs strung together will a retelling of the story of sorts.
+* Story themes (a tree of stories with subtrees at different levels of specifity. If a player choice is made at that level of the tree, the corresponding set of nodes are chosen from )
+  - Romance
+  - Fantasy (Jun Qi)
+  - Horror (Shun Yu)
+  - Tragedy (Jia Yu)
+  - Espionage (Hetty)
+* Puzzle (tag-based system)
+  - 5 puzzles a person
+  - sidescrolling platformer
+* Try to implement basic physics and UI by the end of this week
