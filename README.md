@@ -28,7 +28,7 @@ This will be a log for all our discussions and what not, until we finalize the f
     * Point-and-click puzzles 1
     * Custom obstacle maps
   So:
-    * Point-and-click puzzed-based story-telling game/platform
+    * Point-and-click puzzle-based story-telling game/platform
 
 ## WEEK 1 27/1/2016
 ### Milestones
@@ -128,7 +128,7 @@ This will be a log for all our discussions and what not, until we finalize the f
 
 ####Exception flow
 * Start Screen
-  - Choose Multiplyaer
+  - Choose Multiplayer
     * Join game/Host game
       - Disconnect from LAN
       - Return to Start Screen
@@ -193,7 +193,7 @@ This will be a log for all our discussions and what not, until we finalize the f
 * Player kills enemy 
   - enemy disappears
   - enemy respawns after a while/ is permanently gone
-* Enermy kills player
+* Enemy kills player
   - player respawns at original spawn point
 
 ####Actors
@@ -235,12 +235,12 @@ This will be a log for all our discussions and what not, until we finalize the f
 * Players collide (overlap) with each other and press the A button
 
 ####Normal flow (aesthetic interaction)
-* One player moves over the other, interaction prompt appears (change in color, or dialogue pop-up)  
+* One player moves over the other, interaction prompt appears (change in colour, or dialogue pop-up)  
   -  Any one player presses the A button to interact
     - Triggers aesthetic change (sound or animation)
 
 ####Alternative flow (information passing)
-* One player moves over the other, interaction prompt appears (change in color, or dialogue pop-up)  
+* One player moves over the other, interaction prompt appears (change in colour, or dialogue pop-up)  
   - Any one player presses the A button to interact
     - Dialogue appears with information
 
