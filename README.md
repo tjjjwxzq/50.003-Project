@@ -2,6 +2,34 @@
 
 This will be a log for all our discussions and what not, until we finalize the features of the app
 
+## WEEK 6 3/3/2016
+TOTAL CHANGE OF IDEA!!!
+Let's feed a mouse and make it as fat as possible as fast as possible! Other people are trying to fatten their pet mice too so you've got to get your game up! Mouse food and treats will be moving across the screen(how will they move? maybe three different sets of movements) and you have to swipe the treats to your mouse to feed it. The first player to get their mouse fully fattened wins!
+
+But it's not just as simple as a ferocious feeding frenzy. Every player has some tricks(special abilities) under their sleeves: they can sabotage other players in various ways(sending over a cat or a swarm of ants to scare off their mouse, causing a sudden food drought, depriving other players of therir special abilities, stealing food from them, send more bad food over(laced with rat poison!)), or to boost their own pet (immunity to bad food for a certain time period, generate a deluge of treats, )
+
+Player abilities can only be called when the player has enough mana (measured in terms of mouse happiness). Happiness can be increased by stroking your mouse or feeding it certain kinds of treats, and is exhausted when abilities are used.
+
+Building on top of the core swiping mechanic, there will be a combo feature: there will be a specific 3-food combo (that will change randomly across the duration of the game), and if the player manages to feed food to his/her mouse in that order, there will be a score multiplier (2x the total score of the three foods), and if a combo streak (5 combos in a row?) is achieved the player will enter a frenzy feeding mode for a period of time (10sec?) where he/she can feed his mouth by shooting food directly at it (tapping rapidly on the mouse)
+
+### Splitting of Work
+1) Jun Qi: basic mechanics, swiping food, how the food moves on the screen, tracking mouse weight and happiness; UI and art assets
+2) Hetty: Food combo implmentation, food types, frenzy feeding mode, happiness bar controller code
+3) Jia Yu: Implementing player abilities, two classes:
+  1. Player-boosting
+    - Immunity to bad food for some time period
+    - Generate a wave of treats
+    - Increase mouse's ability to gain weight (score multipler for all food effectively)
+    - Immunity to being scared by cats/ants/scary things
+  2. Sabotage other players:
+    - Send cat/ants to scare another player's mouse off the screen (player has to swipe screen to make mouse run back to center) (can't feed mouse during that period and maybe causes a decrease in happiness)
+    - Send a wave of bad food
+    - Steal food from them (less food for them and more for you!)
+    - I can't of the last one fill something up here
+4) Shun Yu: Networking (from start screen to host/join a game, updating clients about the status of other clients, updating clients when a player uses a sabotaging ability etc)
+
+
+
 ## WEEK 1 26/1/2016
 
 ### What should our app be about?
@@ -351,4 +379,5 @@ This will be a log for all our discussions and what not, until we finalize the f
   - 5 puzzles a person
   - sidescrolling platformer
 * Try to implement basic physics and UI by the end of this week
+
 
