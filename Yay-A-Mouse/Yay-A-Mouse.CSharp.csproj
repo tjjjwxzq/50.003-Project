@@ -71,7 +71,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Food.cs" />
+    <Compile Include="Assets\Scripts\FoodController.cs" />
     <Compile Include="Assets\Scripts\Mouse.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool.cs" />
+    <Compile Include="Assets\Scripts\PoolMember.cs" />
     <Compile Include="Assets\Scripts\TouchTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

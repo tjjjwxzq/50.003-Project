@@ -1,0 +1,85 @@
+\hypertarget{class_object_pool}{}\section{Object\+Pool Class Reference}
+\label{class_object_pool}\index{Object\+Pool@{Object\+Pool}}
+
+
+Generic class for handling object pooling. The type of game object to pool can be specified by assigning the public member obj in the inspector panel. Keeps track of active objects in the pool. Has methods to get object from pool and return object to the pool. Pool is maintained as a list and can grow dynamically.  
+
+
+Inheritance diagram for Object\+Pool\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_object_pool}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \hyperlink{class_object_pool_a1a2f42245b2acfef316e203e6a88c7f2}{get\+Obj} ()
+\begin{DoxyCompactList}\small\item\em Gets an object from the pool. If the pool is empty, instantiates a new object and dynamically grows the pool. \end{DoxyCompactList}\item 
+void \hyperlink{class_object_pool_a61d15dbf443949f7a0b59031c6a8d2e4}{return\+Obj} (Game\+Object \hyperlink{class_object_pool_ab54421fb72fa4934d9cde669fe703919}{obj})
+\begin{DoxyCompactList}\small\item\em Returns a specified object to the pool. To be called by \hyperlink{class_pool_member_a6f883eaed133e4b288a3847aea3ff33a}{Pool\+Member\+::\+Deactivate()} \end{DoxyCompactList}\item 
+int \hyperlink{class_object_pool_acfba780835d2ecfdae26e28e4f564382}{get\+Active\+Objects} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of active objects that were released from the pool. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \hyperlink{class_object_pool_ab54421fb72fa4934d9cde669fe703919}{obj}\hypertarget{class_object_pool_ab54421fb72fa4934d9cde669fe703919}{}\label{class_object_pool_ab54421fb72fa4934d9cde669fe703919}
+
+\begin{DoxyCompactList}\small\item\em Specify which object to pool in inspector panel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generic class for handling object pooling. The type of game object to pool can be specified by assigning the public member obj in the inspector panel. Keeps track of active objects in the pool. Has methods to get object from pool and return object to the pool. Pool is maintained as a list and can grow dynamically. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Object\+Pool@{Object\+Pool}!get\+Active\+Objects@{get\+Active\+Objects}}
+\index{get\+Active\+Objects@{get\+Active\+Objects}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{\texorpdfstring{get\+Active\+Objects()}{getActiveObjects()}}]{\setlength{\rightskip}{0pt plus 5cm}int Object\+Pool.\+get\+Active\+Objects (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object_pool_acfba780835d2ecfdae26e28e4f564382}{}\label{class_object_pool_acfba780835d2ecfdae26e28e4f564382}
+
+
+Gets the number of active objects that were released from the pool. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Object\+Pool@{Object\+Pool}!get\+Obj@{get\+Obj}}
+\index{get\+Obj@{get\+Obj}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{\texorpdfstring{get\+Obj()}{getObj()}}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Object Object\+Pool.\+get\+Obj (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object_pool_a1a2f42245b2acfef316e203e6a88c7f2}{}\label{class_object_pool_a1a2f42245b2acfef316e203e6a88c7f2}
+
+
+Gets an object from the pool. If the pool is empty, instantiates a new object and dynamically grows the pool. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Object\+Pool@{Object\+Pool}!return\+Obj@{return\+Obj}}
+\index{return\+Obj@{return\+Obj}!Object\+Pool@{Object\+Pool}}
+\subsubsection[{\texorpdfstring{return\+Obj(\+Game\+Object obj)}{returnObj(GameObject obj)}}]{\setlength{\rightskip}{0pt plus 5cm}void Object\+Pool.\+return\+Obj (
+\begin{DoxyParamCaption}
+\item[{Game\+Object}]{obj}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object_pool_a61d15dbf443949f7a0b59031c6a8d2e4}{}\label{class_object_pool_a61d15dbf443949f7a0b59031c6a8d2e4}
+
+
+Returns a specified object to the pool. To be called by \hyperlink{class_pool_member_a6f883eaed133e4b288a3847aea3ff33a}{Pool\+Member\+::\+Deactivate()} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/Object\+Pool.\+cs\end{DoxyCompactItemize}

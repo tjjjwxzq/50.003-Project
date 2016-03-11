@@ -1,0 +1,133 @@
+\hypertarget{class_mouse}{}\section{Mouse Class Reference}
+\label{class_mouse}\index{Mouse@{Mouse}}
+
+
+Script class that controls behaviour of the mouse. Keeps track of mouses status such as weight, happiness, level, and attributes that can be set by player abilities\+: (immunity, leptin\+Deficiency, fearless)  
+
+
+Inheritance diagram for Mouse\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mouse}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_mouse_af6ea562cc24964aedd1a366bb5d0ff64}{get\+Level} ()
+\begin{DoxyCompactList}\small\item\em Gets mouse level \end{DoxyCompactList}\item 
+int \hyperlink{class_mouse_ab21c11a85fa2e820dfd4a5518e95eae3}{get\+Happiness} ()
+\begin{DoxyCompactList}\small\item\em Gets mouse happiness \end{DoxyCompactList}\item 
+void \hyperlink{class_mouse_a2b85cb7132ba132f01827968b04cb96f}{set\+Immunity} (bool immunity)
+\begin{DoxyCompactList}\small\item\em Sets mouse immunity. Can be called by Player Ability code \end{DoxyCompactList}\item 
+void \hyperlink{class_mouse_a591b2257ad6d7c1afe7fb1d99d3a49be}{set\+Growth\+Ability} (int leptin\+Deficiency)
+\begin{DoxyCompactList}\small\item\em Sets mouse leptin\+Deficiency (score multiplier) Can be called by Player Ability code \end{DoxyCompactList}\item 
+void \hyperlink{class_mouse_a4fac6637572e551f2bc72d82b3b9f251}{set\+Fearlessness} (bool fearless)
+\begin{DoxyCompactList}\small\item\em Sets mouse fearless(ness) Can be called by Player Ability code \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Sprite {\bfseries sprite\+Level0}\hypertarget{class_mouse_aa48e6d7fef1050c2311e6ef380252941}{}\label{class_mouse_aa48e6d7fef1050c2311e6ef380252941}
+
+\item 
+Sprite {\bfseries sprite\+Level1}\hypertarget{class_mouse_ade84ca0bb1aae359425fbc502e8b7ebd}{}\label{class_mouse_ade84ca0bb1aae359425fbc502e8b7ebd}
+
+\item 
+Sprite {\bfseries sprite\+Level2}\hypertarget{class_mouse_a7845836faea3a82530b4b81d570640cc}{}\label{class_mouse_a7845836faea3a82530b4b81d570640cc}
+
+\item 
+Sprite {\bfseries sprite\+Level3}\hypertarget{class_mouse_ade27e7680ad0c9a5b47126f3abf4209b}{}\label{class_mouse_ade27e7680ad0c9a5b47126f3abf4209b}
+
+\item 
+Sprite {\bfseries sprite\+Level4}\hypertarget{class_mouse_a1ca58dc7fdb852f2ffc4e027b3e0ddd5}{}\label{class_mouse_a1ca58dc7fdb852f2ffc4e027b3e0ddd5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Script class that controls behaviour of the mouse. Keeps track of mouses status such as weight, happiness, level, and attributes that can be set by player abilities\+: (immunity, leptin\+Deficiency, fearless) 
+
+
+
+\subsection{Member Function Documentation}
+\index{Mouse@{Mouse}!get\+Happiness@{get\+Happiness}}
+\index{get\+Happiness@{get\+Happiness}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{get\+Happiness()}{getHappiness()}}]{\setlength{\rightskip}{0pt plus 5cm}int Mouse.\+get\+Happiness (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_mouse_ab21c11a85fa2e820dfd4a5518e95eae3}{}\label{class_mouse_ab21c11a85fa2e820dfd4a5518e95eae3}
+
+
+Gets mouse happiness 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Mouse@{Mouse}!get\+Level@{get\+Level}}
+\index{get\+Level@{get\+Level}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{get\+Level()}{getLevel()}}]{\setlength{\rightskip}{0pt plus 5cm}int Mouse.\+get\+Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_mouse_af6ea562cc24964aedd1a366bb5d0ff64}{}\label{class_mouse_af6ea562cc24964aedd1a366bb5d0ff64}
+
+
+Gets mouse level 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Mouse@{Mouse}!set\+Fearlessness@{set\+Fearlessness}}
+\index{set\+Fearlessness@{set\+Fearlessness}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{set\+Fearlessness(bool fearless)}{setFearlessness(bool fearless)}}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse.\+set\+Fearlessness (
+\begin{DoxyParamCaption}
+\item[{bool}]{fearless}
+\end{DoxyParamCaption}
+)}\hypertarget{class_mouse_a4fac6637572e551f2bc72d82b3b9f251}{}\label{class_mouse_a4fac6637572e551f2bc72d82b3b9f251}
+
+
+Sets mouse fearless(ness) Can be called by Player Ability code 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fearless} & Boolean value to set fearless to\\
+\hline
+\end{DoxyParams}
+\index{Mouse@{Mouse}!set\+Growth\+Ability@{set\+Growth\+Ability}}
+\index{set\+Growth\+Ability@{set\+Growth\+Ability}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{set\+Growth\+Ability(int leptin\+Deficiency)}{setGrowthAbility(int leptinDeficiency)}}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse.\+set\+Growth\+Ability (
+\begin{DoxyParamCaption}
+\item[{int}]{leptin\+Deficiency}
+\end{DoxyParamCaption}
+)}\hypertarget{class_mouse_a591b2257ad6d7c1afe7fb1d99d3a49be}{}\label{class_mouse_a591b2257ad6d7c1afe7fb1d99d3a49be}
+
+
+Sets mouse leptin\+Deficiency (score multiplier) Can be called by Player Ability code 
+
+
+\begin{DoxyParams}{Parameters}
+{\em leptin\+Deficiency} & Value to set leptin\+Deficiency to\\
+\hline
+\end{DoxyParams}
+\index{Mouse@{Mouse}!set\+Immunity@{set\+Immunity}}
+\index{set\+Immunity@{set\+Immunity}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{set\+Immunity(bool immunity)}{setImmunity(bool immunity)}}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse.\+set\+Immunity (
+\begin{DoxyParamCaption}
+\item[{bool}]{immunity}
+\end{DoxyParamCaption}
+)}\hypertarget{class_mouse_a2b85cb7132ba132f01827968b04cb96f}{}\label{class_mouse_a2b85cb7132ba132f01827968b04cb96f}
+
+
+Sets mouse immunity. Can be called by Player Ability code 
+
+
+\begin{DoxyParams}{Parameters}
+{\em immunity} & Boolean value to set immunity to\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/Mouse.\+cs\end{DoxyCompactItemize}

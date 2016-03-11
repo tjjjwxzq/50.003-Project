@@ -1,0 +1,74 @@
+\hypertarget{class_camera_controller}{}\section{Camera\+Controller Class Reference}
+\label{class_camera_controller}\index{Camera\+Controller@{Camera\+Controller}}
+
+
+Script for controlling camera behavior Stores global screen info such as the default aspect ratio, pixels per unit, and min. and max. x and y coordinates in Unity units Camera viewport adapts to device screen size and introduces pillarboxing/letterboxing to maintain the correct aspect ratio  
+
+
+Inheritance diagram for Camera\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_camera_controller}
+\end{center}
+\end{figure}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static float \hyperlink{class_camera_controller_ae7f8453382d363abe462f24a4a025d77}{pixels\+Per\+Unit} = Screen.\+height / (2f $\ast$ Camera.\+main.\+orthographic\+Size)
+\begin{DoxyCompactList}\small\item\em Pixels per unit, for referencing in other scripts \end{DoxyCompactList}\item 
+static float \hyperlink{class_camera_controller_ac90d1e4d5543392c96f8cbcebac532f8}{min\+X\+Units} = -\/Screen.\+width / (2 $\ast$ \hyperlink{class_camera_controller_ae7f8453382d363abe462f24a4a025d77}{Camera\+Controller.\+pixels\+Per\+Unit})
+\begin{DoxyCompactList}\small\item\em Smallest x coordinate, in Unity units, that fits into the screen \end{DoxyCompactList}\item 
+static float \hyperlink{class_camera_controller_a42b69f34a276c249820bafba804521b8}{max\+X\+Units} = Screen.\+width / (2 $\ast$ \hyperlink{class_camera_controller_ae7f8453382d363abe462f24a4a025d77}{Camera\+Controller.\+pixels\+Per\+Unit})
+\begin{DoxyCompactList}\small\item\em Largest x coordinate, in Unity units, that fits into the screen \end{DoxyCompactList}\item 
+static float \hyperlink{class_camera_controller_a26974b89d53c6dc5c1e47faa2fc2657b}{min\+Y\+Units} = -\/Screen.\+height / (2 $\ast$ \hyperlink{class_camera_controller_ae7f8453382d363abe462f24a4a025d77}{Camera\+Controller.\+pixels\+Per\+Unit})
+\begin{DoxyCompactList}\small\item\em Smallest y coordinate, in Unity units, that fits into the screen \end{DoxyCompactList}\item 
+static float \hyperlink{class_camera_controller_a85a5eec75550876c672aa0f67838ffad}{max\+Y\+Units} = Screen.\+height / (2 $\ast$ \hyperlink{class_camera_controller_ae7f8453382d363abe462f24a4a025d77}{Camera\+Controller.\+pixels\+Per\+Unit})
+\begin{DoxyCompactList}\small\item\em Largest y coordinate, in Unity units, that fits into the screen \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Script for controlling camera behavior Stores global screen info such as the default aspect ratio, pixels per unit, and min. and max. x and y coordinates in Unity units Camera viewport adapts to device screen size and introduces pillarboxing/letterboxing to maintain the correct aspect ratio 
+
+
+
+\subsection{Member Data Documentation}
+\index{Camera\+Controller@{Camera\+Controller}!max\+X\+Units@{max\+X\+Units}}
+\index{max\+X\+Units@{max\+X\+Units}!Camera\+Controller@{Camera\+Controller}}
+\subsubsection[{\texorpdfstring{max\+X\+Units}{maxXUnits}}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+Controller.\+max\+X\+Units = Screen.\+width / (2 $\ast$ {\bf Camera\+Controller.\+pixels\+Per\+Unit})\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_camera_controller_a42b69f34a276c249820bafba804521b8}{}\label{class_camera_controller_a42b69f34a276c249820bafba804521b8}
+
+
+Largest x coordinate, in Unity units, that fits into the screen 
+
+\index{Camera\+Controller@{Camera\+Controller}!max\+Y\+Units@{max\+Y\+Units}}
+\index{max\+Y\+Units@{max\+Y\+Units}!Camera\+Controller@{Camera\+Controller}}
+\subsubsection[{\texorpdfstring{max\+Y\+Units}{maxYUnits}}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+Controller.\+max\+Y\+Units = Screen.\+height / (2 $\ast$ {\bf Camera\+Controller.\+pixels\+Per\+Unit})\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_camera_controller_a85a5eec75550876c672aa0f67838ffad}{}\label{class_camera_controller_a85a5eec75550876c672aa0f67838ffad}
+
+
+Largest y coordinate, in Unity units, that fits into the screen 
+
+\index{Camera\+Controller@{Camera\+Controller}!min\+X\+Units@{min\+X\+Units}}
+\index{min\+X\+Units@{min\+X\+Units}!Camera\+Controller@{Camera\+Controller}}
+\subsubsection[{\texorpdfstring{min\+X\+Units}{minXUnits}}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+Controller.\+min\+X\+Units = -\/Screen.\+width / (2 $\ast$ {\bf Camera\+Controller.\+pixels\+Per\+Unit})\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_camera_controller_ac90d1e4d5543392c96f8cbcebac532f8}{}\label{class_camera_controller_ac90d1e4d5543392c96f8cbcebac532f8}
+
+
+Smallest x coordinate, in Unity units, that fits into the screen 
+
+\index{Camera\+Controller@{Camera\+Controller}!min\+Y\+Units@{min\+Y\+Units}}
+\index{min\+Y\+Units@{min\+Y\+Units}!Camera\+Controller@{Camera\+Controller}}
+\subsubsection[{\texorpdfstring{min\+Y\+Units}{minYUnits}}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+Controller.\+min\+Y\+Units = -\/Screen.\+height / (2 $\ast$ {\bf Camera\+Controller.\+pixels\+Per\+Unit})\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_camera_controller_a26974b89d53c6dc5c1e47faa2fc2657b}{}\label{class_camera_controller_a26974b89d53c6dc5c1e47faa2fc2657b}
+
+
+Smallest y coordinate, in Unity units, that fits into the screen 
+
+\index{Camera\+Controller@{Camera\+Controller}!pixels\+Per\+Unit@{pixels\+Per\+Unit}}
+\index{pixels\+Per\+Unit@{pixels\+Per\+Unit}!Camera\+Controller@{Camera\+Controller}}
+\subsubsection[{\texorpdfstring{pixels\+Per\+Unit}{pixelsPerUnit}}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+Controller.\+pixels\+Per\+Unit = Screen.\+height / (2f $\ast$ Camera.\+main.\+orthographic\+Size)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_camera_controller_ae7f8453382d363abe462f24a4a025d77}{}\label{class_camera_controller_ae7f8453382d363abe462f24a4a025d77}
+
+
+Pixels per unit, for referencing in other scripts 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/Camera\+Controller.\+cs\end{DoxyCompactItemize}

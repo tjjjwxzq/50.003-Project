@@ -1,10 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Script for controlling camera behavior
+/// Stores global screen info such as the
+/// default aspect ratio, pixels per unit,
+/// and min. and max. x and y coordinates in Unity units
+/// Camera viewport adapts to device screen size
+/// and introduces pillarboxing/letterboxing to maintain
+/// the correct aspect ratio
+/// </summary>
 public class CameraController : MonoBehaviour {
 
     private Camera camera;
-    private static float defaultAspect = 2 / 3f; // default aspect ratio
+    /// <summary>
+    /// Default aspect ratio. Used to calculate whether to pillarbox or letterbox on different devices
+    /// </summary>
+    private static float defaultAspect = 2 / 3f; 
+    /// <summary>
+    /// Pixels per unit, for referencing in other scripts
+    /// </summary>
+    public static float pixelsPerUnit = Screen.height / (2f * Camera.main.orthographicSize);
+    /// <summary>
+    /// Smallest x coordinate, in Unity units, that fits into the screen
+    /// </summary>
+    public static float minXUnits = -Screen.width / (2 * CameraController.pixelsPerUnit);
+    /// <summary>
+    /// Largest x coordinate, in Unity units, that fits into the screen
+    /// </summary>
+    public static float maxXUnits = Screen.width / (2 * CameraController.pixelsPerUnit);
+    /// <summary>
+    /// Smallest y coordinate, in Unity units, that fits into the screen
+    /// </summary>
+    public static float minYUnits = -Screen.height / (2 * CameraController.pixelsPerUnit);
+    /// <summary>
+    /// Largest y coordinate, in Unity units, that fits into the screen
+    /// </summary>
+    public static float maxYUnits = Screen.height / (2 * CameraController.pixelsPerUnit);
 
 	// Use this for initialization
 	void Start () {

@@ -1,0 +1,132 @@
+\hypertarget{class_food_controller}{}\section{Food\+Controller Class Reference}
+\label{class_food_controller}\index{Food\+Controller@{Food\+Controller}}
+
+
+Script attached to \hyperlink{class_food_controller}{Food\+Controller} object that controls behavior such as food spawning, and food movement.  
+
+
+Inheritance diagram for Food\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_food_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_food_controller_ad3c2e51ce55236ad80384113f1593c79}{Movements} \{ {\bfseries Static}, 
+{\bfseries Horizontal}, 
+{\bfseries Vertical}, 
+{\bfseries Random}
+ \}\begin{DoxyCompactList}\small\item\em Enumerator of food movement modes \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_food_controller_a9f0f153ce5e90b4e081f4d903cf17808}{set\+Max\+Food\+Count} (string name, int count)
+\begin{DoxyCompactList}\small\item\em Sets the max food count for the specified food type Can be called by Player Ability code \end{DoxyCompactList}\item 
+void \hyperlink{class_food_controller_ae118c67950b39a9b3aaa8e15f027a37b}{set\+Food\+Spawn\+Weight} (string name, float weight)
+\begin{DoxyCompactList}\small\item\em Sets the food spawn probability weight for the specified food type Can be called by Player Ability code \end{DoxyCompactList}\item 
+void \hyperlink{class_food_controller_a33196e4fa774e489de86cedaff452e83}{set\+Difficulty} (int level)
+\begin{DoxyCompactList}\small\item\em Changes food spawning difficulty Can be called by Level\+Controller to change difficulty of the game \end{DoxyCompactList}\item 
+void {\bfseries set\+Movement} (\hyperlink{class_food_controller_ad3c2e51ce55236ad80384113f1593c79}{Movements} movement)\hypertarget{class_food_controller_a239fd152177e7e1d5dc13612b6665d10}{}\label{class_food_controller_a239fd152177e7e1d5dc13612b6665d10}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const string\mbox{[}$\,$\mbox{]} \hyperlink{class_food_controller_a8068d88c9eae23423e9b247f2381c600}{F\+O\+O\+D\+\_\+\+N\+A\+M\+ES}
+\begin{DoxyCompactList}\small\item\em Array of food names \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Script attached to \hyperlink{class_food_controller}{Food\+Controller} object that controls behavior such as food spawning, and food movement. 
+
+
+
+\subsection{Member Enumeration Documentation}
+\index{Food\+Controller@{Food\+Controller}!Movements@{Movements}}
+\index{Movements@{Movements}!Food\+Controller@{Food\+Controller}}
+\subsubsection[{\texorpdfstring{Movements}{Movements}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Food\+Controller.\+Movements}\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{class_food_controller_ad3c2e51ce55236ad80384113f1593c79}{}\label{class_food_controller_ad3c2e51ce55236ad80384113f1593c79}
+
+
+Enumerator of food movement modes 
+
+
+
+\subsection{Member Function Documentation}
+\index{Food\+Controller@{Food\+Controller}!set\+Difficulty@{set\+Difficulty}}
+\index{set\+Difficulty@{set\+Difficulty}!Food\+Controller@{Food\+Controller}}
+\subsubsection[{\texorpdfstring{set\+Difficulty(int level)}{setDifficulty(int level)}}]{\setlength{\rightskip}{0pt plus 5cm}void Food\+Controller.\+set\+Difficulty (
+\begin{DoxyParamCaption}
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)}\hypertarget{class_food_controller_a33196e4fa774e489de86cedaff452e83}{}\label{class_food_controller_a33196e4fa774e489de86cedaff452e83}
+
+
+Changes food spawning difficulty Can be called by Level\+Controller to change difficulty of the game 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+\index{Food\+Controller@{Food\+Controller}!set\+Food\+Spawn\+Weight@{set\+Food\+Spawn\+Weight}}
+\index{set\+Food\+Spawn\+Weight@{set\+Food\+Spawn\+Weight}!Food\+Controller@{Food\+Controller}}
+\subsubsection[{\texorpdfstring{set\+Food\+Spawn\+Weight(string name, float weight)}{setFoodSpawnWeight(string name, float weight)}}]{\setlength{\rightskip}{0pt plus 5cm}void Food\+Controller.\+set\+Food\+Spawn\+Weight (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{float}]{weight}
+\end{DoxyParamCaption}
+)}\hypertarget{class_food_controller_ae118c67950b39a9b3aaa8e15f027a37b}{}\label{class_food_controller_ae118c67950b39a9b3aaa8e15f027a37b}
+
+
+Sets the food spawn probability weight for the specified food type Can be called by Player Ability code 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em weight} & \\
+\hline
+\end{DoxyParams}
+\index{Food\+Controller@{Food\+Controller}!set\+Max\+Food\+Count@{set\+Max\+Food\+Count}}
+\index{set\+Max\+Food\+Count@{set\+Max\+Food\+Count}!Food\+Controller@{Food\+Controller}}
+\subsubsection[{\texorpdfstring{set\+Max\+Food\+Count(string name, int count)}{setMaxFoodCount(string name, int count)}}]{\setlength{\rightskip}{0pt plus 5cm}void Food\+Controller.\+set\+Max\+Food\+Count (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{int}]{count}
+\end{DoxyParamCaption}
+)}\hypertarget{class_food_controller_a9f0f153ce5e90b4e081f4d903cf17808}{}\label{class_food_controller_a9f0f153ce5e90b4e081f4d903cf17808}
+
+
+Sets the max food count for the specified food type Can be called by Player Ability code 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of food\\
+\hline
+{\em count} & Max count to set to\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{Food\+Controller@{Food\+Controller}!F\+O\+O\+D\+\_\+\+N\+A\+M\+ES@{F\+O\+O\+D\+\_\+\+N\+A\+M\+ES}}
+\index{F\+O\+O\+D\+\_\+\+N\+A\+M\+ES@{F\+O\+O\+D\+\_\+\+N\+A\+M\+ES}!Food\+Controller@{Food\+Controller}}
+\subsubsection[{\texorpdfstring{F\+O\+O\+D\+\_\+\+N\+A\+M\+ES}{FOOD_NAMES}}]{\setlength{\rightskip}{0pt plus 5cm}const string \mbox{[}$\,$\mbox{]} Food\+Controller.\+F\+O\+O\+D\+\_\+\+N\+A\+M\+ES\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_food_controller_a8068d88c9eae23423e9b247f2381c600}{}\label{class_food_controller_a8068d88c9eae23423e9b247f2381c600}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]
+        \{\textcolor{stringliteral}{"Normal"}, \textcolor{stringliteral}{"Cheese"}, \textcolor{stringliteral}{"Carrot"}, \textcolor{stringliteral}{"Oat"}, \textcolor{stringliteral}{"Apple"}, \textcolor{stringliteral}{"Anchovy"}, \textcolor{stringliteral}{"Bread"}, \textcolor{stringliteral}{"Seed"},
+         \textcolor{stringliteral}{"Bad"}, \textcolor{stringliteral}{"Peanut"}, \textcolor{stringliteral}{"Orange"}, \textcolor{stringliteral}{"Garlic"}, \textcolor{stringliteral}{"Chocolate"}, \textcolor{stringliteral}{"Poison"}\}
+\end{DoxyCode}
+
+
+Array of food names 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/Food\+Controller.\+cs\end{DoxyCompactItemize}
