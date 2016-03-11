@@ -61,3 +61,57 @@ Food moves vertically. Direction changes within a random time interval.
 4. Random  
 Food moves randomly. Direction changes within a random time interval.
 
+
+## Abilities
+Player abilities come in two types: those that boost said player and those that sabotage other players. Players start with two abilities (chosen or random?) and can choose to unlock more abilities or level up current abilities (so how many mouse levels should we have? 4 seems a bit too little then)
+
+### Self-boosting
+1. Immunity to bad food for a duration
+
+  * Happiness: 30
+  * Level 1: duration of 10sec
+  * Level 2: duration of 30sec
+
+2. Increase probability/number of higher point foods
+
+  * Happiness: 80
+  * Level 1: increases probability of spawning a randomly chosen treat for 15sec, as well as max treat count (max number of that type of food that can be on the screen at once)
+  * Level 2: increases probability of spawning a randomly chosen treat whose value >= 10pt, for 20sec, as well as max treat count
+  * Level 3: generate a wave of a randomly chosen treat for 15sec (all food spawned will be of that type during that duration)
+
+3. Fearlessness of cats/ants/scary things
+
+  * Happiness: 40
+  * Level 1: doesn't run off-screen, but happiness and weight still drop, duration of 30sec
+  * Level 2: doesn't run off-screen, but happiness still drops, duration of 30sec
+  * Level 3: completely fearless, duration of 30sec
+
+4. Increased ability to gain weight (score multiplier on all foods eaten)
+
+  * Happiness: 70
+  * Level 1: gains weight twice as easily (2x multipler) for 15sec
+  * Level 2: gains weight four times as easily (4x multiplier) for 20sec
+
+### Sabotage
+1. Send over a scary animal to a chosen player
+
+  * Happiness: 60
+  * Level 1: scares mouse off screen for 5sec, reduces weight by 50 and happiness by 10
+  * Level 2: scares mouse off screen for 10sec, reduces weight by 100 and happiness by 20
+
+2. Send a wave of bad food to a chosen player
+
+  * Happiness: 50
+  *  Level 1: increases probability of spawning a randomly chosen bad food for 15sec, as well as max food count (max number of that type of food that can be on the screen at once)
+  * Level 2: increases probability of spawning a randomly chosen treat whose value <= -10pt, for 20sec, as well as max food count
+  * Level 3: generate a wave of a randomly chosen bad food for 15sec (all food spawned will be of that type during that duration)
+
+3. Steal food from a chosen player
+
+  * Happiness: 70
+  * Level 1: increase spawn interval of chosen player by 1.5 times and decrease own spawn interval by 1.5 times. Removes up to 10 good food from chosen player's screen and adds them to yours. Lasts for 15sec.
+  * Level 2: increase spawn interval of chosen player by 2 times and decrease own spawn interval by 2 times. Removes up to 15 good food from chosen player's screen and adds them to yours.
+
+
+
+
