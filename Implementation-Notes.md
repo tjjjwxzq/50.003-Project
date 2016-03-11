@@ -5,7 +5,8 @@ All food objects will carry a `Food` script componenet which handles touch detec
 
 ### Food Types
 | Food types | Points|
-|:----------:|:-----:|
+|:-----------|:-----:|
+| Good food  |       |
 | 1. Normal  |  5pt  |
 | 2. Cheese  |  10pt |
 | 3. Carrot  |  7pt  |
@@ -14,7 +15,8 @@ All food objects will carry a `Food` script componenet which handles touch detec
 | 6. Anchovy |  12pt |
 | 7. Bread   |  18pt |
 | 8. Seed    |  20pt |
-
+|            |       |
+| Bad food   |       |
 | 1. Bad     |  -5pt |
 | 2. Peanut  |  -7pt |
 | 3. Orange  |  -10pt|
@@ -32,7 +34,8 @@ Each time the spawning coroutine runs it will randomly pick one type of food to 
 Spawning Probability Weights:
 
 | Food types | Weight|
-|:----------:|:-----:|
+|:-----------|:-----:|
+| Good food  |       |
 | 1. Normal  |  6    |
 | 2. Cheese  |  2.5  |
 | 3. Carrot  |  3.5  |
@@ -41,7 +44,8 @@ Spawning Probability Weights:
 | 6. Anchovy |  1.5  |
 | 7. Bread   |  1    |
 | 8. Seed    |  0.8  |
-
+|            |       |
+| Bad food   |       |
 | 1. Bad     |  4    |
 | 2. Peanut  |  2    |
 | 3. Orange  |  1.5  |
