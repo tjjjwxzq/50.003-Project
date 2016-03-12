@@ -16,35 +16,43 @@ public class CameraController : MonoBehaviour {
     /// <summary>
     /// Default aspect ratio. Used to calculate whether to pillarbox or letterbox on different devices
     /// </summary>
-    private static float defaultAspect = 2 / 3f; 
+    private static float defaultAspect = 2 / 3f;
     /// <summary>
     /// Pixels per unit, for referencing in other scripts
     /// </summary>
-    public static float pixelsPerUnit = Screen.height / (2f * Camera.main.orthographicSize);
+    public static float PixelsPerUnit;
     /// <summary>
     /// Smallest x coordinate, in Unity units, that fits into the screen
     /// </summary>
-    public static float minXUnits = -Screen.width / (2 * CameraController.pixelsPerUnit);
+    public static float MinXUnits;
     /// <summary>
     /// Largest x coordinate, in Unity units, that fits into the screen
     /// </summary>
-    public static float maxXUnits = Screen.width / (2 * CameraController.pixelsPerUnit);
+    public static float MaxXUnits;
     /// <summary>
     /// Smallest y coordinate, in Unity units, that fits into the screen
     /// </summary>
-    public static float minYUnits = -Screen.height / (2 * CameraController.pixelsPerUnit);
+    public static float MinYUnits;
     /// <summary>
     /// Largest y coordinate, in Unity units, that fits into the screen
     /// </summary>
-    public static float maxYUnits = Screen.height / (2 * CameraController.pixelsPerUnit);
+    public static float MaxYUnits;
 
 	// Use this for initialization
 	void Start () {
+
+        PixelsPerUnit = Screen.height / (2f * Camera.main.orthographicSize);
+        MinXUnits = -Screen.width / (2 * CameraController.PixelsPerUnit);
+        MaxXUnits = Screen.width / (2 * CameraController.PixelsPerUnit);
+        MinYUnits = -Screen.height / (2 * CameraController.PixelsPerUnit);
+        MaxYUnits = Screen.height / (2 * CameraController.PixelsPerUnit);
+
         camera = GetComponent<Camera>();
         float width = Screen.width;
         float height = Screen.height;
         float aspectRatio = Mathf.Round(width / height*100)/100f;
         float scaleheight = aspectRatio / defaultAspect; //scale height by this amount
+
 
         if(aspectRatio < defaultAspect) // require letterboxing(horizontal)
         {

@@ -13,39 +13,34 @@ public class Mouse: MonoBehaviour {
 
     //Mouse sprites
     private SpriteRenderer spriteRenderer;
-    public Sprite spriteLevel0;
-    public Sprite spriteLevel1;
-    public Sprite spriteLevel2;
-    public Sprite spriteLevel3;
-    public Sprite spriteLevel4;
+    public Sprite[] LevelSprites = new Sprite[11];
 
     //Mouse status
     private int weight = 0; //!< Acts as the player score. Increases/decreases when mouse eats good/bad food
     private int happiness = 0; //!< Acts as mana for player abilities. Increased by player stroking. 
-    private int maxHappiness = 100; //!< Maximum happiness level
-    private bool stroked = false; //!< For detecting if a stroke has started
-    private bool stroking = false; //!< For detecting if mouse has been stroked
     private int level = 0; //!< Mouse level increases at certain weight thresholds. Affects game difficulty and player abilities
-    private static int weightLevel1 = 50;
-    private static int weightLevel2 = 150;
-    private static int weightLevel3 = 300;
-    private static int weightLevel4 = 500;
-    private static int weightFinal = 1000;
     private bool immunity = false; //!< Immunity to bad foods. Can be set by player ability. (cover all bad foods or only some?)
     private int leptinDeficiency = 1; //!< Ability to gain weight; acts as score multiplier to food points. Can be set by player ability.
     private bool fearless = false; //!< immunity to being scared by cats, ants etc. Can be set by player ability.
+    private bool offScreen = false; //!< Whether the mouse has been scared off-screen.
+    private bool stroked = false; //!< For detecting if a stroke has started
+    private bool stroking = false; //!< For detecting if mouse has been stroked
+
+    // Weight and Happiness Levels
+    private readonly int[] WeightLevels = new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 };
+    private readonly int[] HappinessLevels = new int[] { 0, 20, 40, 60, 80, 100 }; //!< Happiness levels at which to change happiness indicator
 
     //For scaling transform
     //Default size is at full grown size
-    private static int defaultSize = 1280; //width in pixels
-    private static Vector3 defaultScale = new Vector3(1,1,1);
+    private int defaultSize = 1280; //width in pixels
+    private Vector3 defaultScale = new Vector3(1,1,1);
     private float scale; 
 
     //For rotation
     private float finalAngle1;
     private float finalAngle2;
     private float easeK;
-    private static int maxturnSteps = 3; // value to reset turnSteps to 
+    private int maxTurnSteps = 3; // value to reset turnSteps to 
     private int turnSteps; // to make sure transform continues turning in the changed direction
 
 	// Use this for initialization
@@ -54,13 +49,13 @@ public class Mouse: MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         //For scaling
-        scale = (100 + (float)weight) / weightFinal;
+        scale = (100 + (float)weight) / WeightLevels[WeightLevels.Length -1];
         transform.localScale = defaultScale* scale;
         
         //Rotation parameters
         //easeK and maxturnSteps might need hand-tuning
         easeK = 2f;
-        turnSteps = maxturnSteps;
+        turnSteps = maxTurnSteps;
         finalAngle1 = -90f;
         finalAngle2 = -1 * finalAngle1;
 	
@@ -69,7 +64,7 @@ public class Mouse: MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Scale mouse size based on weight
-        scale = (100 + (float)weight) / weightFinal;
+        scale = (100 + (float)weight) / WeightLevels[WeightLevels.Length - 1];
         transform.localScale = defaultScale* scale;
         //Rotate mouse
         StartCoroutine(RotateWithEasing(finalAngle1, finalAngle2, transform));
@@ -85,34 +80,16 @@ public class Mouse: MonoBehaviour {
     /// </summary>
     void checkLevel()
     {
-        if (weight < weightLevel1 && level != 0)
+        for(int i = 1; i< WeightLevels.Length; i++)
         {
-            level = 0;
-            spriteRenderer.sprite = spriteLevel0;
+            if( WeightLevels[i-1] <= weight && weight < WeightLevels[i] && level != i-1)
+            {
+                level = i;
+                spriteRenderer.sprite = LevelSprites[i];
+                break;
+            }
         }
-        if (weightLevel1 <= weight && weight < weightLevel2 && level != 1 )
-        {
-            level = 1;
-            spriteRenderer.sprite = spriteLevel1;
-        }
-        if (weight >= weightLevel2 && weight < weightLevel3 && level != 2)
-        {
-            level = 2;
-            spriteRenderer.sprite = spriteLevel2;
-        }
-        if (weight >= weightLevel3 && weight < weightLevel4 && level != 3)
-        {
-            level = 3;
-            spriteRenderer.sprite = spriteLevel3;
-        }
-        if (weight >= weightLevel4 && weight < weightFinal && level != 4)
-        {
-            level = 4;
-            spriteRenderer.sprite = spriteLevel4;
-        }
-        if (weight >= weightFinal && level != -1)
-            level = -1; // indicates end game
-    }
+   }
 
     /// <summary>
     /// Updates mouse happiness when stroked
@@ -140,7 +117,7 @@ public class Mouse: MonoBehaviour {
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (stroking && happiness < maxHappiness)
+            if (stroking && happiness < HappinessLevels[HappinessLevels.Length - 1])
                 happiness++;
             stroked = false;
         }
@@ -165,7 +142,7 @@ public class Mouse: MonoBehaviour {
                     break;
 
                 case TouchPhase.Ended:
-                    if(stroking && happiness < maxHappiness)
+                    if(stroking && happiness < HappinessLevels[HappinessLevels.Length -1])
                         happiness ++;
                     stroking = false;
                     break;
@@ -232,7 +209,7 @@ public class Mouse: MonoBehaviour {
         //but might need hand-tuning
         if (diff <= Mathf.Abs(easeK) && turnSteps < 0)
         {
-            turnSteps = maxturnSteps;
+            turnSteps = maxTurnSteps;
             easeK *= -1;
         }
 
@@ -258,41 +235,68 @@ public class Mouse: MonoBehaviour {
         } 
     }
 
-    //Attribute getters
+    // Properties
 
     /// <summary>
-    /// Gets mouse level
+    /// Property to get mouse weight. Read only. 
     /// </summary>
-    /// <returns></returns>
-    public int getLevel() { return level; }
+    public int Weight
+    {
+        get { return weight; }
+    }
 
     /// <summary>
-    /// Gets mouse happiness
+    ///  Property to get mouse level. Read only.
     /// </summary>
-    /// <returns></returns>
-    public int getHappiness() { return happiness; }
+    public int Level
+    {
+        get { return level; }
+    }
 
-    // Attribute setters
+    public int Happiness
+    {
+        get { return happiness; }
+        set { happiness = value; }
+    }
 
     /// <summary>
-    /// Sets mouse immunity.
+    /// Property to get and set mouse immunity
     /// Can be called by Player Ability code
     /// </summary>
-    /// <param name="immunity">Boolean value to set immunity to</param>
-    public void setImmunity(bool immunity) { this.immunity = immunity; }
+    public bool Immunity
+    {
+        get { return immunity; }
+        set { immunity = value; }
+    }
 
     /// <summary>
-    /// Sets mouse leptinDeficiency (score multiplier)
+    /// Property to get and set mouse growth ability (leptin deficiency)
     /// Can be called by Player Ability code
     /// </summary>
-    /// <param name="leptinDeficiency">Value to set leptinDeficiency to</param>
-    public void setGrowthAbility(int leptinDeficiency) { this.leptinDeficiency = leptinDeficiency; }
+    public int GrowthAbility
+    {
+        get { return leptinDeficiency; }
+        set { leptinDeficiency = value; }
+    }
 
     /// <summary>
-    /// Sets mouse fearless(ness)
+    /// Property to get and set mouse fearless(ness)
     /// Can be called by Player Ability code
     /// </summary>
-    /// <param name="fearless">Boolean value to set fearless to</param>
-    public void setFearlessness(bool fearless) { this.fearless = fearless; } 
+    public bool Fearless
+    {
+        get { return fearless; }
+        set { fearless = value; }
+    }
+
+    /// <summary>
+    /// Property to get and set whether the mouse is off-screen
+    /// Can be called by Player Ability code
+    /// </summary>
+    public bool Offscreen
+    {
+        get { return offScreen; }
+        set { offScreen = value; }
+    }
 
 }

@@ -27,8 +27,8 @@ public class ObjectPool : MonoBehaviour {
         if(pool.Count == 0)
         {
             // Make sure to spawn off-screen
-            float posX = CameraController.minXUnits - 2;
-            float posY = CameraController.minYUnits - 2;
+            float posX = CameraController.MinXUnits - 2;
+            float posY = CameraController.MinYUnits - 2;
             GameObject clone = (GameObject)Instantiate(obj, new Vector2(posX, posY), Quaternion.identity);
             clone.transform.parent = transform;
             clone.SetActive(false);

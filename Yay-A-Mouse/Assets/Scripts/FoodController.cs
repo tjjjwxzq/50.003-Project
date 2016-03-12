@@ -18,7 +18,7 @@ public class FoodController : MonoBehaviour {
     /// <summary>
     /// Array of food names
     /// </summary>
-    public static readonly string[] FOOD_NAMES = new string[]
+    public static readonly string[] FoodNames = new string[]
         {"Normal", "Cheese", "Carrot", "Oat", "Apple", "Anchovy", "Bread", "Seed",
          "Bad", "Peanut", "Orange", "Garlic", "Chocolate", "Poison"};
     /// <summary>
@@ -154,7 +154,7 @@ public class FoodController : MonoBehaviour {
     {
         while (true)
         {
-            string foodName = FOOD_NAMES[Random.Range(0, FOOD_NAMES.Length)];
+            string foodName = FoodNames[Random.Range(0, FoodNames.Length)];
             float prob = Random.value * totalFoodSpawnWeight;
             if (prob <= foodSpawnWeights[foodName])
             {
@@ -194,10 +194,10 @@ public class FoodController : MonoBehaviour {
                     //  magnitude < orthoSize/3: P = 0.2
                     //  magnitude < 2* orthoSize/3: P = 0.3
                     //  magnitude < orthosize: P = 0.5
-                    x = Random.Range(CameraController.minXUnits, CameraController.maxXUnits);
-                    y = Random.Range(CameraController.minYUnits, CameraController.maxYUnits);
+                    x = Random.Range(CameraController.MinXUnits, CameraController.MaxXUnits);
+                    y = Random.Range(CameraController.MinYUnits, CameraController.MaxYUnits);
                     Vector2 foodPos = new Vector2(x, y);
-                   Collider2D colObj = Physics2D.OverlapPoint(foodPos);
+                    Collider2D colObj = Physics2D.OverlapPoint(foodPos);
                     if (colObj == null)
                     {
                         float prob = Random.value;
@@ -268,6 +268,17 @@ public class FoodController : MonoBehaviour {
     }
 
     /// <summary>
+    /// Gets the max food count for the specified food type
+    /// Can be called by Player Ability code
+    /// </summary>
+    /// <param name="name">Food type to get count for</param>
+    /// <returns></returns>
+    public int getMaxFoodCount(string name)
+    {
+        return maxFoodCounts[name];
+    }
+
+    /// <summary>
     /// Sets the food spawn probability weight for the specified food type
     /// Can be called by Player Ability code
     /// </summary>
@@ -276,6 +287,17 @@ public class FoodController : MonoBehaviour {
     public void setFoodSpawnWeight(string name, float weight)
     {
         foodSpawnWeights[name] = weight;
+    }
+
+    /// <summary>
+    /// Gets the food spawn probability weight for the specified food type
+    /// Can be called by Player Ability code
+    /// </summary>
+    /// <param name="name">Food type to get spawn probability weight for</param>
+    /// <returns></returns>
+    public float getFoodSpawnWeight(string name)
+    {
+        return foodSpawnWeights[name];
     }
 
     /// <summary>
@@ -288,10 +310,12 @@ public class FoodController : MonoBehaviour {
         foodMovement += level;
     }
 
-    // Attribute setters 
-    public void setMovement(Movements movement)
+    /// <summary>
+    /// Property to set food movement mode. (May not actually need this?) 
+    /// </summary>
+    public Movements FoodMovement 
     {
-        foodMovement = movement;
+        set { foodMovement = value; }
     }
 
 

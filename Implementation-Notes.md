@@ -1,5 +1,15 @@
 # Implementation Notes
 
+## Level
+There will be 10 weight levels that the mouse will hit. Each level up allows the player to 1) updgrade and existing ability 2) add a new ability (if they have less than 4 abilities). Each time the mouse levels up its sprite will also change, and each level there will be a dashed outline around to mouse to indicate the it must attain to reach the next level.
+
+## Happiness
+Happiness acts as mana for player abilities. Each ability uses a certain amount of happiness, and happiness can be recharged by stroking the mouse. Currently the range is set from 0 to 100.
+
+Players can track the happiness by the happiness bar on the left of the screen
+
+Possible mechanic: Each time your mouse happiness reaches the max, the rate at which stroking increases happiness increases by 1.
+
 ## Food
 All food objects will carry a `Food` script componenet which handles touch detection and movement. The nutritional value or food points, as well as the type(eg. Cheese, carrot), are stored in public variables `Value` and `Type` which can be modified via the inspector panel. All food objects will be tagged with 'Food' for appropriate behaviour upon collision. The different food types will be fixed as different prefabs with different value and type fields.
 
@@ -74,47 +84,47 @@ Food moves randomly. Direction changes within a random time interval.
 Player abilities come in two types: those that boost said player and those that sabotage other players. Players start with two abilities (chosen or random?) and can choose to unlock more abilities or level up current abilities (so how many mouse levels should we have? 4 seems a bit too little then)
 
 ### Self-boosting
-1. Immunity to bad food for a duration
+1. Immunity to bad food for a duration (Immunity)
 
   * Happiness: 30
   * Level 1: duration of 10sec
   * Level 2: duration of 30sec
 
-2. Increase probability/number of higher point foods
+2. Increase probability/number of higher point foods (Treats Galore)
 
   * Happiness: 80
   * Level 1: increases probability of spawning a randomly chosen treat for 15sec, as well as max treat count (max number of that type of food that can be on the screen at once)
   * Level 2: increases probability of spawning a randomly chosen treat whose value >= 10pt, for 20sec, as well as max treat count
   * Level 3: generate a wave of a randomly chosen treat for 15sec (all food spawned will be of that type during that duration)
 
-3. Fearlessness of cats/ants/scary things
+3. Fearlessness of cats/ants/scary things (Fearless!)
 
   * Happiness: 40
   * Level 1: doesn't run off-screen, but happiness and weight still drop, duration of 30sec
   * Level 2: doesn't run off-screen, but happiness still drops, duration of 30sec
   * Level 3: completely fearless, duration of 30sec
 
-4. Increased ability to gain weight (score multiplier on all foods eaten)
+4. Increased ability to gain weight (score multiplier on all foods eaten) (Fat Mouse)
 
   * Happiness: 70
   * Level 1: gains weight twice as easily (2x multipler) for 15sec
   * Level 2: gains weight four times as easily (4x multiplier) for 20sec
 
 ### Sabotage
-1. Send over a scary animal to a chosen player
+1. Send over a scary animal to a chosen player (Scary Cat)
 
   * Happiness: 60
   * Level 1: scares mouse off screen for 5sec, reduces weight by 50 and happiness by 10
   * Level 2: scares mouse off screen for 10sec, reduces weight by 100 and happiness by 20
 
-2. Send a wave of bad food to a chosen player
+2. Send a wave of bad food to a chosen player (Beastly Buffet)
 
   * Happiness: 50
   *  Level 1: increases probability of spawning a randomly chosen bad food for 15sec, as well as max food count (max number of that type of food that can be on the screen at once)
   * Level 2: increases probability of spawning a randomly chosen treat whose value <= -10pt, for 20sec, as well as max food count
   * Level 3: generate a wave of a randomly chosen bad food for 15sec (all food spawned will be of that type during that duration)
 
-3. Steal food from a chosen player
+3. Steal food from a chosen player (Thief!)
 
   * Happiness: 70
   * Level 1: increase spawn interval of chosen player by 1.5 times and decrease own spawn interval by 1.5 times. Removes up to 10 good food from chosen player's screen and adds them to yours. Lasts for 15sec.
