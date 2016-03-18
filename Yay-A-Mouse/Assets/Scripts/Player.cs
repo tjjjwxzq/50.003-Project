@@ -10,6 +10,15 @@ namespace Assets.Scripts
     /// </summary>
     public class Player
     {
+        private AbilityController abilityController;
+        public string name;
+        public enum Status
+        {
+            None,
+//
+            FeedingFrenzy
+        }
+        public int score;
         public Abilities Abilities; //<! The player's Abilities
 
         /// <summary>
