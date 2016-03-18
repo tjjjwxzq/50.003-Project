@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 // The mouse doesn't need physics, just a Collision2D component
@@ -15,6 +16,11 @@ public class Mouse: MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     public Sprite[] LevelSprites = new Sprite[11];
 
+    //Happiness status sprites
+    private Image mouseHappinessImage;
+    private Image mouseHappinessFill;
+    public Sprite[] HappinessSprites = new Sprite[5];
+
     //Mouse status
     private int weight = 0; //!< Acts as the player score. Increases/decreases when mouse eats good/bad food
     private int happiness = 0; //!< Acts as mana for player abilities. Increased by player stroking. 
@@ -27,8 +33,8 @@ public class Mouse: MonoBehaviour {
     private bool stroking = false; //!< For detecting if mouse has been stroked
 
     // Weight and Happiness Levels
-    private readonly int[] WeightLevels = new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 };
-    private readonly int[] HappinessLevels = new int[] { 0, 20, 40, 60, 80, 100 }; //!< Happiness levels at which to change happiness indicator
+    private readonly int[] weightLevels = new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 };
+    private readonly int[] happinessLevels = new int[] { 0, 20, 40, 60, 80, 100 }; //!< Happiness levels at which to change happiness indicator
 
     //For scaling transform
     //Default size is at full grown size
@@ -47,9 +53,11 @@ public class Mouse: MonoBehaviour {
 	void Start () {
         //Components
         spriteRenderer = GetComponent<SpriteRenderer>();
+        mouseHappinessImage = GameObject.Find("MouseStatus").GetComponent<Image>();
+        mouseHappinessFill = GameObject.Find("Fill").GetComponent<Image>();
 
         //For scaling
-        scale = (100 + (float)weight) / WeightLevels[WeightLevels.Length -1];
+        scale = (200 + (float)weight) / weightLevels[weightLevels.Length -1];
         transform.localScale = defaultScale* scale;
         
         //Rotation parameters
@@ -64,14 +72,16 @@ public class Mouse: MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Scale mouse size based on weight
-        scale = (100 + (float)weight) / WeightLevels[WeightLevels.Length - 1];
+        scale = (200 + (float)weight) / weightLevels[weightLevels.Length - 1];
         transform.localScale = defaultScale* scale;
         //Rotate mouse
         StartCoroutine(RotateWithEasing(finalAngle1, finalAngle2, transform));
-        // Update mouse level
+        // Update mouse level and sprite
         checkLevel();
         // Update mouse happiness
         updateHappiness();
+        // Update mouse happiness sprite
+        checkHappiness();
         
 	}
 
@@ -80,16 +90,52 @@ public class Mouse: MonoBehaviour {
     /// </summary>
     void checkLevel()
     {
-        for(int i = 1; i< WeightLevels.Length; i++)
+        // There are 10 levels in total
+        // But the first and last element of weightLevels
+        // give the starting weight and the final weight
+        // so we exclude them
+        for(int i = 1; i< weightLevels.Length - 1; i++)
         {
-            if( WeightLevels[i-1] <= weight && weight < WeightLevels[i] && level != i-1)
+            if( weightLevels[i-1] <= weight && weight < weightLevels[i] && level != i-1)
             {
-                level = i;
+                level = i-1;
                 spriteRenderer.sprite = LevelSprites[i];
                 break;
             }
         }
+
    }
+
+    void checkHappiness()
+    {
+        Debug.Log("Mouse happiness is " + happiness);
+        // Update meter fill sprite
+        mouseHappinessFill.rectTransform.localScale = new Vector2(1f, ((float)happiness) / happinessLevels[happinessLevels.Length - 1]);
+
+        // Change mouse happiness sprites
+       for(int i = 1; i < happinessLevels.Length; i++)
+        {
+            if( happinessLevels[i-1] <= happiness && happiness < happinessLevels[i] && 
+                mouseHappinessImage.sprite != HappinessSprites[i-1])
+            {
+                mouseHappinessImage.sprite = HappinessSprites[i - 1];
+                mouseHappinessImage.SetNativeSize();
+            }
+        }
+
+       // Set animation
+       Animator mouseHappinessAnimator = mouseHappinessImage.GetComponent<Animator>();
+
+       if(happiness == happinessLevels[happinessLevels.Length - 1] && !mouseHappinessAnimator.enabled)
+        {
+            mouseHappinessAnimator.enabled = true;
+        }
+       else if(happiness < happinessLevels[happinessLevels.Length - 1] && mouseHappinessAnimator.enabled)
+        {
+            mouseHappinessAnimator.enabled = false;
+        }
+
+    }
 
     /// <summary>
     /// Updates mouse happiness when stroked
@@ -117,7 +163,7 @@ public class Mouse: MonoBehaviour {
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (stroking && happiness < HappinessLevels[HappinessLevels.Length - 1])
+            if (stroking && happiness < happinessLevels[happinessLevels.Length - 1])
                 happiness++;
             stroked = false;
         }
@@ -142,7 +188,7 @@ public class Mouse: MonoBehaviour {
                     break;
 
                 case TouchPhase.Ended:
-                    if(stroking && happiness < HappinessLevels[HappinessLevels.Length -1])
+                    if(stroking && happiness < happinessLevels[happinessLevels.Length -1])
                         happiness ++;
                     stroking = false;
                     break;
@@ -225,13 +271,16 @@ public class Mouse: MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Food nom nom
-        if(collision.gameObject.tag == "Food") //Use tag so we can different kinds of 'food' game objects tagged as food
+        if(collision.gameObject.tag == "Food")  // different food prefabs are tagged with food
         {
             Food food = collision.gameObject.GetComponent<Food>();
             // include score multiplier only for good food
-            weight += food.value > 0 ? food.value * leptinDeficiency: food.value;
+            weight += food.NutritionalValue > 0 ? food.NutritionalValue * leptinDeficiency: food.NutritionalValue;
+            if (weight < 0)
+                weight = 0;
+            if (weight > weightLevels[weightLevels.Length - 1])
+                weight = weightLevels[weightLevels.Length - 1];
             collision.gameObject.GetComponent<PoolMember>().Deactivate();
-            Debug.Log("Nom nom");
         } 
     }
 
@@ -243,6 +292,11 @@ public class Mouse: MonoBehaviour {
     public int Weight
     {
         get { return weight; }
+        set {
+            weight = value;
+            if (weight < 0)
+                weight = 0;
+        }
     }
 
     /// <summary>
@@ -256,7 +310,11 @@ public class Mouse: MonoBehaviour {
     public int Happiness
     {
         get { return happiness; }
-        set { happiness = value; }
+        set {
+            happiness = value;
+            if (happiness < 0)
+                happiness = 0;
+        }
     }
 
     /// <summary>

@@ -5,10 +5,18 @@ public class Food: MonoBehaviour {
 
     private Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
-    private float speedScale = 0.3f; //hand-tune this or linear drag; right now linear drag of 4 seems ok
-    public int value = 5; //nutritional value, equivalent to 5 units of mouse weight (aka 5 points)
-    public string type = "Normal";
+    private float speedScale = 0.3f; //factor to scale touch swipe speed by; hand-tune this or linear drag
+    public int NutritionalValue; //<! Nutritional value, equivalent to units of mouse weight (aka points)
+    public string Type; //<! Food type
     private bool moveable = false; // moveable if it has been touched
+
+    // Factory method
+    public static void CreateFood( GameObject food, int nutritionalValue, string type)
+    {
+        Food foodScript = food.AddComponent<Food>();
+        foodScript.NutritionalValue = nutritionalValue;
+        foodScript.Type = type;
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -28,13 +36,11 @@ public class Food: MonoBehaviour {
         // Check if food is out of screen; if so return it to object pool
         if(spriteRenderer.bounds.min.x > CameraController.MaxXUnits || spriteRenderer.bounds.max.x < CameraController.MinXUnits)
         {
-            Debug.Log("Deactivating");
             gameObject.GetComponent<PoolMember>().Deactivate();
         }
         
         if(spriteRenderer.bounds.min.y > CameraController.MaxYUnits || spriteRenderer.bounds.max.y < CameraController.MinYUnits)
         {
-            Debug.Log("Deactivating");
             gameObject.GetComponent<PoolMember>().Deactivate();
         }
  
@@ -104,4 +110,5 @@ public class Food: MonoBehaviour {
         }
 
     }
+
 }
