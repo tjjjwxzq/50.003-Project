@@ -39,6 +39,10 @@ public class AbilityController : MonoBehaviour
     private bool mouseIsThief;
     private bool mouseIsThiefVictim;
 
+    private Dictionary<string, float> defaultFoodSpawnWeights;
+
+    private Dictionary<string, int> defaultMaxFoodCounts;
+
     private IDictionary<AbilityName, DateTime> abilityLastActivatedTimes;
 
     // Use this for initialization
@@ -51,6 +55,9 @@ public class AbilityController : MonoBehaviour
         player = Player.MockPlayer;
 
         abilityLastActivatedTimes = new Dictionary<AbilityName, DateTime>(7);
+
+        defaultMaxFoodCounts = new Dictionary<string, int>(foodController.MaxFoodCounts);
+        defaultFoodSpawnWeights = new Dictionary<string, float>(foodController.FoodSpawnWeights);
     }
 
     // Update is called once per frame
@@ -205,7 +212,7 @@ public class AbilityController : MonoBehaviour
     public void ActivateTreatsGalore()
     {
         if (mouse.Happiness < player.Abilities.TreatsGalore.Cost) return;
-        var goodFoods = foodPointValues.Where(food => food.Value > player.Abilities.TreatsGalore.PointThreshold).ToList();
+        var goodFoods = foodController.FoodValues.Where(food => food.Value > player.Abilities.TreatsGalore.PointThreshold).ToList();
         var random = new Random();
         var boostedFood = goodFoods[random.Next(goodFoods.Count)].Key;
         foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.Abilities.TreatsGalore.SpawnLimitMultiplier);
@@ -320,7 +327,7 @@ public class AbilityController : MonoBehaviour
     /// <param name="beastlyBuffet"></param>
     public void ReceiveBeastlyBuffet(BeastlyBuffet beastlyBuffet)
     {
-        var badFoods = foodPointValues.Where(food => food.Value < beastlyBuffet.PointThreshold).ToList();
+        var badFoods = foodController.FoodValues.Where(food => food.Value < beastlyBuffet.PointThreshold).ToList();
         var random = new Random();
         var boostedFood = badFoods[random.Next(badFoods.Count)].Key;
         foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.Abilities.TreatsGalore.SpawnLimitMultiplier);
@@ -338,28 +345,4 @@ public class AbilityController : MonoBehaviour
     {
         // todo: not sure how to affect spawn interval and move food yet
     }
-
-    // I think these could be somewhere else.
-    private readonly Dictionary<string, int> foodPointValues = new Dictionary<string, int>()
-    {
-        {"Normal", 5}, {"Cheese", 10}, {"Carrot", 7}, {"Oat", 15}, {"Apple", 8}, {"Anchovy", 12}, {"Bread", 18}, {"Seed", 20}, {"Bad", -5}, {"Peanut", -7}, {"Orange", -10}, {"Garlic", -15}, {"Chocolate", -20}, {"Poison", -50}
-    };
-
-    private readonly Dictionary<string, float> defaultFoodSpawnWeights = new Dictionary<string, float>
-    {
-        // Good foods
-        {"Normal", 6f}, {"Cheese", 2.5f}, {"Carrot", 3.5f}, {"Oat", 2f}, {"Apple", 3f}, {"Anchovy", 1.5f}, {"Bread", 1f}, {"Seed", 0.8f},
-
-        // Bad foods
-        {"Bad", 4f}, {"Peanut", 2f}, {"Orange", 1.5f}, {"Garlic", 1.2f}, {"Chocolate", 0.8f}, {"Poison", 0.2f}
-    };
-
-    private readonly Dictionary<string, int> defaultMaxFoodCounts = new Dictionary<string, int>
-    {
-        // Good foods
-        {"Normal", 15}, {"Cheese", 8}, {"Carrot", 10}, {"Oat", 5}, {"Apple", 9}, {"Anchovy", 3}, {"Bread", 3}, {"Seed", 2},
-
-        // Bad foods
-        {"Bad", 10}, {"Peanut", 7}, {"Orange", 5}, {"Garlic", 3}, {"Chocolate", 2}, {"Poison", 1}
-    };
 }
