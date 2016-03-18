@@ -126,6 +126,7 @@ namespace Assets.Scripts
     /// </summary>
     public abstract class Ability
     {
+        public AbilityName Name { get; protected set; }
         public int Level { get; protected set; }
         public int Cost { get; protected set; }
         public int Duration { get; protected set; }
@@ -138,6 +139,7 @@ namespace Assets.Scripts
     {
         public Immunity(int level)
         {
+            Name = AbilityName.Immunity;
             Level = level;
             switch (level)
             {
@@ -168,6 +170,7 @@ namespace Assets.Scripts
 
         public TreatsGalore(int level)
         {
+            Name = AbilityName.TreatsGalore;
             Level = level;
             switch (level)
             {
@@ -210,6 +213,7 @@ namespace Assets.Scripts
 
         public Fearless(int level)
         {
+            Name = AbilityName.Fearless;
             Level = level;
             switch (level)
             {
@@ -248,6 +252,7 @@ namespace Assets.Scripts
 
         public FatMouse(int level)
         {
+            Name = AbilityName.FatMouse;
             Level = level;
             switch (level)
             {
@@ -279,6 +284,7 @@ namespace Assets.Scripts
 
         public ScaryCat(int level)
         {
+            Name = AbilityName.ScaryCat;
             Level = level;
             switch (level)
             {
@@ -313,6 +319,7 @@ namespace Assets.Scripts
 
         public BeastlyBuffet(int level)
         {
+            Name = AbilityName.BeastlyBuffet;
             Level = level;
             switch (level)
             {
@@ -355,6 +362,7 @@ namespace Assets.Scripts
 
         public Thief(int level)
         {
+            Name = AbilityName.Thief;
             Level = level;
             switch (level)
             {
