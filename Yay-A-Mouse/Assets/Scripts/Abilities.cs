@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngineInternal;
 
 namespace Assets.Scripts
 {
@@ -52,9 +53,14 @@ namespace Assets.Scripts
             Thief = new Thief(thiefLevel);
         }
 
-        public static Abilities StartingAbilities //<! Reference abilities instance containing all abilities at level 1
+        public static Abilities LevelOneAbilities //<! Abilities instance containing all abilities at level 1
         {
             get { return new Abilities(1, 1, 1, 1, 1, 1, 1); }
+        }
+
+        public static Abilities EmptyAbilities //<! Empty set of abilities
+        {
+            get { return new Abilities(0, 0, 0, 0, 0, 0, 0); }
         }
 
         /// <summary>
@@ -113,6 +119,7 @@ namespace Assets.Scripts
     /// </summary>
     public abstract class Ability
     {
+        public int Level { get; protected set; }
         public int Cost { get; protected set; }
         public int Duration { get; protected set; }
     }
@@ -124,8 +131,11 @@ namespace Assets.Scripts
     {
         public Immunity(int level)
         {
+            Level = level;
             switch (level)
             {
+                case 0:
+                    break;
                 case 1:
                     Cost = 30;
                     Duration = 10;
@@ -151,8 +161,11 @@ namespace Assets.Scripts
 
         public TreatsGalore(int level)
         {
+            Level = level;
             switch (level)
             {
+                case 0:
+                    break;
                 case 1:
                     Cost = 80;
                     Duration = 15;
@@ -179,7 +192,7 @@ namespace Assets.Scripts
             }
         }
     }
-    
+
     /// <summary>
     /// A player's Fearless ability.
     /// </summary>
@@ -190,8 +203,11 @@ namespace Assets.Scripts
 
         public Fearless(int level)
         {
+            Level = level;
             switch (level)
             {
+                case 0:
+                    break;
                 case 1:
                     Cost = 40;
                     Duration = 30;
@@ -225,8 +241,11 @@ namespace Assets.Scripts
 
         public FatMouse(int level)
         {
+            Level = level;
             switch (level)
             {
+                case 0:
+                    break;
                 case 1:
                     Cost = 70;
                     Duration = 15;
@@ -253,8 +272,11 @@ namespace Assets.Scripts
 
         public ScaryCat(int level)
         {
+            Level = level;
             switch (level)
             {
+                case 0:
+                    break;
                 case 1:
                     Cost = 60;
                     Duration = 5;
@@ -284,8 +306,11 @@ namespace Assets.Scripts
 
         public BeastlyBuffet(int level)
         {
+            Level = level;
             switch (level)
             {
+                case 0:
+                    break;
                 case 1:
                     Cost = 50;
                     Duration = 15;
@@ -323,8 +348,11 @@ namespace Assets.Scripts
 
         public Thief(int level)
         {
+            Level = level;
             switch (level)
             {
+                case 0:
+                    break;
                 case 1:
                     Cost = 70;
                     Duration = 15;
