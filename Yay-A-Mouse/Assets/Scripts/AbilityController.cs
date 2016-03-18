@@ -138,6 +138,33 @@ public class AbilityController : MonoBehaviour
         else return false;
     }
 
+    public void ActivateAbility(AbilityName ability)
+    {
+        switch (ability)
+        {
+            case AbilityName.Immunity:
+                ActivateImmunity();
+                break;
+            case AbilityName.TreatsGalore:
+                ActivateTreatsGalore();
+                break;
+            case AbilityName.Fearless:
+                ActivateFearless();
+                break;
+            case AbilityName.FatMouse:
+                ActivateFatMouse();
+                break;
+            case AbilityName.ScaryCat:
+                break;
+            case AbilityName.BeastlyBuffet:
+                break;
+            case AbilityName.Thief:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException("ability", ability, null);
+        }
+    }
+
     /// <summary>
     /// Function to be called when a player activates the Immunity ability.
     /// Checks that Immunity is not already activated and the mouse has 
@@ -181,8 +208,8 @@ public class AbilityController : MonoBehaviour
         var goodFoods = foodPointValues.Where(food => food.Value > player.Abilities.TreatsGalore.PointThreshold).ToList();
         var random = new Random();
         var boostedFood = goodFoods[random.Next(goodFoods.Count)].Key;
-        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * player.Abilities.TreatsGalore.SpawnLimitMultiplier);
-        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * player.Abilities.TreatsGalore.SpawnWeightMultiplier);
+        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.Abilities.TreatsGalore.SpawnLimitMultiplier);
+        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood)*player.Abilities.TreatsGalore.SpawnWeightMultiplier);
         treatsGaloreBoostedFood = boostedFood;
         treatsGaloreIsActive = true;
         abilityLastActivatedTimes[AbilityName.TreatsGalore] = DateTime.Now;
@@ -240,9 +267,7 @@ public class AbilityController : MonoBehaviour
                 if (player.Abilities.Fearless.DropHappiness && player.Abilities.Fearless.DropWeight)
                 {
                     // "A scary cat came over, but your mouse stood its ground. However, its happiness and weight still dropped
-                    mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction
-                        ? 0
-                        : mouse.Happiness - scaryCat.HappinessReduction;
+                    mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
                     // todo: @junqi let me change the mouse weight please?
                     // mouse.Weight = mouse.Weight < scaryCat.WeightReduction
                     //  ? 0
@@ -251,9 +276,7 @@ public class AbilityController : MonoBehaviour
                 else if (player.Abilities.Fearless.DropHappiness)
                 {
                     // "A scary cat came over, but your mouse bravely stood its ground. However, its happiness still dropped."
-                    mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction
-                        ? 0
-                        : mouse.Happiness - scaryCat.HappinessReduction;
+                    mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
                 }
                 else
                 {
@@ -263,9 +286,7 @@ public class AbilityController : MonoBehaviour
             else
             {
                 // "A scary cat came over, and your mouse ran away! Its happiness and weight also dropped."
-                mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction
-                ? 0
-                : mouse.Happiness - scaryCat.HappinessReduction;
+                mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
                 // todo: @junqi let me change the mouse weight please?
                 // mouse.Weight = mouse.Weight < scaryCat.WeightReduction
                 //  ? 0
@@ -302,8 +323,8 @@ public class AbilityController : MonoBehaviour
         var badFoods = foodPointValues.Where(food => food.Value < beastlyBuffet.PointThreshold).ToList();
         var random = new Random();
         var boostedFood = badFoods[random.Next(badFoods.Count)].Key;
-        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * player.Abilities.TreatsGalore.SpawnLimitMultiplier);
-        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * player.Abilities.TreatsGalore.SpawnWeightMultiplier);
+        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.Abilities.TreatsGalore.SpawnLimitMultiplier);
+        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood)*player.Abilities.TreatsGalore.SpawnWeightMultiplier);
         beastlyBuffetBoostedFood = boostedFood;
         beastlyBuffetIsActive = true;
         abilityLastActivatedTimes[AbilityName.BeastlyBuffet] = DateTime.Now;
@@ -321,62 +342,24 @@ public class AbilityController : MonoBehaviour
     // I think these could be somewhere else.
     private readonly Dictionary<string, int> foodPointValues = new Dictionary<string, int>()
     {
-        {"Normal", 5 },
-        {"Cheese", 10 },
-        {"Carrot", 7 },
-        {"Oat", 15 },
-        {"Apple", 8 },
-        {"Anchovy", 12 },
-        {"Bread", 18 },
-        {"Seed", 20 },
-
-        {"Bad", -5 },
-        {"Peanut", -7 },
-        {"Orange", -10 },
-        {"Garlic", -15 },
-        {"Chocolate", -20 },
-        {"Poison", -50 }
+        {"Normal", 5}, {"Cheese", 10}, {"Carrot", 7}, {"Oat", 15}, {"Apple", 8}, {"Anchovy", 12}, {"Bread", 18}, {"Seed", 20}, {"Bad", -5}, {"Peanut", -7}, {"Orange", -10}, {"Garlic", -15}, {"Chocolate", -20}, {"Poison", -50}
     };
 
     private readonly Dictionary<string, float> defaultFoodSpawnWeights = new Dictionary<string, float>
     {
-         // Good foods
-        {"Normal" , 6f},
-        {"Cheese" , 2.5f },
-        {"Carrot" , 3.5f},
-        {"Oat" , 2f },
-        {"Apple" , 3f },
-        {"Anchovy" , 1.5f },
-        {"Bread" , 1f },
-        {"Seed" , 0.8f },
+        // Good foods
+        {"Normal", 6f}, {"Cheese", 2.5f}, {"Carrot", 3.5f}, {"Oat", 2f}, {"Apple", 3f}, {"Anchovy", 1.5f}, {"Bread", 1f}, {"Seed", 0.8f},
 
         // Bad foods
-        {"Bad", 4f },
-        {"Peanut", 2f },
-        {"Orange", 1.5f },
-        {"Garlic", 1.2f },
-        {"Chocolate", 0.8f },
-        {"Poison", 0.2f }
+        {"Bad", 4f}, {"Peanut", 2f}, {"Orange", 1.5f}, {"Garlic", 1.2f}, {"Chocolate", 0.8f}, {"Poison", 0.2f}
     };
 
     private readonly Dictionary<string, int> defaultMaxFoodCounts = new Dictionary<string, int>
     {
         // Good foods
-        {"Normal" , 15 },
-        {"Cheese" , 8 },
-        {"Carrot" , 10 },
-        {"Oat" , 5 },
-        {"Apple" , 9 },
-        {"Anchovy" , 3 },
-        {"Bread" , 3 },
-        {"Seed" , 2 },
+        {"Normal", 15}, {"Cheese", 8}, {"Carrot", 10}, {"Oat", 5}, {"Apple", 9}, {"Anchovy", 3}, {"Bread", 3}, {"Seed", 2},
 
         // Bad foods
-        {"Bad", 10 },
-        {"Peanut", 7 },
-        {"Orange", 5 },
-        {"Garlic", 3 },
-        {"Chocolate", 2 },
-        {"Poison", 1 }
+        {"Bad", 10}, {"Peanut", 7}, {"Orange", 5}, {"Garlic", 3}, {"Chocolate", 2}, {"Poison", 1}
     };
 }

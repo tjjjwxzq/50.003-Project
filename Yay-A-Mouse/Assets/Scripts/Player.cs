@@ -28,7 +28,7 @@ namespace Assets.Scripts
         {
             get
             {
-                return new Player(Abilities.StartingAbilities);
+                return new Player(Abilities.LevelOneAbilities);
             }
         }
     }
