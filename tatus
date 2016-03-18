@@ -1,0 +1,264 @@
+[33mcommit ed3fc8835de73df472bf1cbbd400c2c7373438f6[m
+Author: jiayu <yijiayu@gmail.com>
+Date:   Fri Mar 18 17:40:50 2016 +0800
+
+    Implemented ability buttons
+
+[33mcommit 803e8b027f6b41a02eebb7ad249ef10dc25a23df[m
+Merge: d76ee83 523ec40
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Fri Mar 18 14:39:34 2016 +0800
+
+    Merge branch 'master' of github.com:tjjjwxzq/50.003-Project
+
+[33mcommit d76ee837e0330dd74dd84996f755a33c97360de2[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Fri Mar 18 14:37:30 2016 +0800
+
+    Fix bug in random food movement; finish happiness bar UI
+
+[33mcommit 523ec40dee3cd2e9fef7d5070fb0f569b226b2a1[m
+Author: jiayu <yijiayu@gmail.com>
+Date:   Fri Mar 18 13:24:50 2016 +0800
+
+    Added documentation comments for Abilities, AbilityController and Player
+
+[33mcommit b144f65a7cee9f619fafc4aa19daded17eb65003[m
+Author: jiayu <yijiayu@gmail.com>
+Date:   Fri Mar 18 11:02:25 2016 +0800
+
+    Separate ability state and mouse state
+
+[33mcommit dc2469d47f1857035ea8dab9631653d0335e5ef6[m
+Merge: 0adde1c 7496cda
+Author: tanshunyu <shunyutan@hotmail.com>
+Date:   Fri Mar 18 00:16:02 2016 +0800
+
+    Merge branch 'master' of https://github.com/tjjjwxzq/50.003-Project into SYnetworking
+
+[33mcommit 7496cda827482c611d1c6c4e76c915aece1c7b0f[m
+Author: jiayu <yijiayu@gmail.com>
+Date:   Wed Mar 16 14:18:55 2016 +0800
+
+    Removed underscores from private variables
+
+[33mcommit 3bd37bba3fec694696663c4f3baa407090aeb35d[m
+Merge: b6a381f 56ec0b9
+Author: yi-jiayu <yi-jiayu@users.noreply.github.com>
+Date:   Tue Mar 15 12:39:53 2016 +0800
+
+    Merge pull request #1 from tjjjwxzq/jiayu
+    
+    Continued working on abilities
+
+[33mcommit 56ec0b9c30423e4c98cf62b304d8c88dca0bfe6d[m
+Author: jiayu <yijiayu@gmail.com>
+Date:   Tue Mar 15 12:38:15 2016 +0800
+
+    Continued working on abilities
+    
+    Most abilities completed, some waiting for Mouse API changes. ScaryCat and BeastlyBuffet also waiting for networking APIs. Thief not implemented yet until I figure out how to modify spawn intervals and move spawned foods.
+
+[33mcommit b6a381f536d17ff2baf764c6edc14b4d8370349b[m
+Merge: babcd95 5e7a57b
+Author: jiayu <yijiayu@gmail.com>
+Date:   Tue Mar 15 02:38:22 2016 +0800
+
+    Merge branch 'jiayu'
+
+[33mcommit 5e7a57ba5b7eedbfe7bfe6f5baf559338f281697[m
+Author: jiayu <yijiayu@gmail.com>
+Date:   Tue Mar 15 02:34:01 2016 +0800
+
+    updated gitignore to catch *.CSharp.csproj and .vs/
+
+[33mcommit 794f984f41cc5af008316d59247a86703bbe1e65[m
+Author: jiayu <yijiayu@gmail.com>
+Date:   Tue Mar 15 02:31:00 2016 +0800
+
+    cleaned ability code
+
+[33mcommit babcd952bab4e615b8a363c377100a95ae53498a[m
+Author: jiayu <yijiayu@gmail.com>
+Date:   Tue Mar 15 02:25:21 2016 +0800
+
+    cleaned code
+
+[33mcommit 0adde1cc33bbbff7c7eb7009dd3e87e59b1d7b8a[m
+Author: tanshunyu <shunyutan@hotmail.com>
+Date:   Mon Mar 14 01:20:24 2016 +0800
+
+    Added multiplayer test
+
+[33mcommit f59e6978bd490c2a3e4bb77ef39ec054e8687559[m
+Author: jiayu <yijiayu@gmail.com>
+Date:   Sun Mar 13 17:18:50 2016 +0800
+
+    added .gitattributes and preparing to refresh line endings
+
+[33mcommit d397feb35c73a536e57358be59801277e57fdc1e[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Sun Mar 13 14:48:07 2016 +0800
+
+    Add gitignore, unstage Library and working ai and psd files
+
+[33mcommit 3137269e1d033745c2d5c6fd4791f4bf426c53bb[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Sun Mar 13 01:44:11 2016 +0800
+
+    Refactor code; Extend Mouse and FoodController API; Fix foodcontroller spawning bug
+
+[33mcommit 8511a9167f0ad8cad908abf8cf727681d8327501[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Fri Mar 11 13:33:08 2016 +0800
+
+    Update implementation notes
+
+[33mcommit 08fd3dd4142c0e485a37772601c1b903e9fe86b6[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Fri Mar 11 13:30:49 2016 +0800
+
+    Update implementation notes
+
+[33mcommit 299c9e4983b212da08f8e88309655dcd7065d76f[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Fri Mar 11 13:23:34 2016 +0800
+
+    Update implementation notes
+
+[33mcommit 4313b51e75165d394c5ea1bb4ba412c072014db2[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Fri Mar 11 12:14:42 2016 +0800
+
+    Finish basic mechanics, added documentation
+
+[33mcommit da90a0d104deb73982a9693d5851273c3bfcbe3f[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Thu Mar 3 14:52:14 2016 +0800
+
+    Update readme
+
+[33mcommit 3d05b5e677f8e932c775c575fe45043c377d108b[m
+Merge: 630a703 52d2e37
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Mon Feb 29 01:37:42 2016 +0800
+
+    Merge branch 'master' of github.com:tjjjwxzq/50.003-Project
+
+[33mcommit 630a703702bf08a14ae659dbd1ed97ba4207e8ea[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Mon Feb 29 01:31:07 2016 +0800
+
+    Start game project
+
+[33mcommit 52d2e379f54b2607e8106b3293343b52f3ad1773[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Mon Feb 29 01:31:07 2016 +0800
+
+    Start game peofe
+    project
+
+[33mcommit de376ef38b02c2de45f0a51ba480f67dad3057a1[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Tue Feb 16 08:11:21 2016 +0800
+
+    Building Fantasy story tree
+
+[33mcommit aa5dbd383f9536b21ecd50e9e841fcb84b665f8c[m
+Merge: bb5fd43 72a5732
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Mon Feb 15 13:09:55 2016 +0800
+
+    Merge branch 'master' of github.com:tjjjwxzq/50.003-Project
+
+[33mcommit bb5fd432dc8c95c3beffc46da621d37fac559f36[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Mon Feb 15 12:46:28 2016 +0800
+
+    Update README
+
+[33mcommit 72a5732fb4e87683c8ee06818a789ab6f0809135[m
+Author: yi-jiayu <yi-jiayu@users.noreply.github.com>
+Date:   Wed Feb 10 23:50:23 2016 +0800
+
+    spelling
+
+[33mcommit a3c9ecd15fca1150f5d95c8dd5691e1c02643609[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Fri Feb 5 21:57:13 2016 +0800
+
+    Modify README
+
+[33mcommit 74cc117665c4d5aae217db8d7ce1ee604c233a5e[m
+Merge: e9d2e65 e8a413e
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Fri Feb 5 21:53:18 2016 +0800
+
+    Merge readme
+
+[33mcommit e9d2e6578cd6db07c9585b2b8dde7bbc4702ebb7[m
+Author: tjjjwxzq <aquietimmanence@gmail.com>
+Date:   Fri Feb 5 21:50:55 2016 +0800
+
+    Edit README
+
+[33mcommit e8a413e242cb95dd6e3a752ce6e7b8295d626578[m
+Author: aqi <aquietimmanence@gmail.com>
+Date:   Wed Feb 3 19:16:23 2016 +0800
+
+    Modified README
+
+[33mcommit f3b304a0f8ce0350204bdc02f3a379c47e7bef65[m
+Author: aqi <aquietimmanence@gmail.com>
+Date:   Wed Feb 3 19:12:51 2016 +0800
+
+    Edit readme
+
+[33mcommit 2fad610a6f4050751e23bfaea4f51f9de856842a[m
+Author: aqi <aquietimmanence@gmail.com>
+Date:   Wed Feb 3 19:09:46 2016 +0800
+
+    Finish use cases
+
+[33mcommit 86ede75cf89437278905cf77a6ae3a9fe25399dc[m
+Author: aqi <aquietimmanence@gmail.com>
+Date:   Wed Feb 3 17:36:50 2016 +0800
+
+    Update use cases
+
+[33mcommit a6bffe31121d6cbc68cc9be673e5778da6542308[m
+Merge: 98a273d bcaa196
+Author: aqi <aquietimmanence@gmail.com>
+Date:   Thu Jan 28 12:58:19 2016 +0800
+
+    Edit README
+
+[33mcommit 98a273defad5d8d86c89c772e7e9f5cc5debe2ce[m
+Author: aqi <aquietimmanence@gmail.com>
+Date:   Thu Jan 28 09:29:13 2016 +0800
+
+    Edit log
+
+[33mcommit bcaa196b2bf7aab779aeb63d8830fcad49177f7c[m
+Author: tjjjwxzq <tjjjwxzq@users.noreply.github.com>
+Date:   Tue Jan 26 10:18:17 2016 +0800
+
+    Update README.md
+
+[33mcommit dafc16586ddce9ffdef76c9399948c2ff66dfa73[m
+Author: aqi <aquietimmanence@gmail.com>
+Date:   Tue Jan 26 10:10:28 2016 +0800
+
+    Modify README
+
+[33mcommit 7fdeecc3f73cbd8b16fdbae163dbfa0780a23653[m
+Author: aqi <aquietimmanence@gmail.com>
+Date:   Tue Jan 26 10:08:59 2016 +0800
+
+    Modify README
+
+[33mcommit 59b358cd91b204a8578f97dc5de144f763947d8a[m
+Author: aqi <aquietimmanence@gmail.com>
+Date:   Tue Jan 26 10:07:33 2016 +0800
+
+    First commit
