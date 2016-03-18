@@ -13,14 +13,22 @@ public class AbilityController : MonoBehaviour
     private FoodController foodController;
     private Player player;
 
+    private bool mouseIsImmune;
+    private bool mouseIsFearless;
+    private bool mouseIsFat;
+
     private bool treatsGaloreIsActive;
     private string treatsGaloreBoostedFood;
 
+    private bool mouseIsScared;
     private int scaryCatDuration;
 
     private bool beastlyBuffetIsActive;
     private string beastlyBuffetBoostedFood;
     private int beastlyBuffetDuration;
+
+    private bool mouseIsThief;
+    private bool mouseIsThiefVictim;
 
     private IDictionary<AbilityName, DateTime> abilityLastActivatedTimes;
 
@@ -39,9 +47,15 @@ public class AbilityController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mouse.Immunity)
+        if (mouseIsImmune)
+        {
             if (!IsStillActive(AbilityName.Immunity))
+            {
+                mouseIsImmune = false;
                 mouse.Immunity = false;
+            }
+        }
+
 
         if (treatsGaloreIsActive)
         {
@@ -53,23 +67,38 @@ public class AbilityController : MonoBehaviour
             }
         }
 
-        if (mouse.Fearless)
+        if (mouseIsFearless)
+        {
             if (!IsStillActive(AbilityName.Fearless))
+            {
+                mouseIsFearless = false;
                 mouse.Fearless = false;
+            }
+                
+        }
+
+                   
 
         // todo: mouse needs Fat attribute
-//        if (mouse.Fat)
-//        {
-//            if (!IsStillActive(AbilityName.FatMouse))
-//            {
-//                mouse.GrowthAbility = 1;
-//                // mouse.Fat = false;
-//            }
-//        }
+        if (mouseIsFat)
+        {
+            if (!IsStillActive(AbilityName.FatMouse))
+            {
+                mouse.GrowthAbility = 1;
+                mouseIsFat = false;
+            }
+        }
 
-        if (mouse.Offscreen)
+        if (mouseIsScared)
+        {
             if (!IsStillActive(AbilityName.ScaryCat, scaryCatDuration))
+            {
                 mouse.Offscreen = false;
+                mouseIsScared = false;
+            }
+        }
+        
+               
 
         if (beastlyBuffetIsActive)
         {
@@ -108,6 +137,7 @@ public class AbilityController : MonoBehaviour
     {
         if (mouse.Immunity) return;
         if (mouse.Happiness < player.Abilities.Immunity.Cost) return;
+        mouseIsImmune = true;
         mouse.Immunity = true;
         abilityLastActivatedTimes[AbilityName.Immunity] = DateTime.Now;
         mouse.Happiness -= player.Abilities.Immunity.Cost;
@@ -117,6 +147,7 @@ public class AbilityController : MonoBehaviour
     {
         if (mouse.Fearless) return;
         if (mouse.Happiness < player.Abilities.Fearless.Cost) return;
+        mouseIsFearless = true;
         mouse.Fearless = true;
         abilityLastActivatedTimes[AbilityName.Fearless] = DateTime.Now;
         mouse.Happiness -= player.Abilities.Fearless.Cost;
@@ -139,9 +170,9 @@ public class AbilityController : MonoBehaviour
     public void ActivateFatMouse()
     {
         // todo: @junqi mouse needs Fat state
-        // if (mouse.Fat) return;
+         if (mouseIsFat) return;
         if (mouse.Happiness < player.Abilities.FatMouse.Cost) return;
-        // mouse.Fat = true;
+        mouseIsFat = true;
         mouse.GrowthAbility = player.Abilities.FatMouse.WeightMultiplier;
         abilityLastActivatedTimes[AbilityName.FatMouse] = DateTime.Now;
         mouse.Happiness -= player.Abilities.FatMouse.Cost;
@@ -157,13 +188,13 @@ public class AbilityController : MonoBehaviour
 
     public void ReceiveScaryCat(ScaryCat scaryCat)
     {
-        if (mouse.Offscreen)
+        if (mouseIsScared)
         {
             // "A scary cat came over, but your mouse wasn't around!"
         }
         else
         {
-            if (mouse.Fearless)
+            if (mouseIsFearless)
             {
                 if (player.Abilities.Fearless.DropHappiness && player.Abilities.Fearless.DropWeight)
                 {
@@ -197,8 +228,9 @@ public class AbilityController : MonoBehaviour
                 // todo: @junqi let me change the mouse weight please?
                 // mouse.Weight = mouse.Weight < scaryCat.WeightReduction
                 //  ? 0
-                //  : mouse.Weight - scaryCat.WeightReduction;
+                //  : mouse.Weight - scaryCat.WeightReduction
                 mouse.Offscreen = true;
+                mouseIsScared = true;
                 abilityLastActivatedTimes[AbilityName.ScaryCat] = DateTime.Now;
                 scaryCatDuration = scaryCat.Duration;
             }
