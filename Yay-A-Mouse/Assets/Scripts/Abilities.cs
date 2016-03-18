@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngineInternal;
 
 namespace Assets.Scripts
@@ -97,6 +99,11 @@ namespace Assets.Scripts
                     throw new ArgumentOutOfRangeException("ability", ability, "No such ability.");
             }
         }
+
+        public List<Ability> GetListOfAbilities()
+        {
+            return (from AbilityName abilityName in Enum.GetValues(typeof(AbilityName)) where this[abilityName].Level != 0 select (Ability)this[abilityName]).ToList();
+        }
     }
 
     /// <summary>
@@ -119,6 +126,7 @@ namespace Assets.Scripts
     /// </summary>
     public abstract class Ability
     {
+        public AbilityName Name { get; protected set; }
         public int Level { get; protected set; }
         public int Cost { get; protected set; }
         public int Duration { get; protected set; }
@@ -131,6 +139,7 @@ namespace Assets.Scripts
     {
         public Immunity(int level)
         {
+            Name = AbilityName.Immunity;
             Level = level;
             switch (level)
             {
@@ -161,6 +170,7 @@ namespace Assets.Scripts
 
         public TreatsGalore(int level)
         {
+            Name = AbilityName.TreatsGalore;
             Level = level;
             switch (level)
             {
@@ -203,6 +213,7 @@ namespace Assets.Scripts
 
         public Fearless(int level)
         {
+            Name = AbilityName.Fearless;
             Level = level;
             switch (level)
             {
@@ -241,6 +252,7 @@ namespace Assets.Scripts
 
         public FatMouse(int level)
         {
+            Name = AbilityName.FatMouse;
             Level = level;
             switch (level)
             {
@@ -272,6 +284,7 @@ namespace Assets.Scripts
 
         public ScaryCat(int level)
         {
+            Name = AbilityName.ScaryCat;
             Level = level;
             switch (level)
             {
@@ -306,6 +319,7 @@ namespace Assets.Scripts
 
         public BeastlyBuffet(int level)
         {
+            Name = AbilityName.BeastlyBuffet;
             Level = level;
             switch (level)
             {
@@ -348,6 +362,7 @@ namespace Assets.Scripts
 
         public Thief(int level)
         {
+            Name = AbilityName.Thief;
             Level = level;
             switch (level)
             {

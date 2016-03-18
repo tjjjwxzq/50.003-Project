@@ -4,8 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class AbilityControls : MonoBehaviour
+public class AbilityControls : NetworkBehaviour
 {
     private AbilityController abilityController;
     private GameObject canvas;
