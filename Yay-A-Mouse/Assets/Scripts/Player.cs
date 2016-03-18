@@ -12,10 +12,13 @@ namespace Assets.Scripts
     /// </summary>
     public class Player : NetworkBehaviour
     {
+        private AbilityController abilityController;
+        public string name;
+
         public Abilities Abilities; //<! The player's Abilities
-        public AbilityController abilityController;
 
         // network score so other players can see your progress
+        // to access this in other scripts/clients, first initialise Player player, followed by player.score
         [SyncVar]
         public int score = 0;
 
@@ -55,9 +58,9 @@ namespace Assets.Scripts
                 return new Player(Abilities.LevelOneAbilities);
             }
         }
-        
+
         // check which status the mouse is in (by index in the enum above)
-        public int checkStatus(AbilityController ac)
+        public int checkStatus()
         {
             int check = status;
             return check;
@@ -67,40 +70,7 @@ namespace Assets.Scripts
         /*[Command] // by default on channel 0
         public void CmdActivateAbilities(GameObject button)
         {
-            switch (button.name())
-            {
-                case Immunity:
-                    ActivateImmunity();
-                    status = 1;
-                    break;
-                case TreatsGalore:
-                    ActivateTreatsGalore();
-                    status = 2;
-                    break;
-                case Fearless:
-                    ActivateFearless();
-                    status = 3;
-                    break;
-                case FatMouse:
-                    ActivateFatMouse();
-                    status = 4;
-                    break;
-                case ScaryCat:
-                    ActivateScaryCat();
-                    status = 5;
-                    break;
-                case BeastlyBuffet:
-                    ActivateBeastlyBuffet();
-                    status = 6;
-                    break;
-                case Thief:
-                    ActivateThief();
-                    status = 7;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException("ability", ability, null);
-            }
-            status = 0; // back to normal status
+            abilityController.ActivateAbility(button.name());
         }*/
 
         void Update()
@@ -114,5 +84,7 @@ namespace Assets.Scripts
                 CmdActivateAbilities(button); // this method is networked
             }*/
         }
+
+        // TODO: add in method to call list of abilities this player has
     }
 }
