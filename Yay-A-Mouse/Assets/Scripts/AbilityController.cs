@@ -1,32 +1,41 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts;
-using UnityEngine.Assertions;
 using Random = System.Random;
 
+/// <summary>
+/// Script class to encapsulate mouse ability logic.
+/// Implements functions to be called when abilities are activated by a player
+/// or when a player is affected by an ability activated by another player.
+/// </summary>
 public class AbilityController : MonoBehaviour
 {
+    // Other GameObjects
     private Mouse mouse;
     private FoodController foodController;
     private Player player;
 
+    // Simple status flags
     private bool mouseIsImmune;
     private bool mouseIsFearless;
     private bool mouseIsFat;
 
+    // Treats Galore status
     private bool treatsGaloreIsActive;
     private string treatsGaloreBoostedFood;
 
-    private bool mouseIsScared;
+    // Scary Cat status
+    private bool mouseIsOffscreen;
     private int scaryCatDuration;
 
+    // Beastly Buffet status
     private bool beastlyBuffetIsActive;
     private string beastlyBuffetBoostedFood;
     private int beastlyBuffetDuration;
 
+    // Thief status
     private bool mouseIsThief;
     private bool mouseIsThiefVictim;
 
@@ -56,7 +65,6 @@ public class AbilityController : MonoBehaviour
             }
         }
 
-
         if (treatsGaloreIsActive)
         {
             if (!IsStillActive(AbilityName.TreatsGalore))
@@ -77,9 +85,6 @@ public class AbilityController : MonoBehaviour
                 
         }
 
-                   
-
-        // todo: mouse needs Fat attribute
         if (mouseIsFat)
         {
             if (!IsStillActive(AbilityName.FatMouse))
@@ -89,16 +94,14 @@ public class AbilityController : MonoBehaviour
             }
         }
 
-        if (mouseIsScared)
+        if (mouseIsOffscreen)
         {
             if (!IsStillActive(AbilityName.ScaryCat, scaryCatDuration))
             {
                 mouse.Offscreen = false;
-                mouseIsScared = false;
+                mouseIsOffscreen = false;
             }
         }
-        
-               
 
         if (beastlyBuffetIsActive)
         {
@@ -113,6 +116,7 @@ public class AbilityController : MonoBehaviour
         // todo: deactivate thief
     }
 
+    // Function to check if an ability is still active using the duration specified in the player's instance of the ability.
     private bool IsStillActive(AbilityName ability)
     {
         if (abilityLastActivatedTimes.ContainsKey(ability))
@@ -123,6 +127,7 @@ public class AbilityController : MonoBehaviour
         else return false;
     }
 
+    // Function to check if an ability is still active using the specified duration.
     private bool IsStillActive(AbilityName ability, int duration)
     {
         if (abilityLastActivatedTimes.ContainsKey(ability))
@@ -133,6 +138,11 @@ public class AbilityController : MonoBehaviour
         else return false;
     }
 
+    /// <summary>
+    /// Function to be called when a player activates the Immunity ability.
+    /// Checks that Immunity is not already activated and the mouse has 
+    /// sufficient Happiness and sets the mouse Immunity state.
+    /// </summary>
     public void ActivateImmunity()
     {
         if (mouse.Immunity) return;
@@ -143,6 +153,11 @@ public class AbilityController : MonoBehaviour
         mouse.Happiness -= player.Abilities.Immunity.Cost;
     }
 
+    /// <summary>
+    /// Function to be called when a player activates the Fearless ability.
+    /// Checks that Fearless is not already activated and the mouse
+    /// has sufficient Happiness and sets the mouse Fearless state.
+    /// </summary>
     public void ActivateFearless()
     {
         if (mouse.Fearless) return;
@@ -153,6 +168,13 @@ public class AbilityController : MonoBehaviour
         mouse.Happiness -= player.Abilities.Fearless.Cost;
     }
 
+    /// <summary>
+    /// Function to be called when the player activates the Treats Galore ability.
+    /// Checks that Treats Galore is not already activated and the mouse has
+    /// sufficient Happiness. Chooses a random food above a certain point threshold
+    /// specified in the ability level and boosts its max food count and spawn weight 
+    /// through the associated FoodController instance.
+    /// </summary>
     public void ActivateTreatsGalore()
     {
         if (mouse.Happiness < player.Abilities.TreatsGalore.Cost) return;
@@ -167,10 +189,15 @@ public class AbilityController : MonoBehaviour
         mouse.Happiness -= player.Abilities.TreatsGalore.Cost;
     }
 
+    /// <summary>
+    /// Function to be called when the player activates the Fat Mouse ability.
+    /// Checks that Fat Mouse is not already activated and the mouse has 
+    /// sufficient Happiness. Sets the mouse GrowthAbility to the multiplier
+    /// specified by the ability level.
+    /// </summary>
     public void ActivateFatMouse()
     {
-        // todo: @junqi mouse needs Fat state
-         if (mouseIsFat) return;
+        if (mouseIsFat) return;
         if (mouse.Happiness < player.Abilities.FatMouse.Cost) return;
         mouseIsFat = true;
         mouse.GrowthAbility = player.Abilities.FatMouse.WeightMultiplier;
@@ -178,6 +205,11 @@ public class AbilityController : MonoBehaviour
         mouse.Happiness -= player.Abilities.FatMouse.Cost;
     }
 
+    /// <summary>
+    /// Function to be called when a player targets another player with
+    /// the Scary Cat ability. Checks that the mouse has enough Happiness and 
+    /// calls the ReceiveScaryCat function on the targeted player.
+    /// </summary>
     public void ActivateScaryCat()
     {
         if (mouse.Happiness < player.Abilities.ScaryCat.Cost) return;
@@ -186,9 +218,18 @@ public class AbilityController : MonoBehaviour
         mouse.Happiness -= player.Abilities.ScaryCat.Cost;
     }
 
+    /// <summary>
+    /// Function to be called when a player is affected by another player's
+    /// Scary Cat ability. May send the player's mouse offscreen and drop its
+    /// Weight and Happiness depending on whether the player's Fearless ability
+    /// is activated and its level.
+    /// </summary>
+    /// <param name="scaryCat"></param>
     public void ReceiveScaryCat(ScaryCat scaryCat)
     {
-        if (mouseIsScared)
+        // todo: implement UI response
+
+        if (mouseIsOffscreen)
         {
             // "A scary cat came over, but your mouse wasn't around!"
         }
@@ -230,13 +271,18 @@ public class AbilityController : MonoBehaviour
                 //  ? 0
                 //  : mouse.Weight - scaryCat.WeightReduction
                 mouse.Offscreen = true;
-                mouseIsScared = true;
+                mouseIsOffscreen = true;
                 abilityLastActivatedTimes[AbilityName.ScaryCat] = DateTime.Now;
                 scaryCatDuration = scaryCat.Duration;
             }
         }
     }
 
+    /// <summary>
+    /// Function to be called when a player targets another player with the Beastly Buffet ability. 
+    /// Checks that the mouse has sufficient Happiness and calls the ReceiveBeastlyBuffet function
+    /// on the targeted player.
+    /// </summary>
     public void ActivateBeastlyBuffet()
     {
         if (mouse.Happiness < player.Abilities.BeastlyBuffet.Cost) return;
@@ -245,6 +291,12 @@ public class AbilityController : MonoBehaviour
         mouse.Happiness -= player.Abilities.BeastlyBuffet.Cost;
     }
 
+    /// <summary>
+    /// Function to be called when a player is affected by another player's Beastly Buffet ability.
+    /// Chooses a random food below a certain point threshold specified by the attacker's ability
+    /// and boosts its max food count and spawn weight through the associated Foodcontroller instance.
+    /// </summary>
+    /// <param name="beastlyBuffet"></param>
     public void ReceiveBeastlyBuffet(BeastlyBuffet beastlyBuffet)
     {
         var badFoods = foodPointValues.Where(food => food.Value < beastlyBuffet.PointThreshold).ToList();
@@ -258,6 +310,9 @@ public class AbilityController : MonoBehaviour
         beastlyBuffetDuration = beastlyBuffet.Duration;
     }
 
+    /// <summary>
+    /// WORK IN PROGRESS
+    /// </summary>
     public void ActivateThief()
     {
         // todo: not sure how to affect spawn interval and move food yet
