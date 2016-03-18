@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngineInternal;
 
 namespace Assets.Scripts
@@ -96,6 +98,11 @@ namespace Assets.Scripts
                 default:
                     throw new ArgumentOutOfRangeException("ability", ability, "No such ability.");
             }
+        }
+
+        public List<Ability> GetListOfAbilities()
+        {
+            return (from AbilityName abilityName in Enum.GetValues(typeof (AbilityName)) where this[abilityName].Level != 0 select (Ability) this[abilityName]).ToList();
         }
     }
 
