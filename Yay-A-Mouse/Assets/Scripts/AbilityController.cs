@@ -138,33 +138,6 @@ public class AbilityController : MonoBehaviour
         else return false;
     }
 
-    public void ActivateAbility(AbilityName ability)
-    {
-        switch (ability)
-        {
-            case AbilityName.Immunity:
-                ActivateImmunity();
-                break;
-            case AbilityName.TreatsGalore:
-                ActivateTreatsGalore();
-                break;
-            case AbilityName.Fearless:
-                ActivateFearless();
-                break;
-            case AbilityName.FatMouse:
-                ActivateFatMouse();
-                break;
-            case AbilityName.ScaryCat:
-                break;
-            case AbilityName.BeastlyBuffet:
-                break;
-            case AbilityName.Thief:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException("ability", ability, null);
-        }
-    }
-
     /// <summary>
     /// Function to be called when a player activates the Immunity ability.
     /// Checks that Immunity is not already activated and the mouse has 
