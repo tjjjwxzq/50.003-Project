@@ -12,7 +12,7 @@ using System.Collections.Generic;
 /// </summary>
 public class ObjectPool : MonoBehaviour {
 
-    private GameObject obj; //!< Specify which object to pool in inspector panel
+    public GameObject obj; //!< Specify which object to pool in inspector panel
     private int activeObjects; //!< Tracks the number of active objects (removed from the pool)
     private List<GameObject> pool = new List<GameObject>(); //<! Pool maintained as a dynamic list
 
@@ -61,18 +61,6 @@ public class ObjectPool : MonoBehaviour {
     /// Gets the number of active objects that were released from the pool.
     /// </summary>
     /// <returns></returns>
-    public int ActiveObjects 
-    { 
-        get { return activeObjects; }
-    }
-
-    /// <summary>
-    /// Property to get and set object of the pool
-    /// </summary>
-    public GameObject poolObject 
-    {
-        get { return obj; }
-        set { obj = value; }
-    }
+    public int getActiveObjects() { return activeObjects; }
 
 }

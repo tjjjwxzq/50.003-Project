@@ -5,39 +5,20 @@ using System.Text;
 
 namespace Assets.Scripts
 {
-    /// <summary>
-    /// Class to contain player specific data, currently only contains the player's Abilities.
-    /// </summary>
     public class Player
     {
-        private AbilityController abilityController;
-        public string name;
-        public enum Status
-        {
-            None,
-//
-            FeedingFrenzy
-        }
-        public int score;
-        public Abilities Abilities; //<! The player's Abilities
+        public readonly Abilities Abilities;
 
-        /// <summary>
-        /// Creates a new Player with a specified set of abilities.
-        /// </summary>
-        /// <param name="abilities"></param>
-        public Player(Abilities abilities)
+        private Player(Abilities abilities)
         {
             Abilities = abilities;
         }
 
-        /// <summary>
-        /// Mock player with all abilities at level 1.
-        /// </summary>
         public static Player MockPlayer
         {
             get
             {
-                return new Player(Abilities.LevelOneAbilities);
+                return new Player(Abilities.StartingAbilities);
             }
         }
     }

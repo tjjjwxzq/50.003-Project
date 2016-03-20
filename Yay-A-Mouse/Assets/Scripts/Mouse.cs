@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 // The mouse doesn't need physics, just a Collision2D component
 // so we can detect when food/bad stuff touch it
@@ -11,15 +12,40 @@ using System.Collections;
 /// (immunity, leptinDeficiency, fearless)
 /// </summary>
 public class Mouse: MonoBehaviour {
+    private RaycastHit hit;
+
+    // HETTY - Variables for generated array
+    List<string> playerSwipedCombo = new List<string>();
+    List<string> currentCombinationToSwipe = new List<string>();
+
+    // Hetty - Playing Mode - Normal/Frenzy - Get From
+    string mode;
+    bool NormalMode = true;
+    bool FrenzyMode = false;
+
+    //Hetty - GUI - Text to be shown on screen
+    //public Text scoreDisplay;
+    //public Text streakCountDisplay;
+    //public Text frenzyModeTitle;
+
+    public int countStreak;     // Count number of combinations that player get correct                                     
+    public int sequenceFed;     // To count the number of correct food fed
+    public int orderNumber;
+
+
+    // Hetty - GUI - Images
+    public Image SeqBox1;
+    public Image SeqBox2;
+    public Image SeqBox3;
+
+    // Hetty - Timer
+    float time = 30.0f;
+    private float timeout;
+    public System.DateTime startTime;              // Need to be global
 
     //Mouse sprites
     private SpriteRenderer spriteRenderer;
     public Sprite[] LevelSprites = new Sprite[11];
-
-    //Happiness status sprites
-    private Image mouseHappinessImage;
-    private Image mouseHappinessFill;
-    public Sprite[] HappinessSprites = new Sprite[5];
 
     //Mouse status
     private int weight = 0; //!< Acts as the player score. Increases/decreases when mouse eats good/bad food
@@ -33,8 +59,8 @@ public class Mouse: MonoBehaviour {
     private bool stroking = false; //!< For detecting if mouse has been stroked
 
     // Weight and Happiness Levels
-    private readonly int[] weightLevels = new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 };
-    private readonly int[] happinessLevels = new int[] { 0, 20, 40, 60, 80, 100 }; //!< Happiness levels at which to change happiness indicator
+    private readonly int[] WeightLevels = new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 };
+    private readonly int[] HappinessLevels = new int[] { 0, 20, 40, 60, 80, 100 }; //!< Happiness levels at which to change happiness indicator
 
     //For scaling transform
     //Default size is at full grown size
@@ -53,11 +79,9 @@ public class Mouse: MonoBehaviour {
 	void Start () {
         //Components
         spriteRenderer = GetComponent<SpriteRenderer>();
-        mouseHappinessImage = GameObject.Find("MouseStatus").GetComponent<Image>();
-        mouseHappinessFill = GameObject.Find("Fill").GetComponent<Image>();
 
         //For scaling
-        scale = (200 + (float)weight) / weightLevels[weightLevels.Length -1];
+        scale = (100 + (float)weight) / WeightLevels[WeightLevels.Length -1];
         transform.localScale = defaultScale* scale;
         
         //Rotation parameters
@@ -66,76 +90,106 @@ public class Mouse: MonoBehaviour {
         turnSteps = maxTurnSteps;
         finalAngle1 = -90f;
         finalAngle2 = -1 * finalAngle1;
-	
-	}
+
+        // Hetty
+        currentCombinationToSwipe = Permutation.getfoodCombo();
+        Debug.Log("Feed Hamster Start() : " + currentCombinationToSwipe[0] + currentCombinationToSwipe[1] + currentCombinationToSwipe[2]);
+
+        NormalMode = true;
+
+        if (NormalMode == true)
+        {
+            // Disable frenzyTapping
+            GameObject.FindGameObjectWithTag("Mouse").GetComponent<NormalMode>().enabled = true;
+            GameObject.FindGameObjectWithTag("Mouse").GetComponent<FrenzyMode>().enabled = false;
+
+            // Intialise Variables
+            countStreak = 0;
+            orderNumber = 0;
+
+            Debug.Log("countStreak:" + countStreak);
+
+            // Starting Combination - Show on the screen
+            SeqBox1.sprite = Resources.Load<Sprite>(currentCombinationToSwipe[0]) as Sprite;
+            SeqBox2.sprite = Resources.Load<Sprite>(currentCombinationToSwipe[1]) as Sprite;
+            SeqBox3.sprite = Resources.Load<Sprite>(currentCombinationToSwipe[2]) as Sprite;
+        }
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
         //Scale mouse size based on weight
-        scale = (200 + (float)weight) / weightLevels[weightLevels.Length - 1];
+        scale = (100 + (float)weight) / WeightLevels[WeightLevels.Length - 1];
         transform.localScale = defaultScale* scale;
         //Rotate mouse
         StartCoroutine(RotateWithEasing(finalAngle1, finalAngle2, transform));
-        // Update mouse level and sprite
+        // Update mouse level
         checkLevel();
         // Update mouse happiness
         updateHappiness();
-        // Update mouse happiness sprite
-        checkHappiness();
-        
-	}
+
+
+        normalMode();
+
+    }
+
+    // Detect Click on Object
+    void normalMode()
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+        if (Input.GetMouseButtonDown(0) && hit != null && hit.collider != null)
+        {
+            if (hit.collider.tag == "Mouse")
+            {
+                //score.text = (int.Parse(score.text) + 1) + "";
+                //Debug.Log(score.text);
+                weight = weight + 10;
+                // Increase weight of mouse
+                Debug.Log("hit");
+            }
+        }
+
+        //Text score = GetComponentInChildren<FeedHamster>().scoreDisplay; // if you need a variable of it or method you can access it like this
+    }
+    
+    // Hetty
+    void frenzyMode()
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+        if (Input.GetMouseButtonDown(0) && hit != null && hit.collider != null)
+        {
+            if (hit.collider.tag == "Mouse")
+            {
+                //score.text = (int.Parse(score.text) + 1) + "";
+                //Debug.Log(score.text);
+                weight = weight * 2;
+                // Increase weight of mouse
+                Debug.Log("hit");
+            }
+        }
+
+    }
 
     /// <summary>
     /// Checks and updates mouse level and changes sprite accordingly
     /// </summary>
     void checkLevel()
     {
-        // There are 10 levels in total
-        // But the first and last element of weightLevels
-        // give the starting weight and the final weight
-        // so we exclude them
-        for(int i = 1; i< weightLevels.Length - 1; i++)
+        for(int i = 1; i< WeightLevels.Length; i++)
         {
-            if( weightLevels[i-1] <= weight && weight < weightLevels[i] && level != i-1)
+            if( WeightLevels[i-1] <= weight && weight < WeightLevels[i] && level != i-1)
             {
-                level = i-1;
+                level = i;
                 spriteRenderer.sprite = LevelSprites[i];
                 break;
             }
+        }if (FrenzyMode == true) {
+            // Deactivate Food
         }
-
    }
-
-    void checkHappiness()
-    {
-        Debug.Log("Mouse happiness is " + happiness);
-        // Update meter fill sprite
-        mouseHappinessFill.rectTransform.localScale = new Vector2(1f, ((float)happiness) / happinessLevels[happinessLevels.Length - 1]);
-
-        // Change mouse happiness sprites
-       for(int i = 1; i < happinessLevels.Length; i++)
-        {
-            if( happinessLevels[i-1] <= happiness && happiness < happinessLevels[i] && 
-                mouseHappinessImage.sprite != HappinessSprites[i-1])
-            {
-                mouseHappinessImage.sprite = HappinessSprites[i - 1];
-                mouseHappinessImage.SetNativeSize();
-            }
-        }
-
-       // Set animation
-       Animator mouseHappinessAnimator = mouseHappinessImage.GetComponent<Animator>();
-
-       if(happiness == happinessLevels[happinessLevels.Length - 1] && !mouseHappinessAnimator.enabled)
-        {
-            mouseHappinessAnimator.enabled = true;
-        }
-       else if(happiness < happinessLevels[happinessLevels.Length - 1] && mouseHappinessAnimator.enabled)
-        {
-            mouseHappinessAnimator.enabled = false;
-        }
-
-    }
 
     /// <summary>
     /// Updates mouse happiness when stroked
@@ -163,7 +217,7 @@ public class Mouse: MonoBehaviour {
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (stroking && happiness < happinessLevels[happinessLevels.Length - 1])
+            if (stroking && happiness < HappinessLevels[HappinessLevels.Length - 1])
                 happiness++;
             stroked = false;
         }
@@ -188,7 +242,7 @@ public class Mouse: MonoBehaviour {
                     break;
 
                 case TouchPhase.Ended:
-                    if(stroking && happiness < happinessLevels[happinessLevels.Length -1])
+                    if(stroking && happiness < HappinessLevels[HappinessLevels.Length -1])
                         happiness ++;
                     stroking = false;
                     break;
@@ -266,21 +320,100 @@ public class Mouse: MonoBehaviour {
         yield return null;
         
     }
+    // Hetty - On Tapping
 
+    // Hetty - Add food check here
     // Check for collision with food
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Food nom nom
-        if(collision.gameObject.tag == "Food")  // different food prefabs are tagged with food
+        if(collision.gameObject.tag == "Food") //Use tag so we can different kinds of 'food' game objects tagged as food
         {
+
+
             Food food = collision.gameObject.GetComponent<Food>();
+
+            playerSwipedCombo.Add(food.name);                // Getting the name of object
+            Debug.Log("Food Fed:" + food.name);
+
+            if (playerSwipedCombo.Count == 3)
+            {
+
+                // Check sequence then change
+
+                // Compare playerSwipedCombo with comboGenerated[ordernumber][i];
+                for (int i = 0; i < playerSwipedCombo.Count; i++)
+                {
+                    if (playerSwipedCombo[i].Equals(currentCombinationToSwipe[i]))
+                    {
+                        sequenceFed = sequenceFed + 1;
+
+                    }
+
+                }
+
+                // Get another sequence
+                currentCombinationToSwipe = Permutation.getfoodCombo();
+
+                // Increase order number so that you can display the next combo
+                orderNumber = orderNumber + 1;
+
+                // Change combo picture
+                SeqBox1.sprite = Resources.Load<Sprite>(currentCombinationToSwipe[0]) as Sprite;
+                SeqBox2.sprite = Resources.Load<Sprite>(currentCombinationToSwipe[1]) as Sprite;
+                SeqBox3.sprite = Resources.Load<Sprite>(currentCombinationToSwipe[2]) as Sprite;
+
+
+                // Clear array that holds user food input
+                playerSwipedCombo.Clear();
+
+                // Check if player feed correctly
+                if (sequenceFed == 3)
+                {
+                    sequenceFed = 0;
+                    countStreak = countStreak + 1;
+
+                    // Display Total Count Streak on the screen
+                    //streakCountDisplay.text = countStreak + "";
+
+
+                    // Check if use qualify to enter frenzy mode
+                    if (countStreak == 3)
+                    {
+                        //frenzyModeTitle.text = "Frenzy Mode!";
+                        countStreak = 0;
+                        // Start Timer
+                        startTime = System.DateTime.Now;
+
+                        Debug.Log("In FRENZYYY");
+
+                        /*while (FrenzyMode = true) {
+
+                            FrenzyMode = GameObject.Find("Mouse").GetComponent<FrenzyModeScript>();
+                            FrenzyModeScript goToFrenzyMode = gameObject.GetComponent<FrenzyModeScript>();
+                            goToFrenzyMode.insideFrenzyMode();
+                        }*/
+
+                        countStreak = 0;
+
+
+
+
+                        Debug.Log("Back in normal mode");
+                    }
+                }
+                else {
+                    countStreak = 0;
+                    //streakCountDisplay.text = countStreak + "";
+                }
+
+
+            }
+
             // include score multiplier only for good food
-            weight += food.NutritionalValue > 0 ? food.NutritionalValue * leptinDeficiency: food.NutritionalValue;
-            if (weight < 0)
-                weight = 0;
-            if (weight > weightLevels[weightLevels.Length - 1])
-                weight = weightLevels[weightLevels.Length - 1];
+            weight += food.value > 0 ? food.value * leptinDeficiency: food.value;
             collision.gameObject.GetComponent<PoolMember>().Deactivate();
+            Debug.Log("Nom nom");
         } 
     }
 
@@ -292,11 +425,6 @@ public class Mouse: MonoBehaviour {
     public int Weight
     {
         get { return weight; }
-        set {
-            weight = value;
-            if (weight < 0)
-                weight = 0;
-        }
     }
 
     /// <summary>
@@ -310,11 +438,7 @@ public class Mouse: MonoBehaviour {
     public int Happiness
     {
         get { return happiness; }
-        set {
-            happiness = value;
-            if (happiness < 0)
-                happiness = 0;
-        }
+        set { happiness = value; }
     }
 
     /// <summary>
