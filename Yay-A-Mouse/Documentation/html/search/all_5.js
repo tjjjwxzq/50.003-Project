@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['obj',['obj',['../class_object_pool.html#ab54421fb72fa4934d9cde669fe703919',1,'ObjectPool']]],
-  ['objectpool',['ObjectPool',['../class_object_pool.html',1,'']]]
+  ['getfoodspawnweight',['getFoodSpawnWeight',['../class_food_controller.html#aa210ae3e7b1cc83ba3dab4a36970e19f',1,'FoodController']]],
+  ['getmaxfoodcount',['getMaxFoodCount',['../class_food_controller.html#af9fcb378c2333de7796093ef368bfd93',1,'FoodController']]],
+  ['getobj',['getObj',['../class_object_pool.html#a1a2f42245b2acfef316e203e6a88c7f2',1,'ObjectPool']]],
+  ['growthability',['GrowthAbility',['../class_mouse.html#a58afb42b0fa0f4d9fb30795d68a86b82',1,'Mouse']]]
 ];

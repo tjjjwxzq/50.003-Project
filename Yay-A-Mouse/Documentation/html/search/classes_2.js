@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mouse',['Mouse',['../class_mouse.html',1,'']]]
+  ['cameracontroller',['CameraController',['../class_camera_controller.html',1,'']]]
 ];

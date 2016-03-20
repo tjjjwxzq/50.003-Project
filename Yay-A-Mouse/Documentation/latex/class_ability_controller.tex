@@ -1,0 +1,159 @@
+\hypertarget{class_ability_controller}{}\section{Ability\+Controller Class Reference}
+\label{class_ability_controller}\index{Ability\+Controller@{Ability\+Controller}}
+
+
+Script class to encapsulate mouse ability logic. Implements functions to be called when abilities are activated by a player or when a player is affected by an ability activated by another player.  
+
+
+Inheritance diagram for Ability\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ability_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Activate\+Ability} (Ability\+Name ability)\hypertarget{class_ability_controller_afb5f4f4c49337dcc4dfc1e52c0ff93c0}{}\label{class_ability_controller_afb5f4f4c49337dcc4dfc1e52c0ff93c0}
+
+\item 
+void \hyperlink{class_ability_controller_ab239b2b0f79e5f8036ffd92a60953976}{Activate\+Immunity} ()
+\begin{DoxyCompactList}\small\item\em Function to be called when a player activates the \hyperlink{class_immunity}{Immunity} ability. Checks that \hyperlink{class_immunity}{Immunity} is not already activated and the mouse has sufficient Happiness and sets the mouse \hyperlink{class_immunity}{Immunity} state. \end{DoxyCompactList}\item 
+void \hyperlink{class_ability_controller_a3871b151f0dbb4f695b326cb2c02c29c}{Activate\+Fearless} ()
+\begin{DoxyCompactList}\small\item\em Function to be called when a player activates the \hyperlink{class_fearless}{Fearless} ability. Checks that \hyperlink{class_fearless}{Fearless} is not already activated and the mouse has sufficient Happiness and sets the mouse \hyperlink{class_fearless}{Fearless} state. \end{DoxyCompactList}\item 
+void \hyperlink{class_ability_controller_aa69b2c81a09b53e0a56f69d58b11007c}{Activate\+Treats\+Galore} ()
+\begin{DoxyCompactList}\small\item\em Function to be called when the player activates the Treats Galore ability. Checks that Treats Galore is not already activated and the mouse has sufficient Happiness. Chooses a random food above a certain point threshold specified in the ability level and boosts its max food count and spawn weight through the associated \hyperlink{class_food_controller}{Food\+Controller} instance. \end{DoxyCompactList}\item 
+void \hyperlink{class_ability_controller_af617ab2ad1e66f4fbe70e47d41f42c5d}{Activate\+Fat\+Mouse} ()
+\begin{DoxyCompactList}\small\item\em Function to be called when the player activates the Fat \hyperlink{class_mouse}{Mouse} ability. Checks that Fat \hyperlink{class_mouse}{Mouse} is not already activated and the mouse has sufficient Happiness. Sets the mouse Growth\+Ability to the multiplier specified by the ability level. \end{DoxyCompactList}\item 
+void \hyperlink{class_ability_controller_a665fadfb91f33423469ef2bbb1c02bbb}{Activate\+Scary\+Cat} ()
+\begin{DoxyCompactList}\small\item\em Function to be called when a player targets another player with the Scary Cat ability. Checks that the mouse has enough Happiness and calls the Receive\+Scary\+Cat function on the targeted player. \end{DoxyCompactList}\item 
+void \hyperlink{class_ability_controller_a989129033d7fc245de98273cf067bc87}{Receive\+Scary\+Cat} (\hyperlink{class_scary_cat}{Scary\+Cat} scary\+Cat)
+\begin{DoxyCompactList}\small\item\em Function to be called when a player is affected by another player\textquotesingle{}s Scary Cat ability. May send the player\textquotesingle{}s mouse offscreen and drop its Weight and Happiness depending on whether the player\textquotesingle{}s \hyperlink{class_fearless}{Fearless} ability is activated and its level. \end{DoxyCompactList}\item 
+void \hyperlink{class_ability_controller_a7f2712d50691dc9d63660114aa575dc2}{Activate\+Beastly\+Buffet} ()
+\begin{DoxyCompactList}\small\item\em Function to be called when a player targets another player with the Beastly Buffet ability. Checks that the mouse has sufficient Happiness and calls the Receive\+Beastly\+Buffet function on the targeted player. \end{DoxyCompactList}\item 
+void \hyperlink{class_ability_controller_a32935e1cf937f688e446f775bf4c6b1e}{Receive\+Beastly\+Buffet} (\hyperlink{class_beastly_buffet}{Beastly\+Buffet} beastly\+Buffet)
+\begin{DoxyCompactList}\small\item\em Function to be called when a player is affected by another player\textquotesingle{}s Beastly Buffet ability. Chooses a random food below a certain point threshold specified by the attacker\textquotesingle{}s ability and boosts its max food count and spawn weight through the associated Foodcontroller instance. \end{DoxyCompactList}\item 
+void \hyperlink{class_ability_controller_a2fdbe1484427e49e5e64e3e72ff4f069}{Activate\+Thief} ()
+\begin{DoxyCompactList}\small\item\em W\+O\+RK IN P\+R\+O\+G\+R\+E\+SS \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Script class to encapsulate mouse ability logic. Implements functions to be called when abilities are activated by a player or when a player is affected by an ability activated by another player. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Ability\+Controller@{Ability\+Controller}!Activate\+Beastly\+Buffet@{Activate\+Beastly\+Buffet}}
+\index{Activate\+Beastly\+Buffet@{Activate\+Beastly\+Buffet}!Ability\+Controller@{Ability\+Controller}}
+\subsubsection[{\texorpdfstring{Activate\+Beastly\+Buffet()}{ActivateBeastlyBuffet()}}]{\setlength{\rightskip}{0pt plus 5cm}void Ability\+Controller.\+Activate\+Beastly\+Buffet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ability_controller_a7f2712d50691dc9d63660114aa575dc2}{}\label{class_ability_controller_a7f2712d50691dc9d63660114aa575dc2}
+
+
+Function to be called when a player targets another player with the Beastly Buffet ability. Checks that the mouse has sufficient Happiness and calls the Receive\+Beastly\+Buffet function on the targeted player. 
+
+\index{Ability\+Controller@{Ability\+Controller}!Activate\+Fat\+Mouse@{Activate\+Fat\+Mouse}}
+\index{Activate\+Fat\+Mouse@{Activate\+Fat\+Mouse}!Ability\+Controller@{Ability\+Controller}}
+\subsubsection[{\texorpdfstring{Activate\+Fat\+Mouse()}{ActivateFatMouse()}}]{\setlength{\rightskip}{0pt plus 5cm}void Ability\+Controller.\+Activate\+Fat\+Mouse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ability_controller_af617ab2ad1e66f4fbe70e47d41f42c5d}{}\label{class_ability_controller_af617ab2ad1e66f4fbe70e47d41f42c5d}
+
+
+Function to be called when the player activates the Fat \hyperlink{class_mouse}{Mouse} ability. Checks that Fat \hyperlink{class_mouse}{Mouse} is not already activated and the mouse has sufficient Happiness. Sets the mouse Growth\+Ability to the multiplier specified by the ability level. 
+
+\index{Ability\+Controller@{Ability\+Controller}!Activate\+Fearless@{Activate\+Fearless}}
+\index{Activate\+Fearless@{Activate\+Fearless}!Ability\+Controller@{Ability\+Controller}}
+\subsubsection[{\texorpdfstring{Activate\+Fearless()}{ActivateFearless()}}]{\setlength{\rightskip}{0pt plus 5cm}void Ability\+Controller.\+Activate\+Fearless (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ability_controller_a3871b151f0dbb4f695b326cb2c02c29c}{}\label{class_ability_controller_a3871b151f0dbb4f695b326cb2c02c29c}
+
+
+Function to be called when a player activates the \hyperlink{class_fearless}{Fearless} ability. Checks that \hyperlink{class_fearless}{Fearless} is not already activated and the mouse has sufficient Happiness and sets the mouse \hyperlink{class_fearless}{Fearless} state. 
+
+\index{Ability\+Controller@{Ability\+Controller}!Activate\+Immunity@{Activate\+Immunity}}
+\index{Activate\+Immunity@{Activate\+Immunity}!Ability\+Controller@{Ability\+Controller}}
+\subsubsection[{\texorpdfstring{Activate\+Immunity()}{ActivateImmunity()}}]{\setlength{\rightskip}{0pt plus 5cm}void Ability\+Controller.\+Activate\+Immunity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ability_controller_ab239b2b0f79e5f8036ffd92a60953976}{}\label{class_ability_controller_ab239b2b0f79e5f8036ffd92a60953976}
+
+
+Function to be called when a player activates the \hyperlink{class_immunity}{Immunity} ability. Checks that \hyperlink{class_immunity}{Immunity} is not already activated and the mouse has sufficient Happiness and sets the mouse \hyperlink{class_immunity}{Immunity} state. 
+
+\index{Ability\+Controller@{Ability\+Controller}!Activate\+Scary\+Cat@{Activate\+Scary\+Cat}}
+\index{Activate\+Scary\+Cat@{Activate\+Scary\+Cat}!Ability\+Controller@{Ability\+Controller}}
+\subsubsection[{\texorpdfstring{Activate\+Scary\+Cat()}{ActivateScaryCat()}}]{\setlength{\rightskip}{0pt plus 5cm}void Ability\+Controller.\+Activate\+Scary\+Cat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ability_controller_a665fadfb91f33423469ef2bbb1c02bbb}{}\label{class_ability_controller_a665fadfb91f33423469ef2bbb1c02bbb}
+
+
+Function to be called when a player targets another player with the Scary Cat ability. Checks that the mouse has enough Happiness and calls the Receive\+Scary\+Cat function on the targeted player. 
+
+\index{Ability\+Controller@{Ability\+Controller}!Activate\+Thief@{Activate\+Thief}}
+\index{Activate\+Thief@{Activate\+Thief}!Ability\+Controller@{Ability\+Controller}}
+\subsubsection[{\texorpdfstring{Activate\+Thief()}{ActivateThief()}}]{\setlength{\rightskip}{0pt plus 5cm}void Ability\+Controller.\+Activate\+Thief (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ability_controller_a2fdbe1484427e49e5e64e3e72ff4f069}{}\label{class_ability_controller_a2fdbe1484427e49e5e64e3e72ff4f069}
+
+
+W\+O\+RK IN P\+R\+O\+G\+R\+E\+SS 
+
+\index{Ability\+Controller@{Ability\+Controller}!Activate\+Treats\+Galore@{Activate\+Treats\+Galore}}
+\index{Activate\+Treats\+Galore@{Activate\+Treats\+Galore}!Ability\+Controller@{Ability\+Controller}}
+\subsubsection[{\texorpdfstring{Activate\+Treats\+Galore()}{ActivateTreatsGalore()}}]{\setlength{\rightskip}{0pt plus 5cm}void Ability\+Controller.\+Activate\+Treats\+Galore (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ability_controller_aa69b2c81a09b53e0a56f69d58b11007c}{}\label{class_ability_controller_aa69b2c81a09b53e0a56f69d58b11007c}
+
+
+Function to be called when the player activates the Treats Galore ability. Checks that Treats Galore is not already activated and the mouse has sufficient Happiness. Chooses a random food above a certain point threshold specified in the ability level and boosts its max food count and spawn weight through the associated \hyperlink{class_food_controller}{Food\+Controller} instance. 
+
+\index{Ability\+Controller@{Ability\+Controller}!Receive\+Beastly\+Buffet@{Receive\+Beastly\+Buffet}}
+\index{Receive\+Beastly\+Buffet@{Receive\+Beastly\+Buffet}!Ability\+Controller@{Ability\+Controller}}
+\subsubsection[{\texorpdfstring{Receive\+Beastly\+Buffet(\+Beastly\+Buffet beastly\+Buffet)}{ReceiveBeastlyBuffet(BeastlyBuffet beastlyBuffet)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ability\+Controller.\+Receive\+Beastly\+Buffet (
+\begin{DoxyParamCaption}
+\item[{{\bf Beastly\+Buffet}}]{beastly\+Buffet}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ability_controller_a32935e1cf937f688e446f775bf4c6b1e}{}\label{class_ability_controller_a32935e1cf937f688e446f775bf4c6b1e}
+
+
+Function to be called when a player is affected by another player\textquotesingle{}s Beastly Buffet ability. Chooses a random food below a certain point threshold specified by the attacker\textquotesingle{}s ability and boosts its max food count and spawn weight through the associated Foodcontroller instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em beastly\+Buffet} & \\
+\hline
+\end{DoxyParams}
+\index{Ability\+Controller@{Ability\+Controller}!Receive\+Scary\+Cat@{Receive\+Scary\+Cat}}
+\index{Receive\+Scary\+Cat@{Receive\+Scary\+Cat}!Ability\+Controller@{Ability\+Controller}}
+\subsubsection[{\texorpdfstring{Receive\+Scary\+Cat(\+Scary\+Cat scary\+Cat)}{ReceiveScaryCat(ScaryCat scaryCat)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ability\+Controller.\+Receive\+Scary\+Cat (
+\begin{DoxyParamCaption}
+\item[{{\bf Scary\+Cat}}]{scary\+Cat}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ability_controller_a989129033d7fc245de98273cf067bc87}{}\label{class_ability_controller_a989129033d7fc245de98273cf067bc87}
+
+
+Function to be called when a player is affected by another player\textquotesingle{}s Scary Cat ability. May send the player\textquotesingle{}s mouse offscreen and drop its Weight and Happiness depending on whether the player\textquotesingle{}s \hyperlink{class_fearless}{Fearless} ability is activated and its level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scary\+Cat} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/Ability\+Controller.\+cs\end{DoxyCompactItemize}

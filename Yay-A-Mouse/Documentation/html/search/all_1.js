@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deactivate',['Deactivate',['../class_pool_member.html#a6f883eaed133e4b288a3847aea3ff33a',1,'PoolMember']]]
+  ['beastlybuffet',['BeastlyBuffet',['../class_beastly_buffet.html',1,'BeastlyBuffet'],['../class_abilities.html#afbc391622b333d879a808efe1fd117eb',1,'Abilities.BeastlyBuffet()']]]
 ];

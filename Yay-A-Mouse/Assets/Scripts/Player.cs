@@ -15,11 +15,10 @@ namespace Assets.Scripts
         public enum Status
         {
             None,
-//
             FeedingFrenzy
         }
-        public int score;
-        public Abilities Abilities; //<! The player's Abilities
+        private int score;
+        private Abilities abilities; //<! The player's Abilities
 
         /// <summary>
         /// Creates a new Player with a specified set of abilities.
@@ -27,7 +26,7 @@ namespace Assets.Scripts
         /// <param name="abilities"></param>
         public Player(Abilities abilities)
         {
-            Abilities = abilities;
+            this.abilities = abilities;
         }
 
         /// <summary>
@@ -40,5 +39,6 @@ namespace Assets.Scripts
                 return new Player(Abilities.LevelOneAbilities);
             }
         }
+
     }
 }

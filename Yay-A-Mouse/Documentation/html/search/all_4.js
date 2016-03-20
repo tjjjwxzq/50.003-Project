@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['maxxunits',['maxXUnits',['../class_camera_controller.html#a42b69f34a276c249820bafba804521b8',1,'CameraController']]],
-  ['maxyunits',['maxYUnits',['../class_camera_controller.html#a85a5eec75550876c672aa0f67838ffad',1,'CameraController']]],
-  ['minxunits',['minXUnits',['../class_camera_controller.html#ac90d1e4d5543392c96f8cbcebac532f8',1,'CameraController']]],
-  ['minyunits',['minYUnits',['../class_camera_controller.html#a26974b89d53c6dc5c1e47faa2fc2657b',1,'CameraController']]],
-  ['mouse',['Mouse',['../class_mouse.html',1,'']]],
-  ['movements',['Movements',['../class_food_controller.html#ad3c2e51ce55236ad80384113f1593c79',1,'FoodController']]]
+  ['fatmouse',['FatMouse',['../class_fat_mouse.html',1,'FatMouse'],['../class_abilities.html#a4014f53ffe3878ca09adbb699f013aaf',1,'Abilities.FatMouse()']]],
+  ['fearless',['Fearless',['../class_fearless.html',1,'Fearless'],['../class_abilities.html#a87959e5d0d3b801e4850629239946b95',1,'Abilities.Fearless()'],['../class_mouse.html#aa866c3f02e0e310895d8e5ef4bca6db5',1,'Mouse.Fearless()']]],
+  ['food',['Food',['../class_food.html',1,'']]],
+  ['foodcontroller',['FoodController',['../class_food_controller.html',1,'']]],
+  ['foodmovement',['FoodMovement',['../class_food_controller.html#a345844b04406827705d89526d92a246d',1,'FoodController']]]
 ];

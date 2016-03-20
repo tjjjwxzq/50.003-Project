@@ -25,7 +25,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Yay A Mouse
    </div>
-   <div id="projectbrief">Mobile game for 50.003 project</div>
+   <div id="projectbrief">50.003 Project</div>
   </td>
  </tr>
  </tbody>
@@ -39,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -85,7 +86,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#properties">Properties</a> &#124;
 <a href="class_food_controller-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FoodController Class Reference</div>  </div>
@@ -105,61 +107,108 @@ Inheritance diagram for FoodController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad3c2e51ce55236ad80384113f1593c79"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_controller.html#ad3c2e51ce55236ad80384113f1593c79">Movements</a> { <b>Static</b>, 
+<tr class="memitem:ad3c2e51ce55236ad80384113f1593c79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3c2e51ce55236ad80384113f1593c79"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Movements</b> { <b>Static</b>, 
 <b>Horizontal</b>, 
 <b>Vertical</b>, 
 <b>Random</b>
- }<tr class="memdesc:ad3c2e51ce55236ad80384113f1593c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerator of food movement modes  <a href="class_food_controller.html#ad3c2e51ce55236ad80384113f1593c79">More...</a><br /></td></tr>
-</td></tr>
+ }</td></tr>
 <tr class="separator:ad3c2e51ce55236ad80384113f1593c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9f0f153ce5e90b4e081f4d903cf17808"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_controller.html#a9f0f153ce5e90b4e081f4d903cf17808">setMaxFoodCount</a> (string name, int count)</td></tr>
-<tr class="memdesc:a9f0f153ce5e90b4e081f4d903cf17808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the max food count for the specified food type Can be called by Player Ability code  <a href="#a9f0f153ce5e90b4e081f4d903cf17808">More...</a><br /></td></tr>
+<tr class="memdesc:a9f0f153ce5e90b4e081f4d903cf17808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the max food count for the specified food type Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#a9f0f153ce5e90b4e081f4d903cf17808">More...</a><br /></td></tr>
 <tr class="separator:a9f0f153ce5e90b4e081f4d903cf17808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9fcb378c2333de7796093ef368bfd93"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_controller.html#af9fcb378c2333de7796093ef368bfd93">getMaxFoodCount</a> (string name)</td></tr>
+<tr class="memdesc:af9fcb378c2333de7796093ef368bfd93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the max food count for the specified food type Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#af9fcb378c2333de7796093ef368bfd93">More...</a><br /></td></tr>
+<tr class="separator:af9fcb378c2333de7796093ef368bfd93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae118c67950b39a9b3aaa8e15f027a37b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_controller.html#ae118c67950b39a9b3aaa8e15f027a37b">setFoodSpawnWeight</a> (string name, float weight)</td></tr>
-<tr class="memdesc:ae118c67950b39a9b3aaa8e15f027a37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the food spawn probability weight for the specified food type Can be called by Player Ability code  <a href="#ae118c67950b39a9b3aaa8e15f027a37b">More...</a><br /></td></tr>
+<tr class="memdesc:ae118c67950b39a9b3aaa8e15f027a37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the food spawn probability weight for the specified food type Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#ae118c67950b39a9b3aaa8e15f027a37b">More...</a><br /></td></tr>
 <tr class="separator:ae118c67950b39a9b3aaa8e15f027a37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa210ae3e7b1cc83ba3dab4a36970e19f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_controller.html#aa210ae3e7b1cc83ba3dab4a36970e19f">getFoodSpawnWeight</a> (string name)</td></tr>
+<tr class="memdesc:aa210ae3e7b1cc83ba3dab4a36970e19f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the food spawn probability weight for the specified food type Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#aa210ae3e7b1cc83ba3dab4a36970e19f">More...</a><br /></td></tr>
+<tr class="separator:aa210ae3e7b1cc83ba3dab4a36970e19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33196e4fa774e489de86cedaff452e83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_controller.html#a33196e4fa774e489de86cedaff452e83">setDifficulty</a> (int level)</td></tr>
-<tr class="memdesc:a33196e4fa774e489de86cedaff452e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes food spawning difficulty Can be called by LevelController to change difficulty of the game  <a href="#a33196e4fa774e489de86cedaff452e83">More...</a><br /></td></tr>
+<tr class="memdesc:a33196e4fa774e489de86cedaff452e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes food spawning difficulty Can be called by <a class="el" href="class_level_controller.html" title="Handles game state, such as the player&#39;s combo streak, whether or not the player is in frenzy feeding...">LevelController</a> to change difficulty of the game  <a href="#a33196e4fa774e489de86cedaff452e83">More...</a><br /></td></tr>
 <tr class="separator:a33196e4fa774e489de86cedaff452e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a239fd152177e7e1d5dc13612b6665d10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a239fd152177e7e1d5dc13612b6665d10"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMovement</b> (<a class="el" href="class_food_controller.html#ad3c2e51ce55236ad80384113f1593c79">Movements</a> movement)</td></tr>
-<tr class="separator:a239fd152177e7e1d5dc13612b6665d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a8068d88c9eae23423e9b247f2381c600"><td class="memItemLeft" align="right" valign="top">static const string[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_controller.html#a8068d88c9eae23423e9b247f2381c600">FOOD_NAMES</a></td></tr>
-<tr class="memdesc:a8068d88c9eae23423e9b247f2381c600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of food names  <a href="#a8068d88c9eae23423e9b247f2381c600">More...</a><br /></td></tr>
-<tr class="separator:a8068d88c9eae23423e9b247f2381c600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a057095438030110578a6670576c6fa43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a057095438030110578a6670576c6fa43"></a>
+Sprite[]&#160;</td><td class="memItemRight" valign="bottom"><b>FoodSprites</b></td></tr>
+<tr class="separator:a057095438030110578a6670576c6fa43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a5780c78529b71e8dc914cff2963569b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5780c78529b71e8dc914cff2963569b5"></a>
+string[]&#160;</td><td class="memItemRight" valign="bottom"><b>FoodNames</b><code> [get]</code></td></tr>
+<tr class="separator:a5780c78529b71e8dc914cff2963569b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4440f445f989fec97ae4ceee2ffbd841"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4440f445f989fec97ae4ceee2ffbd841"></a>
+Dictionary&lt; string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>FoodValues</b><code> [get]</code></td></tr>
+<tr class="separator:a4440f445f989fec97ae4ceee2ffbd841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1af49799b84e19e2be274d9c5b149a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1af49799b84e19e2be274d9c5b149a4"></a>
+Dictionary&lt; string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>MaxFoodCounts</b><code> [get]</code></td></tr>
+<tr class="separator:ab1af49799b84e19e2be274d9c5b149a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41c8e47c4b31ac4de5f31599aeed0e36"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41c8e47c4b31ac4de5f31599aeed0e36"></a>
+Dictionary&lt; string, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>FoodSpawnWeights</b><code> [get]</code></td></tr>
+<tr class="separator:a41c8e47c4b31ac4de5f31599aeed0e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a345844b04406827705d89526d92a246d"><td class="memItemLeft" align="right" valign="top">Movements&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_controller.html#a345844b04406827705d89526d92a246d">FoodMovement</a><code> [set]</code></td></tr>
+<tr class="memdesc:a345844b04406827705d89526d92a246d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to set food movement mode. (May not actually need this?)  <a href="#a345844b04406827705d89526d92a246d">More...</a><br /></td></tr>
+<tr class="separator:a345844b04406827705d89526d92a246d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Script attached to <a class="el" href="class_food_controller.html" title="Script attached to FoodController object that controls behavior such as food spawning, and food movement. ">FoodController</a> object that controls behavior such as food spawning, and food movement. </p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a class="anchor" id="ad3c2e51ce55236ad80384113f1593c79"></a>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa210ae3e7b1cc83ba3dab4a36970e19f"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="class_food_controller.html#ad3c2e51ce55236ad80384113f1593c79">FoodController.Movements</a></td>
+          <td class="memname">float FoodController.getFoodSpawnWeight </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Enumerator of food movement modes </p>
+<p>Gets the food spawn probability weight for the specified food type Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td><a class="el" href="class_food.html">Food</a> type to get spawn probability weight for</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af9fcb378c2333de7796093ef368bfd93"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FoodController.getMaxFoodCount </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the max food count for the specified food type Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td><a class="el" href="class_food.html">Food</a> type to get count for</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a33196e4fa774e489de86cedaff452e83"></a>
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +223,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Changes food spawning difficulty Can be called by LevelController to change difficulty of the game </p>
+<p>Changes food spawning difficulty Can be called by <a class="el" href="class_level_controller.html" title="Handles game state, such as the player&#39;s combo streak, whether or not the player is in frenzy feeding...">LevelController</a> to change difficulty of the game </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">level</td><td></td></tr>
@@ -208,7 +257,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the food spawn probability weight for the specified food type Can be called by Player Ability code </p>
+<p>Sets the food spawn probability weight for the specified food type Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td></td></tr>
@@ -243,7 +292,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the max food count for the specified food type Can be called by Player Ability code </p>
+<p>Sets the max food count for the specified food type Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>Name of food</td></tr>
@@ -254,8 +303,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a8068d88c9eae23423e9b247f2381c600"></a>
+<h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a345844b04406827705d89526d92a246d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -263,17 +312,17 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const string [] FoodController.FOOD_NAMES</td>
+          <td class="memname">Movements FoodController.FoodMovement</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> <span class="keywordtype">string</span>[]</div><div class="line">        {<span class="stringliteral">&quot;Normal&quot;</span>, <span class="stringliteral">&quot;Cheese&quot;</span>, <span class="stringliteral">&quot;Carrot&quot;</span>, <span class="stringliteral">&quot;Oat&quot;</span>, <span class="stringliteral">&quot;Apple&quot;</span>, <span class="stringliteral">&quot;Anchovy&quot;</span>, <span class="stringliteral">&quot;Bread&quot;</span>, <span class="stringliteral">&quot;Seed&quot;</span>,</div><div class="line">         <span class="stringliteral">&quot;Bad&quot;</span>, <span class="stringliteral">&quot;Peanut&quot;</span>, <span class="stringliteral">&quot;Orange&quot;</span>, <span class="stringliteral">&quot;Garlic&quot;</span>, <span class="stringliteral">&quot;Chocolate&quot;</span>, <span class="stringliteral">&quot;Poison&quot;</span>}</div></div><!-- fragment -->
-<p>Array of food names </p>
+
+<p>Property to set food movement mode. (May not actually need this?) </p>
 
 </div>
 </div>

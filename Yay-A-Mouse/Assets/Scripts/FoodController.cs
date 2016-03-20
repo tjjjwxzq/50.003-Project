@@ -176,7 +176,7 @@ public class FoodController : MonoBehaviour {
         totalMaxFoodCount = maxFoodCounts.Sum(x => x.Value);
         totalFoodSpawnWeight = foodSpawnWeights.Sum(x => x.Value);
         StartCoroutine(SpawnFood());
-        StartCoroutine(changeFoodDirection());
+        StartCoroutine(ChangeFoodDirection());
 
 	}
 	
@@ -314,7 +314,7 @@ public class FoodController : MonoBehaviour {
     /// Coroutine that changes the direction of food movement every random time interval within a range
     /// </summary>
     /// <returns></returns>
-    IEnumerator changeFoodDirection()
+    IEnumerator ChangeFoodDirection()
     {
         // Customize the waittime range later
         // Where would be a good place to store
@@ -388,7 +388,7 @@ public class FoodController : MonoBehaviour {
     /// Can be called by LevelController to change difficulty of the game
     /// </summary>
     /// <param name="level"></param>
-    public void setDifficulty(int level)
+    public void SetDifficulty(int level)
     {
         foodMovement += level;
     }
@@ -399,6 +399,31 @@ public class FoodController : MonoBehaviour {
     public Movements FoodMovement 
     {
         set { foodMovement = value; }
+    }
+
+    /// <summary>
+    /// Stops food spawning and change of food direction
+    /// and freezes all food on screen in place
+    /// </summary>
+    public void DeactivateController()
+    {
+        StopCoroutine(SpawnFood());
+        StopCoroutine(ChangeFoodDirection());
+
+        foreach(Transform food in transform)
+        {
+            food.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+
+    }
+
+    /// <summary>
+    /// Restarts food spawning and chaning of food direction
+    /// </summary>
+    public void ActivateController()
+    {
+        StartCoroutine(SpawnFood());
+        StartCoroutine(ChangeFoodDirection());
     }
 
 

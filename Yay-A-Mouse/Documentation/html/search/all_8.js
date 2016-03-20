@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['setdifficulty',['setDifficulty',['../class_food_controller.html#a33196e4fa774e489de86cedaff452e83',1,'FoodController']]],
-  ['setfearlessness',['setFearlessness',['../class_mouse.html#a4fac6637572e551f2bc72d82b3b9f251',1,'Mouse']]],
-  ['setfoodspawnweight',['setFoodSpawnWeight',['../class_food_controller.html#ae118c67950b39a9b3aaa8e15f027a37b',1,'FoodController']]],
-  ['setgrowthability',['setGrowthAbility',['../class_mouse.html#a591b2257ad6d7c1afe7fb1d99d3a49be',1,'Mouse']]],
-  ['setimmunity',['setImmunity',['../class_mouse.html#a2b85cb7132ba132f01827968b04cb96f',1,'Mouse']]],
-  ['setmaxfoodcount',['setMaxFoodCount',['../class_food_controller.html#a9f0f153ce5e90b4e081f4d903cf17808',1,'FoodController']]]
+  ['maxxunits',['MaxXUnits',['../class_camera_controller.html#a6b97db2514a3f59c74eb56a013e00c85',1,'CameraController']]],
+  ['maxyunits',['MaxYUnits',['../class_camera_controller.html#a1467ca3823ce8566582bcb6a37d19913',1,'CameraController']]],
+  ['minxunits',['MinXUnits',['../class_camera_controller.html#afbf830e2978734f35fb745fd63d13ca4',1,'CameraController']]],
+  ['minyunits',['MinYUnits',['../class_camera_controller.html#a66577648bab85619c6e72059e0ac4029',1,'CameraController']]],
+  ['mockplayer',['MockPlayer',['../class_assets_1_1_scripts_1_1_player.html#ac7e9d32a9524d55fb9f975208a7d89a2',1,'Assets::Scripts::Player']]],
+  ['mouse',['Mouse',['../class_mouse.html',1,'']]]
 ];

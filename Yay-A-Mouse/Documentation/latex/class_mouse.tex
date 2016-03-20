@@ -11,37 +11,33 @@ Inheritance diagram for Mouse\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{class_mouse}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-int \hyperlink{class_mouse_af6ea562cc24964aedd1a366bb5d0ff64}{get\+Level} ()
-\begin{DoxyCompactList}\small\item\em Gets mouse level \end{DoxyCompactList}\item 
-int \hyperlink{class_mouse_ab21c11a85fa2e820dfd4a5518e95eae3}{get\+Happiness} ()
-\begin{DoxyCompactList}\small\item\em Gets mouse happiness \end{DoxyCompactList}\item 
-void \hyperlink{class_mouse_a2b85cb7132ba132f01827968b04cb96f}{set\+Immunity} (bool immunity)
-\begin{DoxyCompactList}\small\item\em Sets mouse immunity. Can be called by Player Ability code \end{DoxyCompactList}\item 
-void \hyperlink{class_mouse_a591b2257ad6d7c1afe7fb1d99d3a49be}{set\+Growth\+Ability} (int leptin\+Deficiency)
-\begin{DoxyCompactList}\small\item\em Sets mouse leptin\+Deficiency (score multiplier) Can be called by Player Ability code \end{DoxyCompactList}\item 
-void \hyperlink{class_mouse_a4fac6637572e551f2bc72d82b3b9f251}{set\+Fearlessness} (bool fearless)
-\begin{DoxyCompactList}\small\item\em Sets mouse fearless(ness) Can be called by Player Ability code \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Sprite {\bfseries sprite\+Level0}\hypertarget{class_mouse_aa48e6d7fef1050c2311e6ef380252941}{}\label{class_mouse_aa48e6d7fef1050c2311e6ef380252941}
+Sprite\mbox{[}$\,$\mbox{]} {\bfseries Level\+Sprites} = new Sprite\mbox{[}11\mbox{]}\hypertarget{class_mouse_a215f93e37bb5d78b3890c79507461f1f}{}\label{class_mouse_a215f93e37bb5d78b3890c79507461f1f}
 
 \item 
-Sprite {\bfseries sprite\+Level1}\hypertarget{class_mouse_ade84ca0bb1aae359425fbc502e8b7ebd}{}\label{class_mouse_ade84ca0bb1aae359425fbc502e8b7ebd}
-
-\item 
-Sprite {\bfseries sprite\+Level2}\hypertarget{class_mouse_a7845836faea3a82530b4b81d570640cc}{}\label{class_mouse_a7845836faea3a82530b4b81d570640cc}
-
-\item 
-Sprite {\bfseries sprite\+Level3}\hypertarget{class_mouse_ade27e7680ad0c9a5b47126f3abf4209b}{}\label{class_mouse_ade27e7680ad0c9a5b47126f3abf4209b}
-
-\item 
-Sprite {\bfseries sprite\+Level4}\hypertarget{class_mouse_a1ca58dc7fdb852f2ffc4e027b3e0ddd5}{}\label{class_mouse_a1ca58dc7fdb852f2ffc4e027b3e0ddd5}
+Sprite\mbox{[}$\,$\mbox{]} {\bfseries Happiness\+Sprites} = new Sprite\mbox{[}5\mbox{]}\hypertarget{class_mouse_a4c4febebe798e39398129c308a3b7c70}{}\label{class_mouse_a4c4febebe798e39398129c308a3b7c70}
 
 \end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_mouse_add4f90aa1a1e81b981a6b2dfdb0c9e24}{Weight}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Property to get mouse weight. Read only. \end{DoxyCompactList}\item 
+int \hyperlink{class_mouse_a76debda38af30b4b2249757bc316f66e}{Level}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Property to get mouse level. Read only. \end{DoxyCompactList}\item 
+int {\bfseries Happiness}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}\hypertarget{class_mouse_a91cb125845991ce20246753f7eef2b8e}{}\label{class_mouse_a91cb125845991ce20246753f7eef2b8e}
+
+\item 
+bool \hyperlink{class_mouse_a7916f98be8b4afcd422794bbf8994e25}{Immunity}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Property to get and set mouse immunity Can be called by Player \hyperlink{class_ability}{Ability} code \end{DoxyCompactList}\item 
+int \hyperlink{class_mouse_a58afb42b0fa0f4d9fb30795d68a86b82}{Growth\+Ability}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Property to get and set mouse growth ability (leptin deficiency) Can be called by Player \hyperlink{class_ability}{Ability} code \end{DoxyCompactList}\item 
+bool \hyperlink{class_mouse_aa866c3f02e0e310895d8e5ef4bca6db5}{Fearless}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Property to get and set mouse fearless(ness) Can be called by Player \hyperlink{class_ability}{Ability} code \end{DoxyCompactList}\item 
+bool \hyperlink{class_mouse_a4bdbd8793c98c76e0ed8b00717d34325}{Offscreen}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Property to get and set whether the mouse is off-\/screen Can be called by Player \hyperlink{class_ability}{Ability} code \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -49,83 +45,49 @@ Script class that controls behaviour of the mouse. Keeps track of mouses status 
 
 
 
-\subsection{Member Function Documentation}
-\index{Mouse@{Mouse}!get\+Happiness@{get\+Happiness}}
-\index{get\+Happiness@{get\+Happiness}!Mouse@{Mouse}}
-\subsubsection[{\texorpdfstring{get\+Happiness()}{getHappiness()}}]{\setlength{\rightskip}{0pt plus 5cm}int Mouse.\+get\+Happiness (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_mouse_ab21c11a85fa2e820dfd4a5518e95eae3}{}\label{class_mouse_ab21c11a85fa2e820dfd4a5518e95eae3}
+\subsection{Property Documentation}
+\index{Mouse@{Mouse}!Fearless@{Fearless}}
+\index{Fearless@{Fearless}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{Fearless}{Fearless}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse.\+Fearless\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_mouse_aa866c3f02e0e310895d8e5ef4bca6db5}{}\label{class_mouse_aa866c3f02e0e310895d8e5ef4bca6db5}
 
 
-Gets mouse happiness 
+Property to get and set mouse fearless(ness) Can be called by Player \hyperlink{class_ability}{Ability} code 
 
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\index{Mouse@{Mouse}!get\+Level@{get\+Level}}
-\index{get\+Level@{get\+Level}!Mouse@{Mouse}}
-\subsubsection[{\texorpdfstring{get\+Level()}{getLevel()}}]{\setlength{\rightskip}{0pt plus 5cm}int Mouse.\+get\+Level (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_mouse_af6ea562cc24964aedd1a366bb5d0ff64}{}\label{class_mouse_af6ea562cc24964aedd1a366bb5d0ff64}
+\index{Mouse@{Mouse}!Growth\+Ability@{Growth\+Ability}}
+\index{Growth\+Ability@{Growth\+Ability}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{Growth\+Ability}{GrowthAbility}}]{\setlength{\rightskip}{0pt plus 5cm}int Mouse.\+Growth\+Ability\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_mouse_a58afb42b0fa0f4d9fb30795d68a86b82}{}\label{class_mouse_a58afb42b0fa0f4d9fb30795d68a86b82}
 
 
-Gets mouse level 
+Property to get and set mouse growth ability (leptin deficiency) Can be called by Player \hyperlink{class_ability}{Ability} code 
 
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\index{Mouse@{Mouse}!set\+Fearlessness@{set\+Fearlessness}}
-\index{set\+Fearlessness@{set\+Fearlessness}!Mouse@{Mouse}}
-\subsubsection[{\texorpdfstring{set\+Fearlessness(bool fearless)}{setFearlessness(bool fearless)}}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse.\+set\+Fearlessness (
-\begin{DoxyParamCaption}
-\item[{bool}]{fearless}
-\end{DoxyParamCaption}
-)}\hypertarget{class_mouse_a4fac6637572e551f2bc72d82b3b9f251}{}\label{class_mouse_a4fac6637572e551f2bc72d82b3b9f251}
+\index{Mouse@{Mouse}!Immunity@{Immunity}}
+\index{Immunity@{Immunity}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{Immunity}{Immunity}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse.\+Immunity\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_mouse_a7916f98be8b4afcd422794bbf8994e25}{}\label{class_mouse_a7916f98be8b4afcd422794bbf8994e25}
 
 
-Sets mouse fearless(ness) Can be called by Player Ability code 
+Property to get and set mouse immunity Can be called by Player \hyperlink{class_ability}{Ability} code 
+
+\index{Mouse@{Mouse}!Level@{Level}}
+\index{Level@{Level}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{Level}{Level}}]{\setlength{\rightskip}{0pt plus 5cm}int Mouse.\+Level\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_mouse_a76debda38af30b4b2249757bc316f66e}{}\label{class_mouse_a76debda38af30b4b2249757bc316f66e}
 
 
-\begin{DoxyParams}{Parameters}
-{\em fearless} & Boolean value to set fearless to\\
-\hline
-\end{DoxyParams}
-\index{Mouse@{Mouse}!set\+Growth\+Ability@{set\+Growth\+Ability}}
-\index{set\+Growth\+Ability@{set\+Growth\+Ability}!Mouse@{Mouse}}
-\subsubsection[{\texorpdfstring{set\+Growth\+Ability(int leptin\+Deficiency)}{setGrowthAbility(int leptinDeficiency)}}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse.\+set\+Growth\+Ability (
-\begin{DoxyParamCaption}
-\item[{int}]{leptin\+Deficiency}
-\end{DoxyParamCaption}
-)}\hypertarget{class_mouse_a591b2257ad6d7c1afe7fb1d99d3a49be}{}\label{class_mouse_a591b2257ad6d7c1afe7fb1d99d3a49be}
+Property to get mouse level. Read only. 
+
+\index{Mouse@{Mouse}!Offscreen@{Offscreen}}
+\index{Offscreen@{Offscreen}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{Offscreen}{Offscreen}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse.\+Offscreen\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_mouse_a4bdbd8793c98c76e0ed8b00717d34325}{}\label{class_mouse_a4bdbd8793c98c76e0ed8b00717d34325}
 
 
-Sets mouse leptin\+Deficiency (score multiplier) Can be called by Player Ability code 
+Property to get and set whether the mouse is off-\/screen Can be called by Player \hyperlink{class_ability}{Ability} code 
+
+\index{Mouse@{Mouse}!Weight@{Weight}}
+\index{Weight@{Weight}!Mouse@{Mouse}}
+\subsubsection[{\texorpdfstring{Weight}{Weight}}]{\setlength{\rightskip}{0pt plus 5cm}int Mouse.\+Weight\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_mouse_add4f90aa1a1e81b981a6b2dfdb0c9e24}{}\label{class_mouse_add4f90aa1a1e81b981a6b2dfdb0c9e24}
 
 
-\begin{DoxyParams}{Parameters}
-{\em leptin\+Deficiency} & Value to set leptin\+Deficiency to\\
-\hline
-\end{DoxyParams}
-\index{Mouse@{Mouse}!set\+Immunity@{set\+Immunity}}
-\index{set\+Immunity@{set\+Immunity}!Mouse@{Mouse}}
-\subsubsection[{\texorpdfstring{set\+Immunity(bool immunity)}{setImmunity(bool immunity)}}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse.\+set\+Immunity (
-\begin{DoxyParamCaption}
-\item[{bool}]{immunity}
-\end{DoxyParamCaption}
-)}\hypertarget{class_mouse_a2b85cb7132ba132f01827968b04cb96f}{}\label{class_mouse_a2b85cb7132ba132f01827968b04cb96f}
+Property to get mouse weight. Read only. 
 
-
-Sets mouse immunity. Can be called by Player Ability code 
-
-
-\begin{DoxyParams}{Parameters}
-{\em immunity} & Boolean value to set immunity to\\
-\hline
-\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

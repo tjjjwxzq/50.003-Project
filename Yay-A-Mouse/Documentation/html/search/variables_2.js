@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['obj',['obj',['../class_object_pool.html#ab54421fb72fa4934d9cde669fe703919',1,'ObjectPool']]]
+  ['immunity',['Immunity',['../class_abilities.html#a1dd839f597a7474f0a1618ab8f326be4',1,'Abilities']]]
 ];

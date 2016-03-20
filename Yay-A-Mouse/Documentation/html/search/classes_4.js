@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['poolmember',['PoolMember',['../class_pool_member.html',1,'']]]
+  ['immunity',['Immunity',['../class_immunity.html',1,'']]]
 ];
