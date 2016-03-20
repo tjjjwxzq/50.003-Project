@@ -90,37 +90,52 @@ public class FoodController : MonoBehaviour {
     private float totalFoodSpawnWeight; // Sum of all food spawn probability weights
 
 
-    private float minSpawnTime = 1f; // Minimum time to wait between food spawning
-    private float maxSpawnTime = 3.0f; // Maximum time to wait between food spawning
+    private IEnumerator spawnCoroutine;
+    private IEnumerator changeDirectionsCoroutine;
+    private float minSpawnTime = 0.3f; // Minimum time to wait between food spawning
+    private float maxSpawnTime = 2.0f; // Maximum time to wait between food spawning
     private float minChangeTime = 0.5f; // Minimum time to wait between change of food directions
     private float maxChangeTime = 15f; // Maximum time to wait between change of food directions
     private int foodDirection = 1; // Change food direction for Horizontal and Vertical Movement
     private List<Vector2> randDirections = new List<Vector2>(); // Array of random directions For Random Movement
 
     // Public properties
+    // clone data structures to prevent instance escape
     public string[] FoodNames
     {
-        get { return foodNames; }
+        get { return (string[]) foodNames.Clone(); }
     }
 
     public Dictionary<string, int> FoodValues
     {
-        get { return foodValues; }
+        get { return new Dictionary<string,int>(foodValues); }
     }
 
     public Dictionary<string, int> MaxFoodCounts
     {
-        get { return maxFoodCounts; }
+        get { return new Dictionary<string,int>(maxFoodCounts); }
     }
 
     public Dictionary<string, float> FoodSpawnWeights
     {
-        get { return foodSpawnWeights; }
+        get { return new Dictionary<string,float>(foodSpawnWeights); }
+    }
+
+    public Dictionary<string, ObjectPool> FoodPools
+    {
+        get { return new Dictionary<string, ObjectPool>(foodPoolsDict); }
+    }
+
+    public Dictionary<string,Sprite> FoodSpritesDict
+    {
+        get { return new Dictionary<string, Sprite>(foodSpritesDict); }
     }
     
-
-	// Use this for initialization
-	void Start () {
+    // Ensure that certain members are initialized before
+    // they are referenced in the initialization code
+    // of other scripts
+    void Awake()
+    {
         // Get array of food names from sprites assigned in inspector
         foodNames = new string[FoodSprites.Length];
         for(int i = 0; i < FoodSprites.Length; i ++)
@@ -170,14 +185,19 @@ public class FoodController : MonoBehaviour {
             #endif
 
             // Assign food object to object pool
-            foodPool.poolObject = Resources.Load("Prefabs/"+entry.Key) as GameObject;
+            foodPool.PoolObject = Resources.Load("Prefabs/"+entry.Key) as GameObject;
         }
 
         totalMaxFoodCount = maxFoodCounts.Sum(x => x.Value);
         totalFoodSpawnWeight = foodSpawnWeights.Sum(x => x.Value);
-        StartCoroutine(SpawnFood());
-        StartCoroutine(ChangeFoodDirection());
 
+    }
+
+	void Start () {
+        spawnCoroutine = SpawnFood();
+        changeDirectionsCoroutine = ChangeFoodDirection();
+        StartCoroutine(spawnCoroutine);
+        StartCoroutine(changeDirectionsCoroutine);
 	}
 	
 	// Update is called once per frame
@@ -263,7 +283,7 @@ public class FoodController : MonoBehaviour {
 
             if( foodPoolsDict[foodName].ActiveObjects < maxFoodCounts[foodName])
             {
-                GameObject food = foodPoolsDict[foodName].getObj();
+                GameObject food = foodPoolsDict[foodName].GetObj();
 
                 // Spawn at a random position
                 // make sure it doesn't overlap with
@@ -407,12 +427,12 @@ public class FoodController : MonoBehaviour {
     /// </summary>
     public void DeactivateController()
     {
-        StopCoroutine(SpawnFood());
-        StopCoroutine(ChangeFoodDirection());
+        StopCoroutine(spawnCoroutine);
+        StopCoroutine(changeDirectionsCoroutine);
 
         foreach(Transform food in transform)
         {
-            food.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            food.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
         }
 
     }
@@ -422,8 +442,8 @@ public class FoodController : MonoBehaviour {
     /// </summary>
     public void ActivateController()
     {
-        StartCoroutine(SpawnFood());
-        StartCoroutine(ChangeFoodDirection());
+        StartCoroutine(spawnCoroutine);
+        StartCoroutine(changeDirectionsCoroutine);
     }
 
 

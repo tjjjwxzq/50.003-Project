@@ -22,7 +22,7 @@ public class ObjectPool : MonoBehaviour {
     /// and dynamically grows the pool.
     /// </summary>
     /// <returns></returns>
-    public GameObject getObj()
+    public GameObject GetObj()
     {
         if(pool.Count == 0)
         {
@@ -50,7 +50,7 @@ public class ObjectPool : MonoBehaviour {
     /// To be called by PoolMember::Deactivate()
     /// </summary>
     /// <param name="obj"></param>
-    public void returnObj(GameObject obj)
+    public void ReturnObj(GameObject obj)
     {
         obj.SetActive(false);
         pool.Add(obj);
@@ -69,7 +69,7 @@ public class ObjectPool : MonoBehaviour {
     /// <summary>
     /// Property to get and set object of the pool
     /// </summary>
-    public GameObject poolObject 
+    public GameObject PoolObject 
     {
         get { return obj; }
         set { obj = value; }

@@ -16,7 +16,7 @@ public class PoolMember : MonoBehaviour {
     /// </summary>
     public void Deactivate()
     {
-        pool.returnObj(gameObject);
+        pool.ReturnObj(gameObject);
     }
 
     public void setPool(ObjectPool pool) { this.pool = pool; }

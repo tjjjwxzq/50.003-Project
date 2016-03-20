@@ -11,8 +11,10 @@ using UnityEngine.Networking;
 public class Player : NetworkBehaviour
 {
     private AbilityController abilityController;
-    private string name;
-    private Abilities abilities; //<! The player's Abilities
+
+    public string name;
+
+    public Abilities PAbilities; //<! The player's Abilities
 
     // network score so other players can see your progress
     // *** @junqi: to access this in other scripts/clients, first initialise Player player, followed by player.score
@@ -36,8 +38,7 @@ public class Player : NetworkBehaviour
         FatMouse,      // index 4
         ScaryCat,      // index 5
         BeastlyBuffet, // index 6
-        Thief,          // index 7
-        FrenzyFeeding
+        Thief          // index 7
     };
 
     /// <summary>
@@ -46,7 +47,7 @@ public class Player : NetworkBehaviour
     /// <param name="abilities"></param>
     public Player(Abilities abilities)
     {
-        Abilities = abilities;
+        this.PAbilities = abilities;
     }
 
     /// <summary>
@@ -73,15 +74,15 @@ public class Player : NetworkBehaviour
     [Command] // by default on channel 0
     public void CmdActivateAbilities(GameObject button)
     {
-        abilityController.ActivateAbility(button.name());
+        abilityController.ActivateAbility((AbilityName)System.Enum.Parse(typeof(AbilityName), button.name)); // i.e. use this to get AbilityName.Immunity when button.name is Immunity
         status = 0; // change back to normal state
     }
 
     // method to call list of abilities this player has
     // *** @junqi/jiayu: where's the option for the player to choose the abilities he/she wants such that we can initalise all players to have EmptyAbilities then set the leve of those they choose to be 1?
-    private List<Abilities> getAbilities()
+    public List<Ability> getAbilities()
     {
-        return abilities.GetListOfAbilities();
+        return PAbilities.GetListOfAbilities();
     }
 
     void Update()
@@ -90,7 +91,7 @@ public class Player : NetworkBehaviour
             return;
 
         // if player is not at normal state, activate correponding ability
-        if (checkStatus != 0)
+        if (checkStatus() == 0)
         {
             // Command function is called from the client, but invoked on the server
             CmdActivateAbilities(button);

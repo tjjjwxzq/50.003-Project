@@ -12,6 +12,9 @@ using System.Collections;
 /// </summary>
 public class Mouse: MonoBehaviour {
 
+    // Reference to levelcontroller
+    private LevelController levelController;
+
     //Mouse sprites
     private SpriteRenderer spriteRenderer;
     public Sprite[] LevelSprites = new Sprite[11];
@@ -51,6 +54,9 @@ public class Mouse: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //Get level controller
+        levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+
         //Components
         spriteRenderer = GetComponent<SpriteRenderer>();
         mouseHappinessImage = GameObject.Find("MouseStatus").GetComponent<Image>();
@@ -108,7 +114,6 @@ public class Mouse: MonoBehaviour {
 
     void checkHappiness()
     {
-        Debug.Log("Mouse happiness is " + happiness);
         // Update meter fill sprite
         mouseHappinessFill.rectTransform.localScale = new Vector2(1f, ((float)happiness) / happinessLevels[happinessLevels.Length - 1]);
 
@@ -146,7 +151,7 @@ public class Mouse: MonoBehaviour {
         // For mouse input
         if (Input.GetMouseButtonDown(0))
         {
-            detectTouch(Input.mousePosition);
+            stroked = detectTouch(Input.mousePosition);
 
         }
         if (Input.GetMouseButton(0))
@@ -175,7 +180,7 @@ public class Mouse: MonoBehaviour {
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    detectTouch(Input.GetTouch(0).position);
+                    stroked = detectTouch(Input.GetTouch(0).position);
                     break;
 
                 case TouchPhase.Moved:
@@ -200,13 +205,42 @@ public class Mouse: MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// To be called by level controller
+    /// to see whether mouse has been tapped
+    /// Fires food at mouse if mouse is tapped
+    /// </summary>
+    public bool detectTapping()
+    {
+         // For mouse input
+        if (Input.GetMouseButtonDown(0))
+        {
+            return detectTouch(Input.mousePosition);
+
+        }
+
+        // For touch input
+        if(Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0); 
+            switch (touch.phase)
+            {
+               case TouchPhase.Ended:
+                    return true;
+            }
+
+        }
+
+        return false;
+    }
+
 
     /// <summary>
     /// Detects whether mouse has been touched
     /// If yes sets stroked to true to begin stroke detection
     /// </summary>
     /// <param name="pos">Position of touch</param>
-    void detectTouch(Vector3 pos)
+    bool detectTouch(Vector3 pos)
     {
         Vector3 wpos = Camera.main.ScreenToWorldPoint(pos);
         Vector2 touchPos = new Vector2(wpos.x, wpos.y);
@@ -214,9 +248,10 @@ public class Mouse: MonoBehaviour {
 
         if (colObj == GetComponent<Collider2D>())
         {
-            stroked = true;
+            return true;
         }
 
+        return false;
     }
 
 
@@ -274,6 +309,8 @@ public class Mouse: MonoBehaviour {
         if(collision.gameObject.tag == "Food")  // different food prefabs are tagged with food
         {
             Food food = collision.gameObject.GetComponent<Food>();
+            // update combo sequence
+            levelController.UpdateSequence(food.Type);
             // include score multiplier only for good food
             weight += food.NutritionalValue > 0 ? food.NutritionalValue * leptinDeficiency: food.NutritionalValue;
             if (weight < 0)

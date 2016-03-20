@@ -34,16 +34,20 @@ public class Food: MonoBehaviour {
         detectTouchSwipe();
 
         // Check if food is out of screen; if so return it to object pool
-        if(spriteRenderer.bounds.min.x > CameraController.MaxXUnits || spriteRenderer.bounds.max.x < CameraController.MinXUnits)
+        if(gameObject.GetComponent<PoolMember>() != null)
         {
-            gameObject.GetComponent<PoolMember>().Deactivate();
+            if(spriteRenderer.bounds.min.x > CameraController.MaxXUnits || spriteRenderer.bounds.max.x < CameraController.MinXUnits)
+            {
+                gameObject.GetComponent<PoolMember>().Deactivate();
+            }
+            
+            if(spriteRenderer.bounds.min.y > CameraController.MaxYUnits || spriteRenderer.bounds.max.y < CameraController.MinYUnits)
+            {
+                gameObject.GetComponent<PoolMember>().Deactivate();
+            }
+     
         }
-        
-        if(spriteRenderer.bounds.min.y > CameraController.MaxYUnits || spriteRenderer.bounds.max.y < CameraController.MinYUnits)
-        {
-            gameObject.GetComponent<PoolMember>().Deactivate();
-        }
- 
+
 	
 	}
 
