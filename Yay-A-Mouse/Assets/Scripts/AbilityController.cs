@@ -129,7 +129,7 @@ public class AbilityController : MonoBehaviour
         if (abilityLastActivatedTimes.ContainsKey(ability))
         {
             var timeSinceLastActivation = DateTime.Now.Subtract(abilityLastActivatedTimes[ability]).Seconds;
-            return timeSinceLastActivation < player.Abilities[ability].Duration;
+            return timeSinceLastActivation < player.abilities[ability].Duration;
         }
         else return false;
     }
@@ -180,11 +180,11 @@ public class AbilityController : MonoBehaviour
     public void ActivateImmunity()
     {
         if (mouse.Immunity) return;
-        if (mouse.Happiness < player.Abilities.Immunity.Cost) return;
+        if (mouse.Happiness < player.abilities.Immunity.Cost) return;
         mouseIsImmune = true;
         mouse.Immunity = true;
         abilityLastActivatedTimes[AbilityName.Immunity] = DateTime.Now;
-        mouse.Happiness -= player.Abilities.Immunity.Cost;
+        mouse.Happiness -= player.abilities.Immunity.Cost;
     }
 
     /// <summary>
@@ -195,11 +195,11 @@ public class AbilityController : MonoBehaviour
     public void ActivateFearless()
     {
         if (mouse.Fearless) return;
-        if (mouse.Happiness < player.Abilities.Fearless.Cost) return;
+        if (mouse.Happiness < player.abilities.Fearless.Cost) return;
         mouseIsFearless = true;
         mouse.Fearless = true;
         abilityLastActivatedTimes[AbilityName.Fearless] = DateTime.Now;
-        mouse.Happiness -= player.Abilities.Fearless.Cost;
+        mouse.Happiness -= player.abilities.Fearless.Cost;
     }
 
     /// <summary>
@@ -211,16 +211,16 @@ public class AbilityController : MonoBehaviour
     /// </summary>
     public void ActivateTreatsGalore()
     {
-        if (mouse.Happiness < player.Abilities.TreatsGalore.Cost) return;
-        var goodFoods = foodController.FoodValues.Where(food => food.Value > player.Abilities.TreatsGalore.PointThreshold).ToList();
+        if (mouse.Happiness < player.abilities.TreatsGalore.Cost) return;
+        var goodFoods = foodController.FoodValues.Where(food => food.Value > player.abilities.TreatsGalore.PointThreshold).ToList();
         var random = new Random();
         var boostedFood = goodFoods[random.Next(goodFoods.Count)].Key;
-        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.Abilities.TreatsGalore.SpawnLimitMultiplier);
-        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood)*player.Abilities.TreatsGalore.SpawnWeightMultiplier);
+        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.abilities.TreatsGalore.SpawnLimitMultiplier);
+        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood)*player.abilities.TreatsGalore.SpawnWeightMultiplier);
         treatsGaloreBoostedFood = boostedFood;
         treatsGaloreIsActive = true;
         abilityLastActivatedTimes[AbilityName.TreatsGalore] = DateTime.Now;
-        mouse.Happiness -= player.Abilities.TreatsGalore.Cost;
+        mouse.Happiness -= player.abilities.TreatsGalore.Cost;
     }
 
     /// <summary>
@@ -232,11 +232,11 @@ public class AbilityController : MonoBehaviour
     public void ActivateFatMouse()
     {
         if (mouseIsFat) return;
-        if (mouse.Happiness < player.Abilities.FatMouse.Cost) return;
+        if (mouse.Happiness < player.abilities.FatMouse.Cost) return;
         mouseIsFat = true;
-        mouse.GrowthAbility = player.Abilities.FatMouse.WeightMultiplier;
+        mouse.GrowthAbility = player.abilities.FatMouse.WeightMultiplier;
         abilityLastActivatedTimes[AbilityName.FatMouse] = DateTime.Now;
-        mouse.Happiness -= player.Abilities.FatMouse.Cost;
+        mouse.Happiness -= player.abilities.FatMouse.Cost;
     }
 
     /// <summary>
@@ -246,10 +246,10 @@ public class AbilityController : MonoBehaviour
     /// </summary>
     public void ActivateScaryCat()
     {
-        if (mouse.Happiness < player.Abilities.ScaryCat.Cost) return;
+        if (mouse.Happiness < player.abilities.ScaryCat.Cost) return;
         // todo: networking part
         // call ReceiveScaryCat(player.Abilities.ScaryCat) on target player
-        mouse.Happiness -= player.Abilities.ScaryCat.Cost;
+        mouse.Happiness -= player.abilities.ScaryCat.Cost;
     }
 
     /// <summary>
@@ -271,7 +271,7 @@ public class AbilityController : MonoBehaviour
         {
             if (mouseIsFearless)
             {
-                if (player.Abilities.Fearless.DropHappiness && player.Abilities.Fearless.DropWeight)
+                if (player.abilities.Fearless.DropHappiness && player.abilities.Fearless.DropWeight)
                 {
                     // "A scary cat came over, but your mouse stood its ground. However, its happiness and weight still dropped
                     mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
@@ -280,7 +280,7 @@ public class AbilityController : MonoBehaviour
                     //  ? 0
                     //  : mouse.Weight - scaryCat.WeightReduction;
                 }
-                else if (player.Abilities.Fearless.DropHappiness)
+                else if (player.abilities.Fearless.DropHappiness)
                 {
                     // "A scary cat came over, but your mouse bravely stood its ground. However, its happiness still dropped."
                     mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
@@ -313,10 +313,10 @@ public class AbilityController : MonoBehaviour
     /// </summary>
     public void ActivateBeastlyBuffet()
     {
-        if (mouse.Happiness < player.Abilities.BeastlyBuffet.Cost) return;
+        if (mouse.Happiness < player.abilities.BeastlyBuffet.Cost) return;
         // todo: networking
         // call ReceiveBeastlyBuffet(player.Abilities.BeastlyBuffet) on target player
-        mouse.Happiness -= player.Abilities.BeastlyBuffet.Cost;
+        mouse.Happiness -= player.abilities.BeastlyBuffet.Cost;
     }
 
     /// <summary>
@@ -330,8 +330,8 @@ public class AbilityController : MonoBehaviour
         var badFoods = foodController.FoodValues.Where(food => food.Value < beastlyBuffet.PointThreshold).ToList();
         var random = new Random();
         var boostedFood = badFoods[random.Next(badFoods.Count)].Key;
-        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.Abilities.TreatsGalore.SpawnLimitMultiplier);
-        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood)*player.Abilities.TreatsGalore.SpawnWeightMultiplier);
+        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.abilities.TreatsGalore.SpawnLimitMultiplier);
+        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood)*player.abilities.TreatsGalore.SpawnWeightMultiplier);
         beastlyBuffetBoostedFood = boostedFood;
         beastlyBuffetIsActive = true;
         abilityLastActivatedTimes[AbilityName.BeastlyBuffet] = DateTime.Now;
