@@ -15,6 +15,8 @@ public class Player : NetworkBehaviour
     public string Name;
     public Color Color;
 
+    public Color color;
+
     public Abilities PAbilities; //<! The player's Abilities
 
     // network score so other players can see your progress
