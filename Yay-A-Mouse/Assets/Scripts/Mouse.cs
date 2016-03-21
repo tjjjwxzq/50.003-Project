@@ -17,7 +17,9 @@ public class Mouse: MonoBehaviour {
 
     //Mouse sprites
     private SpriteRenderer spriteRenderer;
+    private SpriteRenderer shadowSpriteRenderer;
     public Sprite[] LevelSprites = new Sprite[11];
+    public Sprite[] ShadowSprites = new Sprite[11];
 
     //Happiness status sprites
     private Image mouseHappinessImage;
@@ -59,11 +61,13 @@ public class Mouse: MonoBehaviour {
 
         //Components
         spriteRenderer = GetComponent<SpriteRenderer>();
+        shadowSpriteRenderer = GameObject.Find("Shadow").GetComponent<SpriteRenderer>();
         mouseHappinessImage = GameObject.Find("MouseStatus").GetComponent<Image>();
         mouseHappinessFill = GameObject.Find("Fill").GetComponent<Image>();
 
         //For scaling
-        scale = (200 + (float)weight) / weightLevels[weightLevels.Length -1];
+        float weightRatio = (float) weight / weightLevels[weightLevels.Length - 1];
+        scale = -0.8f * weightRatio * weightRatio + 1.6f * weightRatio + 0.2f;
         transform.localScale = defaultScale* scale;
         
         //Rotation parameters
@@ -78,7 +82,8 @@ public class Mouse: MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Scale mouse size based on weight
-        scale = (200 + (float)weight) / weightLevels[weightLevels.Length - 1];
+        float weightRatio = (float) weight / weightLevels[weightLevels.Length - 1];
+        scale = -0.8f * weightRatio * weightRatio + 1.6f * weightRatio + 0.2f;
         transform.localScale = defaultScale* scale;
         //Rotate mouse
         StartCoroutine(RotateWithEasing(finalAngle1, finalAngle2, transform));
@@ -106,6 +111,7 @@ public class Mouse: MonoBehaviour {
             {
                 level = i-1;
                 spriteRenderer.sprite = LevelSprites[i];
+                shadowSpriteRenderer.sprite = ShadowSprites[i];
                 break;
             }
         }

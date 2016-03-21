@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections.Generic;
 using System.Linq;
 using Random = System.Random;
@@ -9,7 +10,7 @@ using Random = System.Random;
 /// Implements functions to be called when abilities are activated by a player
 /// or when a player is affected by an ability activated by another player.
 /// </summary>
-public class AbilityController : MonoBehaviour
+public class AbilityController : NetworkBehaviour 
 {
     // Other GameObjects
     private Mouse mouse;

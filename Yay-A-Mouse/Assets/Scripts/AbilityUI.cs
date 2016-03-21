@@ -3,9 +3,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEngine.Networking;
 
-public class AbilityControls : NetworkBehaviour
+public class AbilityUI : MonoBehaviour 
 {
     // Ability sprites
     public Sprite[] abilitySprites;
@@ -26,7 +25,7 @@ public class AbilityControls : NetworkBehaviour
     // Use this for initialization
     void Start()
     {
-        abilityController = GameObject.Find("AbilityController").GetComponent<AbilityController>();
+        abilityController = GameObject.Find("Player").GetComponent<AbilityController>();
         player = Player.MockPlayer;
         playerAbilities = player.getAbilities();
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();

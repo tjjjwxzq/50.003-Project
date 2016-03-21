@@ -17,7 +17,7 @@ public class LevelController : MonoBehaviour {
 
     // Normal or frenzy mode
     public enum GameMode { Normal, Frenzy };
-    private GameMode mode = GameMode.Frenzy;
+    private GameMode mode = GameMode.Normal;
 
     // Reference to food controller and mouse and object pool scripts 
     private FoodController foodController;
@@ -27,21 +27,24 @@ public class LevelController : MonoBehaviour {
     // Food combo state
     private string[] eligibleFoods;
     private string[] foodCombo = new string[3]; // array of food names
-    private const float minUpdateTime = 5f;
-    private const float maxUpdateTime = 10f;
+    private const float minUpdateTime = 10f;
+    private const float maxUpdateTime = 20f;
     private const int FoodCountMin = 5; // minimum max food count before food type has a chance to be included in combo
     private const int ScoreBonus = 20;
     private int countStreak = 0;     // length of combo streak
     private int sequenceFed = 0;     // count the number of correct food fed
 
     // Frenzy mode 
-    private bool changedMode = true; // to ensure set up only happens once, when switching modes
+    private bool changedMode = false; // to ensure set up only happens once, when switching modes
     private const int FrenzyComboCount = 5; // length of combo streak before entering frenzy mode
     private const int FrenzyModeTime = 10; // number of seconds frenzy mode lasts
     private float frenzyTimer = FrenzyModeTime; // timer to countdown frenzy mode
 
     // Container UI game objects
+    public Sprite comboBGNormal;
+    public Sprite comboBGHighlight;
     private GameObject comboUI;
+    private Image[] comboBackgrounds = new Image[3];
     private Image[] comboImages = new Image[3];
     private GameObject playerAvatarUI;
     private GameObject playerAvatar; // player avatar prefab
@@ -67,6 +70,7 @@ public class LevelController : MonoBehaviour {
         for(int i = 0; i < comboImages.Length; i++)
         {
             comboImages[i] = comboUI.transform.GetChild(i).GetChild(0).GetComponent<Image>();
+            comboBackgrounds[i] = comboUI.transform.GetChild(i).GetComponent<Image>();
         }
 
         // Get players UI
@@ -166,13 +170,18 @@ public class LevelController : MonoBehaviour {
     private IEnumerator updateFoodCombo()
     {
         // Reset food combo
-        for(int i = 0; i< foodCombo.Length; i++)
+        for (;;)
         {
-            foodCombo[i] = eligibleFoods[Random.Range(0,eligibleFoods.Length)];
-            comboImages[i].sprite = foodController.FoodSpritesDict[foodCombo[i]];
+            for(int i = 0; i< foodCombo.Length; i++)
+            {
+                Debug.Log("Updating food combo");
+                foodCombo[i] = eligibleFoods[Random.Range(0,eligibleFoods.Length)];
+                comboImages[i].sprite = foodController.FoodSpritesDict[foodCombo[i]];
+            }
+        yield return new WaitForSeconds(Random.Range(minUpdateTime, maxUpdateTime));
+
         }
 
-        yield return new WaitForSeconds(Random.Range(minUpdateTime, maxUpdateTime));
     }
 
     /// <summary>
@@ -262,12 +271,15 @@ public class LevelController : MonoBehaviour {
     {
         if (foodType.Equals(foodCombo[sequenceFed], System.StringComparison.Ordinal))
         {
+            comboBackgrounds[sequenceFed].sprite = comboBGHighlight;
             sequenceFed += 1;
             Debug.Log("Updating sequence" + sequenceFed);
         }
         else
         {
             // Reset sequence
+            foreach (Image comboBG in comboBackgrounds)
+                comboBG.sprite = comboBGNormal;
             sequenceFed = 0;
             Debug.Log("Reset sequence" + sequenceFed);
         }

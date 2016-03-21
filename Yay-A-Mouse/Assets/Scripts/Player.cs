@@ -12,7 +12,8 @@ public class Player : NetworkBehaviour
 {
     private AbilityController abilityController;
 
-    public string name;
+    public string Name;
+    public Color Color;
 
     public Abilities PAbilities; //<! The player's Abilities
 
