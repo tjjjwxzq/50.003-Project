@@ -15,7 +15,8 @@ public class AbilityController : MonoBehaviour
     private Mouse mouse;
     private FoodController foodController;
     private Player player;
-
+    private List<GameObject> players;
+     
     // Simple status flags
     private bool mouseIsImmune;
     private bool mouseIsFearless;
@@ -57,6 +58,9 @@ public class AbilityController : MonoBehaviour
 
         defaultMaxFoodCounts = new Dictionary<string, int>(foodController.MaxFoodCounts);
         defaultFoodSpawnWeights = new Dictionary<string, float>(foodController.FoodSpawnWeights);
+
+        players = new List<GameObject>(GameObject.FindGameObjectsWithTag("player"));
+
     }
 
     // Update is called once per frame
@@ -88,7 +92,7 @@ public class AbilityController : MonoBehaviour
                 mouseIsFearless = false;
                 mouse.Fearless = false;
             }
-                
+
         }
 
         if (mouseIsFat)
@@ -220,8 +224,8 @@ public class AbilityController : MonoBehaviour
         var goodFoods = foodController.FoodValues.Where(food => food.Value > player.PAbilities.TreatsGalore.PointThreshold).ToList();
         var random = new Random();
         var boostedFood = goodFoods[random.Next(goodFoods.Count)].Key;
-        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.PAbilities.TreatsGalore.SpawnLimitMultiplier);
-        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood)*player.PAbilities.TreatsGalore.SpawnWeightMultiplier);
+        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * player.PAbilities.TreatsGalore.SpawnLimitMultiplier);
+        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * player.PAbilities.TreatsGalore.SpawnWeightMultiplier);
         treatsGaloreBoostedFood = boostedFood;
         treatsGaloreIsActive = true;
         abilityLastActivatedTimes[AbilityName.TreatsGalore] = DateTime.Now;
@@ -280,10 +284,9 @@ public class AbilityController : MonoBehaviour
                 {
                     // "A scary cat came over, but your mouse stood its ground. However, its happiness and weight still dropped
                     mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
-                    // todo: @junqi let me change the mouse weight please?
-                    // mouse.Weight = mouse.Weight < scaryCat.WeightReduction
-                    //  ? 0
-                    //  : mouse.Weight - scaryCat.WeightReduction;
+                    mouse.Weight = mouse.Weight < scaryCat.WeightReduction
+                     ? 0
+                     : mouse.Weight - scaryCat.WeightReduction;
                 }
                 else if (player.PAbilities.Fearless.DropHappiness)
                 {
@@ -299,10 +302,9 @@ public class AbilityController : MonoBehaviour
             {
                 // "A scary cat came over, and your mouse ran away! Its happiness and weight also dropped."
                 mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
-                // todo: @junqi let me change the mouse weight please?
-                // mouse.Weight = mouse.Weight < scaryCat.WeightReduction
-                //  ? 0
-                //  : mouse.Weight - scaryCat.WeightReduction
+                mouse.Weight = mouse.Weight < scaryCat.WeightReduction
+                 ? 0
+                 : mouse.Weight - scaryCat.WeightReduction;
                 mouse.Offscreen = true;
                 mouseIsOffscreen = true;
                 abilityLastActivatedTimes[AbilityName.ScaryCat] = DateTime.Now;
@@ -335,8 +337,8 @@ public class AbilityController : MonoBehaviour
         var badFoods = foodController.FoodValues.Where(food => food.Value < beastlyBuffet.PointThreshold).ToList();
         var random = new Random();
         var boostedFood = badFoods[random.Next(badFoods.Count)].Key;
-        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood)*player.PAbilities.TreatsGalore.SpawnLimitMultiplier);
-        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood)*player.PAbilities.TreatsGalore.SpawnWeightMultiplier);
+        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * player.PAbilities.TreatsGalore.SpawnLimitMultiplier);
+        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * player.PAbilities.TreatsGalore.SpawnWeightMultiplier);
         beastlyBuffetBoostedFood = boostedFood;
         beastlyBuffetIsActive = true;
         abilityLastActivatedTimes[AbilityName.BeastlyBuffet] = DateTime.Now;
@@ -348,6 +350,41 @@ public class AbilityController : MonoBehaviour
     /// </summary>
     public void ActivateThief()
     {
-        // todo: not sure how to affect spawn interval and move food yet
+        if (mouse.Happiness < player.PAbilities.Thief.Cost) return;
+        // todo: networking
+        // todo: call ReceiveThief(player.Abilities.Thief) on target player
+        // todo: increase spawn interval
+        mouse.Happiness -= player.PAbilities.Thief.Cost;
+    }
+
+    public void ReceiveThief(Thief thief)
+    {
+        var foods = foodController.GetComponents<ObjectPool>();
+        var goodFoods =
+            foods.Where(food => food.PoolObject.GetComponent<Food>().NutritionalValue > 0).ToList();
+        var random = new Random();
+        var toTransfer = new List<string>();
+        var foodsTaken = 0;
+        while (foodsTaken < thief.FoodUnitsTransferred)
+        {
+            if (goodFoods.Count == 0) break;
+            var poolToStealFrom = goodFoods[random.Next(goodFoods.Count)];
+            if (poolToStealFrom.ActiveObjects > 0)
+            {
+                toTransfer.Add(poolToStealFrom.GetComponent<Food>().Type);
+                poolToStealFrom.transform.GetChild(0).GetComponent<PoolMember>().Deactivate();
+                foodsTaken++;
+            }
+            else goodFoods.Remove(poolToStealFrom);
+        }
+
+        // todo: decrease spawn interval
+
+        // call ReceiveStolenFood(toTransfer) on player who stole food
+    }
+
+    public void ReceiveStolenFood(List<ObjectPool> loot)
+    {
+        // spawn each food from each string in loot
     }
 }
