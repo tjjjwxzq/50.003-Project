@@ -131,5 +131,29 @@ Player abilities come in two types: those that boost said player and those that 
   * Level 2: increase spawn interval of chosen player by 2 times and decrease own spawn interval by 2 times. Removes up to 15 good food from chosen player's screen and adds them to yours.
 
 
+## Networking
+### Saving Player Name
+When the player launches the app for the first time, a scene is entered where the players is prompted for his/her name. This name is saved locally and is used by default next time, but the player may change it through player settings (through the main menu). This can be saved simply using `PlayerPrefs.SetString("Name", "PlayerNameHere")` and got using `PlayerPrefs.GetString("Name")`
 
+### Local Network Discovery
+From the start screen a player can choose to host or join a game on the local network. This is done by using the `NetworkDiscovery` component which allows one to start a server that will broadcast UDP messages and clients that will listen for them.
 
+The `NetworkDiscovery` class is extended and its `OnReceivedBroadcast` message is overridden to enable clients to be started by the `NetworkLobbyManager`.
+
+### Lobby
+In the Lobby scene, on initialization (`OnStartLocalPlayer()`), the local player should set its name using the saved `PlayerPrefs`, then call a command right after to inform the server that the name was changed. The name variable should also be a `SyncVar` so the change is reflected on all clients.
+
+When a player enters the lobby (`OnClientEnterLobby()`), the UI avatar should be set up with the correct name (?? is this called before `OnStartLocalPlayer()`?)
+
+Ideally each player should be able to tap on their avatar/icon to change their color. The colors should be unique, so if any of the colors are used by other players, the tap skips to the next unused color in the list. So given a list of all the possible colors, maintain a list of used colours.
+When a player first enters the lobby, go through the list of possible colors till the first unused one is found, then set that as the default color.
+When the player taps on the avatar to change color, look through the list to find the next unused color. Set that as the new color, and remove the old color from the list of used colors.
+The function to change the color should be a command (sent to the server) wrapped in another callback function attached to the UI button.
+
+Under each player avatar there should be a ready button, which should be bound to a method that will call either `SendReadyToBeginMessage()` or `SendNotReadyToBeginMessage()` depending on the current `readyToBegin` flag.
+
+There will be a start button in the lobby that will only be enabled when all the players in the lobby are ready. This can happen even when there are less than 4 players (min players is 2 and max is 4).
+
+To pass the player colors from the lobby scene to the main scene, use `OnLobbyServerSceneLoadedForPlayer()`.
+
+### Main Game
