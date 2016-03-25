@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngineInternal;
 
 /// <summary>
 /// Container class for a player's abilities at any point in time. Always associated with a Player instance.
@@ -100,7 +99,7 @@ public class Abilities
 
     public List<Ability> GetListOfAbilities()
     {
-        return (from AbilityName abilityName in Enum.GetValues(typeof(AbilityName)) where this[abilityName].Level != 0 select (Ability)this[abilityName]).ToList();
+        return (from AbilityName abilityName in Enum.GetValues(typeof(AbilityName)) where this[abilityName].Level != 0 select this[abilityName]).ToList();
     }
 }
 
@@ -125,6 +124,10 @@ public enum AbilityName
 public abstract class Ability
 {
     public AbilityName Name { get; protected set; }
+    public string Description { get; protected set; }
+    public int MaxLevel { get; protected set; }
+    public abstract string GetDetails();
+
     public int Level { get; protected set; }
     public int Cost { get; protected set; }
     public int Duration { get; protected set; }
@@ -138,6 +141,9 @@ public class Immunity : Ability
     public Immunity(int level)
     {
         Name = AbilityName.Immunity;
+        Description = "Mouse becomes immune to bad food for a short while.";
+        MaxLevel = 2;
+
         Level = level;
         switch (level)
         {
@@ -155,6 +161,11 @@ public class Immunity : Ability
                 throw new NotImplementedException("level out of range");
         }
     }
+
+    public override string GetDetails()
+    {
+        return string.Format("Happiness cost: {0}, Duration: {1} seconds", Cost, Duration);
+    }
 }
 
 /// <summary>
@@ -169,6 +180,10 @@ public class TreatsGalore : Ability
     public TreatsGalore(int level)
     {
         Name = AbilityName.TreatsGalore;
+        Description =
+            "Spawn weight and spawn limit for foods above a certain point threshold is increased for a short while.";
+        MaxLevel = 3;
+
         Level = level;
         switch (level)
         {
@@ -199,6 +214,14 @@ public class TreatsGalore : Ability
                 throw new NotImplementedException("level out of range");
         }
     }
+
+    public override string GetDetails()
+    {
+        return
+            string.Format(
+                "Happiness cost: {0}, Duration: {1} seconds, Point threshold: {2}, Spawn weight multiplier: {3}, Spawn limit multiplier: {4}",
+                Cost, Duration, PointThreshold, SpawnWeightMultiplier, SpawnLimitMultiplier);
+    }
 }
 
 /// <summary>
@@ -212,6 +235,9 @@ public class Fearless : Ability
     public Fearless(int level)
     {
         Name = AbilityName.Fearless;
+        Description = "Mouse becomes fearless for a while and will not run away if scared. Higher levels protect against happiness and weight decrease.";
+        MaxLevel = 3;
+
         Level = level;
         switch (level)
         {
@@ -239,6 +265,14 @@ public class Fearless : Ability
                 throw new NotImplementedException("level out of range");
         }
     }
+
+    public override string GetDetails()
+    {
+        var details = string.Format("Happiness cost: {0}, Duration: {1} seconds", Cost, Duration);
+        if (!DropHappiness) details += ", Prevents happiness decrease";
+        if (!DropWeight) details += ", Prevents weight decrease";
+        return details;
+    }
 }
 
 /// <summary>
@@ -251,6 +285,9 @@ public class FatMouse : Ability
     public FatMouse(int level)
     {
         Name = AbilityName.FatMouse;
+        Description = "Mouse gains weight faster for a short while.";
+        MaxLevel = 2;
+
         Level = level;
         switch (level)
         {
@@ -270,6 +307,12 @@ public class FatMouse : Ability
                 throw new NotImplementedException("level out of range");
         }
     }
+
+    public override string GetDetails()
+    {
+        return string.Format("Happiness cost: {0}, Duration: {1} seconds, Weight gain multiplier: {2}", Cost, Duration,
+            WeightMultiplier);
+    }
 }
 
 /// <summary>
@@ -283,6 +326,10 @@ public class ScaryCat : Ability
     public ScaryCat(int level)
     {
         Name = AbilityName.ScaryCat;
+        Description =
+            "Send a scary animal to try to scare another player's mouse away for a short while and possibly drop its happiness and weight.";
+        MaxLevel = 2;
+
         Level = level;
         switch (level)
         {
@@ -304,6 +351,12 @@ public class ScaryCat : Ability
                 throw new NotImplementedException("level out of range");
         }
     }
+
+    public override string GetDetails()
+    {
+        return
+            string.Format("Happiness cost: {0}, Duration: {1} seconds, Happiness reduction: {2}, Weight reduction: {3}", Cost, Duration, HappinessReduction, WeightReduction);
+    }
 }
 
 /// <summary>
@@ -318,6 +371,9 @@ public class BeastlyBuffet : Ability
     public BeastlyBuffet(int level)
     {
         Name = AbilityName.BeastlyBuffet;
+        Description = "Cause spawn weight and spawn limit for foods below a certain point threshold to be increased for a short while for another player.";
+        MaxLevel = 3;
+
         Level = level;
         switch (level)
         {
@@ -348,6 +404,14 @@ public class BeastlyBuffet : Ability
                 throw new NotImplementedException("level out of range");
         }
     }
+
+    public override string GetDetails()
+    {
+        return
+            string.Format(
+                "Happiness cost: {0}, Duration: {1} seconds, Point threshold: {2}, Spawn weight multiplier: {3}, Spawn limit multiplier: {4}",
+                Cost, Duration, PointThreshold, SpawnWeightMultiplier, SpawnLimitMultiplier);
+    }
 }
 
 /// <summary>
@@ -361,6 +425,10 @@ public class Thief : Ability
     public Thief(int level)
     {
         Name = AbilityName.Thief;
+        Description =
+            "Steal a certain amount of good food from another player's mouse, and increase the food spawn rate for yourself while decreasing it for the target for a while.";
+        MaxLevel = 2;
+
         Level = level;
         switch (level)
         {
@@ -381,5 +449,13 @@ public class Thief : Ability
             default:
                 throw new NotImplementedException("level out of range");
         }
+    }
+
+    public override string GetDetails()
+    {
+        return
+            string.Format(
+                "Happiness cost: {0}, Units of food stolen: {1}, Spawn rate multiplier: {2}, Duration: {3} seconds",
+                Cost, FoodUnitsTransferred, SpawnIntervalMultiplier, Duration);
     }
 }
