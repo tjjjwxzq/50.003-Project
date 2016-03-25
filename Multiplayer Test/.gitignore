@@ -30,7 +30,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.pdb
-*_Data
+*._Data
 
 # PSD and AI working files and meta files
 *.psd
