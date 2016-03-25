@@ -19,8 +19,6 @@ public class LobbyManager : NetworkLobbyManager {
         startUI = GameObject.Find("StartUI");
         playerTransform = playerPrefab.GetComponent<RectTransform>();
 
-        foreach (Transform position in startPositions)
-            Debug.Log("position is " + position.position);
     }
 	
 	// Update is called once per frame

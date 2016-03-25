@@ -11,7 +11,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     public bool isServe;
 
     [SyncVar(hook = "OnChangeName")]
-    private string PlayerName;
+    public string PlayerName;
 
     [SyncVar(hook = "OnChangeColor")]
     public Color PlayerColor;
@@ -21,10 +21,11 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     private GameObject canvasObj;
     private Image playerImage;
     private Text playerNameText;
+    private GameObject playerQuitButtonObj; // for quitting lobby
+    private Button playerButton; // for switching colors
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log("NUm players is " + LobbyManager.singleton.numPlayers);
 	}
 	
     public override void OnStartLocalPlayer()
@@ -33,7 +34,12 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         // Set name for local player
         CmdChangeName(PlayerPrefs.GetString("Player Name"));
         // Set color for local player
-        setColor();
+        CmdChangeColor(PlayerColor);
+        // Show quit button if local player
+        playerQuitButtonObj.SetActive(true);
+        // Enable toggle color button
+        playerButton.interactable = true;
+        //Debug purposes (identify local player in inspector)
         isLocal = isLocalPlayer;
         isServe = isServer;
     }
@@ -46,6 +52,22 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         transform.localScale = new Vector3(playerScale, playerScale, playerScale);
         playerImage = GetComponent<Image>();
         playerNameText = transform.GetChild(0).GetComponent<Text>();
+        playerQuitButtonObj = transform.GetChild(1).gameObject;
+        playerButton = GetComponent<Button>();
+        // Disable quit buttons on all players
+        // Reenable only on local player in OnStartLocalPlayer
+        playerQuitButtonObj.SetActive(false);
+        // Disable toggle color button on all players
+        // Reenable only on local player in OnStartLocalPlayer
+        playerButton.interactable = false;
+
+        setColor();
+        // Update the UI instantly, before syncvar hooks
+        // This is to ensure the UI changes even if the
+        // syncvar is not changed from the server
+        OnChangeColor(PlayerColor); 
+        OnChangeName(PlayerName);
+        
     }
 
     // Update UI
@@ -81,7 +103,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         if (isLocalPlayer)
         {
             // so what happens to the player object on other clients
-            // when one client quits?
+            // when one client quits? It seems to be removed, which is good
             // Disconnect from server
             if (isServer)
             {
@@ -108,13 +130,20 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         {
             if (!ColorController.UsedColors.Contains(color))
             {
+                ColorController.UsedColors.Remove(PlayerColor);
                 ColorController.UsedColors.Add(color);
-                Debug.Log("Setting color " + color);
-                CmdChangeColor(color);
+                PlayerColor = color;
                 break;
             }
         }
 
+    }
+
+    // Toggle Player color
+    public void OnToggleColor()
+    {
+        setColor();
+        CmdChangeColor(PlayerColor);
     }
 
 	// Update is called once per frame
