@@ -15,24 +15,22 @@ public class Player : NetworkBehaviour
     public string Name;
     public Color Color;
 
-    public Color color;
-
     public Abilities PAbilities; //<! The player's Abilities
 
     // network score so other players can see your progress
     // *** @junqi: to access this in other scripts/clients, first initialise Player player, followed by player.score
     [SyncVar]
-    public int score = 0;
+    public int Score = 0;
 
     // status showing which state is the mouse in (refer to Status enum)
     // *** to access this in other scripts/clients, first initialise Player player, followed by player.status
     [SyncVar]
-    public int status = 0;
+    public Statuses Status = 0;
 
     // *** this button (any one of the ability buttons on the right) calls the generic method CmdActivateAbilities
     public GameObject button;
 
-    public enum Status
+    public enum Statuses
     {
         Normal,        // index 0
         Immunity,      // index 1
@@ -65,10 +63,9 @@ public class Player : NetworkBehaviour
     }
 
     // check which status the mouse is in (by index in the enum above)
-    public int checkStatus()
+    public Statuses checkStatus()
     {
-        int check = status;
-        return check;
+        return Status;
     }
 
     // to activate the correponding abilities on button press -> Command function is called from the client, but invoked on the server
@@ -78,7 +75,7 @@ public class Player : NetworkBehaviour
     public void CmdActivateAbilities(GameObject button)
     {
         abilityController.ActivateAbility((AbilityName)System.Enum.Parse(typeof(AbilityName), button.name)); // i.e. use this to get AbilityName.Immunity when button.name is Immunity
-        status = 0; // change back to normal state
+        Status = 0; // change back to normal state
     }
 
     // method to call list of abilities this player has
@@ -93,8 +90,8 @@ public class Player : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
-        // if player is not at normal state, activate correponding ability
-        if (checkStatus() == 0)
+        // if player is at normal state, activate correponding ability
+        if (checkStatus() == Statuses.Normal)
         {
             // Command function is called from the client, but invoked on the server
             CmdActivateAbilities(button);

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class NamePrompt : MonoBehaviour {
@@ -20,6 +21,7 @@ public class NamePrompt : MonoBehaviour {
         if(name.Length > 0)
         {
             PlayerPrefs.SetString("Player Name", name);
+            SceneManager.LoadScene("Lobby");
         }
         else
         {

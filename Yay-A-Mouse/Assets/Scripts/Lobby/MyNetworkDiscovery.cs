@@ -12,8 +12,12 @@ public class MyNetworkDiscovery : NetworkDiscovery{
 
     public override void OnReceivedBroadcast(string fromAddress, string data)
     {
-        NetworkLobbyManager.singleton.networkAddress = fromAddress;
-        NetworkLobbyManager.singleton.StartClient();
+        // Gets the network lobby manager to start the client,
+        // connecting to the given server address
+        Debug.Log("Client has reeived broadcast");
+        LobbyManager.singleton.networkAddress = fromAddress;
+        LobbyManager.singleton.StartClient();
+        StopBroadcast();
     }
 }
 

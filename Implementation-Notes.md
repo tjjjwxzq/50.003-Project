@@ -141,7 +141,7 @@ From the start screen a player can choose to host or join a game on the local ne
 The `NetworkDiscovery` class is extended and its `OnReceivedBroadcast` message is overridden to enable clients to be started by the `NetworkLobbyManager`.
 
 ### Lobby
-In the Lobby scene, on initialization (`OnStartLocalPlayer()`), the local player should set its name using the saved `PlayerPrefs`, then call a command right after to inform the server that the name was changed. The name variable should also be a `SyncVar` so the change is reflected on all clients.
+In the Lobby scene, on initialization of the Lobby Player game object(`OnStartLocalPlayer()`), the local player should set its name using the saved `PlayerPrefs`, then call a command right after to inform the server that the name was changed. The name variable should also be a `SyncVar` so the change is reflected on all clients.
 
 When a player enters the lobby (`OnClientEnterLobby()`), the UI avatar should be set up with the correct name (?? is this called before `OnStartLocalPlayer()`?)
 
@@ -151,6 +151,8 @@ When the player taps on the avatar to change color, look through the list to fin
 The function to change the color should be a command (sent to the server) wrapped in another callback function attached to the UI button.
 
 Under each player avatar there should be a ready button, which should be bound to a method that will call either `SendReadyToBeginMessage()` or `SendNotReadyToBeginMessage()` depending on the current `readyToBegin` flag.
+
+Next to each player avatar there should be an exit button, which hould be bound to a method that will call `RemovePlayer()` and close the connection to the server (`Network.CloseConnection(Network.connections[0])` is clicked on the client local player (`isLocalPlayer` flag), and then reset the UI to the start screen UI.
 
 There will be a start button in the lobby that will only be enabled when all the players in the lobby are ready. This can happen even when there are less than 4 players (min players is 2 and max is 4).
 

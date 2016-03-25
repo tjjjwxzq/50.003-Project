@@ -12,7 +12,7 @@ using System.Collections;
 /// </summary>
 public class CameraController : MonoBehaviour {
 
-    private Camera camera;
+    private  Camera camera;
     /// <summary>
     /// Default aspect ratio. Used to calculate whether to pillarbox or letterbox on different devices
     /// </summary>
