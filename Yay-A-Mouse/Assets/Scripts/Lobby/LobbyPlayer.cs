@@ -24,9 +24,9 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     private GameObject playerQuitButtonObj; // for quitting lobby
     private Button playerButton; // for switching colors
 
-	// Use this for initialization
-	void Start () {
-	}
+    // Use this for initialization
+    void Start () {
+    }
 	
     public override void OnStartLocalPlayer()
     {

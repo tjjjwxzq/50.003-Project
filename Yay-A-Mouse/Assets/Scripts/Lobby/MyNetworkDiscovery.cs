@@ -4,7 +4,7 @@ using System.Collections;
 
 /// <summary>
 /// Overrides NetworkDiscovery base class
-/// to handle reception of broadcase message 
+/// to handle reception of broadcast message 
 /// from server on the host
 /// </summary>
 

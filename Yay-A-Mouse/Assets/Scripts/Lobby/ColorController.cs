@@ -12,7 +12,7 @@ using System.Collections.Generic;
 public class ColorController : MonoBehaviour {
 
     // List of possible player colors
-    public static Color[] Colors = { Color.red, Color.green, Color.blue };
+    public static Color[] Colors = { Color.red, Color.green, Color.blue, Color.yellow};
     public static List<Color> UsedColors = new List<Color>();
 
 }

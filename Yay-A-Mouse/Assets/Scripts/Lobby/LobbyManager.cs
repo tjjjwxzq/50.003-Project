@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections;
 
 public class LobbyManager : NetworkLobbyManager {
 
     private MyNetworkDiscovery networkDiscovery;
+    private LobbyPlayer lobbyplayer;
     private GameObject canvasObj;
     private GameObject startUI;
     public RectTransform playerTransform; // to be accessed by StartController to set spawn positions
+    static public LobbyManager s_Singleton;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        s_Singleton = this;
+
         // Set round robin player spawn method
         playerSpawnMethod = PlayerSpawnMethod.RoundRobin;
 
@@ -19,6 +22,7 @@ public class LobbyManager : NetworkLobbyManager {
         startUI = GameObject.Find("StartUI");
         playerTransform = playerPrefab.GetComponent<RectTransform>();
 
+        DontDestroyOnLoad(gameObject);
     }
 	
 	// Update is called once per frame
@@ -51,7 +55,6 @@ public class LobbyManager : NetworkLobbyManager {
     public void OnLobbyClientDisconnect()
     {
         Debug.Log("Client disconnected");
-
     }
 
     public override void OnStopServer()
