@@ -2,9 +2,10 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class AbilityUI : MonoBehaviour 
+public class AbilityUI : MonoBehaviour
 {
     // Ability sprites
     public Sprite[] abilitySprites;
@@ -25,8 +26,24 @@ public class AbilityUI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        abilityController = GameObject.Find("Player").GetComponent<AbilityController>();
-        player = Player.MockPlayer;
+        GameObject playerObj = GameObject.Find("Player");
+
+        if (playerObj == null)
+        {
+            Debug.LogWarning("Couldn't find instance of player, instantiating.");
+            GameObject playerPrefab = (GameObject)Resources.Load("Prefabs\\Player");
+            playerObj = Instantiate(playerPrefab);
+
+            player = playerObj.GetComponent<Player>();
+            player.PAbilities = new Abilities(1, 1, 1, 1, 0, 0, 0);
+            abilityController = playerObj.GetComponent<AbilityController>();
+        }
+        else
+        {
+            abilityController = GameObject.Find("Player").GetComponent<AbilityController>();
+            player = GameObject.Find("Player").GetComponent<Player>();
+        }
+
         playerAbilities = player.getAbilities();
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
 
@@ -37,15 +54,17 @@ public class AbilityUI : MonoBehaviour
         RectTransform buttonRect = AbilityButton.GetComponent<RectTransform>();
         float offset = buttonRect.rect.height * buttonRect.localScale.x * 1.1f;
 
-        abilityButtons = new Dictionary<AbilityName, GameObject>(7);
+        abilityButtons = new Dictionary<AbilityName, GameObject>(7);    
         abilitySpritesDict = new Dictionary<AbilityName, Sprite>();
 
-        foreach(Sprite sprite in abilitySprites)
+        abilitySprites = Resources.LoadAll<Sprite>("Abilities");
+
+        foreach (Sprite sprite in abilitySprites)
         {
-            abilitySpritesDict.Add((AbilityName) Enum.Parse(typeof(AbilityName), sprite.name), sprite);
+            abilitySpritesDict.Add((AbilityName)Enum.Parse(typeof(AbilityName), sprite.name), sprite);
         }
 
-        float yOffset =  - playerAbilities.Count/2 * offset;
+        float yOffset = -playerAbilities.Count / 2 * offset;
         foreach (Ability ability in playerAbilities)
         {
             abilityButtons[ability.Name] = InstantiateButton(yOffset, ability.Name);
@@ -59,9 +78,9 @@ public class AbilityUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (AbilityName ability in Enum.GetValues(typeof(AbilityName)))
+        foreach (Ability ability in playerAbilities)
         {
-            abilityButtons[ability].GetComponent<Button>().interactable = mouse.Happiness >= player.PAbilities[ability].Cost;
+            abilityButtons[ability.Name].GetComponent<Button>().interactable = mouse.Happiness >= player.PAbilities[ability.Name].Cost;
         }
     }
 
@@ -77,7 +96,7 @@ public class AbilityUI : MonoBehaviour
         {
             Vector2 pos = buttonRectTransform.anchoredPosition;
             buttonRectTransform.anchoredPosition = new Vector2(pos.x, pos.y - yOffset);
-            
+
         }
 
         button.transform.Find("AbilityLevel").gameObject.GetComponent<Text>().text = player.PAbilities[ability].Level.ToString();

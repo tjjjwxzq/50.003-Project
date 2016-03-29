@@ -85,6 +85,11 @@ public class Player : NetworkBehaviour
         return PAbilities.GetListOfAbilities();
     }
 
+    void Start()
+    {
+        PAbilities = new Abilities(1, 1, 1, 1, 0, 0, 0);
+    }
+
     void Update()
     {
         if (!isLocalPlayer)

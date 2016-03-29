@@ -15,7 +15,7 @@ public class AbilityController : NetworkBehaviour
     // Other GameObjects
     private Mouse mouse;
     private FoodController foodController;
-    private Player player;
+    public Player player;
     private List<GameObject> players;
      
     // Simple status flags
@@ -51,16 +51,15 @@ public class AbilityController : NetworkBehaviour
     {
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
         foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
-
-        // placeholder for player data
-        player = Player.MockPlayer;
+        
+        player = gameObject.GetComponent<Player>();
 
         abilityLastActivatedTimes = new Dictionary<AbilityName, DateTime>(7);
 
         defaultMaxFoodCounts = new Dictionary<string, int>(foodController.MaxFoodCounts);
         defaultFoodSpawnWeights = new Dictionary<string, float>(foodController.FoodSpawnWeights);
 
-        players = new List<GameObject>(GameObject.FindGameObjectsWithTag("player"));
+//        players = new List<GameObject>(GameObject.FindGameObjectsWithTag("player"));
 
     }
 
