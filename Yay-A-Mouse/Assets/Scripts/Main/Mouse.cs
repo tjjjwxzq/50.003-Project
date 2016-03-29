@@ -27,19 +27,19 @@ public class Mouse: MonoBehaviour {
     public Sprite[] HappinessSprites = new Sprite[5];
 
     //Mouse status
-    private int weight = 0; //!< Acts as the player score. Increases/decreases when mouse eats good/bad food
-    private int happiness = 0; //!< Acts as mana for player abilities. Increased by player stroking. 
-    private int level = 0; //!< Mouse level increases at certain weight thresholds. Affects game difficulty and player abilities
-    private bool immunity = false; //!< Immunity to bad foods. Can be set by player ability. (cover all bad foods or only some?)
-    private int leptinDeficiency = 1; //!< Ability to gain weight; acts as score multiplier to food points. Can be set by player ability.
-    private bool fearless = false; //!< immunity to being scared by cats, ants etc. Can be set by player ability.
-    private bool offScreen = false; //!< Whether the mouse has been scared off-screen.
-    private bool stroked = false; //!< For detecting if a stroke has started
-    private bool stroking = false; //!< For detecting if mouse has been stroked
+    public int weight = 0; //!< Acts as the player score. Increases/decreases when mouse eats good/bad food
+    public int happiness = 0; //!< Acts as mana for player abilities. Increased by player stroking. 
+    public int level = 0; //!< Mouse level increases at certain weight thresholds. Affects game difficulty and player abilities
+    public bool immunity = false; //!< Immunity to bad foods. Can be set by player ability. (cover all bad foods or only some?)
+    public int leptinDeficiency = 1; //!< Ability to gain weight; acts as score multiplier to food points. Can be set by player ability.
+    public bool fearless = false; //!< immunity to being scared by cats, ants etc. Can be set by player ability.
+    public bool offScreen = false; //!< Whether the mouse has been scared off-screen.
+    public bool stroked = false; //!< For detecting if a stroke has started
+    public bool stroking = false; //!< For detecting if mouse has been stroked
 
     // Weight and Happiness Levels
-    private readonly int[] weightLevels = new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 };
-    private readonly int[] happinessLevels = new int[] { 0, 20, 40, 60, 80, 100 }; //!< Happiness levels at which to change happiness indicator
+    public readonly int[] weightLevels = new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 };
+    public readonly int[] happinessLevels = new int[] { 0, 20, 40, 60, 80, 100 }; //!< Happiness levels at which to change happiness indicator
 
     //For scaling transform
     //Default size is at full grown size
@@ -115,8 +115,7 @@ public class Mouse: MonoBehaviour {
                 break;
             }
         }
-
-   }
+    }
 
     void checkHappiness()
     {
