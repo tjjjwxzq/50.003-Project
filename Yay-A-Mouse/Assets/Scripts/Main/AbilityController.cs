@@ -15,7 +15,7 @@ public class AbilityController : NetworkBehaviour
     // Other GameObjects
     private Mouse mouse;
     private FoodController foodController;
-    public Player player;
+    private Player player;
     private List<GameObject> players;
      
     // Simple status flags

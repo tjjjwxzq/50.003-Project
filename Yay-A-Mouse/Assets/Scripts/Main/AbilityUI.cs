@@ -57,8 +57,6 @@ public class AbilityUI : MonoBehaviour
         abilityButtons = new Dictionary<AbilityName, GameObject>(7);    
         abilitySpritesDict = new Dictionary<AbilityName, Sprite>();
 
-        abilitySprites = Resources.LoadAll<Sprite>("Abilities");
-
         foreach (Sprite sprite in abilitySprites)
         {
             abilitySpritesDict.Add((AbilityName)Enum.Parse(typeof(AbilityName), sprite.name), sprite);
