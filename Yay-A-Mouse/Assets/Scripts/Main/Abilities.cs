@@ -41,7 +41,7 @@ public class Abilities
         }
     }
 
-    private Abilities(int immunityLevel, int treatsGaloreLevel, int fearlessLevel, int fatMouseLevel, int scaryCatLevel, int beastlyBuffetLevel, int thiefLevel)
+    public Abilities(int immunityLevel, int treatsGaloreLevel, int fearlessLevel, int fatMouseLevel, int scaryCatLevel, int beastlyBuffetLevel, int thiefLevel)
     {
         Immunity = new Immunity(immunityLevel);
         TreatsGalore = new TreatsGalore(treatsGaloreLevel);

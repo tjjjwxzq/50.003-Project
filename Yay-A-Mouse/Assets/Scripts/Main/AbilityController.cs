@@ -10,18 +10,22 @@ using Random = System.Random;
 /// Implements functions to be called when abilities are activated by a player
 /// or when a player is affected by an ability activated by another player.
 /// </summary>
-public class AbilityController : NetworkBehaviour 
+public class AbilityController : NetworkBehaviour
 {
     // Other GameObjects
     private Mouse mouse;
-    private FoodController foodController;
     private Player player;
-    private List<GameObject> players;
-     
+    private FoodController foodController;
+    //    private List<GameObject> players;
+
     // Simple status flags
     private bool mouseIsImmune;
     private bool mouseIsFearless;
     private bool mouseIsFat;
+
+    // Mouse level
+    private int prevLevel;
+    public int abilityPoints;
 
     // Treats Galore status
     private bool treatsGaloreIsActive;
@@ -39,6 +43,8 @@ public class AbilityController : NetworkBehaviour
     // Thief status
     private bool mouseIsThief;
     private bool mouseIsThiefVictim;
+    private DateTime lastStolenFrom;
+    private int thiefVictimDuration;
 
     private Dictionary<string, float> defaultFoodSpawnWeights;
 
@@ -52,21 +58,28 @@ public class AbilityController : NetworkBehaviour
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
         foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
 
-        // placeholder for player data
-        player = Player.MockPlayer;
+        player = gameObject.GetComponent<Player>();
+
+        prevLevel = mouse.Level;
 
         abilityLastActivatedTimes = new Dictionary<AbilityName, DateTime>(7);
 
         defaultMaxFoodCounts = new Dictionary<string, int>(foodController.MaxFoodCounts);
         defaultFoodSpawnWeights = new Dictionary<string, float>(foodController.FoodSpawnWeights);
 
-        players = new List<GameObject>(GameObject.FindGameObjectsWithTag("Player"));
+        //        players = new List<GameObject>(GameObject.FindGameObjectsWithTag("player"));
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (mouse.Level > prevLevel)
+        {
+            abilityPoints += 2;
+        }
+        prevLevel = mouse.Level;
+
         if (mouseIsImmune)
         {
             if (!IsStillActive(AbilityName.Immunity))
@@ -124,7 +137,23 @@ public class AbilityController : NetworkBehaviour
             }
         }
 
-        // todo: deactivate thief
+        if (mouseIsThief)
+        {
+            if (!IsStillActive(AbilityName.Thief))
+            {
+                // todo: reset spawn rate
+                mouseIsThief = false;
+            }
+        }
+
+        if (mouseIsThiefVictim)
+        {
+            if (DateTime.Now.Subtract(lastStolenFrom).Seconds > thiefVictimDuration)
+            {
+                mouseIsThiefVictim = false;
+                // todo: reset spawn rate
+            }
+        }
     }
 
     // Function to check if an ability is still active using the duration specified in the player's instance of the ability.
@@ -180,6 +209,13 @@ public class AbilityController : NetworkBehaviour
             default:
                 throw new ArgumentOutOfRangeException("ability", ability, null);
         }
+    }
+
+    public void ImproveAbility(AbilityName ability)
+    {
+        if (player.PAbilities[ability].Level >= player.PAbilities[ability].MaxLevel) return;
+        player.PAbilities.SetAbility(ability, player.PAbilities[ability].Level + 1);
+        abilityPoints--;
     }
 
     /// <summary>
@@ -323,7 +359,7 @@ public class AbilityController : NetworkBehaviour
     {
         if (mouse.Happiness < player.PAbilities.BeastlyBuffet.Cost) return;
         // todo: networking
-        // call ReceiveBeastlyBuffet(player.Abilities.BeastlyBuffet) on target player
+        // todo: call ReceiveBeastlyBuffet(player.Abilities.BeastlyBuffet) on target player
         mouse.Happiness -= player.PAbilities.BeastlyBuffet.Cost;
     }
 
@@ -355,11 +391,17 @@ public class AbilityController : NetworkBehaviour
         // todo: networking
         // todo: call ReceiveThief(player.Abilities.Thief) on target player
         // todo: increase spawn interval
+        mouseIsThief = true;
+        abilityLastActivatedTimes[AbilityName.Thief] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.Thief.Cost;
     }
 
     public void ReceiveThief(Thief thief)
     {
+        mouseIsThiefVictim = true;
+        lastStolenFrom = DateTime.Now;
+        thiefVictimDuration = thief.Duration;
+
         var foods = foodController.GetComponents<ObjectPool>();
         var goodFoods =
             foods.Where(food => food.PoolObject.GetComponent<Food>().NutritionalValue > 0).ToList();
@@ -381,11 +423,11 @@ public class AbilityController : NetworkBehaviour
 
         // todo: decrease spawn interval
 
-        // call ReceiveStolenFood(toTransfer) on player who stole food
+        // todo: call ReceiveStolenFood(toTransfer) on player who stole food
     }
 
     public void ReceiveStolenFood(List<ObjectPool> loot)
     {
-        // spawn each food from each string in loot
+        // todo: spawn each food from each string in loot
     }
 }
