@@ -60,7 +60,7 @@ public class AbilityController : NetworkBehaviour
         defaultMaxFoodCounts = new Dictionary<string, int>(foodController.MaxFoodCounts);
         defaultFoodSpawnWeights = new Dictionary<string, float>(foodController.FoodSpawnWeights);
 
-        players = new List<GameObject>(GameObject.FindGameObjectsWithTag("player"));
+        players = new List<GameObject>(GameObject.FindGameObjectsWithTag("Player"));
 
     }
 

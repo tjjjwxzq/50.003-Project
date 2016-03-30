@@ -10,6 +10,9 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     public bool isLocal;
     public bool isServe;
 
+    [SyncVar]
+    public bool PlayerReady;
+
     [SyncVar(hook = "OnChangeName")]
     public string PlayerName;
 
@@ -22,6 +25,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     private Image playerImage;
     private Text playerNameText;
     private GameObject playerQuitButtonObj; // for quitting lobby
+    private GameObject playerReadyButtonObj; // for sending ready message
     private Button playerButton; // for switching colors
 
     // Use this for initialization
@@ -35,8 +39,9 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         CmdChangeName(PlayerPrefs.GetString("Player Name"));
         // Set color for local player
         CmdChangeColor(PlayerColor);
-        // Show quit button if local player
+        // Show quit and ready button if local player
         playerQuitButtonObj.SetActive(true);
+        playerReadyButtonObj.SetActive(true);
         // Enable toggle color button
         playerButton.interactable = true;
         //Debug purposes (identify local player in inspector)
@@ -51,12 +56,14 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         transform.SetParent(canvasObj.transform, true);
         transform.localScale = new Vector3(playerScale, playerScale, playerScale);
         playerImage = GetComponent<Image>();
-        playerNameText = transform.GetChild(0).GetComponent<Text>();
-        playerQuitButtonObj = transform.GetChild(1).gameObject;
+        playerNameText = transform.Find("Name").GetComponent<Text>();
+        playerQuitButtonObj = transform.Find("QuitButton").gameObject;
+        playerReadyButtonObj = transform.Find("ReadyButton").gameObject;
         playerButton = GetComponent<Button>();
-        // Disable quit buttons on all players
+        // Disable quit and ready buttons on all players
         // Reenable only on local player in OnStartLocalPlayer
         playerQuitButtonObj.SetActive(false);
+        playerReadyButtonObj.SetActive(false);
         // Disable toggle color button on all players
         // Reenable only on local player in OnStartLocalPlayer
         playerButton.interactable = false;
@@ -67,7 +74,20 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         // syncvar is not changed from the server
         OnChangeColor(PlayerColor); 
         OnChangeName(PlayerName);
+
+        // Add player object to list in lobby manager
+        (LobbyManager.singleton as LobbyManager).AddPlayer(gameObject);
         
+    }
+
+    public override void OnClientExitLobby()
+    {
+        (LobbyManager.singleton as LobbyManager).RemovePlayer(gameObject);
+    }
+
+    public override void OnClientReady(bool readyState)
+    {
+        PlayerReady = readyState; // update player ready sync var on clients
     }
 
     // Update UI
@@ -95,6 +115,39 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     {
         PlayerColor = color;
     }
+
+    // Button Callbacks
+
+    // Ready button
+    public void OnReady()
+    {
+        if (!readyToBegin)
+        {
+            Debug.Log("readying");
+            // Change button image
+            // Disable color selection
+            playerButton.interactable = false;
+            // Save player color in LobbyManager
+            (LobbyManager.singleton as LobbyManager).setLocalPlayerColor(PlayerColor);
+            SendReadyToBeginMessage();
+        }
+        else
+        {
+            Debug.Log("Not ready");
+            // Reset button image
+            // Reenable color selection
+            playerButton.interactable = true;
+            SendNotReadyToBeginMessage();
+        }
+    }
+
+    // Toggle Player color
+    public void OnToggleColor()
+    {
+        setColor();
+        CmdChangeColor(PlayerColor);
+    }
+
 
 
     // Quit Button
@@ -137,13 +190,6 @@ public class LobbyPlayer : NetworkLobbyPlayer{
             }
         }
 
-    }
-
-    // Toggle Player color
-    public void OnToggleColor()
-    {
-        setColor();
-        CmdChangeColor(PlayerColor);
     }
 
 	// Update is called once per frame

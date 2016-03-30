@@ -207,7 +207,6 @@ public class FoodController : MonoBehaviour {
     void FixedUpdate()
     {
 
-        Debug.Log("Moving food");
         /// 
         /// Add force to move food based on food movement mode
         ///

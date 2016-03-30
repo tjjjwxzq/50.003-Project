@@ -22,10 +22,10 @@ public class StartController : MonoBehaviour {
         lobbyManager = LobbyManager.singleton as LobbyManager;
         networkDiscovery = LobbyManager.singleton.GetComponent<MyNetworkDiscovery>();
         startPositionPrefab = Resources.Load("Prefabs/StartPosition") as GameObject;
-        RectTransform playerTransform = lobbyManager.playerPrefab.GetComponent<RectTransform>();
+        RectTransform playerTransform = lobbyManager.lobbyPlayerPrefab.GetComponent<RectTransform>();
 
         float height = 140f;
-        float offset = playerTransform.rect.height * lobbyManager.playerPrefab.GetComponent<LobbyPlayer>().playerScale * 1.2f; //refactor this later
+        float offset = playerTransform.rect.height * lobbyManager.lobbyPlayerPrefab.GetComponent<LobbyPlayer>().playerScale * 1.2f; //refactor this later
         //float offset = lobbyManager.playerTransform.rect.height * lobbyManager.playerTransform.localScale.y * 1.2f;
         for(int i = 0; i < MaxPlayers; i++)
         {

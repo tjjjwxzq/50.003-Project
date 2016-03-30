@@ -13,7 +13,9 @@ using System.Linq;
 public class LevelController : MonoBehaviour {
 
     // Get this info from the number of player objects on the client
-    private int numPlayers = 3;
+    private bool isUISet = false;
+    private int numOpponents;
+    public int NumPlayers = -1; // set once Player.NumPlayers is a valid value synchronized with the server
 
     // Normal or frenzy mode
     public enum GameMode { Normal, Frenzy };
@@ -40,6 +42,10 @@ public class LevelController : MonoBehaviour {
     private const int FrenzyModeTime = 10; // number of seconds frenzy mode lasts
     private float frenzyTimer = FrenzyModeTime; // timer to countdown frenzy mode
 
+    // Non local Player objects
+    private GameObject[] playerObjects;
+    private GameObject[] nonLocalPlayerObjects;
+
     // Container UI game objects
     public Sprite comboBGNormal;
     public Sprite comboBGHighlight;
@@ -58,7 +64,6 @@ public class LevelController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
         // Get food controller and mouse references
         foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
@@ -74,52 +79,13 @@ public class LevelController : MonoBehaviour {
         }
 
         // Get players UI
-        playerAvatarUI = GameObject.Find("Players");
-
-        // Get player colors, names and scores (from network manager?)
-        playerColors = new Color[numPlayers];
-        playerNames = new string[numPlayers];
-        playerNamesText = new Text[numPlayers];
-        playerScores = new string[numPlayers];
-        playerScoresText = new Text[numPlayers];
-        for(int i =0; i < playerColors.Length; i++)
-        {
-            playerColors[i] = new Color(100, 100, 100, 1);
-            playerNames[i] = "Player " + i;
-            playerScores[i] = "0";
-
-        }
-
-
-        // Get player avatar prefab
-        playerAvatar = Resources.Load("Prefabs/PlayerAvatar") as GameObject;
-        float width = playerAvatar.GetComponent<RectTransform>().rect.width;
-
-        playerAvatars = new GameObject[numPlayers];
-
-        for(int i = 0; i < playerAvatars.Length; i++)
-        {
-            playerAvatars[i] = (GameObject)Instantiate(playerAvatar);
-            playerAvatars[i].GetComponent<Image>().color = playerColors[i];
-
-            // Get text component and set name text
-            playerNamesText[i] = playerAvatars[i].transform.Find("PlayerName").gameObject.GetComponent<Text>();
-            playerNamesText[i].text = playerNames[i];
-
-            // Get text component and set score text
-            playerScoresText[i] = playerAvatars[i].transform.Find("PlayerScore").gameObject.GetComponent<Text>();
-            playerScoresText[i].text = playerScores[i];
-
-            playerAvatars[i].transform.SetParent(playerAvatarUI.transform, false);
-            playerAvatars[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(
-                (i-1) * playerAvatars[i].transform.localScale.x * width * 1.25f, 0);
-        }
+        playerAvatarUI = GameObject.Find("PlayerUI");
 
         // Initialization for food combo
         eligibleFoods = foodController.MaxFoodCounts.Where(kvp => kvp.Value >= FoodCountMin && foodController.FoodValues[kvp.Key] > 0).
             Select(x => x.Key).ToArray<string>();
         foreach (string food in eligibleFoods)
-            Debug.Log(food);
+            //Debug.Log(food);
 
         // Start updating food combo
         StartCoroutine(updateFoodCombo());
@@ -129,6 +95,26 @@ public class LevelController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("Level controller num players" + NumPlayers);
+        if( playerObjects == null || playerObjects.Length < NumPlayers)
+        {
+            playerObjects = GameObject.FindGameObjectsWithTag("Player");
+        }
+
+        if(!isUISet && playerObjects.Length == NumPlayers)
+        {
+            foreach (GameObject player in playerObjects)
+                Debug.Log("Players are " + player);
+            // Filter out local player
+            nonLocalPlayerObjects = playerObjects.Where(p => !p.GetComponent<Player>().isLocalPlayer).ToArray();
+            foreach (GameObject player in nonLocalPlayerObjects)
+                Debug.Log("Non local players " + player);
+            numOpponents = nonLocalPlayerObjects.Length;
+            Debug.Log("Start to set UI");
+            SetupPlayerAvatarUI();
+            isUISet = true;
+        }
+
         checkComboStreak();
         checkGameMode();
 
@@ -283,6 +269,67 @@ public class LevelController : MonoBehaviour {
             sequenceFed = 0;
             Debug.Log("Reset sequence" + sequenceFed);
         }
+    }
+
+    // Update player scores on UI
+    private void UpdatePlayerScores()
+    {
+        for(int i =0; i < numOpponents; i++)
+        {
+            playerScores[i] = nonLocalPlayerObjects[i].GetComponent<Player>().Score.ToString();
+            playerScoresText[i].text = playerScores[i];
+        }
+    }
+
+    // Set up player avatar UIs when game starts
+    private void SetupPlayerAvatarUI()
+    {
+        Debug.Log("Setting up player UI");
+        Debug.Log("Num opponents is " + numOpponents);
+        // Get player colors, names and scores 
+        playerColors = new Color[numOpponents];
+        playerNames = new string[numOpponents];
+        playerNamesText = new Text[numOpponents];
+        playerScores = new string[numOpponents];
+        playerScoresText = new Text[numOpponents];
+        for(int i =0; i < numOpponents; i++)
+        {
+            Debug.Log("Getting player variables");
+            Player playerScript = nonLocalPlayerObjects[i].GetComponent<Player>();
+            playerColors[i] = playerScript.Color;
+            Debug.Log("Setting non local player color " + playerColors[i]);
+            playerNames[i] = playerScript.Name;
+            playerScores[i] = playerScript.Score.ToString();
+
+        }
+
+        // Get player avatar prefab
+        playerAvatar = Resources.Load("Prefabs/PlayerAvatar") as GameObject;
+        float width = playerAvatar.GetComponent<RectTransform>().rect.width;
+        playerAvatars = new GameObject[numOpponents];
+        Vector2 startPos = new Vector2(numOpponents - 1, 0);
+
+        for(int i = 0; i < playerAvatars.Length; i++)
+        {
+            Debug.Log("Initializing avatar");
+            playerAvatars[i] = (GameObject)Instantiate(playerAvatar);
+            playerAvatars[i].GetComponent<Image>().color = playerColors[i];
+
+            // Get text component and set name text
+            playerNamesText[i] = playerAvatars[i].transform.Find("PlayerName").gameObject.GetComponent<Text>();
+            playerNamesText[i].text = playerNames[i];
+
+            // Get text component and set score text
+            playerScoresText[i] = playerAvatars[i].transform.Find("PlayerScore").gameObject.GetComponent<Text>();
+            playerScoresText[i].text = playerScores[i];
+
+            playerAvatars[i].transform.SetParent(playerAvatarUI.transform, false);
+            playerAvatars[i].GetComponent<RectTransform>().anchoredPosition = startPos + new Vector2(
+                i * playerAvatars[i].transform.localScale.x * width * 1.25f, 0);
+        }
+
+
+
     }
 
     

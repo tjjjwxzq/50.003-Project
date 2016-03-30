@@ -3,19 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
+
 
 /// <summary>
 /// Class to contain player specific data, currently only contains the player's Abilities.
 /// </summary>
 public class Player : NetworkBehaviour
 {
-    private AbilityController abilityController;
+    // For testing
+    public bool isLocal;
 
+    private AbilityController abilityController;
+    private LevelController levelController;
+
+    [SyncVar]
     public string Name;
+
+    [SyncVar]
     public Color Color;
 
     public Abilities PAbilities; //<! The player's Abilities
+
+    // For synchronizing the number of players over host and clients
+    // scine LobbyManager.numPlayers is only valid on the host
+    [SyncVar]
+    public int NumPlayers = -1; // set on the Server
 
     // network score so other players can see your progress
     // *** @junqi: to access this in other scripts/clients, first initialise Player player, followed by player.score
@@ -62,11 +76,65 @@ public class Player : NetworkBehaviour
         }
     }
 
-    // check which status the mouse is in (by index in the enum above)
-    public Statuses checkStatus()
+    void Start()
     {
-        return Status;
     }
+
+    void Update()
+    {
+        if (isServer)
+        {
+            NumPlayers = LobbyManager.singleton.numPlayers;
+        }
+        // Set levelController.NumPlayers on clients and server
+        if(NumPlayers > 0)
+            levelController.NumPlayers = NumPlayers;
+        /*
+        // if player is at normal state, activate correponding ability
+        if (checkStatus() == Statuses.Normal)
+        {
+            // Command function is called from the client, but invoked on the server
+            CmdActivateAbilities(button);
+        }*/
+    }
+
+    public override void OnStartClient()
+    {
+        // Get level controller
+        levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+
+    }
+
+    // Get name of local player
+    public override void OnStartLocalPlayer()
+    {
+        isLocal = isLocalPlayer;
+        Debug.Log("In player player name is " + PlayerPrefs.GetString("Player Name"));
+        CmdChangeName(PlayerPrefs.GetString("Player Name"));
+        Debug.Log("Player object Name is " + Name);
+        CmdChangeColor((LobbyManager.singleton as LobbyManager).PlayerColor); // set local player color saved in lobby manager
+        Debug.Log(isClient +  " Setting player color" + Color);
+        // Get and set number of players if on server
+        // On clients NumPlayers will have to be set in Update()
+        // after it has been synchronized from the server
+        // Player.NumPlayers is only guaranteed to be set correctly on the local player
+    }
+
+    // Synchronize local player color set on client with the server
+    [Command]
+    public void CmdChangeColor(Color color)
+    {
+        Color = color;
+    }
+
+    // Syncrhonize local player name set on client with the server
+    [Command]
+    public void CmdChangeName(string name)
+    {
+        Name = name;
+    }
+
+
 
     // to activate the correponding abilities on button press -> Command function is called from the client, but invoked on the server
     // to call a method from the server to the client, use [ClientRpc] instead
@@ -84,17 +152,11 @@ public class Player : NetworkBehaviour
     {
         return PAbilities.GetListOfAbilities();
     }
-
-    void Update()
+    // check which status the mouse is in (by index in the enum above)
+    public Statuses checkStatus()
     {
-        if (!isLocalPlayer)
-            return;
-
-        // if player is at normal state, activate correponding ability
-        if (checkStatus() == Statuses.Normal)
-        {
-            // Command function is called from the client, but invoked on the server
-            CmdActivateAbilities(button);
-        }
+        return Status;
     }
+
+
 }

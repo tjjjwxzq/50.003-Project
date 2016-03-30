@@ -15,7 +15,7 @@ public class AbilityUI : MonoBehaviour
     private AbilityController abilityController;
     private GameObject canvas;
     private GameObject buttonTemplate;
-    private Player player;
+    private Player localPlayer;
     private List<Ability> playerAbilities;
     private Mouse mouse;
 
@@ -25,9 +25,13 @@ public class AbilityUI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        abilityController = GameObject.Find("Player").GetComponent<AbilityController>();
-        player = Player.MockPlayer;
-        playerAbilities = player.getAbilities();
+        foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if(player.GetComponent<Player>().isLocalPlayer)
+                abilityController = player.GetComponent<AbilityController>();
+        }
+        localPlayer = Player.MockPlayer;
+        playerAbilities = localPlayer.getAbilities();
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
 
         buttonTemplate = (GameObject)Resources.Load("Prefabs\\Button");
@@ -61,7 +65,7 @@ public class AbilityUI : MonoBehaviour
     {
         foreach (AbilityName ability in Enum.GetValues(typeof(AbilityName)))
         {
-            abilityButtons[ability].GetComponent<Button>().interactable = mouse.Happiness >= player.PAbilities[ability].Cost;
+       //     abilityButtons[ability].GetComponent<Button>().interactable = mouse.Happiness >= localPlayer.PAbilities[ability].Cost;
         }
     }
 
@@ -80,7 +84,7 @@ public class AbilityUI : MonoBehaviour
             
         }
 
-        button.transform.Find("AbilityLevel").gameObject.GetComponent<Text>().text = player.PAbilities[ability].Level.ToString();
+        button.transform.Find("AbilityLevel").gameObject.GetComponent<Text>().text = localPlayer.PAbilities[ability].Level.ToString();
 
         return button;
     }
