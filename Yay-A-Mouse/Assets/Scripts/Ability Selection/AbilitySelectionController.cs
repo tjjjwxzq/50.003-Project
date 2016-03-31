@@ -5,15 +5,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class AbilitySelectionController: MonoBehaviour
+public class AbilitySelectionController : MonoBehaviour
 {
     public Sprite cancelSelectionSprite;
     public Sprite confirmSelectionSprite;
     public Sprite overlayIcon;
     public Sprite[] abilityIconSprites;
-    private Dictionary<AbilityName, Sprite> abilityIconSpritesDict = new Dictionary<AbilityName,Sprite>();
+    private Dictionary<AbilityName, Sprite> abilityIconSpritesDict = new Dictionary<AbilityName, Sprite>();
     private GameObject abilityIconPrefab;
-    private Dictionary<AbilityName, GameObject> abilityIcons; 
+    private Dictionary<AbilityName, GameObject> abilityIcons;
     public Player player; // local player object, to be set by local player object in OnStartLocalPlayer
 
     private GameObject introText; // intro text shown in selection ui
@@ -36,9 +36,9 @@ public class AbilitySelectionController: MonoBehaviour
     private bool ready; // if player has chosen two abilities
 
 
-	// Use this for initialization
-	void Start ()
-	{
+    // Use this for initialization
+    void Start()
+    {
         introText = GameObject.Find("IntroText");
         abilityIconUI = GameObject.Find("AbilityIconButtons");
         abilityDetailUI = GameObject.Find("AbilityDetailUI");
@@ -58,7 +58,7 @@ public class AbilitySelectionController: MonoBehaviour
 
         // Initialize object and sprite dictionaries
 
-        foreach(Sprite abilityIcon in abilityIconSprites)
+        foreach (Sprite abilityIcon in abilityIconSprites)
         {
             abilityIconSpritesDict[(AbilityName)Enum.Parse(typeof(AbilityName), abilityIcon.name)] = abilityIcon;
         }
@@ -66,10 +66,10 @@ public class AbilitySelectionController: MonoBehaviour
 
         abilityIconPrefab = Resources.Load("Prefabs/AbilitySelectionIcon") as GameObject;
         abilityIcons = new Dictionary<AbilityName, GameObject>();
-	
+
         // Set up ability icons
         Array abilityNames = Enum.GetValues(typeof(AbilityName));
-        foreach(AbilityName abilityName in abilityNames)
+        foreach (AbilityName abilityName in abilityNames)
         {
             abilityIcons[abilityName] = Instantiate(abilityIconPrefab);
             abilityIcons[abilityName].name = abilityName.ToString(); // set object name
@@ -96,9 +96,9 @@ public class AbilitySelectionController: MonoBehaviour
         float xOffset = rectTransform.rect.width * 0.2f * 1.2f; //scale of 0.2
         Debug.Log("Scale is " + rectTransform.localScale);
         Debug.Log("Xoffset is " + xOffset);
-        Vector2 startPos = new Vector2(-xOffset * (selfHelpAbilityButtons.Length/2 - 0.5f), yPos);
+        Vector2 startPos = new Vector2(-xOffset * (selfHelpAbilityButtons.Length / 2 - 0.5f), yPos);
 
-        for(int i = 0; i < selfHelpAbilityButtons.Length; i++)
+        for (int i = 0; i < selfHelpAbilityButtons.Length; i++)
         {
             rectTransform = selfHelpAbilityButtons[i].GetComponent<RectTransform>();
             rectTransform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
@@ -107,26 +107,26 @@ public class AbilitySelectionController: MonoBehaviour
 
         yPos = -99;
         startPos = new Vector2(-xOffset * (sabotageAbilityButtons.Length / 2), yPos);
-        for(int i = 0; i <sabotageAbilityButtons.Length; i++)
+        for (int i = 0; i < sabotageAbilityButtons.Length; i++)
         {
             rectTransform = sabotageAbilityButtons[i].GetComponent<RectTransform>();
             rectTransform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
             rectTransform.anchoredPosition = startPos + new Vector2(xOffset * i, 0);
         }
-/*
-	    player = new Player(Abilities.EmptyAbilities);
-	    selectedAbility = AbilityName.BeastlyBuffet;
-	    selectedAbilityLevel = player.PAbilities[selectedAbility].Level;
+        /*
+                player = new Player(Abilities.EmptyAbilities);
+                selectedAbility = AbilityName.BeastlyBuffet;
+                selectedAbilityLevel = player.PAbilities[selectedAbility].Level;
 
-	    selectedAbilityName = GameObject.Find("SelectedAbilityTitle").GetComponent<Text>();
-	    selectedAbilityDescription = GameObject.Find("SelectedAbilityDescription").GetComponent<Text>();
-	    selectedAbilityCurrentLevel = GameObject.Find("SelectedAbilityCurrentLevel").GetComponent<Text>();
-	    selectedAbilityCurrentLevelDetails = GameObject.Find("SelectedAbilityCurrentLevelDetails").GetComponent<Text>();
-	    selectedAbilityNextLevel = GameObject.Find("SelectedAbilityNextLevel").GetComponent<Text>();
-	    selectedAbilityNextLevelDetails = GameObject.Find("SelectedAbilityNextLevelDetails").GetComponent<Text>();
-	    improveSelectedAbilityButton = GameObject.Find("ImproveSelectedAbilityButton").GetComponent<Button>();
-*/
-        
+                selectedAbilityName = GameObject.Find("SelectedAbilityTitle").GetComponent<Text>();
+                selectedAbilityDescription = GameObject.Find("SelectedAbilityDescription").GetComponent<Text>();
+                selectedAbilityCurrentLevel = GameObject.Find("SelectedAbilityCurrentLevel").GetComponent<Text>();
+                selectedAbilityCurrentLevelDetails = GameObject.Find("SelectedAbilityCurrentLevelDetails").GetComponent<Text>();
+                selectedAbilityNextLevel = GameObject.Find("SelectedAbilityNextLevel").GetComponent<Text>();
+                selectedAbilityNextLevelDetails = GameObject.Find("SelectedAbilityNextLevelDetails").GetComponent<Text>();
+                improveSelectedAbilityButton = GameObject.Find("ImproveSelectedAbilityButton").GetComponent<Button>();
+        */
+
         /*foreach (AbilityName ability in Enum.GetValues(typeof(AbilityName)))
         {
             abilityIcons[ability].GetComponentInChildren<Text>().text = player.PAbilities[ability].Level.ToString();
@@ -139,12 +139,12 @@ public class AbilitySelectionController: MonoBehaviour
         // todo: proper listener for improveSelectedAbilityButton
         // todo: two points to assign*/
     }
-	
-	// Update is called once per frame
-	void Update ()
-	{
+
+    // Update is called once per frame
+    void Update()
+    {
         // When player has chosen two abilities, show ready button
-        if(player != null)
+        if (player != null)
         {
             int numAbilities = player.getAbilities().Count;
             if (!ready && numAbilities == 2)
@@ -153,45 +153,44 @@ public class AbilitySelectionController: MonoBehaviour
                 ready = true;
             }
 
-            if(ready && numAbilities < 2)
+            if (ready && numAbilities < 2)
             {
                 readyButtonObject.SetActive(false);
                 ready = false;
-            } 
+            }
         }
 
-/*	    selectedAbilityName.text = selectedAbility.ToString();
-	    selectedAbilityDescription.text = player.PAbilities[selectedAbility].Description;
+        /*	    selectedAbilityName.text = selectedAbility.ToString();
+                selectedAbilityDescription.text = player.PAbilities[selectedAbility].Description;
 
-        selectedAbilityCurrentLevel.text = "Current level " + player.PAbilities[selectedAbility].Level.ToString();
-        if (player.PAbilities[selectedAbility].Level == 0)
-	    {
-	        selectedAbilityCurrentLevelDetails.enabled = false;
-	    }
-	    else
-	    {
-            selectedAbilityCurrentLevelDetails.text = player.PAbilities[selectedAbility].GetDetails();
-        }
-  
-	    if (player.PAbilities[selectedAbility].Level == player.PAbilities[selectedAbility].MaxLevel)
-	    {
-	        selectedAbilityNextLevel.enabled = false;
-	        selectedAbilityNextLevelDetails.enabled = false;
-	    }
-	    else
-	    {
-	        selectedAbilityNextLevel.text = "Next level " + (player.PAbilities[selectedAbility].Level + 1).ToString();
-	        selectedAbilityNextLevelDetails.text = player.PAbilities[selectedAbility].GetDetails();
-	    }*/
-	}
+                selectedAbilityCurrentLevel.text = "Current level " + player.PAbilities[selectedAbility].Level.ToString();
+                if (player.PAbilities[selectedAbility].Level == 0)
+                {
+                    selectedAbilityCurrentLevelDetails.enabled = false;
+                }
+                else
+                {
+                    selectedAbilityCurrentLevelDetails.text = player.PAbilities[selectedAbility].GetDetails();
+                }
+
+                if (player.PAbilities[selectedAbility].Level == player.PAbilities[selectedAbility].MaxLevel)
+                {
+                    selectedAbilityNextLevel.enabled = false;
+                    selectedAbilityNextLevelDetails.enabled = false;
+                }
+                else
+                {
+                    selectedAbilityNextLevel.text = "Next level " + (player.PAbilities[selectedAbility].Level + 1).ToString();
+                    selectedAbilityNextLevelDetails.text = player.PAbilities[selectedAbility].GetDetails();
+                }*/
+    }
 
     // Callback when ability icons are clicked
     public void OnAbilityDetail()
     {
         // Get selected ability
         GameObject selectedAbilityObj = EventSystem.current.currentSelectedGameObject;
-        Debug.Log("Selected ability" + selectedAbilityObj);
-        selectedAbility = (AbilityName) Enum.Parse(typeof(AbilityName), selectedAbilityObj.name);
+        selectedAbility = (AbilityName)Enum.Parse(typeof(AbilityName), selectedAbilityObj.name);
 
         // Check if player already has selecte ability and set choose ability button sprite
         if (player.hasAbility(selectedAbility))
@@ -213,7 +212,7 @@ public class AbilitySelectionController: MonoBehaviour
                 alreadyChosenText.SetActive(false);
                 chooseAbilityButton.gameObject.SetActive(true);
             }
-     
+
             (chooseAbilityButton.targetGraphic as Image).sprite = confirmSelectionSprite;
         }
 
@@ -240,8 +239,6 @@ public class AbilitySelectionController: MonoBehaviour
             player.removeAbility(selectedAbility);
 
             // Remove overlay on ability icon in selection ui
-            Debug.Log("Removing overlay");
-            Debug.Log(abilityIcons[selectedAbility].transform.Find("Overlay").GetComponent<Image>());
             abilityIcons[selectedAbility].transform.Find("Overlay").gameObject.GetComponent<Image>().enabled = false;
         }
         else
@@ -250,7 +247,6 @@ public class AbilitySelectionController: MonoBehaviour
             player.addAbility(selectedAbility);
 
             // Add overlay on ability icon in selection ui
-            Debug.Log("Adding overlay");
             abilityIcons[selectedAbility].transform.Find("Overlay").gameObject.GetComponent<Image>().enabled = true;
         }
 
@@ -273,7 +269,9 @@ public class AbilitySelectionController: MonoBehaviour
     // Callback when ready button is pressed
     public void OnReadyButton()
     {
+        Debug.Log("Readying");
         player.CmdReadyToPlay(true);
+        //LobbyManager.singleton.ServerChangeScene("Main");
     }
 
 }

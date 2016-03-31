@@ -28,10 +28,12 @@ public class AbilityUI : MonoBehaviour
     {
         foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
+            Debug.Log("Adding players");
             if(player.GetComponent<Player>().isLocalPlayer)
             {
                 localPlayer = player.GetComponent<Player>();
                 abilityController = player.GetComponent<AbilityController>();
+                Debug.Log("Ability controller is " + abilityController);
             }
         }
         playerAbilities = localPlayer.getAbilities();
@@ -52,7 +54,6 @@ public class AbilityUI : MonoBehaviour
         foreach (Sprite sprite in abilitySprites)
         {
             abilitySpritesDict[(AbilityName)Enum.Parse(typeof(AbilityName), sprite.name)] = sprite;
-            Debug.Log("spirte dict " + abilitySpritesDict[(AbilityName)Enum.Parse(typeof(AbilityName), sprite.name)]);
         }
 
         // Get the height of each button for positioning

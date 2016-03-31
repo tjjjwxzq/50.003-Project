@@ -7,7 +7,6 @@ using UnityEngine.Networking;
 public class LobbyManager : NetworkLobbyManager {
 
     // For Lobby Scene
-    private bool isHost = false; // whether or not the current process is hosting the game
     // for tracking if lobby players are ready on the client, and saving local player state
     private List<LobbyPlayer> lobbyPlayers = new List<LobbyPlayer>(); 
     // for tracking if lobby players are ready in ability selection scene, and saving selected abilities
@@ -20,6 +19,10 @@ public class LobbyManager : NetworkLobbyManager {
     private GameObject readyStartButton;
     private bool readyUIActive = false;
     public RectTransform playerTransform; // to be accessed by StartController to set spawn positions
+
+    private bool readyToPlay = false; // whether all players have selected their abilities and are ready to play
+    private bool changingScene = false;// whether in the midst of changing to main scene
+    private bool isHost = false; // whether or not the current process is hosting the game
 
     // For saving local player state from pre-game scenes
     public Color PlayerColor;
@@ -66,7 +69,18 @@ public class LobbyManager : NetworkLobbyManager {
         }
 
         // Check if players have selected abilities and are ready to play
-        checkAbilitiesReady();
+        Debug.Log("Lobby manager num players are " + players.Count);
+        if(!changingScene && players.Count > 0)
+        {
+            checkAbilitiesReady();
+        }
+
+        if(readyToPlay)
+        {
+            ServerChangeScene("Main");
+            readyToPlay = false;
+            changingScene = true;
+        }
 	}
 
     // Start network discovery broadcasting
@@ -94,9 +108,8 @@ public class LobbyManager : NetworkLobbyManager {
         }
         else if(SceneManager.GetActiveScene().name.Equals("SelectAbilities", System.StringComparison.Ordinal))
         {
-            Debug.Log("Player prefab" + gamePlayerPrefab);
             GameObject player = Instantiate(gamePlayerPrefab) as GameObject;
-            NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+            NetworkServer.ReplacePlayerForConnection(conn, player, playerControllerId);
         }
     }
 
@@ -170,16 +183,29 @@ public class LobbyManager : NetworkLobbyManager {
         startUI.SetActive(on);
     }
 
-    // Add spawned player to list
-    public void AddPlayer(GameObject player)
+    // Add spawned lobby player to list
+    public void AddLobbyPlayer(GameObject player)
     {
         lobbyPlayers.Add(player.GetComponent<LobbyPlayer>());
     }
 
-    // Remove player from list
-    public void RemovePlayer(GameObject player)
+    // Remove lobby player from list
+    public void RemoveLobbyPlayer(GameObject player)
     {
         lobbyPlayers.Remove(player.GetComponent<LobbyPlayer>());
+    }
+
+    // Add spawned player to list
+    public void AddPlayer(GameObject player)
+    {
+        Debug.Log("Adding player to lobby manager");
+        players.Add(player.GetComponent<Player>());
+    }
+
+    // Remove spawned player from list
+    public void RemovePlayer(GameObject player)
+    {
+        players.Remove(player.GetComponent<Player>());
     }
 
     /// <summary>
@@ -211,9 +237,7 @@ public class LobbyManager : NetworkLobbyManager {
     // Ability selection ready button callback
     private void checkAbilitiesReady()
     {
-        if(players.All(p => p.readyToPlay))
-            ServerChangeScene("Main");
+        readyToPlay = players.All(p => p.readyToPlay);
     }
-
 
 }

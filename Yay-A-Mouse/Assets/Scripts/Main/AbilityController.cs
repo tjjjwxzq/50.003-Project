@@ -68,8 +68,6 @@ public class AbilityController : NetworkBehaviour
         defaultMaxFoodCounts = new Dictionary<string, int>(foodController.MaxFoodCounts);
         defaultFoodSpawnWeights = new Dictionary<string, float>(foodController.FoodSpawnWeights);
 
-        //        players = new List<GameObject>(GameObject.FindGameObjectsWithTag("player"));
-
     }
 
     // Update is called once per frame

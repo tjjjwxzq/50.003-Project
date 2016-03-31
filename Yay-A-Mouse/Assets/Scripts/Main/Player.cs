@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
@@ -100,6 +101,13 @@ public class Player : NetworkBehaviour
             {
                 Debug.Log("Abilities are " + ability.Name.ToString());
             }
+
+            // Add ability controller to local player
+            if (abilityController == null && SceneManager.GetActiveScene().name.Equals("Main", System.StringComparison.Ordinal))
+            {
+                Debug.Log("Adding ability controller");
+                abilityController = gameObject.AddComponent<AbilityController>();
+            }
         }
         /*
         // if player is at normal state, activate correponding ability
@@ -113,13 +121,18 @@ public class Player : NetworkBehaviour
     public override void OnStartClient()
     {
         // Get level controller
-        levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+        //levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+
+        // Add player to network manager
+        Debug.Log("Adding player object starting client");
+        (LobbyManager.singleton as LobbyManager).AddPlayer(gameObject);
 
     }
 
     // Get name of local player
     public override void OnStartLocalPlayer()
     {
+        Debug.Log("Adding player object");
         isLocal = isLocalPlayer;
         Debug.Log("In player player name is " + PlayerPrefs.GetString("Player Name"));
         CmdChangeName(PlayerPrefs.GetString("Player Name"));
@@ -129,6 +142,10 @@ public class Player : NetworkBehaviour
 
         // Initialize abilities for local player
         PAbilities = Abilities.EmptyAbilities;
+
+        // Add ability controller but disable it
+        abilityController = gameObject.AddComponent<AbilityController>();
+        abilityController.enabled = false;
 
         // Set local player object on ability selection controller
         GameObject.Find("AbilitySelectionController").GetComponent<AbilitySelectionController>().player = this;
@@ -173,8 +190,6 @@ public class Player : NetworkBehaviour
     /// <returns></returns>
     public List<Ability> getAbilities()
     {
-        Debug.Log("Is pabilities null?");
-        Debug.Log(PAbilities);
         return PAbilities.GetListOfAbilities();
     }
 

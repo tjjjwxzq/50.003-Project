@@ -76,13 +76,13 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         OnChangeName(PlayerName);
 
         // Add player object to list in lobby manager
-        (LobbyManager.singleton as LobbyManager).AddPlayer(gameObject);
+        (LobbyManager.singleton as LobbyManager).AddLobbyPlayer(gameObject);
         
     }
 
     public override void OnClientExitLobby()
     {
-        (LobbyManager.singleton as LobbyManager).RemovePlayer(gameObject);
+        (LobbyManager.singleton as LobbyManager).RemoveLobbyPlayer(gameObject);
     }
 
     public override void OnClientReady(bool readyState)
