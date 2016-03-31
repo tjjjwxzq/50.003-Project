@@ -12,15 +12,11 @@ namespace UnityStandardAssets.Network
         public RectTransform lobbyServerList;
         public RectTransform lobbyPanel;
 
-        public InputField ipInput;
         public InputField matchNameInput;
 
         public void OnEnable()
         {
             lobbyManager.topPanel.ToggleVisibility(true);
-
-            ipInput.onEndEdit.RemoveAllListeners();
-            ipInput.onEndEdit.AddListener(onEndEditIP);
 
             matchNameInput.onEndEdit.RemoveAllListeners();
             matchNameInput.onEndEdit.AddListener(onEndEditGameName);
@@ -29,29 +25,6 @@ namespace UnityStandardAssets.Network
         public void OnClickHost()
         {
             lobbyManager.StartHost();
-        }
-
-        public void OnClickJoin()
-        {
-            lobbyManager.ChangeTo(lobbyPanel);
-
-            lobbyManager.networkAddress = ipInput.text;
-            lobbyManager.StartClient();
-
-            lobbyManager.backDelegate = lobbyManager.StopClientClbk;
-            lobbyManager.DisplayIsConnecting();
-
-            lobbyManager.SetServerInfo("Connecting...", lobbyManager.networkAddress);
-        }
-
-        public void OnClickDedicated()
-        {
-            lobbyManager.ChangeTo(null);
-            lobbyManager.StartServer();
-
-            lobbyManager.backDelegate = lobbyManager.StopServerClbk;
-
-            lobbyManager.SetServerInfo("Dedicated Server", lobbyManager.networkAddress);
         }
 
         public void OnClickCreateMatchmakingGame()
@@ -76,14 +49,6 @@ namespace UnityStandardAssets.Network
             lobbyManager.StartMatchMaker();
             lobbyManager.backDelegate = lobbyManager.SimpleBackClbk;
             lobbyManager.ChangeTo(lobbyServerList);
-        }
-
-        void onEndEditIP(string text)
-        {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                OnClickJoin();
-            }
         }
 
         void onEndEditGameName(string text)
