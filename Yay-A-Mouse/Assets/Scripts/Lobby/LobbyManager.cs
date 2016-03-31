@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Networking;
 
-public class LobbyManager : NetworkLobbyManager {
+public class LobbyManager : NetworkLobbyManager
+{
 
     // For Lobby Scene
     private bool isHost = false; // whether or not the current process is hosting the game
@@ -24,7 +25,8 @@ public class LobbyManager : NetworkLobbyManager {
     public Abilities PlayerAbilities;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         // Set round robin player spawn method
         playerSpawnMethod = PlayerSpawnMethod.RoundRobin;
 
@@ -40,9 +42,10 @@ public class LobbyManager : NetworkLobbyManager {
 
         DontDestroyOnLoad(gameObject);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         // To check and update UI when all players are ready
         if (!readyUIActive && players.Count >= minPlayers && checkAllReady())
         {
@@ -54,7 +57,7 @@ public class LobbyManager : NetworkLobbyManager {
         }
 
         // To check and update UI when players are no longer ready
-        if(readyUIActive && !checkAllReady())
+        if (readyUIActive && !checkAllReady())
         {
             if (isHost)
                 ToggleHostReadyUI(false);
@@ -62,7 +65,7 @@ public class LobbyManager : NetworkLobbyManager {
                 ToggleClientReadyUI(false);
             readyUIActive = false;
         }
-	}
+    }
 
     // Start network discovery broadcasting
     public override void OnStartHost()
@@ -82,12 +85,13 @@ public class LobbyManager : NetworkLobbyManager {
     // Customize player spawning
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
-        if(SceneManager.GetActiveScene().name.Equals("Lobby", System.StringComparison.Ordinal)){
+        if (SceneManager.GetActiveScene().name.Equals("Lobby", System.StringComparison.Ordinal))
+        {
             GameObject player = Instantiate(lobbyPlayerPrefab.gameObject, GetStartPosition().position, Quaternion.identity) as GameObject;
             //player.transform.SetParent(canvasObj.transform, false);
             NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         }
-        else if(SceneManager.GetActiveScene().name.Equals("Main", System.StringComparison.Ordinal))
+        else if (SceneManager.GetActiveScene().name.Equals("Main", System.StringComparison.Ordinal))
         {
             Debug.Log("Player prefab" + gamePlayerPrefab);
             GameObject player = Instantiate(gamePlayerPrefab) as GameObject;
@@ -159,7 +163,7 @@ public class LobbyManager : NetworkLobbyManager {
 
 
     // Disable start UI
-    public void ToggleStartUI( bool on)
+    public void ToggleStartUI(bool on)
     {
         Debug.Log("startUI object " + startUI);
         startUI.SetActive(on);

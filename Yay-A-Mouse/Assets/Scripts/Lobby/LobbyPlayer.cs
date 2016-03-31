@@ -28,6 +28,8 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     private GameObject playerReadyButtonObj; // for sending ready message
     private Button playerButton; // for switching colors
 
+    public Color playerColor { get; internal set; }
+
     // Use this for initialization
     void Start () {
     }
