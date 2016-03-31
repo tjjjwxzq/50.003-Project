@@ -8,9 +8,11 @@ public class LobbyManager : NetworkLobbyManager {
 
     // For Lobby Scene
     private bool isHost = false; // whether or not the current process is hosting the game
-    private List<LobbyPlayer> players = new List<LobbyPlayer>(); // for tracking if players are ready on the client 
+    // for tracking if lobby players are ready on the client, and saving local player state
+    private List<LobbyPlayer> lobbyPlayers = new List<LobbyPlayer>(); 
+    // for tracking if lobby players are ready in ability selection scene, and saving selected abilities
+    private List<Player> players = new List<Player>(); 
     private MyNetworkDiscovery networkDiscovery; // for local discovery
-    private LobbyPlayer lobbyplayer;
     private GameObject canvasObj;
     private GameObject startUI;
     private GameObject readyUI;
@@ -43,8 +45,8 @@ public class LobbyManager : NetworkLobbyManager {
 	
 	// Update is called once per frame
 	void Update () {
-        // To check and update UI when all players are ready
-        if (!readyUIActive && players.Count >= minPlayers && checkAllReady())
+        // To check and update UI when all lobby players are ready
+        if (!readyUIActive && lobbyPlayers.Count >= minPlayers && checkAllReady())
         {
             if (isHost)
                 ToggleHostReadyUI(true);
@@ -53,7 +55,7 @@ public class LobbyManager : NetworkLobbyManager {
             readyUIActive = true;
         }
 
-        // To check and update UI when players are no longer ready
+        // To check and update UI when lobby players are no longer ready
         if(readyUIActive && !checkAllReady())
         {
             if (isHost)
@@ -62,6 +64,9 @@ public class LobbyManager : NetworkLobbyManager {
                 ToggleClientReadyUI(false);
             readyUIActive = false;
         }
+
+        // Check if players have selected abilities and are ready to play
+        checkAbilitiesReady();
 	}
 
     // Start network discovery broadcasting
@@ -87,7 +92,7 @@ public class LobbyManager : NetworkLobbyManager {
             //player.transform.SetParent(canvasObj.transform, false);
             NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         }
-        else if(SceneManager.GetActiveScene().name.Equals("Main", System.StringComparison.Ordinal))
+        else if(SceneManager.GetActiveScene().name.Equals("SelectAbilities", System.StringComparison.Ordinal))
         {
             Debug.Log("Player prefab" + gamePlayerPrefab);
             GameObject player = Instantiate(gamePlayerPrefab) as GameObject;
@@ -140,7 +145,7 @@ public class LobbyManager : NetworkLobbyManager {
     // Check players ready
     private bool checkAllReady()
     {
-        return players.All(p => p.PlayerReady);
+        return lobbyPlayers.All(p => p.PlayerReady);
     }
 
     // Set host UI once all players are ready
@@ -168,13 +173,13 @@ public class LobbyManager : NetworkLobbyManager {
     // Add spawned player to list
     public void AddPlayer(GameObject player)
     {
-        players.Add(player.GetComponent<LobbyPlayer>());
+        lobbyPlayers.Add(player.GetComponent<LobbyPlayer>());
     }
 
     // Remove player from list
     public void RemovePlayer(GameObject player)
     {
-        players.Remove(player.GetComponent<LobbyPlayer>());
+        lobbyPlayers.Remove(player.GetComponent<LobbyPlayer>());
     }
 
     /// <summary>
@@ -197,10 +202,17 @@ public class LobbyManager : NetworkLobbyManager {
         PlayerAbilities = abilities;
     }
 
-    // Start Game button (only on host)
+    // Start Game button callback (only on host) 
     public void OnStartGame()
     {
-        ServerChangeScene("Main");
+        ServerChangeScene("SelectAbilities");
+    }
+
+    // Ability selection ready button callback
+    private void checkAbilitiesReady()
+    {
+        if(players.All(p => p.readyToPlay))
+            ServerChangeScene("Main");
     }
 
 

@@ -24,7 +24,7 @@ public class Player : NetworkBehaviour
     [SyncVar]
     public Color Color;
 
-    public Abilities PAbilities; //<! The player's Abilities
+    public Abilities PAbilities; // The player's Abilities
 
     // For synchronizing the number of players over host and clients
     // scine LobbyManager.numPlayers is only valid on the host
@@ -40,6 +40,8 @@ public class Player : NetworkBehaviour
     // *** to access this in other scripts/clients, first initialise Player player, followed by player.status
     [SyncVar]
     public Statuses Status = 0;
+
+    public bool readyToPlay = false;
 
     // *** this button (any one of the ability buttons on the right) calls the generic method CmdActivateAbilities
     public GameObject button;
@@ -76,8 +78,10 @@ public class Player : NetworkBehaviour
         }
     }
 
-    void Start()
+    // Allow player to persist between ability selection and main scene
+    void Awake()
     {
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
@@ -87,8 +91,16 @@ public class Player : NetworkBehaviour
             NumPlayers = LobbyManager.singleton.numPlayers;
         }
         // Set levelController.NumPlayers on clients and server
-        if(NumPlayers > 0)
+        if(levelController != null && NumPlayers > 0)
             levelController.NumPlayers = NumPlayers;
+
+        if (isLocalPlayer)
+        {
+            foreach(Ability ability in getAbilities())
+            {
+                Debug.Log("Abilities are " + ability.Name.ToString());
+            }
+        }
         /*
         // if player is at normal state, activate correponding ability
         if (checkStatus() == Statuses.Normal)
@@ -114,10 +126,13 @@ public class Player : NetworkBehaviour
         Debug.Log("Player object Name is " + Name);
         CmdChangeColor((LobbyManager.singleton as LobbyManager).PlayerColor); // set local player color saved in lobby manager
         Debug.Log(isClient +  " Setting player color" + Color);
-        // Get and set number of players if on server
-        // On clients NumPlayers will have to be set in Update()
-        // after it has been synchronized from the server
-        // Player.NumPlayers is only guaranteed to be set correctly on the local player
+
+        // Initialize abilities for local player
+        PAbilities = Abilities.EmptyAbilities;
+
+        // Set local player object on ability selection controller
+        GameObject.Find("AbilitySelectionController").GetComponent<AbilitySelectionController>().player = this;
+
     }
 
     // Synchronize local player color set on client with the server
@@ -134,11 +149,17 @@ public class Player : NetworkBehaviour
         Name = name;
     }
 
+    // Tell server that local player is ready to play
+    [Command]
+    public void CmdReadyToPlay(bool ready)
+    {
+        readyToPlay = ready;
+    }
+
 
 
     // to activate the correponding abilities on button press -> Command function is called from the client, but invoked on the server
     // to call a method from the server to the client, use [ClientRpc] instead
-    // *** @junqi/jiayu: is this function already taken care of by AbilityControls?
     [Command] // by default on channel 0
     public void CmdActivateAbilities(GameObject button)
     {
@@ -146,12 +167,53 @@ public class Player : NetworkBehaviour
         Status = 0; // change back to normal state
     }
 
-    // method to call list of abilities this player has
-    // *** @junqi/jiayu: where's the option for the player to choose the abilities he/she wants such that we can initalise all players to have EmptyAbilities then set the leve of those they choose to be 1?
+    /// <summary>
+    /// Get list of player abilities
+    /// </summary>
+    /// <returns></returns>
     public List<Ability> getAbilities()
     {
+        Debug.Log("Is pabilities null?");
+        Debug.Log(PAbilities);
         return PAbilities.GetListOfAbilities();
     }
+
+    /// <summary>
+    /// Add an ability to the player's list
+    /// </summary>
+    /// <param name="ability"></param>
+    public void addAbility(AbilityName ability)
+    {
+        if (PAbilities[ability].Level == 0)
+            PAbilities.SetAbility(ability, 1);
+        else
+            Debug.LogWarning("Player already has an ability that you are trying to add");
+    }
+
+    /// <summary>
+    /// Remove an ability from the player's list
+    /// </summary>
+    /// <param name="ability"></param>
+    public void removeAbility(AbilityName ability)
+    {
+        if (PAbilities[ability].Level > 0)
+            PAbilities.SetAbility(ability, 0);
+        else
+            Debug.LogWarning("PLayer doesn't have the ability you are trying to remvoe");
+    }
+
+    /// <summary>
+    /// Checks if player has the ability indicated
+    /// </summary>
+    /// <param name="ability"></param>
+    /// <returns></returns>
+    public bool hasAbility(AbilityName ability)
+    {
+        if (PAbilities[ability].Level > 0)
+            return true;
+        return false;
+    }
+
     // check which status the mouse is in (by index in the enum above)
     public Statuses checkStatus()
     {

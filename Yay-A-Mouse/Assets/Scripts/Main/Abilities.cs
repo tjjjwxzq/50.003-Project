@@ -118,6 +118,27 @@ public enum AbilityName
 }
 
 /// <summary>
+/// Enum of self help abilities
+/// </summary>
+public enum SelfHelpAbilities
+{
+    Immunity,
+    TreatsGalore,
+    Fearless,
+    FatMouse
+}
+
+/// <summary>
+/// Enum of sabotaging abilities
+/// </summary>
+public enum SabotageAbilities
+{
+    ScaryCat,
+    BeastlyBuffet,
+    Thief
+}
+
+/// <summary>
 /// Base class to where all abilities with a Happiness cost and limited duration are derived from.
 //// Ability instances are always associated with an Abilities instance which is associated with a Player instance.
 /// </summary>

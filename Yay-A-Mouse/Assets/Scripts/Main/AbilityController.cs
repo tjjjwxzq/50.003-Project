@@ -9,6 +9,8 @@ using Random = System.Random;
 /// Script class to encapsulate mouse ability logic.
 /// Implements functions to be called when abilities are activated by a player
 /// or when a player is affected by an ability activated by another player.
+/// Should be attached to a Player object, but only if it is the local player
+/// This component is attached to the local player object when the scene is changed to Main
 /// </summary>
 public class AbilityController : NetworkBehaviour
 {
@@ -52,7 +54,6 @@ public class AbilityController : NetworkBehaviour
 
     private IDictionary<AbilityName, DateTime> abilityLastActivatedTimes;
 
-    // Use this for initialization
     void Start()
     {
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
@@ -361,6 +362,7 @@ public class AbilityController : NetworkBehaviour
         // todo: networking
         // todo: call ReceiveBeastlyBuffet(player.Abilities.BeastlyBuffet) on target player
         mouse.Happiness -= player.PAbilities.BeastlyBuffet.Cost;
+      
     }
 
     /// <summary>
