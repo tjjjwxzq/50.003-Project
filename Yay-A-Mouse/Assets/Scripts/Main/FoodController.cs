@@ -282,7 +282,6 @@ public class FoodController : MonoBehaviour {
 
             if( foodPoolsDict[foodName].ActiveObjects < maxFoodCounts[foodName])
             {
-                GameObject food = foodPoolsDict[foodName].GetObj();
 
                 // Spawn at a random position
                 // make sure it doesn't overlap with
@@ -317,6 +316,8 @@ public class FoodController : MonoBehaviour {
  
                     }
                 }
+
+                GameObject food = foodPoolsDict[foodName].GetObj();
 
                 // Place food object on screen and add to list of random directions for movement
                 Rigidbody2D foodBody = food.gameObject.GetComponent<Rigidbody2D>();

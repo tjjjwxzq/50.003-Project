@@ -43,7 +43,7 @@ public class StartController : MonoBehaviour {
 
     public void checkPlayerName()
     {
-       /* #if UNITY_EDITOR
+        /*#if UNITY_EDITOR
         PlayerPrefs.DeleteKey("Player Name"); // for testing purposes 
         # endif */
         string name = PlayerPrefs.GetString("Player Name", "None");

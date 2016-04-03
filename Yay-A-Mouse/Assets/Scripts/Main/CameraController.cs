@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour {
     /// <summary>
     /// Default aspect ratio. Used to calculate whether to pillarbox or letterbox on different devices
     /// </summary>
-    private static float defaultAspect = 2 / 3f;
+    private static float defaultAspect = 10f / 16f;
     /// <summary>
     /// Pixels per unit, for referencing in other scripts
     /// </summary>
@@ -38,8 +38,7 @@ public class CameraController : MonoBehaviour {
     /// </summary>
     public static float MaxYUnits;
 
-	// Use this for initialization
-	void Start () {
+	void Awake() {
 
         PixelsPerUnit = Screen.height / (2f * Camera.main.orthographicSize);
         MinXUnits = -Screen.width / (2 * CameraController.PixelsPerUnit);

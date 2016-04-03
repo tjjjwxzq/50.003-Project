@@ -77,6 +77,7 @@ public class LobbyManager : NetworkLobbyManager {
 
         if(readyToPlay)
         {
+            SceneManager.UnloadScene("SelectAbilities");
             ServerChangeScene("Main");
             readyToPlay = false;
             changingScene = true;

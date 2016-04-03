@@ -5,10 +5,14 @@ public class Food: MonoBehaviour {
 
     private Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
-    private float speedScale = 0.3f; //factor to scale touch swipe speed by; hand-tune this or linear drag
+    private float speedScale = 0.5f; //factor to scale touch swipe speed by; hand-tune this or linear drag
     public int NutritionalValue; //<! Nutritional value, equivalent to units of mouse weight (aka points)
     public string Type; //<! Food type
     private bool moveable = false; // moveable if it has been touched
+
+    private float SwipeDistance;
+    private Vector2 firstPos;
+    private Vector2 lastPos;
 
     // Factory method
     public static void CreateFood( GameObject food, int nutritionalValue, string type)
@@ -22,13 +26,14 @@ public class Food: MonoBehaviour {
 	void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        SwipeDistance = Screen.height * 5f / 100; // distance to move finger before its counted as a swipe
+
+     }
+
+    // Update is called once per frame
+    void Update () {
         // Mouse input
-        detectMouseSwipe();
+        //detectMouseSwipe();
 
         // Touch input
         detectTouchSwipe();
@@ -84,15 +89,39 @@ public class Food: MonoBehaviour {
                 case TouchPhase.Moved:
                     if (moveable)
                     {
-                        Vector2 direction = touch.deltaPosition.normalized;
-                        float speed = touch.deltaPosition.magnitude*speedScale / touch.deltaTime;
-                        rigidbody.AddForce(direction*speed, ForceMode2D.Force);
+                        lastPos = Input.GetTouch(0).position;
+                        // Player did swipe
+                        Vector2 diff = lastPos - firstPos;
+                        if (diff.magnitude >= SwipeDistance)
+                        {
+                            float speed = touch.deltaPosition.magnitude * speedScale / touch.deltaTime;
+                            rigidbody.AddForce(diff.normalized * speed, ForceMode2D.Force);
+                            moveable = false;
+                        }
+
+                    }
+                    else
+                    {
+                        // Allow more leeway and detect touch also when finger is moving
+                        detectTouch(Input.GetTouch(0).position);
                     }
                     break;
 
                 case TouchPhase.Ended:
+                    Debug.Log("Touch ended");
+                    if (moveable)
+                    {
+                        lastPos = Input.GetTouch(0).position;
+                        // Player did swipe
+                        Vector2 diff = lastPos - firstPos;
+                        if (diff.magnitude >= SwipeDistance)
+                        {
+                            float speed = touch.deltaPosition.magnitude * speedScale/ touch.deltaTime;
+                            rigidbody.AddForce(diff.normalized * speed, ForceMode2D.Force); 
+                        }
+                    }
                     moveable = false;
-                    break;
+                   break;
 
             }
 
@@ -102,15 +131,17 @@ public class Food: MonoBehaviour {
 
     }
 
-    void detectTouch(Vector3 pos)
+    void detectTouch(Vector2 touchPos)
     {
-        Vector3 wpos = Camera.main.ScreenToWorldPoint(pos);
-        Vector2 touchPos = new Vector2(wpos.x, wpos.y);
-        Collider2D colObj = Physics2D.OverlapPoint(touchPos);
+        Vector3 pos = Camera.main.ScreenToWorldPoint(touchPos);
+        Collider2D colObj = Physics2D.OverlapPoint(pos);
 
         if (colObj == GetComponent<Collider2D>())
         {
+            Debug.Log("Collinding food");
             moveable = true;
+            firstPos = touchPos;
+            lastPos = touchPos;
         }
 
     }

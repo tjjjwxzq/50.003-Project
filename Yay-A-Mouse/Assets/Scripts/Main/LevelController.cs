@@ -88,6 +88,7 @@ public class LevelController : MonoBehaviour {
             //Debug.Log(food);
 
         // Start updating food combo
+        StartCoroutine(primer());
         StartCoroutine(updateFoodCombo());
 
 
@@ -110,6 +111,7 @@ public class LevelController : MonoBehaviour {
             foreach (GameObject player in nonLocalPlayerObjects)
                 Debug.Log("Non local players " + player);
             numOpponents = nonLocalPlayerObjects.Length;
+
             Debug.Log("Start to set UI");
             SetupPlayerAvatarUI();
             isUISet = true;
@@ -155,18 +157,29 @@ public class LevelController : MonoBehaviour {
 
     private IEnumerator updateFoodCombo()
     {
-        // Reset food combo
-        for (;;)
+        float waittime = Random.Range(minUpdateTime, maxUpdateTime);
+        WaitForSeconds waitEnum = new WaitForSeconds(waittime);
+        while (true)
         {
+            Debug.Log("Updating food combo");
             for(int i = 0; i< foodCombo.Length; i++)
             {
-                Debug.Log("Updating food combo");
                 foodCombo[i] = eligibleFoods[Random.Range(0,eligibleFoods.Length)];
                 comboImages[i].sprite = foodController.FoodSpritesDict[foodCombo[i]];
             }
-        yield return new WaitForSeconds(Random.Range(minUpdateTime, maxUpdateTime));
-
+ 
+            yield return waitEnum;
         }
+    }
+
+    private IEnumerator primer()
+    {
+        // There's some weird bug with coroutines
+        // where it seems to ignore waitforseconds 
+        // a few times at a go, if its the first coroutine started
+        // So use this dummy coroutine to prime the actual coroutine needed (updateFoodCombo)
+        WaitForSeconds waitEnum = new WaitForSeconds(1);
+        yield return waitEnum;
 
     }
 

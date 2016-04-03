@@ -24,11 +24,12 @@ public class ObjectPool : MonoBehaviour {
     /// <returns></returns>
     public GameObject GetObj()
     {
+        // Make sure to spawn off-screen
+        float posX = CameraController.MinXUnits - 2;
+        float posY = CameraController.MinYUnits - 2;
+
         if(pool.Count == 0)
         {
-            // Make sure to spawn off-screen
-            float posX = CameraController.MinXUnits - 2;
-            float posY = CameraController.MinYUnits - 2;
             GameObject clone = (GameObject)Instantiate(obj, new Vector2(posX, posY), Quaternion.identity);
             clone.transform.parent = transform;
             clone.SetActive(false);
@@ -39,6 +40,7 @@ public class ObjectPool : MonoBehaviour {
         }
 
         GameObject nextObj = pool[0];
+        nextObj.transform.position = new Vector2(posX, posY);
         pool.RemoveAt(0);
         nextObj.SetActive(true);
         activeObjects++;

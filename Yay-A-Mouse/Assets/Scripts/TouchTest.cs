@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TouchTest : MonoBehaviour {
 
+    private GUIStyle GUIStyle = new GUIStyle();
 	// Use this for initialization
 	void Start () {
         Debug.Log("initializing");
@@ -11,6 +12,10 @@ public class TouchTest : MonoBehaviour {
         Debug.Log("Screen height is " + Screen.height);
         Debug.Log("Screen width is " + Screen.width);
         Debug.Log("Screen dpi is " + Screen.dpi);
+
+        GUIStyle.fontSize = 30;
+
+        
 	
 	}
 	
@@ -31,7 +36,7 @@ public class TouchTest : MonoBehaviour {
             message += "PosY: " + touch.position.y + "\n";
 
             int num = touch.fingerId;
-            GUI.Label(new Rect(130*num, 0, 100, 100), message);
+            GUI.Label(new Rect(130*num, 0, 500, 500), message, GUIStyle);
 
         }
     }
