@@ -43,16 +43,20 @@ public class StartController : MonoBehaviour {
 
     public void checkPlayerName()
     {
-        /*#if UNITY_EDITOR
-        PlayerPrefs.DeleteKey("Player Name"); // for testing purposes 
-        # endif */
         string name = PlayerPrefs.GetString("Player Name", "None");
-        Debug.Log("Player name is " + name);
+        
+        #if UNITY_EDITOR
+        PlayerPrefs.DeleteKey("Player Name"); // for testing purposes 
+        # endif 
+
         // if player hasn't saved name before, go to prompt name scene
         if (name.Equals("None", System.StringComparison.Ordinal))
         {
             SceneManager.LoadScene("PromptName");
         }
+
+        // If not, then set the lobby manager to persis throughout scenes
+        DontDestroyOnLoad(LobbyManager.singleton);
 
     }
 

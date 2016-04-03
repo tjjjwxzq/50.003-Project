@@ -18,8 +18,9 @@ public class Mouse: MonoBehaviour {
     //Mouse sprites
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer shadowSpriteRenderer;
-    public Sprite[] LevelSprites = new Sprite[11];
-    public Sprite[] ShadowSprites = new Sprite[11];
+    public Sprite[] LevelSprites;
+    public Sprite[] ShadowSprites;
+    private PolygonCollider2D[] polygonColliders; // colliders corresponding to each level sprite
 
     //Happiness status sprites
     private Image mouseHappinessImage;
@@ -62,8 +63,13 @@ public class Mouse: MonoBehaviour {
         //Components
         spriteRenderer = GetComponent<SpriteRenderer>();
         shadowSpriteRenderer = GameObject.Find("Shadow").GetComponent<SpriteRenderer>();
+        polygonColliders = GetComponents<PolygonCollider2D>();
         mouseHappinessImage = GameObject.Find("MouseStatus").GetComponent<Image>();
         mouseHappinessFill = GameObject.Find("Fill").GetComponent<Image>();
+
+        // Deactivate all the but the first collider
+        for (int i = 1; i < polygonColliders.Length; i++)
+            polygonColliders[i].enabled = false;
 
         //For scaling
         float weightRatio = (float) weight / weightLevels[weightLevels.Length - 1];
@@ -109,9 +115,12 @@ public class Mouse: MonoBehaviour {
         {
             if( weightLevels[i-1] <= weight && weight < weightLevels[i] && level != i-1)
             {
+                // update polygon collider and sprite
+                polygonColliders[level].enabled = false;
                 level = i-1;
-                spriteRenderer.sprite = LevelSprites[i];
-                shadowSpriteRenderer.sprite = ShadowSprites[i];
+                polygonColliders[level].enabled = true;
+                spriteRenderer.sprite = LevelSprites[level];
+                shadowSpriteRenderer.sprite = ShadowSprites[level];
                 break;
             }
         }

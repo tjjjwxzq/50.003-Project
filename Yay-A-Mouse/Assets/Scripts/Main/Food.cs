@@ -33,7 +33,9 @@ public class Food: MonoBehaviour {
     // Update is called once per frame
     void Update () {
         // Mouse input
-        //detectMouseSwipe();
+        // activate this only for editor testing
+        // touch input won't work properly when this is activated as well
+        detectMouseSwipe();
 
         // Touch input
         detectTouchSwipe();
