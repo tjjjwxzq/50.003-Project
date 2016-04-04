@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Linq;
+using System.Runtime.CompilerServices;
 
 // The mouse doesn't need physics, just a Collision2D component
 // so we can detect when food/bad stuff touch it
@@ -58,6 +60,11 @@ public class Mouse: MonoBehaviour {
 	void Start () {
         //Get level controller
         levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+
+        // Get local player
+	    var localPlayerObj = GameObject.FindGameObjectsWithTag("Player").First(obj => obj.GetComponent<Player>().isLocalPlayer);
+        localPlayerObj.GetComponent<Player>().AttachToMouse();
+        localPlayerObj.GetComponent<AbilityController>().AttachToMouse();
 
         //Components
         spriteRenderer = GetComponent<SpriteRenderer>();

@@ -18,6 +18,7 @@ public class Player : NetworkBehaviour
 
     private AbilityController abilityController;
     private LevelController levelController;
+    private Mouse mouse;
 
     [SyncVar]
     public string Name;
@@ -97,16 +98,15 @@ public class Player : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            foreach(Ability ability in getAbilities())
-            {
-                Debug.Log("Abilities are " + ability.Name.ToString());
-            }
+//            foreach(Ability ability in getAbilities())
+//            {
+//                Debug.Log("Abilities are " + ability.Name.ToString());
+//            }
 
-            // Add ability controller to local player
-            if (abilityController == null && SceneManager.GetActiveScene().name.Equals("Main", System.StringComparison.Ordinal))
+            // Update score
+            if (mouse != null)
             {
-                Debug.Log("Adding ability controller");
-                abilityController = gameObject.AddComponent<AbilityController>();
+                CmdUpdateScore(mouse.Weight);
             }
         }
         /*
@@ -143,10 +143,6 @@ public class Player : NetworkBehaviour
         // Initialize abilities for local player
         PAbilities = Abilities.EmptyAbilities;
 
-        // Add ability controller but disable it
-        abilityController = gameObject.AddComponent<AbilityController>();
-        abilityController.enabled = false;
-
         // Set local player object on ability selection controller
         GameObject.Find("AbilitySelectionController").GetComponent<AbilitySelectionController>().player = this;
 
@@ -163,7 +159,15 @@ public class Player : NetworkBehaviour
     [Command]
     public void CmdChangeName(string name)
     {
-        Name = name;
+        int nonce = PlayerPrefs.GetInt("nonce");
+        PlayerPrefs.SetInt("nonce", ++nonce);
+        Name = name + nonce.ToString();
+    }
+
+    public void AttachToMouse()
+    {
+        mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
+        if (mouse != null) Debug.Log(Name + " Player component attached to mouse.");
     }
 
     // Tell server that local player is ready to play
@@ -227,6 +231,12 @@ public class Player : NetworkBehaviour
         if (PAbilities[ability].Level > 0)
             return true;
         return false;
+    }
+
+    [Command]
+    public void CmdUpdateScore(int newScore)
+    {
+        Score = newScore;
     }
 
     // check which status the mouse is in (by index in the enum above)

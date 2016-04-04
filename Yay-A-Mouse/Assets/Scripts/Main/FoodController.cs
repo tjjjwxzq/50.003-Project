@@ -198,6 +198,11 @@ public class FoodController : MonoBehaviour {
         changeDirectionsCoroutine = ChangeFoodDirection();
         StartCoroutine(spawnCoroutine);
         StartCoroutine(changeDirectionsCoroutine);
+
+        GameObject.FindGameObjectsWithTag("Player")
+            .First(playerObj => playerObj.GetComponent<AbilityController>().isLocalPlayer)
+            .GetComponent<AbilityController>()
+            .AttachToFoodController();
 	}
 	
 	// Update is called once per frame
