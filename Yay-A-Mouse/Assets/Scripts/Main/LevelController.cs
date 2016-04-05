@@ -96,7 +96,7 @@ public class LevelController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("Level controller num players" + NumPlayers);
+//        Debug.Log("Level controller num players" + NumPlayers);
         if( playerObjects == null || playerObjects.Length < NumPlayers)
         {
             playerObjects = GameObject.FindGameObjectsWithTag("Player");

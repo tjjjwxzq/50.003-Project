@@ -72,7 +72,6 @@ public class AbilityUI : MonoBehaviour
             abilityButtons[ability.Name].GetComponent<Button>().interactable = mouse.Happiness >= localPlayer.PAbilities[ability.Name].Cost;
             abilityUpgradeButtons[ability.Name].SetActive(abilityController.abilityPoints > 0);
             abilityButtons[ability.Name].GetComponentInChildren<Text>().text = localPlayer.PAbilities[ability.Name].Level.ToString();
-
         }
     }
 

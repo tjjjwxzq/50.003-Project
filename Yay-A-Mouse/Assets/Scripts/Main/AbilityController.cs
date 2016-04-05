@@ -285,14 +285,15 @@ public class AbilityController : NetworkBehaviour
         Debug.LogWarning("Activating treats galore.");
         if (mouse.Happiness < player.PAbilities.TreatsGalore.Cost) return;
         var goodFoods = foodController.FoodValues.Where(food => food.Value > player.PAbilities.TreatsGalore.PointThreshold).ToList();
-        var random = new Random();
-        var boostedFood = goodFoods[random.Next(goodFoods.Count)].Key;
+        var boostedFood = goodFoods[new Random().Next(goodFoods.Count)].Key;
         foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * player.PAbilities.TreatsGalore.SpawnLimitMultiplier);
         foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * player.PAbilities.TreatsGalore.SpawnWeightMultiplier);
         treatsGaloreBoostedFood = boostedFood;
         treatsGaloreIsActive = true;
         abilityLastActivatedTimes[AbilityName.TreatsGalore] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.TreatsGalore.Cost;
+
+        Debug.Log(string.Format("{0} activated Treats Galore and boosted {1}", player.Name, boostedFood));
     }
 
     /// <summary>
@@ -309,6 +310,8 @@ public class AbilityController : NetworkBehaviour
         mouse.GrowthAbility = player.PAbilities.FatMouse.WeightMultiplier;
         abilityLastActivatedTimes[AbilityName.FatMouse] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.FatMouse.Cost;
+
+        Debug.Log(string.Format("{0} activated Fat Mouse. Weight gain multiplier: {1}", player.Name, mouse.GrowthAbility));
     }
 
     /// <summary>
@@ -327,7 +330,7 @@ public class AbilityController : NetworkBehaviour
     public void CmdDispatchScaryCat(string caller, int duration, int happinessReduction, int weightReduction)
     {
         // todo: implement choice of target player rather than random
-        var players = GameObject.FindGameObjectsWithTag("Players").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
+        var players = GameObject.FindGameObjectsWithTag("Player").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
         var victim = players.ElementAt(new Random().Next(players.Length));
         victim.GetComponent<AbilityController>().RpcReceiveScaryCat(duration, happinessReduction, weightReduction);
     }
@@ -338,7 +341,9 @@ public class AbilityController : NetworkBehaviour
     /// Weight and Happiness depending on whether the player's Fearless ability
     /// is activated and its level.
     /// </summary>
-    /// <param name="scaryCat"></param>
+    /// <param name="duration"></param>
+    /// <param name="happinessReduction"></param>
+    /// <param name="weightReduction"></param>
     [ClientRpc]
     public void RpcReceiveScaryCat(int duration, int happinessReduction, int weightReduction)
     {
@@ -398,7 +403,7 @@ public class AbilityController : NetworkBehaviour
     public void CmdDispatchBeastlyBuffet(string caller, int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
     {
         // todo: implement choice of target player rather than random
-        var players = GameObject.FindGameObjectsWithTag("Players").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
+        var players = GameObject.FindGameObjectsWithTag("Player").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
         var victim = players.ElementAt(new Random().Next(players.Length));
         victim.GetComponent<AbilityController>().RpcReceiveBeastlyBuffet(duration, pointThreshold, spawnLimitMultiplier, spawnWeightMultiplier);
     }
@@ -431,9 +436,7 @@ public class AbilityController : NetworkBehaviour
     public void ActivateThief()
     {
         if (mouse.Happiness < player.PAbilities.Thief.Cost) return;
-        // todo: networking
-        // todo: call RpcReceiveThief(player.Abilities.Thief) on target player
-        // todo: increase spawn interval
+        // todo: networking, increase spawn interval
         mouseIsThief = true;
         abilityLastActivatedTimes[AbilityName.Thief] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.Thief.Cost;
@@ -446,19 +449,15 @@ public class AbilityController : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcReceiveThief(Thief thief, int duration, int foodUnitsTransferred)
+    public void RpcReceiveThief(string caller, int duration, int foodUnitsTransferred)
     {
-        mouseIsThiefVictim = true;
-        lastStolenFrom = DateTime.Now;
-        thiefVictimDuration = thief.Duration;
-
         var foods = foodController.GetComponents<ObjectPool>();
         var goodFoods =
             foods.Where(food => food.PoolObject.GetComponent<Food>().NutritionalValue > 0).ToList();
         var random = new Random();
         var toTransfer = new List<string>();
         var foodsTaken = 0;
-        while (foodsTaken < thief.FoodUnitsTransferred)
+        while (foodsTaken < foodUnitsTransferred)
         {
             if (goodFoods.Count == 0) break;
             var poolToStealFrom = goodFoods[random.Next(goodFoods.Count)];
@@ -471,15 +470,29 @@ public class AbilityController : NetworkBehaviour
             else goodFoods.Remove(poolToStealFrom);
         }
 
+        mouseIsThiefVictim = true;
+        lastStolenFrom = DateTime.Now;
+        thiefVictimDuration = duration;
+
         // todo: decrease spawn interval
 
-        // todo: call RpcReceiveStolenFood(toTransfer) on player who stole food
+        CmdDispatchStolenFood(caller, toTransfer.ToArray());
+    }
+
+    [Command]
+    public void CmdDispatchStolenFood(string caller, string[] foodsTaken)
+    {
+        var thief = GameObject.FindGameObjectsWithTag("Player").First(o => o.GetComponent<Player>().Name.Equals(caller));
+        thief.GetComponent<AbilityController>().RpcReceiveStolenFood(foodsTaken);
     }
 
     [ClientRpc]
-    public void RpcReceiveStolenFood(List<ObjectPool> loot)
+    public void RpcReceiveStolenFood(string[] foodsTaken)
     {
-        // todo: spawn each food from each string in loot
+        foreach (var food in foodsTaken)
+        {
+            // todo: spawn an instance of food, ideally bypassing max spawn limits
+        }
     }
 
     [ClientRpc]
@@ -495,7 +508,7 @@ public class AbilityController : NetworkBehaviour
         Debug.LogWarning("CmdIncreaseScore called as local player: " + isLocalPlayer.ToString());
         var players = GameObject.FindGameObjectsWithTag("Player");
         var targetPlayer = players.ElementAt(new Random().Next(players.Length));
-        Debug.LogWarning(String.Format("Increasing score for player {0}", targetPlayer.GetComponent<Player>().Name));
+        Debug.LogWarning(string.Format("Increasing score for player {0}", targetPlayer.GetComponent<Player>().Name));
         targetPlayer.GetComponent<AbilityController>().RpcIncrementMouseWeight();
     }
 }
