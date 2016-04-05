@@ -35,8 +35,12 @@ public class Mouse: MonoBehaviour {
     private int leptinDeficiency = 1; //!< Ability to gain weight; acts as score multiplier to food points. Can be set by player ability.
     private bool fearless = false; //!< immunity to being scared by cats, ants etc. Can be set by player ability.
     private bool offScreen = false; //!< Whether the mouse has been scared off-screen.
+
+    // For swiping
     private bool stroked = false; //!< For detecting if a stroke has started
-    private bool stroking = false; //!< For detecting if mouse has been stroked
+    private Vector2 swipeFirstPos;
+    private Vector2 swipeLastPos;
+    private float SwipeDistance = Screen.height * 5f / 100f;
 
     // Weight and Happiness Levels
     private readonly int[] weightLevels = new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 };
@@ -196,21 +200,45 @@ public class Mouse: MonoBehaviour {
             {
                 case TouchPhase.Began:
                     stroked = detectTouch(Input.GetTouch(0).position);
+                    if (stroked)
+                        swipeFirstPos = Input.GetTouch(0).position;
                     break;
 
                 case TouchPhase.Moved:
-                    if (stroked)
+                    if (!stroked)
                     {
-                        float magnitude = touch.deltaPosition.magnitude;
-                        if (magnitude != 0)
-                            stroking = true;
+                        stroked = detectTouch(Input.GetTouch(0).position);
+                        if (stroked)
+                            swipeFirstPos = Input.GetTouch(0).position;
+                    }
+                    else
+                    {
+                        Debug.Log("Stroking");
+                        swipeLastPos = Input.GetTouch(0).position;
+                        Vector2 diff = swipeFirstPos - swipeLastPos;
+                        Debug.Log("diff mag" + diff.magnitude);
+                        Debug.Log("Swipe distance" + SwipeDistance);
+
+                        if (diff.magnitude > SwipeDistance)
+                        {
+                            increaseHappiness();
+                            stroked = false;
+                        }
                     }
                     break;
 
                 case TouchPhase.Ended:
-                    if(stroking && happiness < happinessLevels[happinessLevels.Length -1])
-                        happiness ++;
-                    stroking = false;
+                    if (stroked)
+                    {
+                        swipeLastPos = Input.GetTouch(0).position;
+                        Vector2 diff = swipeFirstPos - swipeLastPos;
+
+                        if (diff.magnitude > SwipeDistance)
+                        {
+                            increaseHappiness();
+                        }
+                    }
+                    stroked = false;
                     break;
 
             }
@@ -218,6 +246,14 @@ public class Mouse: MonoBehaviour {
         }
 
 
+    }
+
+    // Function to be callec by updateHappiness
+    // to isolate how the happiness is incremented
+    private void increaseHappiness()
+    {
+        if (happiness < happinessLevels[happinessLevels.Length - 1])
+            happiness++;
     }
 
     /// <summary>
@@ -263,6 +299,7 @@ public class Mouse: MonoBehaviour {
 
         if (colObj == GetComponent<Collider2D>())
         {
+            Debug.Log("Detected stroke");
             return true;
         }
 

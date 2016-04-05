@@ -149,6 +149,7 @@ public class Player : NetworkBehaviour
 
         // Set local player object on ability selection controller
         GameObject.Find("AbilitySelectionController").GetComponent<AbilitySelectionController>().player = this;
+        Debug.Log("Finding ability selection controller null?" + (GameObject.Find("AbilitySelectionController").GetComponent<AbilitySelectionController>() == null));
 
     }
 

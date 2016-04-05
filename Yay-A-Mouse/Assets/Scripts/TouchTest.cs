@@ -36,7 +36,7 @@ public class TouchTest : MonoBehaviour {
             message += "PosY: " + touch.position.y + "\n";
 
             int num = touch.fingerId;
-            GUI.Label(new Rect(130*num, 0, 500, 500), message, GUIStyle);
+            GUI.Label(new Rect(130*num, 100, 500, 500), message, GUIStyle);
 
         }
     }

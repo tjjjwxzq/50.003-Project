@@ -8,11 +8,13 @@ public class Food: MonoBehaviour {
     private float speedScale = 0.5f; //factor to scale touch swipe speed by; hand-tune this or linear drag
     public int NutritionalValue; //<! Nutritional value, equivalent to units of mouse weight (aka points)
     public string Type; //<! Food type
-    private bool moveable = false; // moveable if it has been touched
+    private bool moveable = false; // moveable if it has been tuoched
 
-    private float SwipeDistance;
+    private float SwipeDistance = Screen.height * 5f/ 100f;
     private Vector2 firstPos;
     private Vector2 lastPos;
+    private const float MoveTime = 0.1f;
+    private float moveTimeCountDown; // prevents food for moving if player swipes too slowly
 
     // Factory method
     public static void CreateFood( GameObject food, int nutritionalValue, string type)
@@ -26,7 +28,6 @@ public class Food: MonoBehaviour {
 	void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        SwipeDistance = Screen.height * 5f / 100; // distance to move finger before its counted as a swipe
 
      }
 
@@ -36,6 +37,7 @@ public class Food: MonoBehaviour {
         // activate this only for editor testing
         // touch input won't work properly when this is activated as well
         detectMouseSwipe();
+        // MAKE SURE TO TURN THIS OFF IS TOUCH INPUT IS SCREWED UP
 
         // Touch input
         detectTouchSwipe();
@@ -45,11 +47,17 @@ public class Food: MonoBehaviour {
         {
             if(spriteRenderer.bounds.min.x > CameraController.MaxXUnits || spriteRenderer.bounds.max.x < CameraController.MinXUnits)
             {
+                // set moveable to false
+                // so it doesn't start as moveable when next activated
+                moveable = false;
                 gameObject.GetComponent<PoolMember>().Deactivate();
             }
             
             if(spriteRenderer.bounds.min.y > CameraController.MaxYUnits || spriteRenderer.bounds.max.y < CameraController.MinYUnits)
             {
+                // set moveable to false
+                // so it doesn't start as moveable when next activated
+                moveable = false;
                 gameObject.GetComponent<PoolMember>().Deactivate();
             }
      
@@ -91,6 +99,12 @@ public class Food: MonoBehaviour {
                 case TouchPhase.Moved:
                     if (moveable)
                     {
+                        moveTimeCountDown -= Time.deltaTime;
+                        if(moveTimeCountDown <= 0)
+                        {
+                            moveable = false;
+                        }
+
                         lastPos = Input.GetTouch(0).position;
                         // Player did swipe
                         Vector2 diff = lastPos - firstPos;
@@ -144,6 +158,7 @@ public class Food: MonoBehaviour {
             moveable = true;
             firstPos = touchPos;
             lastPos = touchPos;
+            moveTimeCountDown = MoveTime;
         }
 
     }

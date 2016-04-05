@@ -29,10 +29,12 @@ public class LevelController : MonoBehaviour {
     // Food combo state
     private string[] eligibleFoods;
     private string[] foodCombo = new string[3]; // array of food names
-    private const float minUpdateTime = 10f;
-    private const float maxUpdateTime = 20f;
-    private const int FoodCountMin = 5; // minimum max food count before food type has a chance to be included in combo
+    private const float minUpdateTime = 20f;
+    private const float maxUpdateTime = 40f;
+    private const float WeightedFoodCountMin = 0.5f; // minimum weighted food count (max count * spawn weight) before food type has a chance to be included in combo
     private const int ScoreBonus = 20;
+    private const float ComboAnimTime = 3f;
+    private float comboAnimCountDown = 0;
     private int countStreak = 0;     // length of combo streak
     private int sequenceFed = 0;     // count the number of correct food fed
 
@@ -50,8 +52,13 @@ public class LevelController : MonoBehaviour {
     public Sprite comboBGNormal;
     public Sprite comboBGHighlight;
     private GameObject comboUI;
+    private GameObject comboText; // "COMBO!" text that pops up when combo
+    private Animator comboTextAnimator;
+    private GameObject comboChange;
+    private Animator comboChangeAnimator;
     private Image[] comboBackgrounds = new Image[3];
     private Image[] comboImages = new Image[3];
+    private Animator[] comboAnimators = new Animator[3];
     private GameObject playerAvatarUI;
     private GameObject playerAvatar; // player avatar prefab
     private GameObject[] playerAvatars; // player avatars in UI
@@ -72,20 +79,31 @@ public class LevelController : MonoBehaviour {
 
         // Get Combo UI
         comboUI = GameObject.Find("Combo");
+        comboText = GameObject.Find("ComboText");
+        comboTextAnimator= comboText.GetComponent<Animator>();
+        comboChange= GameObject.Find("ComboChange");
+        comboChangeAnimator= comboChange.GetComponent<Animator>();
+        comboText.SetActive(false);
         for(int i = 0; i < comboImages.Length; i++)
         {
-            comboImages[i] = comboUI.transform.GetChild(i).GetChild(0).GetComponent<Image>();
-            comboBackgrounds[i] = comboUI.transform.GetChild(i).GetComponent<Image>();
+
+            Transform comboChild = comboUI.transform.GetChild(i);
+            comboImages[i] = comboChild.GetChild(0).GetComponent<Image>();
+            comboBackgrounds[i] = comboChild.GetComponent<Image>();
+            comboAnimators[i] = comboChild.GetComponent<Animator>();
+            comboAnimators[i].enabled = false; // disable or it will override sprite renderer
         }
 
         // Get players UI
         playerAvatarUI = GameObject.Find("PlayerUI");
 
         // Initialization for food combo
-        eligibleFoods = foodController.MaxFoodCounts.Where(kvp => kvp.Value >= FoodCountMin && foodController.FoodValues[kvp.Key] > 0).
+        eligibleFoods = foodController.MaxFoodCounts.Where(kvp => 
+        kvp.Value * foodController.FoodSpawnWeights[kvp.Key] / foodController.TotalFoodSpawnWeight >= WeightedFoodCountMin 
+            && foodController.FoodValues[kvp.Key] > 0).
             Select(x => x.Key).ToArray<string>();
         foreach (string food in eligibleFoods)
-            //Debug.Log(food);
+            Debug.Log("Eligible foods are " + food);
 
         // Start updating food combo
         StartCoroutine(primer());
@@ -95,7 +113,7 @@ public class LevelController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update (){
         Debug.Log("Level controller num players" + NumPlayers);
         if( playerObjects == null || playerObjects.Length < NumPlayers)
         {
@@ -138,7 +156,8 @@ public class LevelController : MonoBehaviour {
             }
         }
 
-        // Check for collision of food with mouse
+        // Check for collision of food 
+        // spawned during frenzy mode with mouse
         // Check regardless of game mode in case frenzy mode
         // ends while there are still fired food on screen
         foreach(Transform food in transform)
@@ -149,6 +168,30 @@ public class LevelController : MonoBehaviour {
                 mouse.Weight += food.GetComponent<Food>().NutritionalValue * mouse.GrowthAbility;
                 food.GetComponent<PoolMember>().Deactivate();
                 food.position = new Vector2(0, CameraController.MinYUnits);
+            }
+        }
+
+        // Count down combo animation
+        if (comboAnimCountDown > 0)
+        {
+            comboAnimCountDown -= Time.deltaTime;
+        }
+
+        // Check if combo bgs are animating and stop them if needed
+        if (comboAnimators[0].enabled && comboAnimCountDown < 0)
+        {
+            foreach(Animator animator in comboAnimators)
+            {
+                Debug.Log("Stopping animation");
+                animator.SetBool("ComboAnimation", false);
+                animator.enabled = false;
+            }
+
+             // Reset background
+            foreach(Image comboBG in comboBackgrounds)
+            {
+                Debug.Log("Ressting BG after combo hit");
+                comboBG.sprite = comboBGNormal;
             }
         }
 
@@ -167,6 +210,10 @@ public class LevelController : MonoBehaviour {
                 foodCombo[i] = eligibleFoods[Random.Range(0,eligibleFoods.Length)];
                 comboImages[i].sprite = foodController.FoodSpritesDict[foodCombo[i]];
             }
+
+            // Trigger combo change animation
+            comboChange.SetActive(true);
+            comboChangeAnimator.SetTrigger("ComboChange");
  
             yield return waitEnum;
         }
@@ -195,6 +242,20 @@ public class LevelController : MonoBehaviour {
             countStreak += 1;
             sequenceFed = 0;
             mouse.Weight += ScoreBonus;
+
+            // Animate combo backgrounds
+            foreach(Animator animator in comboAnimators)
+            {
+                animator.enabled = true;
+                animator.SetBool("ComboAnimation", true);
+            }
+
+            // Animate combo text
+            comboText.SetActive(true);
+            comboTextAnimator.SetTrigger("ComboText");
+
+            comboAnimCountDown = ComboAnimTime;
+
         }
     }
 
@@ -345,7 +406,8 @@ public class LevelController : MonoBehaviour {
 
     }
 
-    
+
+   
 
     
 }

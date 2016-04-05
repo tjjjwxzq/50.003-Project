@@ -143,6 +143,7 @@ public class AbilitySelectionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Plyaer is null" + (player == null));
         // When player has chosen two abilities, show ready button
         if (player != null)
         {
@@ -193,7 +194,7 @@ public class AbilitySelectionController : MonoBehaviour
         selectedAbility = (AbilityName)Enum.Parse(typeof(AbilityName), selectedAbilityObj.name);
 
         // Check if player already has selecte ability and set choose ability button sprite
-        if (player.hasAbility(selectedAbility))
+    if (player.hasAbility(selectedAbility))
         {
             alreadyChosenText.SetActive(false);
             chooseAbilityButton.gameObject.SetActive(true);

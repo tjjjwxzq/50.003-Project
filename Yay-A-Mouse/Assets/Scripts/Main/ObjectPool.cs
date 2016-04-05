@@ -40,7 +40,7 @@ public class ObjectPool : MonoBehaviour {
         }
 
         GameObject nextObj = pool[0];
-        nextObj.transform.position = new Vector2(posX, posY);
+        nextObj.transform.position = new Vector2(posX, posY); // make sure to move off screen before reactivating
         pool.RemoveAt(0);
         nextObj.SetActive(true);
         activeObjects++;

@@ -16,6 +16,8 @@ public class FoodController : MonoBehaviour {
 
     public enum Movements { Static, Horizontal, Vertical, Random }; // enumerator of food movements
 
+    private SpriteRenderer mouseSpriteRenderer;
+
     private string[] foodNames;// Array of food names
     public Sprite[] FoodSprites; //<! Array of food sprites, to be assigned in the inspector
     private Dictionary<string,Sprite> foodSpritesDict = new Dictionary<string,Sprite>(); //<! array of food sprites
@@ -70,24 +72,25 @@ public class FoodController : MonoBehaviour {
     private Dictionary<string, float> foodSpawnWeights = new Dictionary<string, float>
     {
          // Good foods
-        {"Normal" , 6f},
-        {"Cheese" , 2.5f },
-        {"Carrot" , 3.5f},
-        {"Oat" , 2f },
-        {"Apple" , 3f },
-        {"Anchovy" , 1.5f },
-        {"Bread" , 1f },
-        {"Seed" , 0.8f },
+        {"Normal" , 9f},
+        {"Cheese" , 4f },
+        {"Carrot" , 6f},
+        {"Oat" , 3.5f },
+        {"Apple" , 5f },
+        {"Anchovy" , 2.5f },
+        {"Bread" , 2f },
+        {"Seed" , 1.5f },
 
         // Bad foods
         {"Bad", 4f },
-        {"Peanut", 2f },
+        {"Peanut", 2.5f },
         {"Orange", 1.5f },
         {"Garlic", 1.2f },
         {"Chocolate", 0.8f },
         {"Poison", 0.2f }
     };
     private float totalFoodSpawnWeight; // Sum of all food spawn probability weights
+    private float[] cumulativeFoodWeights; // for generating weighted random food 
 
 
     private IEnumerator spawnCoroutine;
@@ -104,6 +107,12 @@ public class FoodController : MonoBehaviour {
     public string[] FoodNames
     {
         get { return (string[]) foodNames.Clone(); }
+    }
+
+    public float TotalFoodSpawnWeight
+    {
+        get { return totalFoodSpawnWeight; }
+
     }
 
     public Dictionary<string, int> FoodValues
@@ -136,6 +145,9 @@ public class FoodController : MonoBehaviour {
     // of other scripts
     void Awake()
     {
+        // Get mouse sprite renderer for getting mouse bounds
+        mouseSpriteRenderer = GameObject.Find("Mouse").GetComponent<SpriteRenderer>();
+
         // Get array of food names from sprites assigned in inspector
         foodNames = new string[FoodSprites.Length];
         for(int i = 0; i < FoodSprites.Length; i ++)
@@ -190,6 +202,14 @@ public class FoodController : MonoBehaviour {
 
         totalMaxFoodCount = maxFoodCounts.Sum(x => x.Value);
         totalFoodSpawnWeight = foodSpawnWeights.Sum(x => x.Value);
+
+        // Initialize cumulative spawn weights
+        cumulativeFoodWeights = new float[foodNames.Length];
+        for(int i = 0; i < foodNames.Length; i++)
+        {
+            cumulativeFoodWeights[i] = i > 0 ? foodSpawnWeights[foodNames[i]] + cumulativeFoodWeights[i - 1] :
+                foodSpawnWeights[foodNames[i]];
+        }
 
     }
 
@@ -256,10 +276,10 @@ public class FoodController : MonoBehaviour {
         {
             string foodName = foodNames[Random.Range(0, foodNames.Length)];
             float prob = Random.value * totalFoodSpawnWeight;
-            if (prob <= foodSpawnWeights[foodName])
+            for(int i =0; i < cumulativeFoodWeights.Length; i++)
             {
-                //Debug.Log("Weighted food name is " + foodName);
-                return foodName;
+                if (prob <= cumulativeFoodWeights[i])
+                    return FoodNames[i];
             }
         }
 
@@ -290,14 +310,17 @@ public class FoodController : MonoBehaviour {
                 float y;
                 while(true){
                     // Make ranges of spawn position with different probabilities
+                    // and never spawn directly into the area in which the mouse rotates
                     //  magnitude < orthoSize/3: P = 0.2
                     //  magnitude < 2* orthoSize/3: P = 0.3
                     //  magnitude < orthosize: P = 0.5
                     x = Random.Range(CameraController.MinXUnits, CameraController.MaxXUnits);
                     y = Random.Range(CameraController.MinYUnits, CameraController.MaxYUnits);
                     Vector2 foodPos = new Vector2(x, y);
+                    // Check whether in mouse area (circle)
+                    bool mouseArea = foodPos.magnitude > mouseSpriteRenderer.sprite.bounds.extents.y;
                     Collider2D colObj = Physics2D.OverlapPoint(foodPos);
-                    if (colObj == null)
+                    if ( !mouseArea && colObj == null)
                     {
                         float prob = Random.value;
                         if (prob <= 0.2 && foodPos.magnitude < Camera.main.orthographicSize/3f)
