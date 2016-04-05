@@ -39,11 +39,13 @@ public class LobbyPlayer : NetworkLobbyPlayer{
 	
     public override void OnStartLocalPlayer()
     {
-        Debug.Log("Local player starting");
         // Set name for local player
         Debug.Log("Name is " + PlayerPrefs.GetString("Player Name"));
         CmdChangeName(PlayerPrefs.GetString("Player Name"));
         // Set color for local player
+        // I don't really understand why I don't need to call
+        // setColor to set the color correctly for a newly joined
+        // client, but it seems to set correctly like this, so...
         CmdChangeColor(PlayerColor);
         // Show quit and ready button if local player
         playerQuitButtonObj.SetActive(true);
@@ -57,6 +59,8 @@ public class LobbyPlayer : NetworkLobbyPlayer{
 
     public override void OnClientEnterLobby()
     {
+        Debug.Log("Client entering lobby");
+        Debug.Log("Player color client is " + PlayerColor);
         // Add player object to canvas and intialize UI components
         canvasObj = GameObject.Find("Canvas");
         transform.SetParent(canvasObj.transform, true);
@@ -74,7 +78,6 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         // Reenable only on local player in OnStartLocalPlayer
         playerButton.interactable = false;
 
-        setColor();
         // Update the UI instantly, before syncvar hooks
         // This is to ensure the UI changes even if the
         // syncvar is not changed from the server
@@ -84,17 +87,6 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         // Add player object to list in lobby manager
         (LobbyManager.singleton as LobbyManager).AddLobbyPlayer(gameObject);
         
-    }
-
-    public override void OnClientExitLobby()
-    {
-        Debug.Log("Player Exiting lobby");
-        // Remove player from lobby manager player list
-        (LobbyManager.singleton as LobbyManager).RemoveLobbyPlayer(gameObject);
-        // (LobbyManager.singleton as LobbyManager).getUsedColors().Remove(PlayerColor);
-        foreach (Color color in (LobbyManager.singleton as LobbyManager).getUsedColors())
-            Debug.Log("Used colors are " + color);
-
     }
 
     public override void OnClientReady(bool readyState)
@@ -153,13 +145,12 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         }
     }
 
-    // Toggle Player color
+    // Callback for button to toggle Player color
     public void OnToggleColor()
     {
         setColor();
         CmdChangeColor(PlayerColor);
     }
-
 
 
     // Quit Button
