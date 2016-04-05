@@ -7,6 +7,8 @@ using UnityEngine.Networking;
 public class LobbyManager : NetworkLobbyManager {
 
     // For Lobby Scene
+    private bool serverStarted = false;
+    private bool colorControllerSpawned = false;
     // for tracking if lobby players are ready on the client, and saving local player state
     private List<LobbyPlayer> lobbyPlayers = new List<LobbyPlayer>(); 
     // for tracking if lobby players are ready in ability selection scene, and saving selected abilities
@@ -43,11 +45,28 @@ public class LobbyManager : NetworkLobbyManager {
         readyUI.SetActive(false);
         playerTransform = lobbyPlayerPrefab.GetComponent<RectTransform>();
 
-        DontDestroyOnLoad(gameObject);
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        Debug.Log("Number of connected players are " + numPlayers);
+        Debug.Log("Number of lobby players are " + lobbyPlayers.Count);
+        foreach (LobbyPlayer player in lobbyPlayers)
+            Debug.Log("Lobby player is " + player);
+        UpdateLobbyPlayers();
+
+        if (serverStarted && !colorControllerSpawned)
+        {
+            Debug.Log("Spawning color ocntroller");
+            // Spawn color controller
+            colorControllerSpawned = true;
+            NetworkServer.SpawnObjects(); // Maybe shift this to OnLobbyClientEnter? Or would that duplicate the object
+            // I am not sure why the plain vanilla spawn with a registered
+            // color controller prefab as an argument doesn't seem to work
+            // Now a ColorController object is placed in the scene but is is disabled by default
+            // SpawnObjects() enables and spawns it
+        }
         // To check and update UI when all lobby players are ready
         if (!readyUIActive && lobbyPlayers.Count >= minPlayers && checkAllReady())
         {
@@ -90,21 +109,32 @@ public class LobbyManager : NetworkLobbyManager {
         networkDiscovery.Initialize();
         networkDiscovery.StartAsServer();
         isHost = true;
+        serverStarted = true;
+
     }
 
     // Disable start UI when client enters
     public override void OnLobbyClientEnter()
     {
+        Debug.Log("Entering lobby");
+        Debug.Log("Enter Num lobby players are " + lobbyPlayers.Count);
         // Disable start UI
         ToggleStartUI(false);
+
     }
 
+    // Check that lobbyplayers list is updated
+    public override void OnLobbyClientExit()
+    {
+
+        Debug.Log("Exit Num lobby players are " + lobbyPlayers.Count);
+
+    }
     // Customize player spawning
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
         if(SceneManager.GetActiveScene().name.Equals("Lobby", System.StringComparison.Ordinal)){
             GameObject player = Instantiate(lobbyPlayerPrefab.gameObject, GetStartPosition().position, Quaternion.identity) as GameObject;
-            //player.transform.SetParent(canvasObj.transform, false);
             NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         }
         else if(SceneManager.GetActiveScene().name.Equals("SelectAbilities", System.StringComparison.Ordinal))
@@ -140,7 +170,6 @@ public class LobbyManager : NetworkLobbyManager {
     {
         Debug.Log("Server scene changed");
         Debug.Log("Active scene is " + SceneManager.GetActiveScene().name);
-
     }
 
     // According to the docs this should be able to be used to pass player preferences selected before the
@@ -190,7 +219,17 @@ public class LobbyManager : NetworkLobbyManager {
         lobbyPlayers.Add(player.GetComponent<LobbyPlayer>());
     }
 
+    // Update lobby players list
+    public void UpdateLobbyPlayers()
+    {
+        if (lobbyPlayers.Count != numPlayers)
+            lobbyPlayers = lobbyPlayers.Where(p => p != null).ToList();
+    }
+
     // Remove lobby player from list
+    // This doesn't seem to have use
+    // Since even if a client calls this in OnExitClient
+    // the server and other clients will not be updated
     public void RemoveLobbyPlayer(GameObject player)
     {
         lobbyPlayers.Remove(player.GetComponent<LobbyPlayer>());
@@ -227,6 +266,16 @@ public class LobbyManager : NetworkLobbyManager {
     public void setLocalPlayerAbilities(Abilities abilities)
     {
         PlayerAbilities = abilities;
+    }
+
+    /// <summary>
+    /// Get the list of currently used colors
+    /// To be called by lobby player when setting color
+    /// </summary>
+    /// <returns></returns>
+    public List<Color> getUsedColors()
+    {
+        return lobbyPlayers.Select(p => p.PlayerColor).ToList<Color>();
     }
 
     // Start Game button callback (only on host) 

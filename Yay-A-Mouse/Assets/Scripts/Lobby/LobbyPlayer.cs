@@ -7,8 +7,11 @@ using System.Collections.Generic;
 
 public class LobbyPlayer : NetworkLobbyPlayer{
 
+    // For testing, to check local player in inspector
     public bool isLocal;
     public bool isServe;
+
+    // List of possible player colors
 
     [SyncVar]
     public bool PlayerReady;
@@ -18,6 +21,8 @@ public class LobbyPlayer : NetworkLobbyPlayer{
 
     [SyncVar(hook = "OnChangeColor")]
     public Color PlayerColor;
+    private Color[] Colors = { Color.red, Color.green, Color.blue, Color.yellow };
+    private int currentColorIndex = 0;
 
     // UI components
     public float playerScale = 0.3f;
@@ -36,6 +41,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     {
         Debug.Log("Local player starting");
         // Set name for local player
+        Debug.Log("Name is " + PlayerPrefs.GetString("Player Name"));
         CmdChangeName(PlayerPrefs.GetString("Player Name"));
         // Set color for local player
         CmdChangeColor(PlayerColor);
@@ -82,7 +88,13 @@ public class LobbyPlayer : NetworkLobbyPlayer{
 
     public override void OnClientExitLobby()
     {
+        Debug.Log("Player Exiting lobby");
+        // Remove player from lobby manager player list
         (LobbyManager.singleton as LobbyManager).RemoveLobbyPlayer(gameObject);
+        // (LobbyManager.singleton as LobbyManager).getUsedColors().Remove(PlayerColor);
+        foreach (Color color in (LobbyManager.singleton as LobbyManager).getUsedColors())
+            Debug.Log("Used colors are " + color);
+
     }
 
     public override void OnClientReady(bool readyState)
@@ -160,12 +172,16 @@ public class LobbyPlayer : NetworkLobbyPlayer{
             // Disconnect from server
             if (isServer)
             {
+                // Remove player object
+                RemovePlayer();
                 // if hosting, stop client and server
                 LobbyManager.singleton.StopHost();
                 Debug.Log("Stopping host");
             }
             else
             {
+                // Remove player object
+                RemovePlayer();
                 // else simply stop client
                 LobbyManager.singleton.StopClient();
                 Debug.Log("Stopping client");
@@ -179,17 +195,39 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     // Set color
     private void setColor()
     {
-        foreach(Color color in ColorController.Colors)
+        bool colorSet = false;
+        LobbyManager lobbyManager = LobbyManager.singleton as LobbyManager;
+        for(int i = currentColorIndex; i < Colors.Length; i++)
         {
-            if (!ColorController.UsedColors.Contains(color))
+            Color color = Colors[i];
+           if (! lobbyManager.getUsedColors().Contains(color))
             {
-                ColorController.UsedColors.Remove(PlayerColor);
-                ColorController.UsedColors.Add(color);
+                Debug.Log("Setting color");
+                //colorController.CmdRemoveUsedColors(currentColorIndex);
+                //colorController.CmdAddUsedColors(i);
                 PlayerColor = color;
+                currentColorIndex = i;
+                colorSet = true;
                 break;
             }
-        }
+       }
 
+        // If color is not yet set, start looking through color list from beginning
+        if (!colorSet)
+        {
+            for(int i = 0; i < Colors.Length; i++)
+            {
+                Color color = Colors[i];
+                if(!lobbyManager.getUsedColors().Contains(color))
+                {
+                    Debug.Log("Setting color 2");
+                    PlayerColor = color;
+                    currentColorIndex = i;
+                    break;
+                }
+            }
+ 
+        }
     }
 
 	// Update is called once per frame

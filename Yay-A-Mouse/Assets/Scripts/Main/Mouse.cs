@@ -163,8 +163,8 @@ public class Mouse: MonoBehaviour {
     /// </summary>
     void updateHappiness()
     {
-        // For mouse input
-        if (Input.GetMouseButtonDown(0))
+        // For mouse input. Just clicking on the mouse will count as a stroke
+        /*if (Input.GetMouseButtonDown(0))
         {
             stroked = detectTouch(Input.mousePosition);
 
@@ -186,12 +186,12 @@ public class Mouse: MonoBehaviour {
             if (stroking && happiness < happinessLevels[happinessLevels.Length - 1])
                 happiness++;
             stroked = false;
-        }
+        }*/
 
         // For touch input
         if(Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0); //might we consider multiple touches?
+            Touch touch = Input.GetTouch(0); 
             switch (touch.phase)
             {
                 case TouchPhase.Began:
