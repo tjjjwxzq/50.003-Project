@@ -59,7 +59,7 @@ public class AbilityController : NetworkBehaviour
     {
         mainStarted = false;
 
-        Debug.LogWarning(String.Format("AbilityController for {0} starting.", gameObject.GetComponent<Player>().Name));
+        Debug.Log(String.Format("AbilityController for {0} starting.", gameObject.GetComponent<Player>().Name));
 
         player = gameObject.GetComponent<Player>();
 
@@ -329,6 +329,7 @@ public class AbilityController : NetworkBehaviour
     [Command]
     public void CmdDispatchScaryCat(string caller, int duration, int happinessReduction, int weightReduction)
     {
+        if (!isServer) return;
         // todo: implement choice of target player rather than random
         var players = GameObject.FindGameObjectsWithTag("Player").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
         var victim = players.ElementAt(new Random().Next(players.Length));
@@ -347,6 +348,7 @@ public class AbilityController : NetworkBehaviour
     [ClientRpc]
     public void RpcReceiveScaryCat(int duration, int happinessReduction, int weightReduction)
     {
+        if (!isLocalPlayer) return;
         // todo: implement UI response
 
         if (mouseIsOffscreen)
@@ -402,6 +404,7 @@ public class AbilityController : NetworkBehaviour
     [Command]
     public void CmdDispatchBeastlyBuffet(string caller, int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
     {
+        if (!isServer) return;
         // todo: implement choice of target player rather than random
         var players = GameObject.FindGameObjectsWithTag("Player").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
         var victim = players.ElementAt(new Random().Next(players.Length));
@@ -420,6 +423,7 @@ public class AbilityController : NetworkBehaviour
     [ClientRpc]
     public void RpcReceiveBeastlyBuffet(int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
     {
+        if (!isLocalPlayer) return;
         var badFoods = foodController.FoodValues.Where(food => food.Value < pointThreshold).ToList();
         var boostedFood = badFoods[new Random().Next(badFoods.Count)].Key;
         foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * spawnLimitMultiplier);
@@ -436,43 +440,69 @@ public class AbilityController : NetworkBehaviour
     public void ActivateThief()
     {
         if (mouse.Happiness < player.PAbilities.Thief.Cost) return;
-        // todo: networking, increase spawn interval
-        mouseIsThief = true;
-        abilityLastActivatedTimes[AbilityName.Thief] = DateTime.Now;
-        mouse.Happiness -= player.PAbilities.Thief.Cost;
+        CmdDispatchThief(player.Name, player.PAbilities.Thief.Duration, player.PAbilities.Thief.FoodUnitsTransferred);
+        //        mouseIsThief = true;
+        //        abilityLastActivatedTimes[AbilityName.Thief] = DateTime.Now;
+        //        mouse.Happiness -= player.PAbilities.Thief.Cost;
     }
 
     [Command]
     public void CmdDispatchThief(string caller, int duration, int foodUnitsTransferred)
     {
-        
+        if (!isServer) return;
+        // todo: implement choice of target player rather than random
+        var players = GameObject.FindGameObjectsWithTag("Player").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
+        var victim = players.ElementAt(new Random().Next(players.Length));
+        Debug.Log("Possible targets: " + string.Join(" ", players.Select(o => o.GetComponent<Player>().Name).ToArray()) + ", chosen victim: " + victim.GetComponent<Player>().Name);
+        victim.GetComponent<AbilityController>().RpcReceiveThief(caller, duration, foodUnitsTransferred);
     }
 
     [ClientRpc]
     public void RpcReceiveThief(string caller, int duration, int foodUnitsTransferred)
     {
-        var foods = foodController.GetComponents<ObjectPool>();
-        var goodFoods =
-            foods.Where(food => food.PoolObject.GetComponent<Food>().NutritionalValue > 0).ToList();
-        var random = new Random();
+        if (!isLocalPlayer) return;
+        Debug.LogError(string.Format("Food controller is null: {3}, caller was {0}, victim was {1}, isServer is {2}", caller, player.Name, isLocalPlayer, foodController == null));
         var toTransfer = new List<string>();
-        var foodsTaken = 0;
-        while (foodsTaken < foodUnitsTransferred)
+
+        for (int i = 0; i < foodUnitsTransferred; i++)
         {
-            if (goodFoods.Count == 0) break;
-            var poolToStealFrom = goodFoods[random.Next(goodFoods.Count)];
-            if (poolToStealFrom.ActiveObjects > 0)
+            try
             {
-                toTransfer.Add(poolToStealFrom.GetComponent<Food>().Type);
-                poolToStealFrom.transform.GetChild(0).GetComponent<PoolMember>().Deactivate();
-                foodsTaken++;
+                var pieceOfFoodToBeStolen = foodController.GetComponentsInChildren<PoolMember>()
+                    .First(o => o.gameObject.activeSelf && o.gameObject.GetComponent<Food>().NutritionalValue > 0);
+                toTransfer.Add(pieceOfFoodToBeStolen.GetComponent<Food>().Type);
+                pieceOfFoodToBeStolen.Deactivate();
             }
-            else goodFoods.Remove(poolToStealFrom);
+            catch (InvalidOperationException)
+            {
+                break;
+            }
         }
 
-        mouseIsThiefVictim = true;
-        lastStolenFrom = DateTime.Now;
-        thiefVictimDuration = duration;
+        //        var foods = foodController.GetComponents<ObjectPool>();
+        //        Debug.LogWarning("Number of object pools: " + foods.Length);
+        //        var goodFoods =
+        //            foods.Where(food => food.PoolObject.GetComponent<Food>().NutritionalValue > 0).ToList();
+        //        var random = new Random();
+        //        var foodsTaken = 0;
+        //        while (foodsTaken < foodUnitsTransferred)
+        //        {
+        //            Debug.Log("Number of foods stolen: " + foodsTaken);
+        //            if (goodFoods.Count == 0) break;
+        //            var poolToStealFrom = goodFoods[random.Next(goodFoods.Count)];
+        //            if (poolToStealFrom.ActiveObjects > 0)
+        //            {
+        //                toTransfer.Add(poolToStealFrom.PoolObject.GetComponent<Food>().Type);
+        //                poolToStealFrom.transform.GetChild(0).GetComponent<PoolMember>().Deactivate();
+        //                foodsTaken++;
+        //                Debug.Log("Stole a " + poolToStealFrom.GetComponent<Food>().Type);
+        //            }
+        //            else goodFoods.Remove(poolToStealFrom);
+        //        }
+
+        //        mouseIsThiefVictim = true;
+        //        lastStolenFrom = DateTime.Now;
+        //        thiefVictimDuration = duration;
 
         // todo: decrease spawn interval
 
@@ -482,6 +512,8 @@ public class AbilityController : NetworkBehaviour
     [Command]
     public void CmdDispatchStolenFood(string caller, string[] foodsTaken)
     {
+        if (!isServer) return;
+        Debug.Log(caller + " stole " + string.Join(" ", foodsTaken));
         var thief = GameObject.FindGameObjectsWithTag("Player").First(o => o.GetComponent<Player>().Name.Equals(caller));
         thief.GetComponent<AbilityController>().RpcReceiveStolenFood(foodsTaken);
     }
@@ -489,6 +521,7 @@ public class AbilityController : NetworkBehaviour
     [ClientRpc]
     public void RpcReceiveStolenFood(string[] foodsTaken)
     {
+        if (!isLocalPlayer) return;
         foreach (var food in foodsTaken)
         {
             // todo: spawn an instance of food, ideally bypassing max spawn limits
@@ -505,6 +538,7 @@ public class AbilityController : NetworkBehaviour
     [Command]
     public void CmdIncreaseScore()
     {
+        if (!isServer) return;
         Debug.LogWarning("CmdIncreaseScore called as local player: " + isLocalPlayer.ToString());
         var players = GameObject.FindGameObjectsWithTag("Player");
         var targetPlayer = players.ElementAt(new Random().Next(players.Length));
