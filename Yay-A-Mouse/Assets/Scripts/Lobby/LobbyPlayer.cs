@@ -46,6 +46,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         // I don't really understand why I don't need to call
         // setColor to set the color correctly for a newly joined
         // client, but it seems to set correctly like this, so...
+        setColor();
         CmdChangeColor(PlayerColor);
         // Show quit and ready button if local player
         playerQuitButtonObj.SetActive(true);
