@@ -130,14 +130,14 @@ public class AbilitySelectionController : MonoBehaviour
         /*foreach (AbilityName ability in Enum.GetValues(typeof(AbilityName)))
         {
             abilityIcons[ability].GetComponentInChildren<Text>().text = player.PAbilities[ability].Level.ToString();
-            // todo: can't get the button to work
+            // to do: can't get the button to work
             var ability1 = ability;
             abilityIcons[ability].GetComponent<Button>().onClick.AddListener(() => selectedAbility = ability1);
         }
 
 
-        // todo: proper listener for improveSelectedAbilityButton
-        // todo: two points to assign
+        // to do: proper listener for improveSelectedAbilityButton
+        // to do: two points to assign
         */
     }
 
