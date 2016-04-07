@@ -161,7 +161,7 @@ public class AbilityController : NetworkBehaviour
         {
             if (!IsStillActive(AbilityName.Thief))
             {
-                // todo: reset spawn rate
+                foodController.SpawnRate = 1f;
                 mouseIsThief = false;
             }
         }
@@ -170,7 +170,7 @@ public class AbilityController : NetworkBehaviour
         {
             if (DateTime.Now.Subtract(lastStolenFrom).Seconds > thiefVictimDuration)
             {
-                // todo: reset spawn rate
+                foodController.SpawnRate = 1f;
                 mouseIsThiefVictim = false;
             }
         }
@@ -461,7 +461,11 @@ public class AbilityController : NetworkBehaviour
     public void RpcReceiveThief(string caller, int duration, int foodUnitsTransferred)
     {
         if (!isLocalPlayer) return;
-        Debug.LogError(string.Format("Food controller is null: {3}, caller was {0}, victim was {1}, isServer is {2}", caller, player.Name, isLocalPlayer, foodController == null));
+        if (foodController == null)
+        {
+            Debug.LogError("foodController is null");
+            return;
+        } 
         var toTransfer = new List<string>();
 
         for (int i = 0; i < foodUnitsTransferred; i++)
@@ -504,7 +508,7 @@ public class AbilityController : NetworkBehaviour
         //        lastStolenFrom = DateTime.Now;
         //        thiefVictimDuration = duration;
 
-        // todo: decrease spawn interval
+        foodController.SpawnRate = 0.5f;
 
         CmdDispatchStolenFood(caller, toTransfer.ToArray());
     }
@@ -524,8 +528,9 @@ public class AbilityController : NetworkBehaviour
         if (!isLocalPlayer) return;
         foreach (var food in foodsTaken)
         {
-            // todo: spawn an instance of food, ideally bypassing max spawn limits
+            foodController.SpawnFood(food);
         }
+        foodController.SpawnRate = 2f;
     }
 
     [ClientRpc]

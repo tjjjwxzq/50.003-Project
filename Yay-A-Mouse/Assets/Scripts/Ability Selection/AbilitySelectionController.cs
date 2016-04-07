@@ -137,7 +137,8 @@ public class AbilitySelectionController : MonoBehaviour
 
 
         // todo: proper listener for improveSelectedAbilityButton
-        // todo: two points to assign*/
+        // todo: two points to assign
+        */
     }
 
     // Update is called once per frame

@@ -93,7 +93,8 @@ public class FoodController : MonoBehaviour {
     private IEnumerator spawnCoroutine;
     private IEnumerator changeDirectionsCoroutine;
     private float minSpawnTime = 0.3f; // Minimum time to wait between food spawning
-    private float maxSpawnTime = 2.0f; // Maximum time to wait between food spawning
+    private float maxSpawnTime = 2.3f; // Maximum time to wait between food spawning
+    private float spawnRateMultiplier = 1f;
     private float minChangeTime = 0.5f; // Minimum time to wait between change of food directions
     private float maxChangeTime = 15f; // Maximum time to wait between change of food directions
     private int foodDirection = 1; // Change food direction for Horizontal and Vertical Movement
@@ -129,6 +130,16 @@ public class FoodController : MonoBehaviour {
     public Dictionary<string,Sprite> FoodSpritesDict
     {
         get { return new Dictionary<string, Sprite>(foodSpritesDict); }
+    }
+
+    public float SpawnRate
+    {
+        get { return spawnRateMultiplier; }
+        set
+        {
+            minSpawnTime = 0.3f * value;
+            maxSpawnTime = 2.3f * value;
+        }
     }
     
     // Ensure that certain members are initialized before
@@ -287,52 +298,55 @@ public class FoodController : MonoBehaviour {
 
             if( foodPoolsDict[foodName].ActiveObjects < maxFoodCounts[foodName])
             {
-
-                // Spawn at a random position
-                // make sure it doesn't overlap with
-                // over food objects or the mouse
-                float x;
-                float y;
-                while(true){
-                    // Make ranges of spawn position with different probabilities
-                    //  magnitude < orthoSize/3: P = 0.2
-                    //  magnitude < 2* orthoSize/3: P = 0.3
-                    //  magnitude < orthosize: P = 0.5
-                    x = Random.Range(CameraController.MinXUnits, CameraController.MaxXUnits);
-                    y = Random.Range(CameraController.MinYUnits, CameraController.MaxYUnits);
-                    Vector2 foodPos = new Vector2(x, y);
-                    Collider2D colObj = Physics2D.OverlapPoint(foodPos);
-                    if (colObj == null)
-                    {
-                        float prob = Random.value;
-                        if (prob <= 0.2 && foodPos.magnitude < Camera.main.orthographicSize/3f)
-                        {
-                            break;
-                        }
-                        else if(prob > 0.2 && prob <= 0.5 && foodPos.magnitude <= 2*Camera.main.orthographicSize/3f
-                            && foodPos.magnitude > Camera.main.orthographicSize / 3f)
-                        {
-                            break;
-                        }
-                        else if(prob > 0.5 && foodPos.magnitude > 2 * Camera.main.orthographicSize / 3f)
-                        {
-                            break;
-                        }
- 
-                    }
-                }
-
-                GameObject food = foodPoolsDict[foodName].GetObj();
-
-                // Place food object on screen and add to list of random directions for movement
-                Rigidbody2D foodBody = food.gameObject.GetComponent<Rigidbody2D>();
-                foodBody.position = new Vector3(x, y, 0);
-                randDirections.Add(Random.insideUnitCircle * foodBody.drag);
-
+                SpawnFood(foodName);
             }
 
             yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
         }
+    }
+
+    public void SpawnFood(string foodName)
+    {
+        // Spawn at a random position
+        // make sure it doesn't overlap with
+        // over food objects or the mouse
+        float x;
+        float y;
+        while (true)
+        {
+            // Make ranges of spawn position with different probabilities
+            //  magnitude < orthoSize/3: P = 0.2
+            //  magnitude < 2* orthoSize/3: P = 0.3
+            //  magnitude < orthosize: P = 0.5
+            x = Random.Range(CameraController.MinXUnits, CameraController.MaxXUnits);
+            y = Random.Range(CameraController.MinYUnits, CameraController.MaxYUnits);
+            Vector2 foodPos = new Vector2(x, y);
+            Collider2D colObj = Physics2D.OverlapPoint(foodPos);
+            if (colObj == null)
+            {
+                float prob = Random.value;
+                if (prob <= 0.2 && foodPos.magnitude < Camera.main.orthographicSize/3f)
+                {
+                    break;
+                }
+                else if (prob > 0.2 && prob <= 0.5 && foodPos.magnitude <= 2*Camera.main.orthographicSize/3f
+                         && foodPos.magnitude > Camera.main.orthographicSize/3f)
+                {
+                    break;
+                }
+                else if (prob > 0.5 && foodPos.magnitude > 2*Camera.main.orthographicSize/3f)
+                {
+                    break;
+                }
+            }
+        }
+
+        GameObject food = foodPoolsDict[foodName].GetObj();
+
+        // Place food object on screen and add to list of random directions for movement
+        Rigidbody2D foodBody = food.gameObject.GetComponent<Rigidbody2D>();
+        foodBody.position = new Vector3(x, y, 0);
+        randDirections.Add(Random.insideUnitCircle*foodBody.drag);
     }
 
     /// <summary>
