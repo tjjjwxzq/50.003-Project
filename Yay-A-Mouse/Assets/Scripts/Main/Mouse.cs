@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Linq;
 
 // The mouse doesn't need physics, just a Collision2D component
 // so we can detect when food/bad stuff touch it

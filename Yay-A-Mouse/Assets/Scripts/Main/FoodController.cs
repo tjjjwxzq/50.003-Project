@@ -312,63 +312,71 @@ public class FoodController : MonoBehaviour {
     {
         for (;;)
         {
-            string foodName="";
+            string foodName = "";
             // Randomize which food type to spawn
             while (!foodPoolsDict.ContainsKey(foodName))
                 foodName = RandomizeFoodType();
-               
 
-            if( foodPoolsDict[foodName].ActiveObjects < maxFoodCounts[foodName])
+
+            if (foodPoolsDict[foodName].ActiveObjects < maxFoodCounts[foodName])
             {
-
-                // Spawn at a random position
-                // make sure it doesn't overlap with
-                // over food objects or the mouse
-                float x;
-                float y;
-                while(true){
-                    // Make ranges of spawn position with different probabilities
-                    // and never spawn directly into the area in which the mouse rotates
-                    //  magnitude < orthoSize/3: P = 0.2
-                    //  magnitude < 2* orthoSize/3: P = 0.3
-                    //  magnitude < orthosize: P = 0.5
-                    x = Random.Range(CameraController.MinXUnits, CameraController.MaxXUnits);
-                    y = Random.Range(CameraController.MinYUnits, CameraController.MaxYUnits);
-                    Vector2 foodPos = new Vector2(x, y);
-                    // Check whether in mouse area (circle)
-                    bool mouseArea = foodPos.magnitude > mouseSpriteRenderer.sprite.bounds.extents.y;
-                    Collider2D colObj = Physics2D.OverlapPoint(foodPos);
-                    if ( !mouseArea && colObj == null)
-                    {
-                        float prob = Random.value;
-                        if (prob <= 0.2 && foodPos.magnitude < Camera.main.orthographicSize/3f)
-                        {
-                            break;
-                        }
-                        else if(prob > 0.2 && prob <= 0.5 && foodPos.magnitude <= 2*Camera.main.orthographicSize/3f
-                            && foodPos.magnitude > Camera.main.orthographicSize / 3f)
-                        {
-                            break;
-                        }
-                        else if(prob > 0.5 && foodPos.magnitude > 2 * Camera.main.orthographicSize / 3f)
-                        {
-                            break;
-                        }
- 
-                    }
-                }
-
-                GameObject food = foodPoolsDict[foodName].GetObj();
-
-                // Place food object on screen and add to list of random directions for movement
-                Rigidbody2D foodBody = food.gameObject.GetComponent<Rigidbody2D>();
-                foodBody.position = new Vector3(x, y, 0);
-                randDirections.Add(Random.insideUnitCircle * foodBody.drag);
-
+                SpawnFood(foodName);
             }
-
             yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
         }
+    }
+
+
+    /// <summary>
+    /// Spawns a given food object on the string
+    /// </summary>
+    /// <param name="foodName">The name of the food type to spawn</param>
+    public void SpawnFood(string foodName) { 
+
+        // Spawn at a random position
+        // make sure it doesn't overlap with
+        // over food objects or the mouse
+        float x;
+        float y;
+        while(true){
+            // Make ranges of spawn position with different probabilities
+            // and never spawn directly into the area in which the mouse rotates
+            //  magnitude < orthoSize/3: P = 0.2
+            //  magnitude < 2* orthoSize/3: P = 0.3
+            //  magnitude < orthosize: P = 0.5
+            x = Random.Range(CameraController.MinXUnits, CameraController.MaxXUnits);
+            y = Random.Range(CameraController.MinYUnits, CameraController.MaxYUnits);
+            Vector2 foodPos = new Vector2(x, y);
+            // Check whether in mouse area (circle)
+            bool mouseArea = foodPos.magnitude > mouseSpriteRenderer.sprite.bounds.extents.y;
+            Collider2D colObj = Physics2D.OverlapPoint(foodPos);
+            if ( !mouseArea && colObj == null)
+            {
+                float prob = Random.value;
+                if (prob <= 0.2 && foodPos.magnitude < Camera.main.orthographicSize/3f)
+                {
+                    break;
+                }
+                else if(prob > 0.2 && prob <= 0.5 && foodPos.magnitude <= 2*Camera.main.orthographicSize/3f
+                    && foodPos.magnitude > Camera.main.orthographicSize / 3f)
+                {
+                    break;
+                }
+                else if(prob > 0.5 && foodPos.magnitude > 2 * Camera.main.orthographicSize / 3f)
+                {
+                    break;
+                }
+
+            }
+        }
+
+        GameObject food = foodPoolsDict[foodName].GetObj();
+
+        // Place food object on screen and add to list of random directions for movement
+        Rigidbody2D foodBody = food.gameObject.GetComponent<Rigidbody2D>();
+        foodBody.position = new Vector3(x, y, 0);
+        randDirections.Add(Random.insideUnitCircle * foodBody.drag);
+
     }
 
     /// <summary>
