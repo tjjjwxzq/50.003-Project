@@ -14,11 +14,12 @@ using Random = System.Random;
 /// </summary>
 public class AbilityController : NetworkBehaviour
 {
+    private bool mainStarted;
+
     // Other GameObjects
     private Mouse mouse;
     private Player player;
     private FoodController foodController;
-    //    private List<GameObject> players;
 
     // Simple status flags
     private bool mouseIsImmune;
@@ -56,28 +57,48 @@ public class AbilityController : NetworkBehaviour
 
     void Start()
     {
-        mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
-        foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
+        mainStarted = false;
+
+        Debug.Log(String.Format("AbilityController for {0} starting.", gameObject.GetComponent<Player>().Name));
 
         player = gameObject.GetComponent<Player>();
 
-        prevLevel = mouse.Level;
+        //        prevLevel = mouse.Level;
 
         abilityLastActivatedTimes = new Dictionary<AbilityName, DateTime>(7);
+    }
 
+    public void AttachToMouse()
+    {
+        Debug.Log(player.Name + " AbilityController component attached to mouse.");
+        mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
+        if (foodController == null || mouse == null) return;
+        Debug.Log(player.Name + " AbilityController ready.");
+        mainStarted = true;
+    }
+
+    public void AttachToFoodController()
+    {
+        Debug.Log(player.Name + " AbilityController component attached to food controller.");
+        foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
         defaultMaxFoodCounts = new Dictionary<string, int>(foodController.MaxFoodCounts);
         defaultFoodSpawnWeights = new Dictionary<string, float>(foodController.FoodSpawnWeights);
-
+        if (foodController == null || mouse == null) return;
+        Debug.Log(player.Name + " AbilityController ready.");
+        mainStarted = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mouse.Level > prevLevel)
-        {
-            abilityPoints += 2;
-        }
-        prevLevel = mouse.Level;
+        if (!isLocalPlayer) return;
+        if (!mainStarted) return;
+
+        //        if (mouse.Level > prevLevel)
+        //        {
+        //            abilityPoints += 2;
+        //        }
+        //        prevLevel = mouse.Level;
 
         if (mouseIsImmune)
         {
@@ -105,7 +126,6 @@ public class AbilityController : NetworkBehaviour
                 mouseIsFearless = false;
                 mouse.Fearless = false;
             }
-
         }
 
         if (mouseIsFat)
@@ -131,7 +151,8 @@ public class AbilityController : NetworkBehaviour
             if (!IsStillActive(AbilityName.BeastlyBuffet, beastlyBuffetDuration))
             {
                 foodController.setMaxFoodCount(beastlyBuffetBoostedFood, defaultMaxFoodCounts[beastlyBuffetBoostedFood]);
-                foodController.setFoodSpawnWeight(beastlyBuffetBoostedFood, defaultFoodSpawnWeights[beastlyBuffetBoostedFood]);
+                foodController.setFoodSpawnWeight(beastlyBuffetBoostedFood,
+                    defaultFoodSpawnWeights[beastlyBuffetBoostedFood]);
                 beastlyBuffetIsActive = false;
             }
         }
@@ -140,7 +161,7 @@ public class AbilityController : NetworkBehaviour
         {
             if (!IsStillActive(AbilityName.Thief))
             {
-                // todo: reset spawn rate
+                foodController.SpawnRate = 1f;
                 mouseIsThief = false;
             }
         }
@@ -149,8 +170,8 @@ public class AbilityController : NetworkBehaviour
         {
             if (DateTime.Now.Subtract(lastStolenFrom).Seconds > thiefVictimDuration)
             {
+                foodController.SpawnRate = 1f;
                 mouseIsThiefVictim = false;
-                // todo: reset spawn rate
             }
         }
     }
@@ -200,10 +221,13 @@ public class AbilityController : NetworkBehaviour
                 ActivateFatMouse();
                 break;
             case AbilityName.ScaryCat:
+                ActivateScaryCat();
                 break;
             case AbilityName.BeastlyBuffet:
+                ActivateBeastlyBuffet();
                 break;
             case AbilityName.Thief:
+                ActivateThief();
                 break;
             default:
                 throw new ArgumentOutOfRangeException("ability", ability, null);
@@ -224,12 +248,14 @@ public class AbilityController : NetworkBehaviour
     /// </summary>
     public void ActivateImmunity()
     {
-        if (mouse.Immunity) return;
-        if (mouse.Happiness < player.PAbilities.Immunity.Cost) return;
-        mouseIsImmune = true;
-        mouse.Immunity = true;
-        abilityLastActivatedTimes[AbilityName.Immunity] = DateTime.Now;
-        mouse.Happiness -= player.PAbilities.Immunity.Cost;
+        CmdIncreaseScore();
+
+        //        if (mouse.Immunity) return;
+        //        if (mouse.Happiness < player.PAbilities.Immunity.Cost) return;
+        //        mouseIsImmune = true;
+        //        mouse.Immunity = true;
+        //        abilityLastActivatedTimes[AbilityName.Immunity] = DateTime.Now;
+        //        mouse.Happiness -= player.PAbilities.Immunity.Cost;
     }
 
     /// <summary>
@@ -256,16 +282,18 @@ public class AbilityController : NetworkBehaviour
     /// </summary>
     public void ActivateTreatsGalore()
     {
+        Debug.LogWarning("Activating treats galore.");
         if (mouse.Happiness < player.PAbilities.TreatsGalore.Cost) return;
         var goodFoods = foodController.FoodValues.Where(food => food.Value > player.PAbilities.TreatsGalore.PointThreshold).ToList();
-        var random = new Random();
-        var boostedFood = goodFoods[random.Next(goodFoods.Count)].Key;
+        var boostedFood = goodFoods[new Random().Next(goodFoods.Count)].Key;
         foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * player.PAbilities.TreatsGalore.SpawnLimitMultiplier);
         foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * player.PAbilities.TreatsGalore.SpawnWeightMultiplier);
         treatsGaloreBoostedFood = boostedFood;
         treatsGaloreIsActive = true;
         abilityLastActivatedTimes[AbilityName.TreatsGalore] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.TreatsGalore.Cost;
+
+        Debug.Log(string.Format("{0} activated Treats Galore and boosted {1}", player.Name, boostedFood));
     }
 
     /// <summary>
@@ -282,19 +310,30 @@ public class AbilityController : NetworkBehaviour
         mouse.GrowthAbility = player.PAbilities.FatMouse.WeightMultiplier;
         abilityLastActivatedTimes[AbilityName.FatMouse] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.FatMouse.Cost;
+
+        Debug.Log(string.Format("{0} activated Fat Mouse. Weight gain multiplier: {1}", player.Name, mouse.GrowthAbility));
     }
 
     /// <summary>
     /// Function to be called when a player targets another player with
     /// the Scary Cat ability. Checks that the mouse has enough Happiness and 
-    /// calls the ReceiveScaryCat function on the targeted player.
+    /// calls the RpcReceiveScaryCat function on the targeted player.
     /// </summary>
     public void ActivateScaryCat()
     {
         if (mouse.Happiness < player.PAbilities.ScaryCat.Cost) return;
-        // todo: networking part
-        // call ReceiveScaryCat(player.Abilities.ScaryCat) on target player
+        CmdDispatchScaryCat(player.Name, player.PAbilities.ScaryCat.Duration, player.PAbilities.ScaryCat.HappinessReduction, player.PAbilities.ScaryCat.WeightReduction);
         mouse.Happiness -= player.PAbilities.ScaryCat.Cost;
+    }
+
+    [Command]
+    public void CmdDispatchScaryCat(string caller, int duration, int happinessReduction, int weightReduction)
+    {
+        if (!isServer) return;
+        // todo: implement choice of target player rather than random
+        var players = GameObject.FindGameObjectsWithTag("Player").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
+        var victim = players.ElementAt(new Random().Next(players.Length));
+        victim.GetComponent<AbilityController>().RpcReceiveScaryCat(duration, happinessReduction, weightReduction);
     }
 
     /// <summary>
@@ -303,9 +342,13 @@ public class AbilityController : NetworkBehaviour
     /// Weight and Happiness depending on whether the player's Fearless ability
     /// is activated and its level.
     /// </summary>
-    /// <param name="scaryCat"></param>
-    public void ReceiveScaryCat(ScaryCat scaryCat)
+    /// <param name="duration"></param>
+    /// <param name="happinessReduction"></param>
+    /// <param name="weightReduction"></param>
+    [ClientRpc]
+    public void RpcReceiveScaryCat(int duration, int happinessReduction, int weightReduction)
     {
+        if (!isLocalPlayer) return;
         // todo: implement UI response
 
         if (mouseIsOffscreen)
@@ -319,15 +362,13 @@ public class AbilityController : NetworkBehaviour
                 if (player.PAbilities.Fearless.DropHappiness && player.PAbilities.Fearless.DropWeight)
                 {
                     // "A scary cat came over, but your mouse stood its ground. However, its happiness and weight still dropped
-                    mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
-                    mouse.Weight = mouse.Weight < scaryCat.WeightReduction
-                     ? 0
-                     : mouse.Weight - scaryCat.WeightReduction;
+                    mouse.Happiness -= happinessReduction;
+                    mouse.Weight -= weightReduction;
                 }
                 else if (player.PAbilities.Fearless.DropHappiness)
                 {
                     // "A scary cat came over, but your mouse bravely stood its ground. However, its happiness still dropped."
-                    mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
+                    mouse.Happiness -= happinessReduction;
                 }
                 else
                 {
@@ -337,30 +378,37 @@ public class AbilityController : NetworkBehaviour
             else
             {
                 // "A scary cat came over, and your mouse ran away! Its happiness and weight also dropped."
-                mouse.Happiness = mouse.Happiness < scaryCat.HappinessReduction ? 0 : mouse.Happiness - scaryCat.HappinessReduction;
-                mouse.Weight = mouse.Weight < scaryCat.WeightReduction
-                 ? 0
-                 : mouse.Weight - scaryCat.WeightReduction;
+                mouse.Happiness -= happinessReduction;
+                mouse.Weight -= weightReduction;
                 mouse.Offscreen = true;
                 mouseIsOffscreen = true;
                 abilityLastActivatedTimes[AbilityName.ScaryCat] = DateTime.Now;
-                scaryCatDuration = scaryCat.Duration;
+                scaryCatDuration = duration;
             }
         }
     }
 
     /// <summary>
     /// Function to be called when a player targets another player with the Beastly Buffet ability. 
-    /// Checks that the mouse has sufficient Happiness and calls the ReceiveBeastlyBuffet function
+    /// Checks that the mouse has sufficient Happiness and calls the RpcReceiveBeastlyBuffet function
     /// on the targeted player.
     /// </summary>
     public void ActivateBeastlyBuffet()
     {
         if (mouse.Happiness < player.PAbilities.BeastlyBuffet.Cost) return;
-        // todo: networking
-        // todo: call ReceiveBeastlyBuffet(player.Abilities.BeastlyBuffet) on target player
+        CmdDispatchBeastlyBuffet(player.Name, player.PAbilities.BeastlyBuffet.Duration, player.PAbilities.BeastlyBuffet.PointThreshold, player.PAbilities.BeastlyBuffet.SpawnLimitMultiplier, player.PAbilities.BeastlyBuffet.SpawnWeightMultiplier);
         mouse.Happiness -= player.PAbilities.BeastlyBuffet.Cost;
-      
+
+    }
+
+    [Command]
+    public void CmdDispatchBeastlyBuffet(string caller, int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
+    {
+        if (!isServer) return;
+        // todo: implement choice of target player rather than random
+        var players = GameObject.FindGameObjectsWithTag("Player").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
+        var victim = players.ElementAt(new Random().Next(players.Length));
+        victim.GetComponent<AbilityController>().RpcReceiveBeastlyBuffet(duration, pointThreshold, spawnLimitMultiplier, spawnWeightMultiplier);
     }
 
     /// <summary>
@@ -368,18 +416,22 @@ public class AbilityController : NetworkBehaviour
     /// Chooses a random food below a certain point threshold specified by the attacker's ability
     /// and boosts its max food count and spawn weight through the associated Foodcontroller instance.
     /// </summary>
-    /// <param name="beastlyBuffet"></param>
-    public void ReceiveBeastlyBuffet(BeastlyBuffet beastlyBuffet)
+    /// <param name="duration"></param>
+    /// <param name="pointThreshold"></param>
+    /// <param name="spawnLimitMultiplier"></param>
+    /// <param name="spawnWeightMultiplier"></param>
+    [ClientRpc]
+    public void RpcReceiveBeastlyBuffet(int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
     {
-        var badFoods = foodController.FoodValues.Where(food => food.Value < beastlyBuffet.PointThreshold).ToList();
-        var random = new Random();
-        var boostedFood = badFoods[random.Next(badFoods.Count)].Key;
-        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * player.PAbilities.TreatsGalore.SpawnLimitMultiplier);
-        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * player.PAbilities.TreatsGalore.SpawnWeightMultiplier);
+        if (!isLocalPlayer) return;
+        var badFoods = foodController.FoodValues.Where(food => food.Value < pointThreshold).ToList();
+        var boostedFood = badFoods[new Random().Next(badFoods.Count)].Key;
+        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * spawnLimitMultiplier);
+        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * spawnWeightMultiplier);
         beastlyBuffetBoostedFood = boostedFood;
         beastlyBuffetIsActive = true;
         abilityLastActivatedTimes[AbilityName.BeastlyBuffet] = DateTime.Now;
-        beastlyBuffetDuration = beastlyBuffet.Duration;
+        beastlyBuffetDuration = duration;
     }
 
     /// <summary>
@@ -388,46 +440,114 @@ public class AbilityController : NetworkBehaviour
     public void ActivateThief()
     {
         if (mouse.Happiness < player.PAbilities.Thief.Cost) return;
-        // todo: networking
-        // todo: call ReceiveThief(player.Abilities.Thief) on target player
-        // todo: increase spawn interval
-        mouseIsThief = true;
-        abilityLastActivatedTimes[AbilityName.Thief] = DateTime.Now;
-        mouse.Happiness -= player.PAbilities.Thief.Cost;
+        CmdDispatchThief(player.Name, player.PAbilities.Thief.Duration, player.PAbilities.Thief.FoodUnitsTransferred);
+        //        mouseIsThief = true;
+        //        abilityLastActivatedTimes[AbilityName.Thief] = DateTime.Now;
+        //        mouse.Happiness -= player.PAbilities.Thief.Cost;
     }
 
-    public void ReceiveThief(Thief thief)
+    [Command]
+    public void CmdDispatchThief(string caller, int duration, int foodUnitsTransferred)
     {
-        mouseIsThiefVictim = true;
-        lastStolenFrom = DateTime.Now;
-        thiefVictimDuration = thief.Duration;
+        if (!isServer) return;
+        // todo: implement choice of target player rather than random
+        var players = GameObject.FindGameObjectsWithTag("Player").Where(o => !o.GetComponent<Player>().Name.Equals(caller)).ToArray();
+        var victim = players.ElementAt(new Random().Next(players.Length));
+        Debug.Log("Possible targets: " + string.Join(" ", players.Select(o => o.GetComponent<Player>().Name).ToArray()) + ", chosen victim: " + victim.GetComponent<Player>().Name);
+        victim.GetComponent<AbilityController>().RpcReceiveThief(caller, duration, foodUnitsTransferred);
+    }
 
-        var foods = foodController.GetComponents<ObjectPool>();
-        var goodFoods =
-            foods.Where(food => food.PoolObject.GetComponent<Food>().NutritionalValue > 0).ToList();
-        var random = new Random();
-        var toTransfer = new List<string>();
-        var foodsTaken = 0;
-        while (foodsTaken < thief.FoodUnitsTransferred)
+    [ClientRpc]
+    public void RpcReceiveThief(string caller, int duration, int foodUnitsTransferred)
+    {
+        if (!isLocalPlayer) return;
+        if (foodController == null)
         {
-            if (goodFoods.Count == 0) break;
-            var poolToStealFrom = goodFoods[random.Next(goodFoods.Count)];
-            if (poolToStealFrom.ActiveObjects > 0)
+            Debug.LogError("foodController is null");
+            return;
+        } 
+        var toTransfer = new List<string>();
+
+        for (int i = 0; i < foodUnitsTransferred; i++)
+        {
+            try
             {
-                toTransfer.Add(poolToStealFrom.GetComponent<Food>().Type);
-                poolToStealFrom.transform.GetChild(0).GetComponent<PoolMember>().Deactivate();
-                foodsTaken++;
+                var pieceOfFoodToBeStolen = foodController.GetComponentsInChildren<PoolMember>()
+                    .First(o => o.gameObject.activeSelf && o.gameObject.GetComponent<Food>().NutritionalValue > 0);
+                toTransfer.Add(pieceOfFoodToBeStolen.GetComponent<Food>().Type);
+                pieceOfFoodToBeStolen.Deactivate();
             }
-            else goodFoods.Remove(poolToStealFrom);
+            catch (InvalidOperationException)
+            {
+                break;
+            }
         }
 
-        // todo: decrease spawn interval
+        //        var foods = foodController.GetComponents<ObjectPool>();
+        //        Debug.LogWarning("Number of object pools: " + foods.Length);
+        //        var goodFoods =
+        //            foods.Where(food => food.PoolObject.GetComponent<Food>().NutritionalValue > 0).ToList();
+        //        var random = new Random();
+        //        var foodsTaken = 0;
+        //        while (foodsTaken < foodUnitsTransferred)
+        //        {
+        //            Debug.Log("Number of foods stolen: " + foodsTaken);
+        //            if (goodFoods.Count == 0) break;
+        //            var poolToStealFrom = goodFoods[random.Next(goodFoods.Count)];
+        //            if (poolToStealFrom.ActiveObjects > 0)
+        //            {
+        //                toTransfer.Add(poolToStealFrom.PoolObject.GetComponent<Food>().Type);
+        //                poolToStealFrom.transform.GetChild(0).GetComponent<PoolMember>().Deactivate();
+        //                foodsTaken++;
+        //                Debug.Log("Stole a " + poolToStealFrom.GetComponent<Food>().Type);
+        //            }
+        //            else goodFoods.Remove(poolToStealFrom);
+        //        }
 
-        // todo: call ReceiveStolenFood(toTransfer) on player who stole food
+        //        mouseIsThiefVictim = true;
+        //        lastStolenFrom = DateTime.Now;
+        //        thiefVictimDuration = duration;
+
+        foodController.SpawnRate = 0.5f;
+
+        CmdDispatchStolenFood(caller, toTransfer.ToArray());
     }
 
-    public void ReceiveStolenFood(List<ObjectPool> loot)
+    [Command]
+    public void CmdDispatchStolenFood(string caller, string[] foodsTaken)
     {
-        // todo: spawn each food from each string in loot
+        if (!isServer) return;
+        Debug.Log(caller + " stole " + string.Join(" ", foodsTaken));
+        var thief = GameObject.FindGameObjectsWithTag("Player").First(o => o.GetComponent<Player>().Name.Equals(caller));
+        thief.GetComponent<AbilityController>().RpcReceiveStolenFood(foodsTaken);
+    }
+
+    [ClientRpc]
+    public void RpcReceiveStolenFood(string[] foodsTaken)
+    {
+        if (!isLocalPlayer) return;
+        foreach (var food in foodsTaken)
+        {
+            foodController.SpawnFood(food);
+        }
+        foodController.SpawnRate = 2f;
+    }
+
+    [ClientRpc]
+    public void RpcIncrementMouseWeight()
+    {
+        if (!isLocalPlayer) return;
+        mouse.Weight++;
+    }
+
+    [Command]
+    public void CmdIncreaseScore()
+    {
+        if (!isServer) return;
+        Debug.LogWarning("CmdIncreaseScore called as local player: " + isLocalPlayer.ToString());
+        var players = GameObject.FindGameObjectsWithTag("Player");
+        var targetPlayer = players.ElementAt(new Random().Next(players.Length));
+        Debug.LogWarning(string.Format("Increasing score for player {0}", targetPlayer.GetComponent<Player>().Name));
+        targetPlayer.GetComponent<AbilityController>().RpcIncrementMouseWeight();
     }
 }
