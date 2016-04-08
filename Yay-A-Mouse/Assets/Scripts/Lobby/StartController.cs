@@ -58,6 +58,7 @@ public class StartController : MonoBehaviour {
         {
             // If not, then set the lobby manager to persist throughout scenes
             Debug.Log("SeT dont destory");
+            DontDestroyOnLoad(LobbyManager.singleton);
             //LobbyManager.singleton.dontDestroyOnLoad = true;
         }
 

@@ -22,6 +22,8 @@ public class LobbyManager : NetworkLobbyManager {
     private bool readyUIActive = false;
     public RectTransform playerTransform; // to be accessed by StartController to set spawn positions
 
+    private GameObject countdownUI;
+    private float readyCountdown = 3; // counts down after all players have chosen their abilities and before the game starts
     private bool readyToPlay = false; // whether all players have selected their abilities and are ready to play
     private bool changingScene = false;// whether in the midst of changing to main scene
     private bool isHost = false; // whether or not the current process is hosting the game
@@ -52,6 +54,7 @@ public class LobbyManager : NetworkLobbyManager {
 
         Debug.Log("Number of connected players are " + numPlayers);
         Debug.Log("Number of lobby players are " + lobbyPlayers.Count);
+        Debug.Log("NUmber of game players are " + players.Count);
         foreach (LobbyPlayer player in lobbyPlayers)
             Debug.Log("Lobby player is " + player);
         UpdateLobbyPlayers();
@@ -88,18 +91,36 @@ public class LobbyManager : NetworkLobbyManager {
         }
 
         // Check if players have selected abilities and are ready to play
-        Debug.Log("Lobby manager num players are " + players.Count);
-        if(!changingScene && players.Count > 0)
+        // Have to put changing scene flag or the scene change code 
+        // will execute again in the midst of changing scene
+        // which will crash the game
+        if(!readyToPlay && !changingScene && players.Count > 0)
         {
+            Debug.Log("Checking if abilities are ready");
             checkAbilitiesReady();
+            Debug.Log("Ready to play? " + readyToPlay);
         }
 
-        if(readyToPlay)
+        if(readyToPlay && readyCountdown > 0)
         {
-            SceneManager.UnloadScene("SelectAbilities");
-            ServerChangeScene("Main");
-            readyToPlay = false;
-            changingScene = true;
+            Debug.Log("Ready to countdown");
+            // Extra 1 second for setup time of UI
+            if(readyCountdown == 3)
+            {
+                // Start animation
+                GameObject.Find("AbilitySelectionController").GetComponent<AbilitySelectionController>().StartCountdown();
+                countdownUI.transform.Find("CountdownText").GetComponent<Animator>().Play("ReadyCountdown",0, 0f);
+            }
+
+            readyCountdown -= Time.deltaTime;
+            //Debug.Log("REady countdown is " + readyCountdown);
+
+            if (readyCountdown < 0)
+            {
+                ServerChangeScene("Main");
+                readyToPlay = false;
+                changingScene = true;
+            }
         }
 	}
 
@@ -139,8 +160,9 @@ public class LobbyManager : NetworkLobbyManager {
         }
         else if(SceneManager.GetActiveScene().name.Equals("SelectAbilities", System.StringComparison.Ordinal))
         {
+            Debug.Log("INstantiating player in abilities scene");
             GameObject player = Instantiate(gamePlayerPrefab) as GameObject;
-            NetworkServer.ReplacePlayerForConnection(conn, player, playerControllerId);
+            NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         }
     }
 
@@ -164,6 +186,17 @@ public class LobbyManager : NetworkLobbyManager {
     public override void OnLobbyClientSceneChanged(NetworkConnection conn)
     {
         Debug.Log("Client scene changed");
+        // Get countdown UI in ability selection scene
+        if(SceneManager.GetActiveScene().name == "SelectAbilities")
+        {
+            countdownUI = GameObject.Find("AbilitySelectionController").GetComponent<AbilitySelectionController>().countdownUI;
+        }
+    }
+
+    public override void OnClientSceneChanged(NetworkConnection conn)
+    {
+        base.OnClientSceneChanged(conn);
+        Debug.Log("CLIENT SCENE CHANGED");
     }
 
     public override void OnServerSceneChanged(string sceneName)
@@ -185,7 +218,7 @@ public class LobbyManager : NetworkLobbyManager {
         return true;
     }
 
-    // Check players ready
+    // Check players ready in lobby
     private bool checkAllReady()
     {
         return lobbyPlayers.All(p => p.PlayerReady);
@@ -284,7 +317,7 @@ public class LobbyManager : NetworkLobbyManager {
         ServerChangeScene("SelectAbilities");
     }
 
-    // Ability selection ready button callback
+    // Check whether players have selected their abilities and are ready
     private void checkAbilitiesReady()
     {
         readyToPlay = players.All(p => p.readyToPlay);

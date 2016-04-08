@@ -42,6 +42,9 @@ public class Player : NetworkBehaviour
     [SyncVar]
     public Statuses Status = 0;
 
+    // To track whether players have chosen their starting abilities
+    // and are ready to start the game
+    [SyncVar]
     public bool readyToPlay = false;
 
     // *** this button (any one of the ability buttons on the right) calls the generic method CmdActivateAbilities

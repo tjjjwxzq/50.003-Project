@@ -20,6 +20,7 @@ public class AbilitySelectionController : MonoBehaviour
     private GameObject abilityIconUI; // container for ability icons
     private GameObject abilityDetailUI; // container for ability details
     private GameObject readyButtonObject;  // object for ready button
+    private GameObject readyAndWaitingObject; // object for ready and waiting text
     private GameObject alreadyChosenText; // text to show if player has already chosen two abilities
 
     private GameObject[] selfHelpAbilityButtons; // self help ability icon button game objects
@@ -32,8 +33,97 @@ public class AbilitySelectionController : MonoBehaviour
     private Text selectedAbilityDescription;
     private Button chooseAbilityButton;
     private Button backToSelectionButton;
+    private GameObject selectedAbilityLevelDetails;
+    private Text selectedAbilityLevelHeader;
+    private Text selectedAbilityLevelHappiness;
+    private Text selectedAbilityLevelDuration;
+    private Text selectedAbilityLevelDetail;
+    private int currentLevelIndex; // which level details to display
+
+    // Ready countdownUI
+    public GameObject countdownUI; // for lobby manager to access when activating countdown
 
     private bool ready; // if player has chosen two abilities
+
+    // Ability details data
+    private Dictionary<AbilityName, string> abilityTitles = new Dictionary<AbilityName, string>
+    {
+        {AbilityName.Immunity, "Immunity" },
+        {AbilityName.TreatsGalore, "Treats Galore" },
+        {AbilityName.Fearless, "Fearless" },
+        {AbilityName.FatMouse, "Fat Mouse" },
+        {AbilityName.Thief, "Thief" },
+        {AbilityName.ScaryCat, "Scary Cat" },
+        {AbilityName.BeastlyBuffet, "Beastly Buffet" }
+    };
+
+    private Dictionary<AbilityName, string> abilityDescription = new Dictionary<AbilityName, string>
+    {
+        {AbilityName.Immunity, "Your mouse becomes immune to bad food for some time" },
+        {AbilityName.TreatsGalore, "Spawn more good food to feed your mouse" },
+        {AbilityName.Fearless, "Your mouse becomes fearless in the face of a scary cat" },
+        {AbilityName.FatMouse, "Your mouse gains weight more easily" },
+        {AbilityName.Thief, "Steal good food from one of you opponents"},
+        {AbilityName.ScaryCat, "Send a cat over to scare off your opponent's mouse" },
+        {AbilityName.BeastlyBuffet, "Spawn more bad food on your opponent's screen" }
+    };
+
+    // Ability level details
+    private struct AbilityLevel
+    {
+        public string level;
+        public string happiness;
+        public string duration;
+        public string description;
+
+        public AbilityLevel(string level, string happiness, string duration, string description)
+        {
+            this.level = level;
+            this.happiness = happiness;
+            this.duration = duration;
+            this.description = description;
+        }
+    }
+
+    // Change this to extract static fields from the Ability subclasses
+    private Dictionary<AbilityName, AbilityLevel[]> abilityLevelDetails = new Dictionary<AbilityName, AbilityLevel[]>
+    {
+        {AbilityName.Immunity, new AbilityLevel[]
+        {
+            new AbilityLevel("Level 1", "30", "10", "Immunity to all bad foods"),
+            new AbilityLevel("Level 2", "30", "30", "Immunity to all bad foods"),
+        } },
+        {AbilityName.TreatsGalore, new AbilityLevel[]
+        {
+            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
+            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+        } },
+        {AbilityName.Fearless, new AbilityLevel[]
+        {
+            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
+            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+        } },
+        {AbilityName.FatMouse, new AbilityLevel[]
+        {
+            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
+            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+        } },
+        {AbilityName.Thief, new AbilityLevel[]
+        {
+            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
+            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+        } },
+        {AbilityName.ScaryCat, new AbilityLevel[]
+        {
+            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
+            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+        } },
+        {AbilityName.BeastlyBuffet, new AbilityLevel[]
+        {
+            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
+            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+        } },
+    };
 
 
     // Use this for initialization
@@ -43,6 +133,7 @@ public class AbilitySelectionController : MonoBehaviour
         abilityIconUI = GameObject.Find("AbilityIconButtons");
         abilityDetailUI = GameObject.Find("AbilityDetailUI");
         readyButtonObject = GameObject.Find("ReadyButton");
+        readyAndWaitingObject = GameObject.Find("ReadyAndWaiting");
 
         selectedAbilityIcon = GameObject.Find("SelectedAbilityIcon").GetComponent<Image>();
         selectedAbilityTitle = GameObject.Find("SelectedAbilityTitle").GetComponent<Text>();
@@ -50,11 +141,19 @@ public class AbilitySelectionController : MonoBehaviour
         chooseAbilityButton = GameObject.Find("ChooseAbilityButton").GetComponent<Button>();
         backToSelectionButton = GameObject.Find("BackButton").GetComponent<Button>();
         alreadyChosenText = GameObject.Find("AbilitiesAlreadyChosen");
+        selectedAbilityLevelDetails = GameObject.Find("SelectedAbilityLevelDetails");
+        selectedAbilityLevelHeader = GameObject.Find("LevelHeader").GetComponent<Text>();
+        selectedAbilityLevelHappiness = GameObject.Find("HappinessText").GetComponent<Text>();
+        selectedAbilityLevelDuration = GameObject.Find("DurationText").GetComponent<Text>();
+        selectedAbilityLevelDetail = GameObject.Find("SelectedAbilityLevelDetail").GetComponent<Text>();
 
+        countdownUI = GameObject.Find("CountdownUI");
 
-        // Deactivate ability details and ready button
+        // Deactivate ability details and ready button and countdown UI
         abilityDetailUI.SetActive(false);
         readyButtonObject.SetActive(false);
+        readyAndWaitingObject.SetActive(false);
+        countdownUI.SetActive(false);
 
         // Initialize object and sprite dictionaries
 
@@ -62,7 +161,6 @@ public class AbilitySelectionController : MonoBehaviour
         {
             abilityIconSpritesDict[(AbilityName)Enum.Parse(typeof(AbilityName), abilityIcon.name)] = abilityIcon;
         }
-
 
         abilityIconPrefab = Resources.Load("Prefabs/AbilitySelectionIcon") as GameObject;
         abilityIcons = new Dictionary<AbilityName, GameObject>();
@@ -94,8 +192,6 @@ public class AbilitySelectionController : MonoBehaviour
         float yPos = 54f; // edit in scene view and update here
         RectTransform rectTransform = selfHelpAbilityButtons[0].GetComponent<RectTransform>();
         float xOffset = rectTransform.rect.width * 0.2f * 1.2f; //scale of 0.2
-        Debug.Log("Scale is " + rectTransform.localScale);
-        Debug.Log("Xoffset is " + xOffset);
         Vector2 startPos = new Vector2(-xOffset * (selfHelpAbilityButtons.Length / 2 - 0.5f), yPos);
 
         for (int i = 0; i < selfHelpAbilityButtons.Length; i++)
@@ -113,31 +209,7 @@ public class AbilitySelectionController : MonoBehaviour
             rectTransform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
             rectTransform.anchoredPosition = startPos + new Vector2(xOffset * i, 0);
         }
-        /*
-                player = new Player(Abilities.EmptyAbilities);
-                selectedAbility = AbilityName.BeastlyBuffet;
-                selectedAbilityLevel = player.PAbilities[selectedAbility].Level;
-
-                selectedAbilityName = GameObject.Find("SelectedAbilityTitle").GetComponent<Text>();
-                selectedAbilityDescription = GameObject.Find("SelectedAbilityDescription").GetComponent<Text>();
-                selectedAbilityCurrentLevel = GameObject.Find("SelectedAbilityCurrentLevel").GetComponent<Text>();
-                selectedAbilityCurrentLevelDetails = GameObject.Find("SelectedAbilityCurrentLevelDetails").GetComponent<Text>();
-                selectedAbilityNextLevel = GameObject.Find("SelectedAbilityNextLevel").GetComponent<Text>();
-                selectedAbilityNextLevelDetails = GameObject.Find("SelectedAbilityNextLevelDetails").GetComponent<Text>();
-                improveSelectedAbilityButton = GameObject.Find("ImproveSelectedAbilityButton").GetComponent<Button>();
-        */
-
-        /*foreach (AbilityName ability in Enum.GetValues(typeof(AbilityName)))
-        {
-            abilityIcons[ability].GetComponentInChildren<Text>().text = player.PAbilities[ability].Level.ToString();
-            // todo: can't get the button to work
-            var ability1 = ability;
-            abilityIcons[ability].GetComponent<Button>().onClick.AddListener(() => selectedAbility = ability1);
-        }
-
-
-        // todo: proper listener for improveSelectedAbilityButton
-        // todo: two points to assign*/
+        
     }
 
     // Update is called once per frame
@@ -160,30 +232,6 @@ public class AbilitySelectionController : MonoBehaviour
                 ready = false;
             }
         }
-
-        /*	    selectedAbilityName.text = selectedAbility.ToString();
-                selectedAbilityDescription.text = player.PAbilities[selectedAbility].Description;
-
-                selectedAbilityCurrentLevel.text = "Current level " + player.PAbilities[selectedAbility].Level.ToString();
-                if (player.PAbilities[selectedAbility].Level == 0)
-                {
-                    selectedAbilityCurrentLevelDetails.enabled = false;
-                }
-                else
-                {
-                    selectedAbilityCurrentLevelDetails.text = player.PAbilities[selectedAbility].GetDetails();
-                }
-
-                if (player.PAbilities[selectedAbility].Level == player.PAbilities[selectedAbility].MaxLevel)
-                {
-                    selectedAbilityNextLevel.enabled = false;
-                    selectedAbilityNextLevelDetails.enabled = false;
-                }
-                else
-                {
-                    selectedAbilityNextLevel.text = "Next level " + (player.PAbilities[selectedAbility].Level + 1).ToString();
-                    selectedAbilityNextLevelDetails.text = player.PAbilities[selectedAbility].GetDetails();
-                }*/
     }
 
     // Callback when ability icons are clicked
@@ -224,10 +272,29 @@ public class AbilitySelectionController : MonoBehaviour
 
         // Set detail UI to selected ability
         selectedAbilityIcon.sprite = abilityIconSpritesDict[selectedAbility];
-        // .... TODO, change description etc
+        selectedAbilityTitle.text = abilityTitles[selectedAbility];
+        selectedAbilityDescription.text = abilityDescription[selectedAbility];
+
+        selectedAbilityLevelHeader.text = abilityLevelDetails[selectedAbility][0].level;
+        selectedAbilityLevelHappiness.text = abilityLevelDetails[selectedAbility][0].happiness;
+        selectedAbilityLevelDuration.text = abilityLevelDetails[selectedAbility][0].duration;
+        selectedAbilityLevelDetail.text = abilityLevelDetails[selectedAbility][0].description;
+
+        currentLevelIndex = 0;
 
         abilityDetailUI.SetActive(true);
 
+    }
+
+    // Callback when next level button is pressed
+    public void OnNextAbilityLevel()
+    {
+        // Change level details, increment current level
+        currentLevelIndex = currentLevelIndex == abilityLevelDetails[selectedAbility].Length -1 ? 0 : currentLevelIndex + 1;
+        selectedAbilityLevelHeader.text = abilityLevelDetails[selectedAbility][currentLevelIndex].level;
+        selectedAbilityLevelHappiness.text = abilityLevelDetails[selectedAbility][currentLevelIndex].happiness;
+        selectedAbilityLevelDuration.text = abilityLevelDetails[selectedAbility][currentLevelIndex].duration;
+        selectedAbilityLevelDetail.text = abilityLevelDetails[selectedAbility][currentLevelIndex].description;
     }
 
     // Callback when ability is chosen
@@ -272,7 +339,23 @@ public class AbilitySelectionController : MonoBehaviour
     {
         Debug.Log("Readying");
         player.CmdReadyToPlay(true);
+        readyButtonObject.SetActive(false);
+        readyAndWaitingObject.SetActive(true);
         //LobbyManager.singleton.ServerChangeScene("Main");
     }
 
+
+    /// <summary>
+    /// Called by LobbyManager when ready countdown starts
+    /// </summary>
+    public void StartCountdown()
+    {
+        abilityDetailUI.SetActive(false);
+        abilityIconUI.SetActive(false);
+        readyButtonObject.SetActive(false);
+        readyAndWaitingObject.SetActive(false);
+        introText.SetActive(false);
+
+        countdownUI.SetActive(true);
+    }
 }
