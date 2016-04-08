@@ -64,6 +64,13 @@ public class Mouse: MonoBehaviour {
         //Get level controller
         levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
 
+
+        // Move this out later
+        // Get local player
+	    var localPlayerObj = GameObject.FindGameObjectsWithTag("Player").First(obj => obj.GetComponent<Player>().isLocalPlayer);
+        localPlayerObj.GetComponent<Player>().AttachToMouse();
+        localPlayerObj.GetComponent<AbilityController>().AttachToMouse();
+
         //Components
         spriteRenderer = GetComponent<SpriteRenderer>();
         shadowSpriteRenderer = GameObject.Find("Shadow").GetComponent<SpriteRenderer>();

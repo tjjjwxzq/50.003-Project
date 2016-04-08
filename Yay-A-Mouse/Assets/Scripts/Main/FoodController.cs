@@ -97,6 +97,7 @@ public class FoodController : MonoBehaviour {
     private IEnumerator changeDirectionsCoroutine;
     private float minSpawnTime = 0.3f; // Minimum time to wait between food spawning
     private float maxSpawnTime = 2.0f; // Maximum time to wait between food spawning
+    private float spawnRateMultiplier = 1f;
     private float minChangeTime = 0.5f; // Minimum time to wait between change of food directions
     private float maxChangeTime = 15f; // Maximum time to wait between change of food directions
     private int foodDirection = 1; // Change food direction for Horizontal and Vertical Movement
@@ -113,6 +114,16 @@ public class FoodController : MonoBehaviour {
     {
         get { return totalFoodSpawnWeight; }
 
+    }
+
+    public float SpawnRate
+    {
+        get { return spawnRateMultiplier; }
+        set
+        {
+            minSpawnTime = 0.3f * value;
+            maxSpawnTime = 2.3f * value;
+        }
     }
 
     public Dictionary<string, int> FoodValues
@@ -210,6 +221,13 @@ public class FoodController : MonoBehaviour {
             cumulativeFoodWeights[i] = i > 0 ? foodSpawnWeights[foodNames[i]] + cumulativeFoodWeights[i - 1] :
                 foodSpawnWeights[foodNames[i]];
         }
+
+
+        //  Move this out later
+        GameObject.FindGameObjectsWithTag("Player")
+            .First(playerObj => playerObj.GetComponent<AbilityController>().isLocalPlayer)
+            .GetComponent<AbilityController>()
+            .AttachToFoodController();
 
     }
 
