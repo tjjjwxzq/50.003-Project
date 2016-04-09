@@ -85,7 +85,7 @@ public class AbilitySelectionController : MonoBehaviour
         }
     }
 
-    // Change this to extract static fields from the Ability subclasses
+    // Ideally this should extract details stored in static fields of the Ability subclasses, but nevermind
     private Dictionary<AbilityName, AbilityLevel[]> abilityLevelDetails = new Dictionary<AbilityName, AbilityLevel[]>
     {
         {AbilityName.Immunity, new AbilityLevel[]
@@ -95,33 +95,38 @@ public class AbilitySelectionController : MonoBehaviour
         } },
         {AbilityName.TreatsGalore, new AbilityLevel[]
         {
-            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
-            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+            new AbilityLevel("Level 1", "80", "15", "Higher chance of treats appearing on the screen"),
+            new AbilityLevel("Level 2", "80", "20", "Higher chance of high-value treats appearing on the screen"),
+            new AbilityLevel("Level 3", "80", "15", "Generate a whole wave of treats on the screen"),
         } },
         {AbilityName.Fearless, new AbilityLevel[]
         {
-            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
-            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+            new AbilityLevel("Level 1", "40", "30", "Your mouse becomes fearless of cats for awhile, and won't be scared off"),
+            new AbilityLevel("Level 2", "40", "30", "Your mouse becomes fearless of cats for awhile, and won't lose weight or be scared off"),
+            new AbilityLevel("Level 3", "40", "30", "Your mouse becomes completely fearless of cats for awhile, and won't lose weight, happiness, or be scared off"),
         } },
         {AbilityName.FatMouse, new AbilityLevel[]
         {
-            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
-            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+            new AbilityLevel("Leve 1", "70", "15", "Your mouse gains weight twice as easily"),
+            new AbilityLevel("Level 2", "70", "20", "Your mouse gains weight four times as easily"),
         } },
         {AbilityName.Thief, new AbilityLevel[]
         {
-            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
-            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+            new AbilityLevel("Level 1", "70", "15", "Steal 10 treats from a chosen player, while reducing the chance of treats" +
+                "appearing on their screen and increasing the chance of treats appearing on yours for a while"),
+            new AbilityLevel("Level 2", "70", "20", "Steal 15 treats from a chosen player, while further reducing the chance of treats" +
+                "appearing on their screen and further increasing the chance of treats appearing on yours for a while"),
         } },
         {AbilityName.ScaryCat, new AbilityLevel[]
         {
-            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
-            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+            new AbilityLevel("Level 1", "60", "5", "Send a cat to scare an opponent's mouse off screen for awhile, and reduce its weight and happiness"),
+            new AbilityLevel("Level 2", "60", "10", "Send a cat to scare an opponent's mouse off screen for awhile, and further reduce its weight and happiness")
         } },
         {AbilityName.BeastlyBuffet, new AbilityLevel[]
         {
-            new AbilityLevel("1", "80", "15", "Immunity to all bad foods"),
-            new AbilityLevel("2", "30", "30", "Immunity to all bad foods"),
+            new AbilityLevel("Level 1", "50", "15", "Higher chance of bad foods appearing on a chosen opponent's screen"),
+            new AbilityLevel("Level 2", "50", "20", "Higher chance of very bad foods appearingo n a chosen opponent's screen"),
+            new AbilityLevel("Level 2", "50", "15", "Generate a whole wave of bad foods on a chosen opponent's screen"),
         } },
     };
 

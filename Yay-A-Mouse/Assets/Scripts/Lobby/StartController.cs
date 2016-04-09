@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Net;
 
 /// <summary>
 /// Handles start UI buttons as well as
@@ -12,13 +13,25 @@ public class StartController : MonoBehaviour {
 
     private const int MaxPlayers = 4;
     private GameObject canvasObj;
+    private GameObject startUI;
+    private GameObject waitingUI; // UI to show when player is waiting to join a game
+    private GameObject readyUI;
+    private GameObject readyWaitingText;
+    private GameObject readyStartButton;
     private GameObject startPositionPrefab;
     private LobbyManager lobbyManager; // script that subclasses NetworkLobbyManager
     private MyNetworkDiscovery networkDiscovery; //network discovery component 
 
     void Start()
     {
+        // Get UI components
         canvasObj = GameObject.Find("Canvas");
+        startUI = GameObject.Find("StartUI");
+        waitingUI = GameObject.Find("WaitingUI");
+        readyUI = GameObject.Find("ReadyUI");
+        readyWaitingText = readyUI.transform.Find("WaitingText").gameObject;
+        readyStartButton = readyUI.transform.Find("StartButton").gameObject;
+
         lobbyManager = LobbyManager.singleton as LobbyManager;
         networkDiscovery = LobbyManager.singleton.GetComponent<MyNetworkDiscovery>();
         startPositionPrefab = Resources.Load("Prefabs/StartPosition") as GameObject;
@@ -33,6 +46,10 @@ public class StartController : MonoBehaviour {
             start.transform.SetParent(canvasObj.transform, false);
 
         }
+
+        // deactivate readyUI and waiting UI
+        readyUI.SetActive(false);
+        waitingUI.SetActive(false);
 
         // check whether player has saved name
         checkPlayerName();
@@ -65,9 +82,17 @@ public class StartController : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Callback when Host button is pressed
+    /// </summary>
     public void OnHostGame()
     {
-        lobbyManager.StartHost(); 
+        lobbyManager.StartHost();
+        Debug.Log("Host name " + Dns.GetHostName());
+        foreach(IPAddress ipAdd in Dns.GetHostAddresses(Dns.GetHostName()))
+        {
+            Debug.Log(ipAdd.ToString());
+        }
         // starts client and server host
         // OnStartHost() hook is called when this happens
         // and is used to modify the UI
@@ -75,6 +100,9 @@ public class StartController : MonoBehaviour {
         // on the NetworkDiscovery component
     }
 
+    /// <summary>
+    /// Callback when Join button is pressed
+    /// </summary>
     public void OnJoinGame()
     {
         // start client network discovery
@@ -87,6 +115,68 @@ public class StartController : MonoBehaviour {
         networkDiscovery.Initialize();
         networkDiscovery.StartAsClient();
 
+        // show waiting UI
+        startUI.SetActive(false);
+        waitingUI.SetActive(true);
     }
 
+    /// <summary>
+    /// Callback when player presses button to cancel
+    /// waiting to join a game
+    /// </summary>
+    public void OnJoinStopWaiting()
+    {
+        networkDiscovery.StopBroadcast();
+
+        // show start UI
+        waitingUI.SetActive(false);
+        startUI.SetActive(true);
+    }
+
+
+    /// <summary>
+    /// To be called by the LobbyManager to
+    /// toggle the startUI
+    /// </summary>
+    public void ToggleStartUI(bool on)
+    {
+        startUI.SetActive(on);
+    }
+
+    /// <summary>
+    /// To be called by the LobbyManager to
+    /// toggle the waiting UI
+    /// </summary>
+    /// <param name="on"></param>
+    public void ToggleWaitingUI(bool on)
+    {
+        waitingUI.SetActive(on);
+    }
+
+    /// <summary>
+    /// To be called by the LobbyManager
+    /// for the Host when all players
+    /// in the lobby are ready
+    /// </summary>
+    /// <param name="on"></param>
+    public void ToggleHostReadyUI(bool on)
+    {
+        readyWaitingText.SetActive(false);
+        readyUI.SetActive(on);
+    }
+
+    /// <summary>
+    /// To be called by the LobbyManager
+    /// for clients when all players in
+    /// the lobby are ready
+    /// </summary>
+    /// <param name="on"></param>
+    public void ToggleClientReadyUI(bool on)
+    {
+        readyStartButton.SetActive(false);
+        readyUI.SetActive(on);
+    }
+
+
 }
+

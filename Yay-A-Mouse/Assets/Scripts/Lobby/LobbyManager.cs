@@ -6,21 +6,19 @@ using UnityEngine.Networking;
 
 public class LobbyManager : NetworkLobbyManager {
 
-    // For Lobby Scene
-    private bool serverStarted = false;
-    private bool colorControllerSpawned = false;
     // for tracking if lobby players are ready on the client, and saving local player state
     private List<LobbyPlayer> lobbyPlayers = new List<LobbyPlayer>(); 
     // for tracking if lobby players are ready in ability selection scene, and saving selected abilities
     private List<Player> players = new List<Player>(); 
     private MyNetworkDiscovery networkDiscovery; // for local discovery
-    private GameObject canvasObj;
-    private GameObject startUI;
-    private GameObject readyUI;
-    private GameObject readyWaitingText;
-    private GameObject readyStartButton;
+    private StartController startController; // for toggling UI
     private bool readyUIActive = false;
-    public RectTransform playerTransform; // to be accessed by StartController to set spawn positions
+
+    // To position lobby players
+    private RectTransform lobbyPlayerRectTransform;
+    private float lobbyPlayerStartPos = 140f; // starting position of lobby players
+    private float lobbyPlayerOffset; // for positioning lobby players
+    private int lobbyPlayerPosition; // position id to be stored by each player
 
     private GameObject countdownUI;
     private float readyCountdown = 3; // counts down after all players have chosen their abilities and before the game starts
@@ -34,19 +32,27 @@ public class LobbyManager : NetworkLobbyManager {
 
     // Use this for initialization
     void Start () {
+
+        // Get NetworkDiscovery to initialize broadcast in OnStartHost hook
+        networkDiscovery = GetComponent<MyNetworkDiscovery>();
+
+        // Get StartController for handling UI changes
+        startController = GameObject.Find("StartController").GetComponent<StartController>();
+
+        // Get LobbyPlayer RectTransform for positioning lobby players when they spawn
+        lobbyPlayerRectTransform = lobbyPlayerPrefab.GetComponent<RectTransform>();
+        lobbyPlayerOffset = lobbyPlayerRectTransform.rect.height * lobbyPlayerRectTransform.localScale.y * 1.2f;
+        Debug.Log("lobby player offset is " + lobbyPlayerOffset);
+        /*for(int i = 0; i < MaxPlayers; i++)
+        {
+            GameObject start = Instantiate(startPositionPrefab, new Vector2(0, height - offset * i), Quaternion.identity) as GameObject;
+            start.transform.SetParent(canvasObj.transform, false);
+
+        }*/
+
+
         // Set round robin player spawn method
         playerSpawnMethod = PlayerSpawnMethod.RoundRobin;
-
-        networkDiscovery = GetComponent<MyNetworkDiscovery>();
-        canvasObj = GameObject.Find("Canvas");
-        startUI = GameObject.Find("StartUI");
-        readyUI = GameObject.Find("ReadyUI");
-        readyWaitingText = readyUI.transform.Find("WaitingText").gameObject;
-        readyStartButton = readyUI.transform.Find("StartButton").gameObject;
-
-        readyUI.SetActive(false);
-        playerTransform = lobbyPlayerPrefab.GetComponent<RectTransform>();
-
     }
 	
 	// Update is called once per frame
@@ -59,24 +65,21 @@ public class LobbyManager : NetworkLobbyManager {
             Debug.Log("Lobby player is " + player);
         UpdateLobbyPlayers();
 
-        if (serverStarted && !colorControllerSpawned)
+        // Make sure lobbyPlayer position is reset accordingly
+        if (lobbyPlayerPosition > lobbyPlayers.Count)
         {
-            Debug.Log("Spawning color ocntroller");
-            // Spawn color controller
-            colorControllerSpawned = true;
-            NetworkServer.SpawnObjects(); // Maybe shift this to OnLobbyClientEnter? Or would that duplicate the object
-            // I am not sure why the plain vanilla spawn with a registered
-            // color controller prefab as an argument doesn't seem to work
-            // Now a ColorController object is placed in the scene but is is disabled by default
-            // SpawnObjects() enables and spawns it
+            lobbyPlayerPosition = lobbyPlayers.Count;
+            Debug.Log("Reseeting player position");
+
         }
+
         // To check and update UI when all lobby players are ready
         if (!readyUIActive && lobbyPlayers.Count >= minPlayers && checkAllReady())
         {
             if (isHost)
-                ToggleHostReadyUI(true);
+                startController.ToggleHostReadyUI(true);
             else
-                ToggleClientReadyUI(true);
+                startController.ToggleClientReadyUI(true);
             readyUIActive = true;
         }
 
@@ -84,9 +87,9 @@ public class LobbyManager : NetworkLobbyManager {
         if(readyUIActive && !checkAllReady())
         {
             if (isHost)
-                ToggleHostReadyUI(false);
+                startController.ToggleHostReadyUI(false);
             else
-                ToggleClientReadyUI(false);
+                startController.ToggleClientReadyUI(false);
             readyUIActive = false;
         }
 
@@ -130,8 +133,6 @@ public class LobbyManager : NetworkLobbyManager {
         networkDiscovery.Initialize();
         networkDiscovery.StartAsServer();
         isHost = true;
-        serverStarted = true;
-
     }
 
     // Disable start UI when client enters
@@ -140,7 +141,8 @@ public class LobbyManager : NetworkLobbyManager {
         Debug.Log("Entering lobby");
         Debug.Log("Enter Num lobby players are " + lobbyPlayers.Count);
         // Disable start UI
-        ToggleStartUI(false);
+        startController.ToggleStartUI(false);
+        startController.ToggleWaitingUI(false);
 
     }
 
@@ -155,7 +157,10 @@ public class LobbyManager : NetworkLobbyManager {
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
         if(SceneManager.GetActiveScene().name.Equals("Lobby", System.StringComparison.Ordinal)){
-            GameObject player = Instantiate(lobbyPlayerPrefab.gameObject, GetStartPosition().position, Quaternion.identity) as GameObject;
+            GameObject player = Instantiate(lobbyPlayerPrefab.gameObject);
+            // Assign player position
+            Debug.Log("Player position is " + lobbyPlayerPosition);
+            player.GetComponent<LobbyPlayer>().PlayerPosition = lobbyPlayerPosition++;
             NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         }
         else if(SceneManager.GetActiveScene().name.Equals("SelectAbilities", System.StringComparison.Ordinal))
@@ -180,7 +185,7 @@ public class LobbyManager : NetworkLobbyManager {
     public override void OnLobbyServerPlayersReady()
     {
         // Show start button but not waiting text
-        ToggleHostReadyUI(true);
+        startController.ToggleHostReadyUI(true);
     }
 
     public override void OnLobbyClientSceneChanged(NetworkConnection conn)
@@ -224,61 +229,32 @@ public class LobbyManager : NetworkLobbyManager {
         return lobbyPlayers.All(p => p.PlayerReady);
     }
 
-    // Set host UI once all players are ready
-    public void ToggleHostReadyUI(bool on)
-    {
-        readyWaitingText.SetActive(false);
-        readyUI.SetActive(on);
-    }
-
-    // Set client UI once all players are ready
-    public void ToggleClientReadyUI(bool on)
-    {
-        readyStartButton.SetActive(false);
-        readyUI.SetActive(on);
-    }
-
-
-    // Disable start UI
-    public void ToggleStartUI( bool on)
-    {
-        Debug.Log("startUI object " + startUI);
-        startUI.SetActive(on);
-    }
-
-    // Add spawned lobby player to list
+    /// <summary>
+    /// Add lobby player to list when lobby player network behavior client starts
+    /// </summary>
+    /// <param name="player"></param>
     public void AddLobbyPlayer(GameObject player)
     {
         lobbyPlayers.Add(player.GetComponent<LobbyPlayer>());
     }
 
-    // Update lobby players list
-    public void UpdateLobbyPlayers()
-    {
-        if (lobbyPlayers.Count != numPlayers)
-            lobbyPlayers = lobbyPlayers.Where(p => p != null).ToList();
-    }
-
-    // Remove lobby player from list
-    // This doesn't seem to have use
-    // Since even if a client calls this in OnExitClient
-    // the server and other clients will not be updated
-    public void RemoveLobbyPlayer(GameObject player)
-    {
-        lobbyPlayers.Remove(player.GetComponent<LobbyPlayer>());
-    }
-
-    // Add spawned player to list
+    /// <summary>
+    /// Add spawned player to list when the player network behavior client starts
+    /// </summary>
+    /// <param name="player"></param>
     public void AddPlayer(GameObject player)
     {
-        Debug.Log("Adding player to lobby manager");
         players.Add(player.GetComponent<Player>());
     }
 
-    // Remove spawned player from list
-    public void RemovePlayer(GameObject player)
+    /// <summary>
+    /// Updates list of lobby players,
+    /// removing objects which have become null (player has quit)
+    /// </summary>
+    private void UpdateLobbyPlayers()
     {
-        players.Remove(player.GetComponent<Player>());
+        if (lobbyPlayers.Count != numPlayers)
+            lobbyPlayers = lobbyPlayers.Where(p => p != null).ToList();
     }
 
     /// <summary>
@@ -290,15 +266,6 @@ public class LobbyManager : NetworkLobbyManager {
     public void setLocalPlayerColor(Color color)
     {
         PlayerColor = color;
-    }
-
-    /// <summary>
-    /// Set local player abilities
-    /// </summary>
-    /// <param name="abilities"></param>
-    public void setLocalPlayerAbilities(Abilities abilities)
-    {
-        PlayerAbilities = abilities;
     }
 
     /// <summary>

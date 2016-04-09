@@ -14,6 +14,8 @@ public class MyNetworkDiscovery : NetworkDiscovery{
     {
         // Gets the network lobby manager to start the client,
         // connecting to the given server address
+        Debug.Log("frmoAddress" + fromAddress);
+        Debug.Log("dsata is " + data);
         LobbyManager.singleton.networkAddress = fromAddress;
         LobbyManager.singleton.StartClient();
         StopBroadcast();

@@ -11,8 +11,6 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     public bool isLocal;
     public bool isServe;
 
-    // List of possible player colors
-
     [SyncVar]
     public bool PlayerReady;
 
@@ -23,6 +21,14 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     public Color PlayerColor;
     private Color[] Colors = { Color.red, Color.green, Color.blue, Color.yellow };
     private int currentColorIndex = 0;
+
+    // For positioning player in lobby
+    private RectTransform lobbyPlayerRectTransform;
+    private float lobbyPlayerStartPos = 140f; // starting position of lobby players
+    private float lobbyPlayerOffset; // offset between each player
+
+    [SyncVar]
+    public int PlayerPosition; // set by LobbyManager when player is added on server
 
     // UI components
     public float playerScale = 0.3f;
@@ -62,10 +68,17 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     {
         Debug.Log("Client entering lobby");
         Debug.Log("Player color client is " + PlayerColor);
+
+        // Get rect transform
+        lobbyPlayerRectTransform = GetComponent<RectTransform>();
+        lobbyPlayerOffset = lobbyPlayerRectTransform.rect.height * lobbyPlayerRectTransform.localScale.y * 1.2f;
+
         // Add player object to canvas and intialize UI components
         canvasObj = GameObject.Find("Canvas");
-        transform.SetParent(canvasObj.transform, true);
+        lobbyPlayerRectTransform.anchoredPosition = new Vector2(0, lobbyPlayerStartPos - lobbyPlayerOffset * PlayerPosition);
+        transform.SetParent(canvasObj.transform, false);
         transform.localScale = new Vector3(playerScale, playerScale, playerScale);
+
         playerImage = GetComponent<Image>();
         playerNameText = transform.Find("Name").GetComponent<Text>();
         playerQuitButtonObj = transform.Find("QuitButton").gameObject;
@@ -179,7 +192,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
                 Debug.Log("Stopping client");
             }
             // Reset the UI
-            (LobbyManager.singleton as LobbyManager).ToggleStartUI(true);
+            GameObject.Find("StartController").GetComponent<StartController>().ToggleStartUI(true);
 
         }
     }

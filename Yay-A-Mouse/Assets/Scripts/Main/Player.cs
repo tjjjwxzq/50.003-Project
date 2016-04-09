@@ -29,12 +29,10 @@ public class Player : NetworkBehaviour
     public Abilities PAbilities; // The player's Abilities
 
     // For synchronizing the number of players over host and clients
-    // scine LobbyManager.numPlayers is only valid on the host
+    // since LobbyManager.numPlayers is only valid on the host
     [SyncVar]
     public int NumPlayers = -1; // set on the Server
 
-    // network score so other players can see your progress
-    // *** @junqi: to access this in other scripts/clients, first initialise Player player, followed by player.score
     [SyncVar]
     public int Score = 0;
 
@@ -91,13 +89,20 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
-        if (isServer)
+        if (NumPlayers <= 0 && isServer)
         {
             NumPlayers = LobbyManager.singleton.numPlayers;
         }
+
+        // Get level controller
+        if(levelController == null && SceneManager.GetActiveScene().name == "Main")
+            levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+
         // Set levelController.NumPlayers on clients and server
         if(levelController != null && NumPlayers > 0)
+        {
             levelController.NumPlayers = NumPlayers;
+        }
 
         if (isLocalPlayer)
         {
@@ -123,8 +128,6 @@ public class Player : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        // Get level controller
-        //levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
 
         // Add player to network manager
         Debug.Log("Adding player object starting client");
