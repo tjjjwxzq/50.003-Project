@@ -16,6 +16,9 @@ public class Mouse: MonoBehaviour {
     // Reference to levelcontroller
     private LevelController levelController;
 
+    // Coroutines
+    private IEnumerator rotationCoroutine;
+
     //Mouse sprites
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer shadowSpriteRenderer;
@@ -35,7 +38,13 @@ public class Mouse: MonoBehaviour {
     private bool immunity = false; //!< Immunity to bad foods. Can be set by player ability. (cover all bad foods or only some?)
     private int leptinDeficiency = 1; //!< Ability to gain weight; acts as score multiplier to food points. Can be set by player ability.
     private bool fearless = false; //!< immunity to being scared by cats, ants etc. Can be set by player ability.
-    private bool offScreen = false; //!< Whether the mouse has been scared off-screen.
+    private bool offScreen = false; //!< Whether the mouse should be scared off-screen.
+    private bool alreadyOffScreen = false; // whether the mouse has been scared off-screen
+    private bool rotateBack = false; // trigger mouse rotate back
+    private bool rotatingBack = false; // whether rotating corouting is running
+    private bool runBack = false; // trigger mouse run back at the end of rotate back
+    private bool runningBack = false; // whether running back coroutine is running
+    private bool returnToScreen = false; // to track whether mouse is in the midst of returning to the screen
 
     // For swiping
     private bool stroked = false; //!< For detecting if a stroke has started
@@ -47,30 +56,41 @@ public class Mouse: MonoBehaviour {
     private readonly int[] weightLevels = new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 };
     private readonly int[] happinessLevels = new int[] { 0, 20, 40, 60, 80, 100 }; //!< Happiness levels at which to change happiness indicator
 
+    // For level up animation
+    private GameObject levelUpObject;
+
     //For scaling transform
     //Default size is at full grown size
     private int defaultSize = 1280; //width in pixels
     private Vector3 defaultScale = new Vector3(1,1,1);
-    private float scale; 
+    private float scale;
 
     //For rotation
+    private Quaternion currentRotation; // for rotating back before running back to center
+    private bool correctRotation = false;
+    private bool rotationCorrected = false; // flag set if rotation has been corrected
     private float finalAngle1;
     private float finalAngle2;
     private float easeK;
     private int maxTurnSteps = 3; // value to reset turnSteps to 
     private int turnSteps; // to make sure transform continues turning in the changed direction
 
+    private float timer = 3;
+
 	// Use this for initialization
 	void Start () {
         //Get level controller
         levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
 
+        // Level up
+        levelUpObject = GameObject.Find("LevelUp");
+        levelUpObject.SetActive(false);
 
         // Move this out later
         // Get local player
-	    var localPlayerObj = GameObject.FindGameObjectsWithTag("Player").First(obj => obj.GetComponent<Player>().isLocalPlayer);
+	   /* var localPlayerObj = GameObject.FindGameObjectsWithTag("Player").First(obj => obj.GetComponent<Player>().isLocalPlayer);
         localPlayerObj.GetComponent<Player>().AttachToMouse();
-        localPlayerObj.GetComponent<AbilityController>().AttachToMouse();
+        localPlayerObj.GetComponent<AbilityController>().AttachToMouse();*/
 
         //Components
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -94,7 +114,11 @@ public class Mouse: MonoBehaviour {
         turnSteps = maxTurnSteps;
         finalAngle1 = -90f;
         finalAngle2 = -1 * finalAngle1;
-	
+
+        //Rotate mouse
+        rotationCoroutine = rotateWithEasing(finalAngle1, finalAngle2, transform);
+        StartCoroutine(rotationCoroutine);
+
 	}
 	
 	// Update is called once per frame
@@ -103,16 +127,32 @@ public class Mouse: MonoBehaviour {
         float weightRatio = (float) weight / weightLevels[weightLevels.Length - 1];
         scale = -0.8f * weightRatio * weightRatio + 1.6f * weightRatio + 0.2f;
         transform.localScale = defaultScale* scale;
-        //Rotate mouse
-        StartCoroutine(RotateWithEasing(finalAngle1, finalAngle2, transform));
         // Update mouse level and sprite
         checkLevel();
         // Update mouse happiness
         updateHappiness();
         // Update mouse happiness sprite
         checkHappiness();
-        
+
+        // Correct mouse rotation if needed (during frenzy mode)
+        if (correctRotation)
+            CorrectMouseRotation();
+
+        // Check if mouse should be scared off screen
+        checkOffScreen();
+
+        /*
+         //For testing off screen animation
+        timer -= Time.deltaTime;
+        if (timer < 0)
+        {
+            Debug.Log("Triggering offscreen");
+            offScreen = !offScreen;
+            timer = 3;
+            levelController.ScaryCatAnimation();
+        }*/
 	}
+
 
     /// <summary>
     /// Checks and updates mouse level and changes sprite accordingly
@@ -133,6 +173,9 @@ public class Mouse: MonoBehaviour {
                 polygonColliders[level].enabled = true;
                 spriteRenderer.sprite = LevelSprites[level];
                 shadowSpriteRenderer.sprite = ShadowSprites[level];
+
+                // Play level up animation
+                levelUpObject.SetActive(true);
                 break;
             }
         }
@@ -275,12 +318,12 @@ public class Mouse: MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             return detectTouch(Input.mousePosition);
-
         }
 
         // For touch input
         if(Input.touchCount > 0)
         {
+            // this needs to be changed
             Touch touch = Input.GetTouch(0); 
             switch (touch.phase)
             {
@@ -305,9 +348,8 @@ public class Mouse: MonoBehaviour {
         Vector2 touchPos = new Vector2(wpos.x, wpos.y);
         Collider2D colObj = Physics2D.OverlapPoint(touchPos);
 
-        if (colObj == GetComponent<Collider2D>())
+        if (colObj == polygonColliders[level])
         {
-            Debug.Log("Detected stroke");
             return true;
         }
 
@@ -327,39 +369,175 @@ public class Mouse: MonoBehaviour {
     /// <param name="angle2">Larger angle; must be positive</param>
     /// <param name="trans">The transform to rotate</param>
     /// <returns></returns>
-    IEnumerator RotateWithEasing(float angle1, float angle2, Transform trans)
+    IEnumerator rotateWithEasing(float angle1, float angle2, Transform trans)
     {
-        if(angle1>0 || angle2 < 0)
+        for (;;)
         {
-            Debug.Log("Wrong angle input");
+            if(angle1>0 || angle2 < 0)
+            {
+                Debug.Log("Wrong angle input");
+                yield return null;
+            }
+                
+            float angDisplacement = trans.eulerAngles.z > 180 ? trans.eulerAngles.z - 360 : trans.eulerAngles.z;
+            float angAccDir = Mathf.Sign(angDisplacement);
+            float diff;
+            //Get correct easing difference based on sign of displacement
+            if (angAccDir == 1f)
+                diff = Mathf.Abs(angDisplacement - angle2);
+            else
+                diff = Mathf.Abs(angDisplacement - angle1);
+
+            //Change direction
+            //If easeK is too large the rotation may jump past the target
+            //the threshold to check should thus be proportional to easeK
+            //but might need hand-tuning
+            if (diff <= Mathf.Abs(easeK) && turnSteps < 0)
+            {
+                turnSteps = maxTurnSteps;
+                easeK *= -1;
+            }
+
+            turnSteps--;
+
+            float rotationSpeed = diff * easeK;
+            trans.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+            yield return null;
+     
+        }
+       
+    }
+
+    /// <summary>
+    /// Stop mouse rotation
+    /// </summary>
+    public void StopMouseRotation()
+    {
+        correctRotation = true;
+        StopCoroutine(rotationCoroutine);
+    }
+
+    // To make mouse face front during frenzy mode
+    private void CorrectMouseRotation()
+    {
+        transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0,0,0,1f), Time.deltaTime * 5f);
+        if (Quaternion.Angle(transform.rotation, Quaternion.identity) < 1)
+        {
+            correctRotation = false;
+            rotationCorrected = true;
+        }
+    }
+
+    /// <summary>
+    /// Start mouse rotation
+    /// </summary>
+    public void StartMouseRotation()
+    {
+        StartCoroutine(rotationCoroutine);
+    }
+
+    // Checks for off screen handling
+    private void checkOffScreen()
+    {
+        // Check if mouse should be sent off screen
+        if (offScreen && !alreadyOffScreen && !returnToScreen) // make sure mouse is not in the midst of returning
+        {
+            mouseOffScreen();
+            alreadyOffScreen = true;
+        }
+
+        // Check if mouse should come back
+        if(!offScreen && alreadyOffScreen)
+        {
+            rotateBack = true;
+            returnToScreen = true;
+            alreadyOffScreen = false;
+        }
+ 
+        // Check if mouse should rotate back 
+        if (rotateBack && !rotatingBack)
+        {
+            StartCoroutine(rotateBackToCenter());
+            rotatingBack = true;
+        }
+
+        // Check if mouse should run back
+        if (runBack && !runningBack)
+        {
+            StartCoroutine(runBackToCenter());
+            runningBack = true;
+        }
+
+        if (rotationCorrected && returnToScreen)
+        {
+            StartCoroutine(rotationCoroutine);
+            rotationCorrected = false;
+            returnToScreen = false;
+        }
+
+    }
+
+    // Handle when mouse is scared off the screen
+    private void mouseOffScreen()
+    {
+        StopCoroutine(rotationCoroutine);
+        StartCoroutine(runOffScreen());
+    }
+
+    // Handle mouse translation for running off screen
+    IEnumerator runOffScreen()
+    {
+        currentRotation = transform.rotation;
+        float zRad = (90 + currentRotation.eulerAngles.z) * Mathf.Deg2Rad ;
+        Vector2 direction = Mathf.Tan(zRad)  > 0 ? - (new Vector2(1, Mathf.Tan(zRad))) : new Vector2(1,Mathf.Tan(zRad));
+        while(spriteRenderer.bounds.max.x > CameraController.MinXUnits && spriteRenderer.bounds.min.x < CameraController.MaxXUnits
+            && spriteRenderer.bounds.min.y < CameraController.MaxYUnits && spriteRenderer.bounds.max.y > CameraController.MinYUnits)
+        {
+            float speed = 20f;
+            transform.Translate( direction.normalized * Time.deltaTime * speed, Space.World);
+
             yield return null;
         }
-            
-        float angDisplacement = trans.eulerAngles.z > 180 ? trans.eulerAngles.z - 360 : trans.eulerAngles.z;
-        float angAccDir = Mathf.Sign(angDisplacement);
-        float diff;
-        //Get correct easing difference based on sign of displacement
-        if (angAccDir == 1f)
-            diff = Mathf.Abs(angDisplacement - angle2);
-        else
-            diff = Mathf.Abs(angDisplacement - angle1);
 
-        //Change direction
-        //If easeK is too large the rotation may jump past the target
-        //the threshold to check should thus be proportional to easeK
-        //but might need hand-tuning
-        if (diff <= Mathf.Abs(easeK) && turnSteps < 0)
+    }
+
+    // Rotate back towards center
+    IEnumerator rotateBackToCenter()
+    {
+        float finalZAngle = currentRotation.eulerAngles.z + 180f;
+        Quaternion finalRotation = Quaternion.Euler(0, 0, finalZAngle);
+        for (;;)
         {
-            turnSteps = maxTurnSteps;
-            easeK *= -1;
+            Debug.Log("Rotating");
+            transform.rotation = Quaternion.Lerp(transform.rotation, finalRotation, 5f * Time.deltaTime);
+            
+            if (Quaternion.Angle(transform.rotation, finalRotation) < 1)
+                break;
+            yield return null;
         }
 
-        turnSteps--;
+        runBack = true;
+        rotateBack = false;
+        rotatingBack = false;
+    }
 
-        float rotationSpeed = diff * easeK;
-        trans.Rotate(0, 0, rotationSpeed * Time.deltaTime);
-        yield return null;
-        
+    // Run back towards center
+    IEnumerator runBackToCenter()
+    {
+        for (;;)
+        {
+            transform.position = Vector2.Lerp(transform.position, Vector2.zero, 1f * Time.deltaTime);
+            if((transform.position - Vector3.zero).magnitude < 0.1)
+            {
+                transform.position = Vector2.zero;
+                break;
+            }
+            yield return null;
+        }
+
+        runBack = false;
+        runningBack = false;
+        correctRotation = true;
     }
 
     // Check for collision with food
@@ -452,6 +630,11 @@ public class Mouse: MonoBehaviour {
     {
         get { return offScreen; }
         set { offScreen = value; }
+    }
+
+    public PolygonCollider2D MouseCollider2D
+    {
+        get { return polygonColliders[level]; }
     }
 
 }

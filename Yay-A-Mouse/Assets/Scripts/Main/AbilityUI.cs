@@ -40,7 +40,7 @@ public class AbilityUI : MonoBehaviour
 
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
 
-        abilityButtonPrefab = (GameObject)Resources.Load("Prefabs\\Button");
+        abilityButtonPrefab = (GameObject)Resources.Load("Prefabs\\AbilityButton");
         plusButtonPrefab = Resources.Load<GameObject>("Prefabs\\PlusButton");
         canvas = GameObject.Find("Canvas").transform.Find("Abilities").gameObject;
 
@@ -52,7 +52,8 @@ public class AbilityUI : MonoBehaviour
 
         // Get the height of each button for positioning
         RectTransform buttonRect = abilityButtonPrefab.GetComponent<RectTransform>();
-        float offset = buttonRect.rect.height * buttonRect.localScale.x * 1.1f;
+        float offset = buttonRect.rect.height * buttonRect.localScale.y * 1.1f;
+        Debug.Log("Button local scale " + buttonRect.localScale);
 
         float yOffset = -playerAbilities.Count / 2 * offset;
         foreach (Ability ability in playerAbilities)

@@ -112,10 +112,10 @@ public class AbilitySelectionController : MonoBehaviour
         } },
         {AbilityName.Thief, new AbilityLevel[]
         {
-            new AbilityLevel("Level 1", "70", "15", "Steal 10 treats from a chosen player, while reducing the chance of treats" +
-                "appearing on their screen and increasing the chance of treats appearing on yours for a while"),
-            new AbilityLevel("Level 2", "70", "20", "Steal 15 treats from a chosen player, while further reducing the chance of treats" +
-                "appearing on their screen and further increasing the chance of treats appearing on yours for a while"),
+            new AbilityLevel("Level 1", "70", "15", "Steal 10 treats from a chosen player; treats appear more often on your screen" +
+                "and less often on theirs"),
+            new AbilityLevel("Level 2", "70", "20", "Steal 15 treats from a chosen player; treats appear even more often on your screen" +
+                "and less often on theirs"),
         } },
         {AbilityName.ScaryCat, new AbilityLevel[]
         {
@@ -178,7 +178,11 @@ public class AbilitySelectionController : MonoBehaviour
             abilityIcons[abilityName].name = abilityName.ToString(); // set object name
             abilityIcons[abilityName].GetComponent<Button>().onClick.AddListener(OnAbilityDetail); // set button callback
             abilityIcons[abilityName].GetComponent<Image>().sprite = abilityIconSpritesDict[abilityName]; // set sprite
-            abilityIcons[abilityName].GetComponentInChildren<Text>().text = abilityName.ToString(); // change this later; names need spaces
+            abilityIcons[abilityName].GetComponentInChildren<Text>().text = abilityTitles[abilityName];
+            Image overlayImage = abilityIcons[abilityName].transform.Find("Overlay").GetComponent<Image>();
+            overlayImage.sprite = overlayIcon; // set overlay icon
+            overlayImage.color = new Color(1, 1, 1, 0.5f); // set overlay as translucent
+            overlayImage.enabled = false;
             abilityIcons[abilityName].transform.SetParent(abilityIconUI.transform); // make sure to set parent
             if (Enum.IsDefined(typeof(SelfHelpAbilities), abilityName.ToString()))
             {
@@ -194,24 +198,25 @@ public class AbilitySelectionController : MonoBehaviour
         sabotageAbilityButtons = GameObject.FindGameObjectsWithTag("Sabotage");
 
         // position ability icons nicely
-        float yPos = 54f; // edit in scene view and update here
+        float yPos = 65f; // edit in scene view and update here
         RectTransform rectTransform = selfHelpAbilityButtons[0].GetComponent<RectTransform>();
-        float xOffset = rectTransform.rect.width * 0.2f * 1.2f; //scale of 0.2
+        float xOffset = rectTransform.rect.width * 0.3f * 1.1f; // scale of 0.3 
         Vector2 startPos = new Vector2(-xOffset * (selfHelpAbilityButtons.Length / 2 - 0.5f), yPos);
+        Vector3 scale = new Vector3(0.3f, 0.3f, 0.3f);
 
         for (int i = 0; i < selfHelpAbilityButtons.Length; i++)
         {
             rectTransform = selfHelpAbilityButtons[i].GetComponent<RectTransform>();
-            rectTransform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            rectTransform.localScale = scale;
             rectTransform.anchoredPosition = startPos + new Vector2(xOffset * i, 0);
         }
 
-        yPos = -99;
+        yPos = -127f;
         startPos = new Vector2(-xOffset * (sabotageAbilityButtons.Length / 2), yPos);
         for (int i = 0; i < sabotageAbilityButtons.Length; i++)
         {
             rectTransform = sabotageAbilityButtons[i].GetComponent<RectTransform>();
-            rectTransform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            rectTransform.localScale = scale;
             rectTransform.anchoredPosition = startPos + new Vector2(xOffset * i, 0);
         }
         

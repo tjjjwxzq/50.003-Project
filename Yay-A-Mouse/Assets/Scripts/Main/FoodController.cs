@@ -223,11 +223,14 @@ public class FoodController : MonoBehaviour {
         }
 
 
-        //  Move this out later
+        //******************
+        // COMMENTED OUT TEMPORARILY FOR TESTING 
+        //*******************
+       /* //  Move this out later
         GameObject.FindGameObjectsWithTag("Player")
             .First(playerObj => playerObj.GetComponent<AbilityController>().isLocalPlayer)
             .GetComponent<AbilityController>()
-            .AttachToFoodController();
+            .AttachToFoodController();**/
 
     }
 
@@ -491,9 +494,16 @@ public class FoodController : MonoBehaviour {
     /// </summary>
     public void ActivateController()
     {
+        Debug.Log("Activating food controller");
         StartCoroutine(spawnCoroutine);
         StartCoroutine(changeDirectionsCoroutine);
+
+        foreach(Transform food in transform)
+        {
+            food.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        }
     }
+
 
 
 }

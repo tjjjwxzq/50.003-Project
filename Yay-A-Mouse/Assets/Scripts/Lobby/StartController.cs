@@ -133,6 +133,14 @@ public class StartController : MonoBehaviour {
         startUI.SetActive(true);
     }
 
+    /// <summary>
+    /// Callback when settings button is pressed
+    /// </summary>
+    public void OnSettings()
+    {
+        SceneManager.LoadScene("Settings");
+    }
+
 
     /// <summary>
     /// To be called by the LobbyManager to

@@ -19,10 +19,12 @@ public class LobbyPlayer : NetworkLobbyPlayer{
 
     [SyncVar(hook = "OnChangeColor")]
     public Color PlayerColor;
-    private Color[] Colors = { Color.red, Color.green, Color.blue, Color.yellow };
+    private Color[] Colors = { new Color(51/255f, 92/255f, 114/255f), new Color(105/255f, 175/255f, 172/255f),
+        new Color(78/255f, 123/255f, 168/255f), new Color(0, 121/255f, 119/255f)};
     private int currentColorIndex = 0;
 
     // For positioning player in lobby
+    private Vector2[] lobbyPlayerPositions = { new Vector2(125, -15), new Vector2(125, -120), new Vector2(0, 120), new Vector2(-125, -120) };
     private RectTransform lobbyPlayerRectTransform;
     private float lobbyPlayerStartPos = 140f; // starting position of lobby players
     private float lobbyPlayerOffset; // offset between each player
@@ -31,7 +33,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     public int PlayerPosition; // set by LobbyManager when player is added on server
 
     // UI components
-    public float playerScale = 0.3f;
+    public float playerScale = 0.25f;
     private GameObject canvasObj;
     private Image playerImage;
     private Text playerNameText;
@@ -49,9 +51,6 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         Debug.Log("Name is " + PlayerPrefs.GetString("Player Name"));
         CmdChangeName(PlayerPrefs.GetString("Player Name"));
         // Set color for local player
-        // I don't really understand why I don't need to call
-        // setColor to set the color correctly for a newly joined
-        // client, but it seems to set correctly like this, so...
         setColor();
         CmdChangeColor(PlayerColor);
         // Show quit and ready button if local player
@@ -75,9 +74,10 @@ public class LobbyPlayer : NetworkLobbyPlayer{
 
         // Add player object to canvas and intialize UI components
         canvasObj = GameObject.Find("Canvas");
-        lobbyPlayerRectTransform.anchoredPosition = new Vector2(0, lobbyPlayerStartPos - lobbyPlayerOffset * PlayerPosition);
+        lobbyPlayerRectTransform.anchoredPosition = lobbyPlayerPositions[PlayerPosition];
         transform.SetParent(canvasObj.transform, false);
-        transform.localScale = new Vector3(playerScale, playerScale, playerScale);
+        //transform.localScale = new Vector3(playerScale, playerScale, playerScale);
+        // WHY DOESN"T THIS SET CORRECTLY?
 
         playerImage = GetComponent<Image>();
         playerNameText = transform.Find("Name").GetComponent<Text>();
@@ -143,6 +143,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         {
             Debug.Log("readying");
             // Change button image
+            playerReadyButtonObj.GetComponent<Image>().color = Color.HSVToRGB(0.5f, 0.5f, 0.5f);
             // Disable color selection
             playerButton.interactable = false;
             // Save player color in LobbyManager
@@ -153,6 +154,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
         {
             Debug.Log("Not ready");
             // Reset button image
+            playerReadyButtonObj.GetComponent<Image>().color = new Color(1, 1, 1, 1);
             // Reenable color selection
             playerButton.interactable = true;
             SendNotReadyToBeginMessage();
@@ -208,8 +210,6 @@ public class LobbyPlayer : NetworkLobbyPlayer{
            if (! lobbyManager.getUsedColors().Contains(color))
             {
                 Debug.Log("Setting color");
-                //colorController.CmdRemoveUsedColors(currentColorIndex);
-                //colorController.CmdAddUsedColors(i);
                 PlayerColor = color;
                 currentColorIndex = i;
                 colorSet = true;

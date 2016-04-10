@@ -20,6 +20,7 @@ public class AbilityController : NetworkBehaviour
     private Mouse mouse;
     private Player player;
     private FoodController foodController;
+    private LevelController levelController;
 
     // Simple status flags
     private bool mouseIsImmune;
@@ -68,6 +69,7 @@ public class AbilityController : NetworkBehaviour
         abilityLastActivatedTimes = new Dictionary<AbilityName, DateTime>(7);
     }
 
+    // Why can't this attaching just be done in AbilityController Start?
     public void AttachToMouse()
     {
         Debug.Log(player.Name + " AbilityController component attached to mouse.");
@@ -81,11 +83,21 @@ public class AbilityController : NetworkBehaviour
     {
         Debug.Log(player.Name + " AbilityController component attached to food controller.");
         foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
+        if (foodController == null || mouse == null) return;
         defaultMaxFoodCounts = new Dictionary<string, int>(foodController.MaxFoodCounts);
         defaultFoodSpawnWeights = new Dictionary<string, float>(foodController.FoodSpawnWeights);
-        if (foodController == null || mouse == null) return;
         Debug.Log(player.Name + " AbilityController ready.");
         mainStarted = true;
+    }
+
+    /// <summary>
+    /// To be called in level controller start???
+    /// </summary>
+    public void AttachToLevelController()
+    {
+        Debug.Log(player.Name + " AbilityController component attached to level controller.");
+        levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+        if (levelController == null || mouse == null) return;
     }
 
     // Update is called once per frame
@@ -350,6 +362,7 @@ public class AbilityController : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
         // todo: implement UI response
+        levelController.ScaryCatAnimation();
 
         if (mouseIsOffscreen)
         {

@@ -35,14 +35,24 @@ public class LevelController : MonoBehaviour {
     private const int ScoreBonus = 20;
     private const float ComboAnimTime = 3f;
     private float comboAnimCountDown = 0;
-    private int countStreak = 0;     // length of combo streak
+    private int numCombos = 0;     // length of combo streak
     private int sequenceFed = 0;     // count the number of correct food fed
 
     // Frenzy mode 
     private bool changedMode = false; // to ensure set up only happens once, when switching modes
-    private const int FrenzyComboCount = 5; // length of combo streak before entering frenzy mode
+    private const int FrenzyComboCount = 1; // number of (not necessarily consecutive) combos before entering frenzy mode
     private const int FrenzyModeTime = 10; // number of seconds frenzy mode lasts
     private float frenzyTimer = FrenzyModeTime; // timer to countdown frenzy mode
+
+    private GameObject frenzyText; // activate when entering frenzy mode
+    private GameObject frenzyBackground; // activate when entering frenzy mode
+    private GameObject frenzyFed; // aniamted whenever mouse eats food in frenzy mode
+    private Animator frenzyMouseAnimator; // animated when entering and leaving frenzy mode
+
+
+    // Scary cat animation
+    private GameObject scaryCatShock;
+    private GameObject scaryCat;
 
     // Non local Player objects
     private GameObject[] playerObjects;
@@ -52,10 +62,11 @@ public class LevelController : MonoBehaviour {
     public Sprite comboBGNormal;
     public Sprite comboBGHighlight;
     private GameObject comboUI;
-    private GameObject comboText; // "COMBO!" text that pops up when combo
+    private GameObject comboText; // "COMBO!" text that pops up when combo is achieved
     private Animator comboTextAnimator;
     private GameObject comboChange;
     private Animator comboChangeAnimator;
+    private GameObject comboMouse; // animated star when combo is achieved
     private Image[] comboBackgrounds = new Image[3];
     private Image[] comboImages = new Image[3];
     private Animator[] comboAnimators = new Animator[3];
@@ -83,7 +94,9 @@ public class LevelController : MonoBehaviour {
         comboTextAnimator= comboText.GetComponent<Animator>();
         comboChange= GameObject.Find("ComboChange");
         comboChangeAnimator= comboChange.GetComponent<Animator>();
+        comboMouse = GameObject.Find("ComboMouse");
         comboText.SetActive(false);
+        comboMouse.SetActive(false);
         for(int i = 0; i < comboImages.Length; i++)
         {
 
@@ -96,6 +109,21 @@ public class LevelController : MonoBehaviour {
 
         // Get players UI
         playerAvatarUI = GameObject.Find("PlayerUI");
+
+        // Get Frenzy UI
+        frenzyText = GameObject.Find("FeedingFrenzy");
+        frenzyBackground = GameObject.Find("FrenzyBackground");
+        frenzyFed = GameObject.Find("FrenzyFed");
+        frenzyMouseAnimator = GameObject.Find("FrenzyMouse").GetComponent<Animator>();
+        frenzyText.SetActive(false);
+        frenzyBackground.SetActive(false);
+        frenzyFed.SetActive(false);
+
+        // Get Scary Cat UI
+        scaryCatShock = GameObject.Find("Shock");
+        scaryCat = GameObject.Find("Cat");
+        scaryCatShock.SetActive(false);
+        scaryCat.SetActive(false);
 
         // Initialization for food combo
         eligibleFoods = foodController.MaxFoodCounts.Where(kvp => 
@@ -111,6 +139,31 @@ public class LevelController : MonoBehaviour {
 
 
 	}
+
+    void FixedUpdate()
+    {
+        // Check for collision of food 
+        // spawned during frenzy mode with mouse
+        // Check regardless of game mode in case frenzy mode
+        // ends while there are still fired food on screen
+        foreach(Transform food in transform)
+        {
+            // check for collision with mouse
+            if(mouse.MouseCollider2D.OverlapPoint(food.position))
+            {
+                Debug.Log("Colliding with mouse");
+                mouse.Weight += food.GetComponent<Food>().NutritionalValue * mouse.GrowthAbility;
+                food.GetComponent<PoolMember>().Deactivate();
+                food.position = new Vector2(0, CameraController.MinYUnits);
+
+                // Animate frenzy fed
+                frenzyFed.SetActive(false);
+                frenzyFed.SetActive(true);
+            }
+        }
+
+
+    }
 	
 	// Update is called once per frame
 	void Update (){
@@ -144,6 +197,7 @@ public class LevelController : MonoBehaviour {
         {
             if (changedMode)
             {
+                Debug.Log("ENTERING FRENZY");
                 enterFrenzy();
                 changedMode = false;
             }
@@ -157,22 +211,6 @@ public class LevelController : MonoBehaviour {
                 changedMode = false;
             }
         }
-
-        // Check for collision of food 
-        // spawned during frenzy mode with mouse
-        // Check regardless of game mode in case frenzy mode
-        // ends while there are still fired food on screen
-        foreach(Transform food in transform)
-        {
-            // check for collision with mouse
-            if(mouse.gameObject.GetComponent<PolygonCollider2D>().OverlapPoint(food.position))
-            {
-                mouse.Weight += food.GetComponent<Food>().NutritionalValue * mouse.GrowthAbility;
-                food.GetComponent<PoolMember>().Deactivate();
-                food.position = new Vector2(0, CameraController.MinYUnits);
-            }
-        }
-
         // Count down combo animation
         if (comboAnimCountDown > 0)
         {
@@ -180,7 +218,7 @@ public class LevelController : MonoBehaviour {
         }
 
         // Check if combo bgs are animating and stop them if needed
-        if (comboAnimators[0].enabled && comboAnimCountDown < 0)
+        if (comboUI.activeInHierarchy && comboAnimators[0].enabled && comboAnimCountDown < 0)
         {
             foreach(Animator animator in comboAnimators)
             {
@@ -215,7 +253,8 @@ public class LevelController : MonoBehaviour {
 
             // Trigger combo change animation
             comboChange.SetActive(true);
-            comboChangeAnimator.SetTrigger("ComboChange");
+            if(comboChange.activeInHierarchy)
+                comboChangeAnimator.SetTrigger("ComboChange");
  
             yield return waitEnum;
         }
@@ -241,7 +280,7 @@ public class LevelController : MonoBehaviour {
         if(sequenceFed == 3)
         {
             Debug.Log("Combo!");
-            countStreak += 1;
+            numCombos += 1;
             sequenceFed = 0;
             mouse.Weight += ScoreBonus;
 
@@ -256,6 +295,9 @@ public class LevelController : MonoBehaviour {
             comboText.SetActive(true);
             comboTextAnimator.SetTrigger("ComboText");
 
+            // Animate combo star
+            comboMouse.SetActive(true);
+
             comboAnimCountDown = ComboAnimTime;
 
         }
@@ -266,10 +308,12 @@ public class LevelController : MonoBehaviour {
     /// </summary>
     private void checkGameMode()
     {
-        if(mode == GameMode.Normal && countStreak == FrenzyComboCount)
+        if(mode == GameMode.Normal && numCombos == FrenzyComboCount)
         {
+            Debug.Log("SETTING FRENZY MODEJ");
             mode = GameMode.Frenzy;
-            countStreak = 0;
+            numCombos = 0;
+            frenzyTimer = FrenzyModeTime;
             changedMode = true;
         }
 
@@ -279,6 +323,7 @@ public class LevelController : MonoBehaviour {
             {
                 mode = GameMode.Normal;
                 changedMode = true;
+                Debug.Log("ENTERING NORMAl");
             }
             else
                 frenzyTimer -= Time.deltaTime;
@@ -292,6 +337,14 @@ public class LevelController : MonoBehaviour {
     {
         // Reset food controller
         foodController.ActivateController();
+
+        // Start mouse rotation
+        mouse.StartMouseRotation();
+
+        // Reset UI
+        comboUI.SetActive(true);
+        frenzyBackground.SetActive(false);
+        frenzyMouseAnimator.SetTrigger("Exit");
     }
 
     /// <summary>
@@ -301,6 +354,18 @@ public class LevelController : MonoBehaviour {
     {
         // Disable physics on rigidbodies of food objects and spawning
         foodController.DeactivateController();
+
+        // Stop mouse rotation
+        mouse.StopMouseRotation();
+
+        // Activate UI animation
+        comboText.SetActive(false); // to prevent animation from playing after frenzy mode is exited
+        comboChange.SetActive(false);// to prevent animation from playing after frenzy mode is exited 
+        comboMouse.SetActive(false);
+        comboUI.SetActive(false);
+        frenzyText.SetActive(true);
+        frenzyBackground.SetActive(true);
+        frenzyMouseAnimator.SetTrigger("Entry");
     }
 
 
@@ -309,6 +374,7 @@ public class LevelController : MonoBehaviour {
     /// </summary>
     private void runFrenzy()
     {
+        Debug.Log("Runing frenzy");
         if(mouse.detectTapping())
         {
             Debug.Log("Spawning food");
@@ -345,6 +411,15 @@ public class LevelController : MonoBehaviour {
             sequenceFed = 0;
             Debug.Log("Reset sequence" + sequenceFed);
         }
+    }
+
+    /// <summary>
+    /// Starts scary cat animation; to be called by the ability controller
+    /// </summary>
+    public void ScaryCatAnimation()
+    {
+        scaryCatShock.SetActive(true);
+        scaryCat.SetActive(true);
     }
 
     // Update player scores on UI
