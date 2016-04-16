@@ -8,7 +8,7 @@ using System.Linq;
 public class Abilities
 {
     public Immunity Immunity;             //!< Player's Immunity ability
-    public TreatsGalore TreatsGalore;     //<! Player's Treats Galore ability
+    public TreatsGalore TreatsGalore;     //!< Player's Treats Galore ability
     public Fearless Fearless;             //!< Player's Fearless ability
     public FatMouse FatMouse;             //!< Player's Fat Mouse ability
     public ScaryCat ScaryCat;             //!< Player's Scary Cat ability

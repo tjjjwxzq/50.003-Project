@@ -33,10 +33,7 @@ public class AbilityUI : MonoBehaviour
         playerAbilities = localPlayer.getAbilities();
         Debug.Log("Ability UI player" + localPlayer);
         Debug.Log("Ability UI playerAbilities" + playerAbilities);
-        foreach (Ability ability in playerAbilities)
-        {
-            Debug.Log(ability.Name);
-        }
+        foreach (Ability ability in playerAbilities) Debug.Log(ability.Name);
 
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
 
@@ -46,9 +43,7 @@ public class AbilityUI : MonoBehaviour
 
         // Get ability icon sprites
         foreach (Sprite sprite in abilitySprites)
-        {
             abilitySpritesDict[(AbilityName)Enum.Parse(typeof(AbilityName), sprite.name)] = sprite;
-        }
 
         // Get the height of each button for positioning
         RectTransform buttonRect = abilityButtonPrefab.GetComponent<RectTransform>();
@@ -70,9 +65,23 @@ public class AbilityUI : MonoBehaviour
     {
         foreach (Ability ability in playerAbilities)
         {
-            abilityButtons[ability.Name].GetComponent<Button>().interactable = mouse.Happiness >= localPlayer.PAbilities[ability.Name].Cost;
-            abilityUpgradeButtons[ability.Name].SetActive(abilityController.abilityPoints > 0);
+            // todo: can be moved to ability upgrade code later
             abilityButtons[ability.Name].GetComponentInChildren<Text>().text = localPlayer.PAbilities[ability.Name].Level.ToString();
+
+            abilityUpgradeButtons[ability.Name].SetActive(abilityController.abilityPoints > 0);
+
+#if UNITY_EDITOR
+#else
+
+            var sufficientHappiness = mouse.Happiness >= localPlayer.PAbilities[ability.Name].Cost;
+            abilityButtons[ability.Name].GetComponent<Button>().interactable = sufficientHappiness;
+
+            if (!sufficientHappiness) continue;
+#endif
+            if ((ability.Name == AbilityName.BeastlyBuffet) || (ability.Name == AbilityName.ScaryCat) || (ability.Name == AbilityName.Thief))
+            {
+                abilityButtons[ability.Name].GetComponent<Button>().interactable = abilityController.targetedPlayer.Length != 0;
+            }
         }
     }
 

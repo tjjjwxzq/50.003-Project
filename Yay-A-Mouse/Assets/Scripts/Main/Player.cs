@@ -96,10 +96,17 @@ public class Player : NetworkBehaviour
 
         // Get level controller
         if(levelController == null && SceneManager.GetActiveScene().name == "Main")
-            levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+        {
+            var lc = GameObject.Find("LevelController");
+            if (lc != null)
+            {
+                levelController = lc.GetComponent<LevelController>();
+                Debug.Log("Attached to LevelController");
+            }
+        }
 
         // Set levelController.NumPlayers on clients and server
-        if(levelController != null && NumPlayers > 0)
+        if (levelController != null && NumPlayers > 0)
         {
             levelController.NumPlayers = NumPlayers;
         }

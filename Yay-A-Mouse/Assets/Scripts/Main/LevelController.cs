@@ -10,7 +10,8 @@ using System.Linq;
 /// and the number of players in a game.
 /// Handles state of combo and player avatar UI as well (?) 
 /// </summary>
-public class LevelController : MonoBehaviour {
+public class LevelController : MonoBehaviour
+{
 
     // Get this info from the number of player objects on the client
     private bool isUISet = false;
@@ -25,6 +26,7 @@ public class LevelController : MonoBehaviour {
     private FoodController foodController;
     private Mouse mouse;
     private ObjectPool foodPool; // food pool for frenzy feeding
+    private AbilityController abilityController;
 
     // Food combo state
     private string[] eligibleFoods;
@@ -83,24 +85,35 @@ public class LevelController : MonoBehaviour {
     private Text[] playerNamesText; // player names text components
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         // Get food controller and mouse references
         foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
         foodPool = GetComponent<ObjectPool>();
         foodPool.PoolObject = Resources.Load("Prefabs/Normal") as GameObject;
 
+        abilityController =
+            GameObject.FindGameObjectsWithTag("Player")
+                .First(o => o.GetComponent<AbilityController>().isLocalPlayer)
+                .GetComponent<AbilityController>();
+
+        abilityController.AttachToFoodController()
+            .AttachToMouse()
+            .AttachToLevelController()
+            .AttachToAbilityUi();
+
         // Get Combo UI
         comboUI = GameObject.Find("Combo");
         comboText = GameObject.Find("ComboText");
-        comboTextAnimator= comboText.GetComponent<Animator>();
-        comboChange= GameObject.Find("ComboChange");
-        comboChangeAnimator= comboChange.GetComponent<Animator>();
+        comboTextAnimator = comboText.GetComponent<Animator>();
+        comboChange = GameObject.Find("ComboChange");
+        comboChangeAnimator = comboChange.GetComponent<Animator>();
         comboMouse = GameObject.Find("ComboMouse");
         comboText.SetActive(false);
         comboMouse.SetActive(false);
-        for(int i = 0; i < comboImages.Length; i++)
+        for (int i = 0; i < comboImages.Length; i++)
         {
 
             Transform comboChild = comboUI.transform.GetChild(i);
@@ -129,8 +142,8 @@ public class LevelController : MonoBehaviour {
         scaryCat.SetActive(false);
 
         // Initialization for food combo
-        eligibleFoods = foodController.MaxFoodCounts.Where(kvp => 
-        kvp.Value * foodController.FoodSpawnWeights[kvp.Key] / foodController.TotalFoodSpawnWeight >= WeightedFoodCountMin 
+        eligibleFoods = foodController.MaxFoodCounts.Where(kvp =>
+        kvp.Value * foodController.FoodSpawnWeights[kvp.Key] / foodController.TotalFoodSpawnWeight >= WeightedFoodCountMin
             && foodController.FoodValues[kvp.Key] > 0).
             Select(x => x.Key).ToArray<string>();
         foreach (string food in eligibleFoods)
@@ -141,7 +154,7 @@ public class LevelController : MonoBehaviour {
         StartCoroutine(updateFoodCombo());
 
 
-	}
+    }
 
     void FixedUpdate()
     {
@@ -149,10 +162,10 @@ public class LevelController : MonoBehaviour {
         // spawned during frenzy mode with mouse
         // Check regardless of game mode in case frenzy mode
         // ends while there are still fired food on screen
-        foreach(Transform food in transform)
+        foreach (Transform food in transform)
         {
             // check for collision with mouse
-            if(mouse.MouseCollider2D.OverlapPoint(food.position))
+            if (mouse.MouseCollider2D.OverlapPoint(food.position))
             {
                 Debug.Log("Colliding with mouse");
                 mouse.Weight += food.GetComponent<Food>().NutritionalValue * mouse.GrowthAbility;
@@ -167,18 +180,19 @@ public class LevelController : MonoBehaviour {
 
 
     }
-	
-	// Update is called once per frame
-	void Update (){
+
+    // Update is called once per frame
+    void Update()
+    {
         Debug.Log("Level controller num players" + NumPlayers);
         Debug.Log("Player objects are null" + (playerObjects == null));
-        if( playerObjects == null || playerObjects.Length < NumPlayers)
+        if (playerObjects == null || playerObjects.Length < NumPlayers)
         {
             playerObjects = GameObject.FindGameObjectsWithTag("Player");
             Debug.Log("Finding players");
         }
 
-        if(!isUISet && playerObjects.Length == NumPlayers)
+        if (!isUISet && playerObjects.Length == NumPlayers)
         {
             foreach (GameObject player in playerObjects)
                 Debug.Log("Players are " + player);
@@ -208,7 +222,7 @@ public class LevelController : MonoBehaviour {
             }
             runFrenzy();
         }
-        else if(mode == GameMode.Normal)
+        else if (mode == GameMode.Normal)
         {
             if (changedMode)
             {
@@ -225,15 +239,15 @@ public class LevelController : MonoBehaviour {
         // Check if combo bgs are animating and stop them if needed
         if (comboUI.activeInHierarchy && comboAnimators[0].enabled && comboAnimCountDown < 0)
         {
-            foreach(Animator animator in comboAnimators)
+            foreach (Animator animator in comboAnimators)
             {
                 Debug.Log("Stopping animation");
                 animator.SetBool("ComboAnimation", false);
                 animator.enabled = false;
             }
 
-             // Reset background
-            foreach(Image comboBG in comboBackgrounds)
+            // Reset background
+            foreach (Image comboBG in comboBackgrounds)
             {
                 Debug.Log("Ressting BG after combo hit");
                 comboBG.sprite = comboBGNormal;
@@ -241,7 +255,7 @@ public class LevelController : MonoBehaviour {
         }
 
 
-	}
+    }
 
     private IEnumerator updateFoodCombo()
     {
@@ -250,17 +264,17 @@ public class LevelController : MonoBehaviour {
         while (true)
         {
             Debug.Log("Updating food combo");
-            for(int i = 0; i< foodCombo.Length; i++)
+            for (int i = 0; i < foodCombo.Length; i++)
             {
-                foodCombo[i] = eligibleFoods[Random.Range(0,eligibleFoods.Length)];
+                foodCombo[i] = eligibleFoods[Random.Range(0, eligibleFoods.Length)];
                 comboImages[i].sprite = foodController.FoodSpritesDict[foodCombo[i]];
             }
 
             // Trigger combo change animation
             comboChange.SetActive(true);
-            if(comboChange.activeInHierarchy)
+            if (comboChange.activeInHierarchy)
                 comboChangeAnimator.SetTrigger("ComboChange");
- 
+
             yield return waitEnum;
         }
     }
@@ -282,7 +296,7 @@ public class LevelController : MonoBehaviour {
     /// </summary>
     private void checkComboStreak()
     {
-        if(sequenceFed == 3)
+        if (sequenceFed == 3)
         {
             Debug.Log("Combo!");
             numCombos += 1;
@@ -290,7 +304,7 @@ public class LevelController : MonoBehaviour {
             mouse.Weight += ScoreBonus;
 
             // Animate combo backgrounds
-            foreach(Animator animator in comboAnimators)
+            foreach (Animator animator in comboAnimators)
             {
                 animator.enabled = true;
                 animator.SetBool("ComboAnimation", true);
@@ -313,7 +327,7 @@ public class LevelController : MonoBehaviour {
     /// </summary>
     private void checkGameMode()
     {
-        if(mode == GameMode.Normal && numCombos == FrenzyComboCount)
+        if (mode == GameMode.Normal && numCombos == FrenzyComboCount)
         {
             Debug.Log("SETTING FRENZY MODEJ");
             mode = GameMode.Frenzy;
@@ -322,7 +336,7 @@ public class LevelController : MonoBehaviour {
             changedMode = true;
         }
 
-        if(mode == GameMode.Frenzy)
+        if (mode == GameMode.Frenzy)
         {
             if (frenzyTimer <= 0)
             {
@@ -380,7 +394,7 @@ public class LevelController : MonoBehaviour {
     private void runFrenzy()
     {
         Debug.Log("Runing frenzy");
-        if(mouse.detectTapping())
+        if (mouse.detectTapping())
         {
             Debug.Log("Spawning food");
             GameObject food = foodPool.GetObj();
@@ -430,7 +444,7 @@ public class LevelController : MonoBehaviour {
     // Update player scores on UI
     private void updatePlayerScores()
     {
-        for(int i =0; i < numOpponents; i++)
+        for (int i = 0; i < numOpponents; i++)
         {
             playerScores[i] = nonLocalPlayerObjects[i].GetComponent<Player>().Score.ToString();
             Debug.Log("Updaing sscores " + playerScores[i]);
@@ -449,7 +463,7 @@ public class LevelController : MonoBehaviour {
         playerNamesText = new Text[numOpponents];
         playerScores = new string[numOpponents];
         playerScoresText = new Text[numOpponents];
-        for(int i =0; i < numOpponents; i++)
+        for (int i = 0; i < numOpponents; i++)
         {
             Debug.Log("Getting player variables");
             Player playerScript = nonLocalPlayerObjects[i].GetComponent<Player>();
@@ -466,11 +480,15 @@ public class LevelController : MonoBehaviour {
         playerAvatars = new GameObject[numOpponents];
         Vector2 startPos = new Vector2(numOpponents - 1, 0);
 
-        for(int i = 0; i < playerAvatars.Length; i++)
+        var crosshairs = new List<GameObject>();
+        for (int i = 0; i < playerAvatars.Length; i++)
         {
             Debug.Log("Initializing avatar");
             playerAvatars[i] = (GameObject)Instantiate(playerAvatar);
             playerAvatars[i].GetComponent<Image>().color = playerColors[i];
+            var crosshair = playerAvatars[i].transform.Find("Targeted").gameObject;
+            crosshair.SetActive(false);
+            crosshairs.Add(crosshair);
 
             // Get text component and set name text
             playerNamesText[i] = playerAvatars[i].transform.Find("PlayerName").gameObject.GetComponent<Text>();
@@ -486,11 +504,34 @@ public class LevelController : MonoBehaviour {
         }
 
 
+        for (var i = 0; i < playerAvatars.Length; i++)
+        {
+            var avatar = playerAvatars[i];
+            var button = avatar.AddComponent<Button>();
+            var crosshair = avatar.transform.Find("Targeted").gameObject;
+            var playerName = playerNames[i];
+            button.onClick.AddListener(() =>
+            {
+                if (crosshair.activeSelf)
+                {
+                    abilityController.targetedPlayer = "";
+                    crosshair.SetActive(false);
+                }
+                else
+                {
+                    crosshairs.ForEach(o => o.SetActive(false));
+                    crosshair.SetActive(true);
+                    abilityController.targetedPlayer = playerName;
+                }
+            });
+        }
+
+
 
     }
 
 
-   
 
-    
+
+
 }
