@@ -290,4 +290,15 @@ public class LobbyManager : NetworkLobbyManager {
         readyToPlay = players.All(p => p.readyToPlay);
     }
 
+    /// <summary>
+    /// Flag for whether a player is a host or just a normal client
+    /// </summary>
+    public bool IsHost
+    {
+        get { return isHost; }
+    }
+
+
+
+
 }

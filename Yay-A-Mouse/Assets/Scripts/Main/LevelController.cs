@@ -13,6 +13,10 @@ using System.Linq;
 public class LevelController : MonoBehaviour
 {
 
+    // End game sprites
+    public Sprite YouWonSprite;
+    public Sprite YouLostSprite;
+
     // Get this info from the number of player objects on the client
     private bool isUISet = false;
     private int numOpponents;
@@ -85,6 +89,10 @@ public class LevelController : MonoBehaviour
     private Text[] playerNamesText; // player names text components
 
 
+    // End Game
+    private GameObject endGame;
+
+
     // Use this for initialization
     void Start()
     {
@@ -141,11 +149,17 @@ public class LevelController : MonoBehaviour
         scaryCatShock.SetActive(false);
         scaryCat.SetActive(false);
 
+        // Get EndGame UI
+        endGame = GameObject.Find("EndGame");
+        endGame.SetActive(false);
+
         // Initialization for food combo
-        eligibleFoods = foodController.MaxFoodCounts.Where(kvp =>
+        // All treats are eligible
+        eligibleFoods = foodController.FoodValues.Where(kvp => kvp.Value > 0).Select(x => x.Key).ToArray<string>();
+        /*eligibleFoods = foodController.MaxFoodCounts.Where(kvp =>
         kvp.Value * foodController.FoodSpawnWeights[kvp.Key] / foodController.TotalFoodSpawnWeight >= WeightedFoodCountMin
             && foodController.FoodValues[kvp.Key] > 0).
-            Select(x => x.Key).ToArray<string>();
+            Select(x => x.Key).ToArray<string>();*/
         foreach (string food in eligibleFoods)
             Debug.Log("Eligible foods are " + food);
 
@@ -190,6 +204,10 @@ public class LevelController : MonoBehaviour
         {
             playerObjects = GameObject.FindGameObjectsWithTag("Player");
             Debug.Log("Finding players");
+            foreach(GameObject player in playerObjects)
+            {
+                player.GetComponent<Player>().AttachToMouse();
+            }
         }
 
         if (!isUISet && playerObjects.Length == NumPlayers)
@@ -208,6 +226,7 @@ public class LevelController : MonoBehaviour
         }
 
         updatePlayerScores();
+        checkEndGame();
 
         checkComboStreak();
         checkGameMode();
@@ -528,6 +547,50 @@ public class LevelController : MonoBehaviour
 
 
 
+    }
+
+    /// <summary>
+    /// Checks to see if any player has won
+    /// </summary>
+    private void checkEndGame()
+    {
+        if(playerObjects != null)
+        {
+            bool gameEnd = false;
+            foreach(GameObject player in playerObjects)
+            {
+                if (player.GetComponent<Player>().PlayerWon)
+                {
+                    gameEnd = true;
+                    break;
+                }
+            }
+
+            if (gameEnd)
+            {
+                Debug.Log("Ending game");
+                // Deactivate food controller and play end game animation
+                foodController.DeactivateController();
+
+                bool localPlayerWon = true;
+                foreach(GameObject player in nonLocalPlayerObjects)
+                {
+                    if (player.GetComponent<Player>().PlayerWon)
+                    {
+                        localPlayerWon = false;
+                        break;
+                    }
+                }
+
+                if (localPlayerWon)
+                    endGame.GetComponent<Image>().sprite = YouWonSprite;
+                else
+                    endGame.GetComponent<Image>().sprite = YouLostSprite;
+
+                endGame.SetActive(true);
+
+            }
+        }
     }
 
 

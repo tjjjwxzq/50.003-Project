@@ -20,66 +20,65 @@ public class Player : NetworkBehaviour
     private LevelController levelController;
     private Mouse mouse;
 
+    /// <summary>
+    /// Player name synchronized from server
+    /// </summary>
     [SyncVar]
     public string Name;
 
+    /// <summary>
+    /// Player color synchronized from client
+    /// </summary>
     [SyncVar]
     public Color Color;
 
-    public Abilities PAbilities; // The player's Abilities
+    /// <summary>
+    /// Player abilities
+    /// </summary>
+    public Abilities PAbilities; 
 
-    // For synchronizing the number of players over host and clients
-    // since LobbyManager.numPlayers is only valid on the host
+    /// <summary>
+    /// For synchronizing the number of players over host and clients
+    /// since LobbyManager.numPlayers is only valid on the host
+    /// </summary>
     [SyncVar]
     public int NumPlayers = -1; // set on the Server
 
+    /// <summary>
+    /// Player score synchronized from server
+    /// </summary>
     [SyncVar]
     public int Score = 0;
 
-    // status showing which state is the mouse in (refer to Status enum)
-    // *** to access this in other scripts/clients, first initialise Player player, followed by player.status
+    /// <summary>
+    /// Player status synchronized from server
+    /// </summary>
     [SyncVar]
-    public Statuses Status = 0;
+    public Statuses Status = Statuses.Normal;
 
-    // To track whether players have chosen their starting abilities
-    // and are ready to start the game
+    /// <summary>
+    /// Flag set when players have chosen their starting abilities and are ready to play
+    /// </summary>
     [SyncVar]
     public bool readyToPlay = false;
 
-    // *** this button (any one of the ability buttons on the right) calls the generic method CmdActivateAbilities
-    public GameObject button;
+    /// <summary>
+    /// Flag set when player has won the game, synchronized from server
+    /// </summary>
+    [SyncVar]
+    public bool PlayerWon = false;
 
     public enum Statuses
     {
-        Normal,        // index 0
-        Immunity,      // index 1
-        TreatsGalore,  // index 2
-        Fearless,      // index 3
-        FatMouse,      // index 4
-        ScaryCat,      // index 5
-        BeastlyBuffet, // index 6
-        Thief          // index 7
+        Normal,        
+        Immunity,      
+        TreatsGalore, 
+        Fearless,    
+        FatMouse,   
+        ScaryCat,  
+        BeastlyBuffet,
+        Thief        
     };
-
-    /// <summary>
-    /// Creates a new Player with a specified set of abilities.
-    /// </summary>
-    /// <param name="abilities"></param>
-    public Player(Abilities abilities)
-    {
-        this.PAbilities = abilities;
-    }
-
-    /// <summary>
-    /// Mock player with all abilities at level 1.
-    /// </summary>
-    public static Player MockPlayer
-    {
-        get
-        {
-            return new Player(Abilities.LevelOneAbilities);
-        }
-    }
 
     // Allow player to persist between ability selection and main scene
     void Awake()
@@ -121,16 +120,14 @@ public class Player : NetworkBehaviour
             // Update score
             if (mouse != null)
             {
-                CmdUpdateScore(mouse.Weight);
+                CmdUpdateScore((int)(mouse.Weight* 100f/ mouse.FinalWeight));
             }
         }
-        /*
-        // if player is at normal state, activate correponding ability
-        if (checkStatus() == Statuses.Normal)
-        {
-            // Command function is called from the client, but invoked on the server
-            CmdActivateAbilities(button);
-        }*/
+
+        // Check if player has won the game
+        if(!PlayerWon)
+            checkPlayerWon();
+        
     }
 
     public override void OnStartClient()
@@ -162,14 +159,20 @@ public class Player : NetworkBehaviour
 
     }
 
-    // Synchronize local player color set on client with the server
+    /// <summary>
+    /// Changes player color on the server
+    /// </summary>
+    /// <param name="color"></param>
     [Command]
     public void CmdChangeColor(Color color)
     {
         Color = color;
     }
 
-    // Syncrhonize local player name set on client with the server
+    /// <summary>
+    /// Changes player name on the server
+    /// </summary>
+    /// <param name="name"></param>
     [Command]
     public void CmdChangeName(string name)
     {
@@ -178,13 +181,21 @@ public class Player : NetworkBehaviour
         Name = name + nonce.ToString();
     }
 
+    /// <summary>
+    /// For getting a reference on the Mouse
+    /// object when the Main scene begins.
+    /// Called by LevelController
+    /// </summary>
     public void AttachToMouse()
     {
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
         if (mouse != null) Debug.Log(Name + " Player component attached to mouse.");
     }
 
-    // Tell server that local player is ready to play
+    /// <summary>
+    /// Set the readyToPlay flag on the server
+    /// </summary>
+    /// <param name="ready"></param>
     [Command]
     public void CmdReadyToPlay(bool ready)
     {
@@ -193,9 +204,11 @@ public class Player : NetworkBehaviour
 
 
 
-    // to activate the correponding abilities on button press -> Command function is called from the client, but invoked on the server
-    // to call a method from the server to the client, use [ClientRpc] instead
-    [Command] // by default on channel 0
+    /// <summary>
+    /// Activates the selected ability on the server
+    /// </summary>
+    /// <param name="button"></param>
+    [Command] 
     public void CmdActivateAbilities(GameObject button)
     {
         abilityController.ActivateAbility((AbilityName)System.Enum.Parse(typeof(AbilityName), button.name)); // i.e. use this to get AbilityName.Immunity when button.name is Immunity
@@ -247,17 +260,47 @@ public class Player : NetworkBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Updates player score on server
+    /// </summary>
+    /// <param name="newScore"></param>
     [Command]
     public void CmdUpdateScore(int newScore)
     {
-        Debug.Log("Command updating score");
         Score = newScore;
     }
 
-    // check which status the mouse is in (by index in the enum above)
+    /// <summary>
+    /// Set PlayerWon flag on server
+    /// </summary>
+    /// <param name="won"></param>
+    [Command]
+    public void CmdUpdatePlayerWon(bool won)
+    {
+        PlayerWon = won;
+    }
+
+    /// <summary>
+    /// Check which status the mouse is in
+    /// for updating status on avatar (TODO)
+    /// </summary>
+    /// <returns></returns>
     public Statuses checkStatus()
     {
         return Status;
+    }
+
+    /// <summary>
+    /// Checks whether player has won and updates flags accordingly
+    /// </summary>
+    public void checkPlayerWon()
+    {
+        if(Score == 100)
+        {
+            Debug.Log("Player has won!");
+            CmdUpdatePlayerWon(true);
+        }
+
     }
 
 

@@ -562,6 +562,14 @@ public class Mouse: MonoBehaviour {
     // Properties
 
     /// <summary>
+    ///  Gets the maximum mouse weight
+    /// </summary>
+    public int FinalWeight
+    {
+        get { return weightLevels[weightLevels.Length - 1]; }
+    }
+
+    /// <summary>
     /// Property to get mouse weight. Read only. 
     /// </summary>
     public int Weight
