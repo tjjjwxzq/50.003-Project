@@ -3,6 +3,8 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 
 /// <summary>
 /// Handles start UI buttons as well as
@@ -88,6 +90,7 @@ public class StartController : MonoBehaviour {
     public void OnHostGame()
     {
         lobbyManager.StartHost();
+        networkDiscovery.StartAsServer();
         Debug.Log("Host name " + Dns.GetHostName());
         foreach(IPAddress ipAdd in Dns.GetHostAddresses(Dns.GetHostName()))
         {

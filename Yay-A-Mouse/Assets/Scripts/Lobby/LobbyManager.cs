@@ -60,7 +60,7 @@ public class LobbyManager : NetworkLobbyManager {
 
         Debug.Log("Number of connected players are " + numPlayers);
         Debug.Log("Number of lobby players are " + lobbyPlayers.Count);
-        Debug.Log("NUmber of game players are " + players.Count);
+        Debug.Log("Number of game players are " + players.Count);
         foreach (LobbyPlayer player in lobbyPlayers)
             Debug.Log("Lobby player is " + player);
         UpdateLobbyPlayers();
@@ -69,7 +69,7 @@ public class LobbyManager : NetworkLobbyManager {
         if (lobbyPlayerPosition > lobbyPlayers.Count)
         {
             lobbyPlayerPosition = lobbyPlayers.Count;
-            Debug.Log("Reseeting player position");
+            Debug.Log("Resetting player position");
 
         }
 
