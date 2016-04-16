@@ -244,7 +244,9 @@ public class AbilitySelectionController : MonoBehaviour
         }
     }
 
-    // Callback when ability icons are clicked
+    /// <summary>
+    /// Callback when ability icons are clicked
+    /// </summary>
     public void OnAbilityDetail()
     {
         // Get selected ability
@@ -296,7 +298,9 @@ public class AbilitySelectionController : MonoBehaviour
 
     }
 
-    // Callback when next level button is pressed
+    /// <summary>
+    /// Callback when next level button is pressed
+    /// </summary>
     public void OnNextAbilityLevel()
     {
         // Change level details, increment current level
@@ -307,7 +311,9 @@ public class AbilitySelectionController : MonoBehaviour
         selectedAbilityLevelDetail.text = abilityLevelDetails[selectedAbility][currentLevelIndex].description;
     }
 
-    // Callback when ability is chosen
+    /// <summary>
+    /// Callback when ability is chosen
+    /// </summary>
     public void OnAbilityChosen()
     {
         // Check if player already has selected ability

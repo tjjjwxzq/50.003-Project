@@ -116,8 +116,8 @@ public class StartController : MonoBehaviour {
         networkDiscovery.StartAsClient();
 
         // show waiting UI
-        startUI.SetActive(false);
-        waitingUI.SetActive(true);
+        ToggleStartUI(false);
+        ToggleWaitingUI(true);
     }
 
     /// <summary>
@@ -129,8 +129,8 @@ public class StartController : MonoBehaviour {
         networkDiscovery.StopBroadcast();
 
         // show start UI
-        waitingUI.SetActive(false);
-        startUI.SetActive(true);
+        ToggleWaitingUI(false);
+        ToggleStartUI(true);
     }
 
     /// <summary>
@@ -139,6 +139,11 @@ public class StartController : MonoBehaviour {
     public void OnSettings()
     {
         SceneManager.LoadScene("Settings");
+    }
+
+    public void OnHowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlay");
     }
 
 

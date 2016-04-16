@@ -243,6 +243,7 @@ public class Player : NetworkBehaviour
     [Command]
     public void CmdUpdateScore(int newScore)
     {
+        Debug.Log("Command updating score");
         Score = newScore;
     }
 

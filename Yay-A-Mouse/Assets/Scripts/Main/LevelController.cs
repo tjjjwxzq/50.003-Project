@@ -19,7 +19,7 @@ public class LevelController : MonoBehaviour {
 
     // Normal or frenzy mode
     public enum GameMode { Normal, Frenzy };
-    private GameMode mode = GameMode.Normal;
+    private GameMode mode = GameMode.Frenzy;
 
     // Reference to food controller and mouse and object pool scripts 
     private FoodController foodController;
@@ -59,6 +59,7 @@ public class LevelController : MonoBehaviour {
     private GameObject[] nonLocalPlayerObjects;
 
     // Container UI game objects
+    // Combo UI
     public Sprite comboBGNormal;
     public Sprite comboBGHighlight;
     private GameObject comboUI;
@@ -70,6 +71,8 @@ public class LevelController : MonoBehaviour {
     private Image[] comboBackgrounds = new Image[3];
     private Image[] comboImages = new Image[3];
     private Animator[] comboAnimators = new Animator[3];
+
+    // Player avatars
     private GameObject playerAvatarUI;
     private GameObject playerAvatar; // player avatar prefab
     private GameObject[] playerAvatars; // player avatars in UI
@@ -186,9 +189,11 @@ public class LevelController : MonoBehaviour {
             numOpponents = nonLocalPlayerObjects.Length;
 
             Debug.Log("Start to set UI");
-            SetupPlayerAvatarUI();
+            setupPlayerAvatarUI();
             isUISet = true;
         }
+
+        updatePlayerScores();
 
         checkComboStreak();
         checkGameMode();
@@ -423,17 +428,18 @@ public class LevelController : MonoBehaviour {
     }
 
     // Update player scores on UI
-    private void UpdatePlayerScores()
+    private void updatePlayerScores()
     {
         for(int i =0; i < numOpponents; i++)
         {
             playerScores[i] = nonLocalPlayerObjects[i].GetComponent<Player>().Score.ToString();
+            Debug.Log("Updaing sscores " + playerScores[i]);
             playerScoresText[i].text = playerScores[i];
         }
     }
 
     // Set up player avatar UIs when game starts
-    private void SetupPlayerAvatarUI()
+    private void setupPlayerAvatarUI()
     {
         Debug.Log("Setting up player UI");
         Debug.Log("Num opponents is " + numOpponents);

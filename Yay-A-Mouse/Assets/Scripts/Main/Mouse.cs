@@ -46,6 +46,9 @@ public class Mouse: MonoBehaviour {
     private bool runningBack = false; // whether running back coroutine is running
     private bool returnToScreen = false; // to track whether mouse is in the midst of returning to the screen
 
+    // For tapping
+    private bool tapped = false; // For detecting 
+
     // For swiping
     private bool stroked = false; //!< For detecting if a stroke has started
     private Vector2 swipeFirstPos;
@@ -323,12 +326,15 @@ public class Mouse: MonoBehaviour {
         // For touch input
         if(Input.touchCount > 0)
         {
-            // this needs to be changed
             Touch touch = Input.GetTouch(0); 
             switch (touch.phase)
             {
+               case TouchPhase.Began:
+                    tapped = true;
+                    break;
+
                case TouchPhase.Ended:
-                    return true;
+                    return tapped;
             }
 
         }

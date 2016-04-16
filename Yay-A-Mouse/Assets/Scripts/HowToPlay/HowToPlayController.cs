@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class HowToPlayController : MonoBehaviour {
@@ -8,13 +9,19 @@ public class HowToPlayController : MonoBehaviour {
     private int currentSectionIndex;
     private GameObject[] sections;
     private Animator[] sectionAnimators;
+    private Dictionary<string, Animator> sectionAnimatorsDict = new Dictionary<string, Animator>();
+    private readonly string[] sectionNames = {"Introduction", "TastyTreats", "JunkFood", "Combo", "FrenzyMode", "Abilities", "ThatsAll"};
 
     void Start()
     {
         sections = GameObject.FindGameObjectsWithTag("Section");
         sectionAnimators = sections.Select(s => s.GetComponent<Animator>()).ToArray();
-        currentSectionIndex = sections.Length - 1;
-        sectionAnimators[currentSectionIndex].SetTrigger("Enter");
+        foreach (Animator sectionAnimator in sectionAnimators)
+        {
+            sectionAnimatorsDict[sectionAnimator.gameObject.name] = sectionAnimator;
+        }
+        currentSectionIndex = 0;
+        sectionAnimatorsDict[sectionNames[currentSectionIndex]].SetTrigger("Enter");
 
         // Destroy network manager in case it persists
         GameObject lobbyManager = GameObject.Find("NetworkLobbyManager");
@@ -28,15 +35,15 @@ public class HowToPlayController : MonoBehaviour {
     /// </summary>
     public void OnNextButton()
     {
-        sectionAnimators[currentSectionIndex].SetTrigger("Exit");
-        currentSectionIndex--;
+        sectionAnimatorsDict[sectionNames[currentSectionIndex]].SetTrigger("Exit");
+        currentSectionIndex++;
         Invoke("AnimateEntry", 0.5f);
     }
 
     // Invoke entry 1 second after exit
     private void AnimateEntry()
     {
-        sectionAnimators[currentSectionIndex].SetTrigger("Enter");
+        sectionAnimatorsDict[sectionNames[currentSectionIndex]].SetTrigger("Enter");
     }
 
     /// <summary>
