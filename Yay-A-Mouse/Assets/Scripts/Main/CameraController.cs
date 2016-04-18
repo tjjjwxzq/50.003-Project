@@ -53,7 +53,7 @@ public class CameraController : MonoBehaviour {
         float scaleheight = aspectRatio / defaultAspect; //scale height by this amount
 
 
-        if(aspectRatio < defaultAspect) // require letterboxing(horizontal)
+        /*if(aspectRatio < defaultAspect) // require letterboxing(horizontal)
         {
             Rect rect = camera.rect;
 
@@ -77,7 +77,7 @@ public class CameraController : MonoBehaviour {
             Debug.Log("pillarboxing");
             camera.rect = rect;
 
-        }
+        }*/
 	}
 	
 	// Update is called once per frame
