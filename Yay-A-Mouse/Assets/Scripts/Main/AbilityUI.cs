@@ -65,10 +65,8 @@ public class AbilityUI : MonoBehaviour
     {
         foreach (Ability ability in playerAbilities)
         {
-            // todo: can be moved to ability upgrade code later
-            abilityButtons[ability.Name].GetComponentInChildren<Text>().text = localPlayer.PAbilities[ability.Name].Level.ToString();
-
-            abilityUpgradeButtons[ability.Name].SetActive(abilityController.abilityPoints > 0);
+            var upgradable = !CheckIfMaxed(ability.Name) && abilityController.abilityPoints > 0;
+            abilityUpgradeButtons[ability.Name].SetActive(upgradable);
 
 #if UNITY_EDITOR
 #else
@@ -85,24 +83,32 @@ public class AbilityUI : MonoBehaviour
         }
     }
 
+    public void UpdateAbilityLevelOnButton(AbilityName abilityName)
+    {
+        abilityButtons[abilityName].GetComponentInChildren<Text>().text = localPlayer.PAbilities[abilityName].Level.ToString();
+    }
+
+    public bool CheckIfMaxed(AbilityName ability)
+    {
+        return abilityController.player.PAbilities[ability].Level == abilityController.player.PAbilities[ability].MaxLevel;
+    }
+
     private void InstantiateButton(float yOffset, AbilityName ability)
     {
         var button = Instantiate(abilityButtonPrefab) as GameObject;
-        var plusButton = Instantiate(plusButtonPrefab) as GameObject;
 
         // Set sprite, parent object and rectTransform anchors
         button.GetComponent<Image>().sprite = abilitySpritesDict[ability];
         button.transform.SetParent(canvas.transform, false);
-        plusButton.transform.SetParent(canvas.transform, false);
         RectTransform buttonRectTransform = button.GetComponent<RectTransform>();
 
         Vector2 pos = buttonRectTransform.anchoredPosition;
         buttonRectTransform.anchoredPosition = new Vector2(pos.x, pos.y - yOffset);
-        plusButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(pos.x + 20, pos.y - 20 - yOffset);
 
         button.GetComponentInChildren<Text>().text = localPlayer.PAbilities[ability].Level.ToString();
         button.GetComponent<Button>().onClick.AddListener(() => abilityController.ActivateAbility(ability));
 
+        var plusButton = button.transform.Find("PlusButton").gameObject;
         plusButton.GetComponent<Button>().onClick.AddListener(() => abilityController.ImproveAbility(ability));
 
         abilityButtons[ability] = button;

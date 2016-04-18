@@ -14,11 +14,9 @@ using Random = System.Random;
 /// </summary>
 public class AbilityController : NetworkBehaviour
 {
-    private bool mainStarted;
-
     // Other GameObjects
     private Mouse mouse;
-    private Player player;
+    public Player player;
     private FoodController foodController;
     private LevelController levelController;
     private AbilityUI abilityUi;
@@ -29,6 +27,7 @@ public class AbilityController : NetworkBehaviour
     private bool mouseIsFat;
 
     // Mouse level
+    private int maxLevelAchieved;
     private int prevLevel;
     public int abilityPoints;
 
@@ -62,13 +61,9 @@ public class AbilityController : NetworkBehaviour
 
     void Start()
     {
-        mainStarted = false;
-
         Debug.Log(String.Format("AbilityController for {0} starting.", gameObject.GetComponent<Player>().Name));
 
         player = gameObject.GetComponent<Player>();
-
-        //        prevLevel = mouse.Level;
 
         abilityLastActivatedTimes = new Dictionary<AbilityName, DateTime>(7);
     }
@@ -77,15 +72,24 @@ public class AbilityController : NetworkBehaviour
     public AbilityController AttachToMouse()
     {
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
-        if (mouse == null) Debug.LogError(player.Name + " AbilityController failed to attach to Mouse.");
+        if (mouse == null)
+        {
+            Debug.LogError(player.Name + " AbilityController failed to attach to Mouse.");
+            return this;
+        }
         Debug.Log(player.Name + " AbilityController component attached to mouse.");
+        maxLevelAchieved = mouse.Level;
         return this;
     }
 
     public AbilityController AttachToFoodController()
     {
         foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
-        if (foodController == null) Debug.LogError(player.Name + " AbilityController failed to attach to FoodController.");
+        if (foodController == null)
+        {
+            Debug.LogError(player.Name + " AbilityController failed to attach to FoodController.");
+            return this;
+        }
         Debug.Log(player.Name + " AbilityController component attached to food controller.");
         return this;
     }
@@ -96,7 +100,11 @@ public class AbilityController : NetworkBehaviour
     public AbilityController AttachToLevelController()
     {
         levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
-        if (levelController == null) Debug.LogError(player.Name + " AbilityController failed to attach to LevelController.");
+        if (levelController == null)
+        {
+            Debug.LogError(player.Name + " AbilityController failed to attach to LevelController.");
+            return this;
+        }
         Debug.Log(player.Name + " AbilityController component attached to level controller.");
         return this;
     }
@@ -104,7 +112,11 @@ public class AbilityController : NetworkBehaviour
     public AbilityController AttachToAbilityUi()
     {
         abilityUi = GameObject.Find("Canvas").transform.Find("Abilities").gameObject.GetComponent<AbilityUI>();
-        if (abilityUi == null) Debug.LogError("AbilityController failed to attach to AbilityUi.");
+        if (abilityUi == null)
+        {
+            Debug.LogError("AbilityController failed to attach to AbilityUi.");
+            return this;
+        }
         Debug.Log(player.Name + " AbilityController attached to AbilityUi.");
         return this;
     }
@@ -114,15 +126,14 @@ public class AbilityController : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
 
-        if ((mouse != null) && (foodController != null) && (levelController != null)) mainStarted = true;
+        if (mouse == null || foodController == null || levelController == null || abilityUi == null) return;
 
-        if (!mainStarted) return;
-
-        //        if (mouse.Level > prevLevel)
-        //        {
-        //            abilityPoints += 2;
-        //        }
-        //        prevLevel = mouse.Level;
+        if (mouse.Level > maxLevelAchieved)
+        {
+            Debug.Log(player.Name + "levelled up!");
+            maxLevelAchieved = mouse.Level;
+            abilityPoints += 2;
+        }
 
         if (mouseIsImmune)
         {
@@ -262,6 +273,7 @@ public class AbilityController : NetworkBehaviour
     {
         if (player.PAbilities[ability].Level >= player.PAbilities[ability].MaxLevel) return;
         player.PAbilities.SetAbility(ability, player.PAbilities[ability].Level + 1);
+        abilityUi.UpdateAbilityLevelOnButton(ability);
         abilityPoints--;
     }
 
@@ -550,21 +562,21 @@ public class AbilityController : NetworkBehaviour
         foodController.SpawnRate = 2f;
     }
 
-//    [ClientRpc]
-//    public void RpcIncrementMouseWeight()
-//    {
-//        if (!isLocalPlayer) return;
-//        mouse.Weight++;
-//    }
-//
-//    [Command]
-//    public void CmdIncreaseScore()
-//    {
-//        if (!isServer) return;
-//        Debug.LogWarning("CmdIncreaseScore called as local player: " + isLocalPlayer.ToString());
-//        var players = GameObject.FindGameObjectsWithTag("Player");
-//        var targetPlayer = players.ElementAt(new Random().Next(players.Length));
-//        Debug.LogWarning(string.Format("Increasing score for player {0}", targetPlayer.GetComponent<Player>().Name));
-//        targetPlayer.GetComponent<AbilityController>().RpcIncrementMouseWeight();
-//    }
+    //    [ClientRpc]
+    //    public void RpcIncrementMouseWeight()
+    //    {
+    //        if (!isLocalPlayer) return;
+    //        mouse.Weight++;
+    //    }
+    //
+    //    [Command]
+    //    public void CmdIncreaseScore()
+    //    {
+    //        if (!isServer) return;
+    //        Debug.LogWarning("CmdIncreaseScore called as local player: " + isLocalPlayer.ToString());
+    //        var players = GameObject.FindGameObjectsWithTag("Player");
+    //        var targetPlayer = players.ElementAt(new Random().Next(players.Length));
+    //        Debug.LogWarning(string.Format("Increasing score for player {0}", targetPlayer.GetComponent<Player>().Name));
+    //        targetPlayer.GetComponent<AbilityController>().RpcIncrementMouseWeight();
+    //    }
 }
