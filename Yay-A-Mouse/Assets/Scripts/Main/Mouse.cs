@@ -13,6 +13,12 @@ using System.Linq;
 /// </summary>
 public class Mouse: MonoBehaviour {
 
+    public AudioClip SoundmouseSqueak;
+    public AudioClip SoundmouseEat;
+    public AudioClip SoundLevelUp;
+
+    private AudioSource audio;
+
     // Reference to levelcontroller
     private LevelController levelController;
 
@@ -82,6 +88,8 @@ public class Mouse: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        audio = GetComponent<AudioSource>();
+
         //Get level controller
         levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
 
@@ -261,6 +269,7 @@ public class Mouse: MonoBehaviour {
                     }
                     else
                     {
+                        audio.PlayOneShot(SoundmouseSqueak);
                         Debug.Log("Stroking");
                         swipeLastPos = Input.GetTouch(0).position;
                         Vector2 diff = swipeFirstPos - swipeLastPos;
@@ -546,6 +555,8 @@ public class Mouse: MonoBehaviour {
         // Food nom nom
         if(collision.gameObject.tag == "Food")  // different food prefabs are tagged with food
         {
+            audio.PlayOneShot(SoundmouseEat);
+
             Food food = collision.gameObject.GetComponent<Food>();
             // update combo sequence
             levelController.UpdateSequence(food.Type);

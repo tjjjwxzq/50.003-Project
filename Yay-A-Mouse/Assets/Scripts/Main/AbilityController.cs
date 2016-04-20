@@ -14,6 +14,17 @@ using Random = System.Random;
 /// </summary>
 public class AbilityController : NetworkBehaviour
 {
+    // sounds
+    public AudioClip SoundImmunity;
+    public AudioClip SoundCat;
+    public AudioClip SoundFearless;
+    public AudioClip SoundFatMouse;
+    public AudioClip SoundTreatsGalore;
+    public AudioClip SoundBeastlyBuffet;
+    public AudioClip SoundThief;
+
+    private AudioSource audio;
+
     // Other GameObjects
     private Mouse mouse;
     public Player player;
@@ -61,6 +72,8 @@ public class AbilityController : NetworkBehaviour
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+
         Debug.Log(String.Format("AbilityController for {0} starting.", gameObject.GetComponent<Player>().Name));
 
         player = gameObject.GetComponent<Player>();
@@ -284,6 +297,8 @@ public class AbilityController : NetworkBehaviour
     /// </summary>
     public void ActivateImmunity()
     {
+        audio.PlayOneShot(SoundImmunity);
+
         if (mouse.Immunity) return;
 #if UNITY_EDITOR
 #else
@@ -302,6 +317,7 @@ public class AbilityController : NetworkBehaviour
     /// </summary>
     public void ActivateFearless()
     {
+        audio.PlayOneShot(SoundFearless);
         if (mouse.Fearless) return;
 #if UNITY_EDITOR
 #else 
@@ -322,6 +338,7 @@ public class AbilityController : NetworkBehaviour
     /// </summary>
     public void ActivateTreatsGalore()
     {
+        audio.PlayOneShot(SoundTreatsGalore);
         Debug.LogWarning("Activating treats galore.");
 #if UNITY_EDITOR
 #else
@@ -347,6 +364,7 @@ public class AbilityController : NetworkBehaviour
     /// </summary>
     public void ActivateFatMouse()
     {
+        audio.PlayOneShot(SoundFatMouse);
         if (mouseIsFat) return;
 #if UNITY_EDITOR
 #else
@@ -367,6 +385,7 @@ public class AbilityController : NetworkBehaviour
     /// </summary>
     public void ActivateScaryCat()
     {
+        audio.PlayOneShot(SoundCat);
         if (targetedPlayer.Length == 0) return;
 #if UNITY_EDITOR
 #else
@@ -396,6 +415,7 @@ public class AbilityController : NetworkBehaviour
     [ClientRpc]
     public void RpcReceiveScaryCat(int duration, int happinessReduction, int weightReduction)
     {
+        audio.PlayOneShot(SoundCat);
         if (!isLocalPlayer) return;
         levelController.ScaryCatAnimation();
 
@@ -443,6 +463,7 @@ public class AbilityController : NetworkBehaviour
     /// </summary>
     public void ActivateBeastlyBuffet()
     {
+        audio.PlayOneShot(SoundBeastlyBuffet);
         if (targetedPlayer.Length == 0) return;
 #if UNITY_EDITOR
 #else
@@ -473,6 +494,8 @@ public class AbilityController : NetworkBehaviour
     [ClientRpc]
     public void RpcReceiveBeastlyBuffet(int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
     {
+        audio.PlayOneShot(SoundBeastlyBuffet);
+
         if (!isLocalPlayer) return;
         var badFoods = foodController.FoodValues.Where(food => food.Value < pointThreshold).ToList();
         var boostedFood = badFoods[new Random().Next(badFoods.Count)].Key;
@@ -489,6 +512,7 @@ public class AbilityController : NetworkBehaviour
     /// </summary>
     public void ActivateThief()
     {
+        audio.PlayOneShot(SoundThief);
         if (targetedPlayer.Length == 0) return;
 #if UNITY_EDITOR
 #else
@@ -511,6 +535,7 @@ public class AbilityController : NetworkBehaviour
     [ClientRpc]
     public void RpcReceiveThief(string caller, int duration, int foodUnitsTransferred)
     {
+        audio.PlayOneShot(SoundThief);
         if (!isLocalPlayer) return;
         if (foodController == null)
         {

@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class HowToPlayController : MonoBehaviour {
+    public AudioClip SoundLobby;
+    public AudioClip SoundButtonPress;
+    private AudioSource audio;
 
     private int currentSectionIndex;
     private GameObject[] sections;
@@ -14,6 +17,9 @@ public class HowToPlayController : MonoBehaviour {
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(SoundLobby);
+
         sections = GameObject.FindGameObjectsWithTag("Section");
         sectionAnimators = sections.Select(s => s.GetComponent<Animator>()).ToArray();
         foreach (Animator sectionAnimator in sectionAnimators)
@@ -35,6 +41,7 @@ public class HowToPlayController : MonoBehaviour {
     /// </summary>
     public void OnNextButton()
     {
+        audio.PlayOneShot(SoundButtonPress);
         sectionAnimatorsDict[sectionNames[currentSectionIndex]].SetTrigger("Exit");
         currentSectionIndex++;
         Invoke("AnimateEntry", 0.5f);
@@ -51,6 +58,7 @@ public class HowToPlayController : MonoBehaviour {
     /// </summary>
     public void OnOKButton()
     {
+        audio.PlayOneShot(SoundButtonPress);
         SceneManager.LoadScene("Lobby");
     }
 

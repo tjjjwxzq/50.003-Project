@@ -7,6 +7,12 @@ using UnityEngine.UI;
 
 public class AbilitySelectionController : MonoBehaviour
 {
+    public AudioClip SoundLobbyBGM;
+    public AudioClip SoundStartGame;
+    public AudioClip SoundButton;
+
+    private AudioSource audio;
+
     public Sprite cancelSelectionSprite;
     public Sprite confirmSelectionSprite;
     public Sprite overlayIcon;
@@ -134,6 +140,9 @@ public class AbilitySelectionController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(SoundLobbyBGM);
+
         introText = GameObject.Find("IntroText");
         abilityIconUI = GameObject.Find("AbilityIconButtons");
         abilityDetailUI = GameObject.Find("AbilityDetailUI");
@@ -249,6 +258,7 @@ public class AbilitySelectionController : MonoBehaviour
     /// </summary>
     public void OnAbilityDetail()
     {
+        audio.PlayOneShot(SoundButton);
         // Get selected ability
         GameObject selectedAbilityObj = EventSystem.current.currentSelectedGameObject;
         selectedAbility = (AbilityName)Enum.Parse(typeof(AbilityName), selectedAbilityObj.name);
@@ -303,6 +313,8 @@ public class AbilitySelectionController : MonoBehaviour
     /// </summary>
     public void OnNextAbilityLevel()
     {
+        audio.PlayOneShot(SoundButton);
+
         // Change level details, increment current level
         currentLevelIndex = currentLevelIndex == abilityLevelDetails[selectedAbility].Length -1 ? 0 : currentLevelIndex + 1;
         selectedAbilityLevelHeader.text = abilityLevelDetails[selectedAbility][currentLevelIndex].level;
@@ -316,6 +328,8 @@ public class AbilitySelectionController : MonoBehaviour
     /// </summary>
     public void OnAbilityChosen()
     {
+        audio.PlayOneShot(SoundButton);
+
         // Check if player already has selected ability
         if (player.hasAbility(selectedAbility))
         {
@@ -344,6 +358,8 @@ public class AbilitySelectionController : MonoBehaviour
     // Callback when back button is pressed from ability detail screen
     public void OnBackButton()
     {
+        audio.PlayOneShot(SoundButton);
+
         abilityDetailUI.SetActive(false);
         introText.SetActive(true);
         abilityIconUI.SetActive(true);
@@ -353,6 +369,8 @@ public class AbilitySelectionController : MonoBehaviour
     // Callback when ready button is pressed
     public void OnReadyButton()
     {
+        audio.PlayOneShot(SoundStartGame);
+
         Debug.Log("Readying");
         player.CmdReadyToPlay(true);
         readyButtonObject.SetActive(false);
