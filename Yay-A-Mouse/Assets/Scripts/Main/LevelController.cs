@@ -12,6 +12,14 @@ using System.Linq;
 /// </summary>
 public class LevelController : MonoBehaviour
 {
+    public AudioClip SoundInGameBGM;
+    public AudioClip SoundFrenzyMode;
+    public AudioClip SoundCombo;
+    public AudioClip SoundWin;
+    public AudioClip SoundLose;
+
+
+    private AudioSource audio;
 
     // End game sprites
     public Sprite YouWonSprite;
@@ -96,6 +104,9 @@ public class LevelController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(SoundInGameBGM);
+
         // Get food controller and mouse references
         foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
@@ -317,6 +328,8 @@ public class LevelController : MonoBehaviour
     {
         if (sequenceFed == 3)
         {
+            audio.PlayOneShot(SoundCombo);
+
             Debug.Log("Combo!");
             numCombos += 1;
             sequenceFed = 0;
@@ -373,6 +386,10 @@ public class LevelController : MonoBehaviour
     /// </summary>
     private void enterNormal()
     {
+        audio.Stop();
+        audio.volume = 0.5F;
+        audio.PlayOneShot(SoundInGameBGM);
+
         // Reset food controller
         foodController.ActivateController();
 
@@ -390,6 +407,9 @@ public class LevelController : MonoBehaviour
     /// </summary>
     private void enterFrenzy()
     {
+        audio.Stop();
+        audio.PlayOneShot(SoundFrenzyMode);
+
         // Disable physics on rigidbodies of food objects and spawning
         foodController.DeactivateController();
 

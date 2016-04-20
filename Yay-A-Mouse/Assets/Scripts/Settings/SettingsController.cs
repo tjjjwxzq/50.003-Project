@@ -4,11 +4,18 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SettingsController : MonoBehaviour {
+    public AudioClip SoundLobby;
+    public AudioClip SoundButton;
+
+    private AudioSource audio;
 
     private InputField inputField;
 
 	// Use this for initialization
 	void Start () {
+        audio = gameObject.AddComponent<AudioSource>();
+        audio.PlayOneShot(SoundLobby);
+
         inputField = GameObject.Find("InputField").GetComponent<InputField>();
 
         string currentName = PlayerPrefs.GetString("Player Name", "None");
@@ -26,7 +33,9 @@ public class SettingsController : MonoBehaviour {
     /// </summary>
     public void OnOKButton()
     {
-        if(inputField.text.Length > 0)
+        audio.PlayOneShot(SoundButton);
+
+        if (inputField.text.Length > 0)
         {
             PlayerPrefs.SetString("Player Name", inputField.text);
             SceneManager.LoadScene("Lobby");

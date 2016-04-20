@@ -12,6 +12,9 @@ using System.Net.Sockets;
 /// Also sets StartPosition objects for the network manager
 /// </summary>
 public class StartController : MonoBehaviour {
+    public AudioClip SoundLobby;
+    public AudioClip SoundButtonPress;
+    private AudioSource audio;
 
     private const int MaxPlayers = 4;
     private GameObject canvasObj;
@@ -26,6 +29,9 @@ public class StartController : MonoBehaviour {
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(SoundLobby);
+
         // Get UI components
         canvasObj = GameObject.Find("Canvas");
         startUI = GameObject.Find("StartUI");
@@ -89,6 +95,8 @@ public class StartController : MonoBehaviour {
     /// </summary>
     public void OnHostGame()
     {
+        audio.PlayOneShot(SoundButtonPress);
+
         lobbyManager.StartHost();
         Debug.Log("Host name " + Dns.GetHostName());
         foreach(IPAddress ipAdd in Dns.GetHostAddresses(Dns.GetHostName()))
@@ -114,6 +122,8 @@ public class StartController : MonoBehaviour {
         // In the hook method, the network manager
         // starts a client connected to the server
         // address specified address
+        audio.PlayOneShot(SoundButtonPress);
+
         networkDiscovery.Initialize();
         networkDiscovery.StartAsClient();
 
@@ -140,11 +150,13 @@ public class StartController : MonoBehaviour {
     /// </summary>
     public void OnSettings()
     {
+        audio.PlayOneShot(SoundButtonPress);
         SceneManager.LoadScene("Settings");
     }
 
     public void OnHowToPlay()
     {
+        audio.PlayOneShot(SoundButtonPress);
         SceneManager.LoadScene("HowToPlay");
     }
 
@@ -155,6 +167,7 @@ public class StartController : MonoBehaviour {
     /// </summary>
     public void ToggleStartUI(bool on)
     {
+        audio.PlayOneShot(SoundButtonPress);
         startUI.SetActive(on);
     }
 
@@ -176,6 +189,7 @@ public class StartController : MonoBehaviour {
     /// <param name="on"></param>
     public void ToggleHostReadyUI(bool on)
     {
+        audio.PlayOneShot(SoundButtonPress);
         readyWaitingText.SetActive(false);
         readyUI.SetActive(on);
     }
@@ -188,6 +202,7 @@ public class StartController : MonoBehaviour {
     /// <param name="on"></param>
     public void ToggleClientReadyUI(bool on)
     {
+        audio.PlayOneShot(SoundButtonPress);
         readyStartButton.SetActive(false);
         readyUI.SetActive(on);
     }

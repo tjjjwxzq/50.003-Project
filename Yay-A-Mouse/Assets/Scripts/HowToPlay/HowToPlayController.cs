@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class HowToPlayController : MonoBehaviour {
+    public AudioClip SoundLobby;
+    public AudioClip SoundButtonPress;
+    private AudioSource audio;
 
     private int currentSectionIndex;
     private GameObject[] sections;
@@ -14,6 +17,9 @@ public class HowToPlayController : MonoBehaviour {
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(SoundLobby);
+
         sections = GameObject.FindGameObjectsWithTag("Section");
         sectionAnimators = sections.Select(s => s.GetComponent<Animator>()).ToArray();
         foreach (Animator sectionAnimator in sectionAnimators)
@@ -35,12 +41,19 @@ public class HowToPlayController : MonoBehaviour {
     /// </summary>
     public void OnNextButton()
     {
+<<<<<<< HEAD
         if (sectionAnimatorsDict[sectionNames[currentSectionIndex]].GetCurrentAnimatorStateInfo(0).IsName("Default"))
         {
             sectionAnimatorsDict[sectionNames[currentSectionIndex]].SetTrigger("Exit");
             currentSectionIndex++;
             Invoke("AnimateEntry", 0.5f);
         }
+=======
+        audio.PlayOneShot(SoundButtonPress);
+        sectionAnimatorsDict[sectionNames[currentSectionIndex]].SetTrigger("Exit");
+        currentSectionIndex++;
+        Invoke("AnimateEntry", 0.5f);
+>>>>>>> 213d298a04fdb1aaca1417c7687d6cf3f8a4a175
     }
 
     // Invoke entry 1 second after exit
@@ -54,6 +67,7 @@ public class HowToPlayController : MonoBehaviour {
     /// </summary>
     public void OnOKButton()
     {
+        audio.PlayOneShot(SoundButtonPress);
         SceneManager.LoadScene("Lobby");
     }
 

@@ -5,7 +5,11 @@ using System.Collections;
 
 public class NamePrompt : MonoBehaviour {
 
+    public AudioClip SoundButton;
+    private AudioSource audio;
+
     // not sure whether it's more efficient to assign through the editor
+   
     private InputField nameInput;
     private Text promptText;
   
@@ -17,6 +21,8 @@ public class NamePrompt : MonoBehaviour {
 
     public void OnOKButton()
     {
+        audio.PlayOneShot(SoundButton);
+
         string name = nameInput.text;
         if(name.Length > 0)
         {
