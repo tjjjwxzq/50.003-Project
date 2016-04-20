@@ -15,6 +15,7 @@ public class NamePrompt : MonoBehaviour {
   
 	// Use this for initialization
 	void Start () {
+        audio = GetComponent<AudioSource>();
         nameInput = GameObject.Find("NameInput").GetComponent<InputField>();
         promptText = GameObject.Find("Prompt").GetComponent<Text>();
 	}

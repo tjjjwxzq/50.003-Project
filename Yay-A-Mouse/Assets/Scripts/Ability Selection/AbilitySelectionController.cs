@@ -375,7 +375,12 @@ public class AbilitySelectionController : MonoBehaviour
         player.CmdReadyToPlay(true);
         readyButtonObject.SetActive(false);
         readyAndWaitingObject.SetActive(true);
-        //LobbyManager.singleton.ServerChangeScene("Main");
+
+        // Disable ability icons
+        foreach(KeyValuePair<AbilityName, GameObject> kvp in abilityIcons)
+        {
+            kvp.Value.GetComponent<Button>().interactable = false;
+        }
     }
 
 

@@ -24,7 +24,7 @@ public class LobbyPlayer : NetworkLobbyPlayer{
     private int currentColorIndex = 0;
 
     // For positioning player in lobby
-    private Vector2[] lobbyPlayerPositions = { new Vector2(125, -15), new Vector2(125, -120), new Vector2(0, 120), new Vector2(-125, -120) };
+    private Vector2[] lobbyPlayerPositions = { new Vector2(125, -15), new Vector2(125, -120), new Vector2(0, -120), new Vector2(-125, -120) };
     private RectTransform lobbyPlayerRectTransform;
     private float lobbyPlayerStartPos = 140f; // starting position of lobby players
     private float lobbyPlayerOffset; // offset between each player

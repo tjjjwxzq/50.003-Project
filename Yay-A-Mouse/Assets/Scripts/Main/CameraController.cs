@@ -46,14 +46,14 @@ public class CameraController : MonoBehaviour {
         MinYUnits = -Screen.height / (2 * CameraController.PixelsPerUnit);
         MaxYUnits = Screen.height / (2 * CameraController.PixelsPerUnit);
 
-        camera = GetComponent<Camera>();
+        /*camera = GetComponent<Camera>();
         float width = Screen.width;
         float height = Screen.height;
         float aspectRatio = Mathf.Round(width / height*100)/100f;
         float scaleheight = aspectRatio / defaultAspect; //scale height by this amount
 
 
-        /*if(aspectRatio < defaultAspect) // require letterboxing(horizontal)
+        if(aspectRatio < defaultAspect) // require letterboxing(horizontal)
         {
             Rect rect = camera.rect;
 

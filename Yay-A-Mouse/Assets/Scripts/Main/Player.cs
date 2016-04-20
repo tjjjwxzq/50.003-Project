@@ -178,7 +178,7 @@ public class Player : NetworkBehaviour
     {
         int nonce = PlayerPrefs.GetInt("nonce");
         PlayerPrefs.SetInt("nonce", ++nonce);
-        Name = name + nonce.ToString();
+        Name = name; // + nonce.ToString();
     }
 
     /// <summary>

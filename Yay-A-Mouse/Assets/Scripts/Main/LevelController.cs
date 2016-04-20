@@ -13,6 +13,7 @@ using System.Linq;
 public class LevelController : MonoBehaviour
 {
     public AudioClip SoundInGameBGM;
+    public AudioClip SoundCat;
     public AudioClip SoundFrenzyMode;
     public AudioClip SoundCombo;
     public AudioClip SoundWin;
@@ -32,7 +33,7 @@ public class LevelController : MonoBehaviour
 
     // Normal or frenzy mode
     public enum GameMode { Normal, Frenzy };
-    private GameMode mode = GameMode.Frenzy;
+    private GameMode mode = GameMode.Normal;
 
     // Reference to food controller and mouse and object pool scripts 
     private FoodController foodController;
@@ -113,7 +114,7 @@ public class LevelController : MonoBehaviour
         foodPool = GetComponent<ObjectPool>();
         foodPool.PoolObject = Resources.Load("Prefabs/Normal") as GameObject;
 
-        /*abilityController =
+        abilityController =
             GameObject.FindGameObjectsWithTag("Player")
                 .First(o => o.GetComponent<AbilityController>().isLocalPlayer)
                 .GetComponent<AbilityController>();
@@ -121,7 +122,8 @@ public class LevelController : MonoBehaviour
         abilityController.AttachToFoodController()
             .AttachToMouse()
             .AttachToLevelController()
-            .AttachToAbilityUi();*/
+            .AttachToAbilityUi()
+            .AttachToMessageBox();
 
         // Get Combo UI
         comboUI = GameObject.Find("Combo");
@@ -215,7 +217,7 @@ public class LevelController : MonoBehaviour
         {
             playerObjects = GameObject.FindGameObjectsWithTag("Player");
             Debug.Log("Finding players");
-            foreach(GameObject player in playerObjects)
+            foreach (GameObject player in playerObjects)
             {
                 player.GetComponent<Player>().AttachToMouse();
             }
@@ -237,7 +239,7 @@ public class LevelController : MonoBehaviour
         }
 
         updatePlayerScores();
-        //checkEndGame();
+        checkEndGame();
 
         checkComboStreak();
         checkGameMode();
@@ -476,6 +478,7 @@ public class LevelController : MonoBehaviour
     /// </summary>
     public void ScaryCatAnimation()
     {
+        audio.PlayOneShot(SoundCat);
         scaryCatShock.SetActive(true);
         scaryCat.SetActive(true);
     }
@@ -517,7 +520,7 @@ public class LevelController : MonoBehaviour
         playerAvatar = Resources.Load("Prefabs/PlayerAvatar") as GameObject;
         float width = playerAvatar.GetComponent<RectTransform>().rect.width;
         playerAvatars = new GameObject[numOpponents];
-        Vector2 startPos = new Vector2(numOpponents - 1, 0);
+        Vector2 startPos = new Vector2((numOpponents - 1), 0);
 
         var crosshairs = new List<GameObject>();
         for (int i = 0; i < playerAvatars.Length; i++)
@@ -574,10 +577,10 @@ public class LevelController : MonoBehaviour
     /// </summary>
     private void checkEndGame()
     {
-        if(playerObjects != null)
+        if (playerObjects != null)
         {
             bool gameEnd = false;
-            foreach(GameObject player in playerObjects)
+            foreach (GameObject player in playerObjects)
             {
                 if (player.GetComponent<Player>().PlayerWon)
                 {
@@ -593,7 +596,7 @@ public class LevelController : MonoBehaviour
                 foodController.DeactivateController();
 
                 bool localPlayerWon = true;
-                foreach(GameObject player in nonLocalPlayerObjects)
+                foreach (GameObject player in nonLocalPlayerObjects)
                 {
                     if (player.GetComponent<Player>().PlayerWon)
                     {

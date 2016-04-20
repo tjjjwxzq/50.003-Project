@@ -36,7 +36,7 @@ public class Food: MonoBehaviour {
         // Mouse input
         // activate this only for editor testing
         // touch input won't work properly when this is activated as well
-        detectMouseSwipe();
+        //detectMouseSwipe();
         // MAKE SURE TO TURN THIS OFF IS TOUCH INPUT IS SCREWED UP
 
         // Touch input
