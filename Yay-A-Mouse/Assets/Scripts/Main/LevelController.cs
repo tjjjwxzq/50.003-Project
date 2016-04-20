@@ -110,7 +110,8 @@ public class LevelController : MonoBehaviour
         abilityController.AttachToFoodController()
             .AttachToMouse()
             .AttachToLevelController()
-            .AttachToAbilityUi();
+            .AttachToAbilityUi()
+            .AttachToMessageBox();
 
         // Get Combo UI
         comboUI = GameObject.Find("Combo");

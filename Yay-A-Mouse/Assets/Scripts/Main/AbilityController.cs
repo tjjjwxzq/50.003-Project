@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 using Random = System.Random;
 
 /// <summary>
@@ -20,6 +21,23 @@ public class AbilityController : NetworkBehaviour
     private FoodController foodController;
     private LevelController levelController;
     private AbilityUI abilityUi;
+    private Text messageBox;
+
+    // Game messages
+    private List<string> activeStatuses;
+    private List<GameMessage> gameMessages;
+
+    private struct GameMessage
+    {
+        public DateTime time;
+        public string message;
+
+        public GameMessage(DateTime time, string message) : this()
+        {
+            this.time = time;
+            this.message = message;
+        }
+    }
 
     // Simple status flags
     private bool mouseIsImmune;
@@ -34,6 +52,8 @@ public class AbilityController : NetworkBehaviour
     // Treats Galore status
     private bool treatsGaloreIsActive;
     private string treatsGaloreBoostedFood;
+    private float tgOriginalWeight;
+    private int tgOriginalCount;
 
     // Scary Cat status
     private bool mouseIsOffscreen;
@@ -43,6 +63,8 @@ public class AbilityController : NetworkBehaviour
     private bool beastlyBuffetIsActive;
     private string beastlyBuffetBoostedFood;
     private int beastlyBuffetDuration;
+    private float bbOriginalWeight;
+    private int bbOriginalCount;
 
     // Thief status
     private bool mouseIsThief;
@@ -53,6 +75,9 @@ public class AbilityController : NetworkBehaviour
     // targetedplayer for abilities
     public string targetedPlayer = "";
 
+    // ability cooldown
+    private Dictionary<AbilityName, Text> countdowns;
+
     private Dictionary<string, float> defaultFoodSpawnWeights;
 
     private Dictionary<string, int> defaultMaxFoodCounts;
@@ -62,13 +87,20 @@ public class AbilityController : NetworkBehaviour
     void Start()
     {
         Debug.Log(String.Format("AbilityController for {0} starting.", gameObject.GetComponent<Player>().Name));
-
         player = gameObject.GetComponent<Player>();
-
         abilityLastActivatedTimes = new Dictionary<AbilityName, DateTime>(7);
+        gameMessages = new List<GameMessage>(3);
+        activeStatuses = new List<string>();
     }
 
-    // Why can't this attaching just be done in AbilityController Start?
+    /// <summary>
+    /// Function that will look for a local player mouse object and get a reference to it.
+    /// 
+    /// Since the ability controller starts before the main scene is initialised, we can only get references
+    /// to main scene objects after the main scene has loaded. These methods are called to attach the 
+    /// ability controller to the respective main scene objects.
+    /// </summary>
+    /// <returns>This ability controller, so that calls can be chained.</returns>
     public AbilityController AttachToMouse()
     {
         mouse = GameObject.Find("Mouse").GetComponent<Mouse>();
@@ -82,6 +114,14 @@ public class AbilityController : NetworkBehaviour
         return this;
     }
 
+    /// <summary>
+    /// Function that will look for a local player food controller object and get a reference to it.
+    /// 
+    /// Since the ability controller starts before the main scene is initialised, we can only get references
+    /// to main scene objects after the main scene has loaded. These methods are called to attach the 
+    /// ability controller to the respective main scene objects.
+    /// </summary>
+    /// <returns>This ability controller, so that calls can be chained.</returns>
     public AbilityController AttachToFoodController()
     {
         foodController = GameObject.Find("FoodController").GetComponent<FoodController>();
@@ -95,33 +135,26 @@ public class AbilityController : NetworkBehaviour
     }
 
     /// <summary>
-    /// To be called in level controller start???
+    /// The Update method is called once per frame. The ability controller 
+    /// checks the state of various game variables and updates them if necessary.
+    /// 
+    /// Variables checked:
+    /// 
+    /// Immunity ability last used and duration
+    /// Mouse level
+    /// Mouse Immunity status
+    /// Treats galore ability last used and duration
+    /// FoodController treats galore active
+    /// Mouse Fearless ability last used and duration
+    /// Mouse Fearless active
+    /// Fat Mouse ability last used and duration
+    /// Thief spawn boost last activated and duration
+    /// Mouse Fat active
+    /// Mouse last chased offscreen by Scary Cat and duration
+    /// Mouse Offscreen
+    /// Mouse last affected by Beastly Buffet and duration
+    /// Mouse last affected by Thief and duration
     /// </summary>
-    public AbilityController AttachToLevelController()
-    {
-        levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
-        if (levelController == null)
-        {
-            Debug.LogError(player.Name + " AbilityController failed to attach to LevelController.");
-            return this;
-        }
-        Debug.Log(player.Name + " AbilityController component attached to level controller.");
-        return this;
-    }
-
-    public AbilityController AttachToAbilityUi()
-    {
-        abilityUi = GameObject.Find("Canvas").transform.Find("Abilities").gameObject.GetComponent<AbilityUI>();
-        if (abilityUi == null)
-        {
-            Debug.LogError("AbilityController failed to attach to AbilityUi.");
-            return this;
-        }
-        Debug.Log(player.Name + " AbilityController attached to AbilityUi.");
-        return this;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!isLocalPlayer) return;
@@ -137,43 +170,61 @@ public class AbilityController : NetworkBehaviour
 
         if (mouseIsImmune)
         {
+            var timeLeft = TimeLeft(AbilityName.Immunity);
+            abilityUi.Countdowns[AbilityName.Immunity].text = timeLeft.ToString();
+            activeStatuses.Add(string.Format("{0} seconds of Immunity left!", timeLeft));
             if (!IsStillActive(AbilityName.Immunity))
             {
                 mouseIsImmune = false;
                 mouse.Immunity = false;
+                abilityUi.Countdowns[AbilityName.Immunity].gameObject.SetActive(false);
             }
         }
 
         if (treatsGaloreIsActive)
         {
+            var timeLeft = TimeLeft(AbilityName.TreatsGalore);
+            abilityUi.Countdowns[AbilityName.TreatsGalore].text = timeLeft.ToString();
+            activeStatuses.Add(string.Format("{0} seconds of Treats Galore left!", timeLeft));
             if (!IsStillActive(AbilityName.TreatsGalore))
             {
-                foodController.setMaxFoodCount(treatsGaloreBoostedFood, defaultMaxFoodCounts[treatsGaloreBoostedFood]);
-                foodController.setFoodSpawnWeight(treatsGaloreBoostedFood, defaultFoodSpawnWeights[treatsGaloreBoostedFood]);
+                foodController.setMaxFoodCount(treatsGaloreBoostedFood, tgOriginalCount);
+                foodController.setFoodSpawnWeight(treatsGaloreBoostedFood, tgOriginalWeight);
                 treatsGaloreIsActive = false;
+                abilityUi.Countdowns[AbilityName.TreatsGalore].gameObject.SetActive(false);
             }
         }
 
         if (mouseIsFearless)
         {
+            var timeLeft = TimeLeft(AbilityName.Fearless);
+            abilityUi.Countdowns[AbilityName.Fearless].text = timeLeft.ToString();
+            activeStatuses.Add(string.Format("{0} seconds of Fearless left!", timeLeft));
             if (!IsStillActive(AbilityName.Fearless))
             {
                 mouseIsFearless = false;
                 mouse.Fearless = false;
+                abilityUi.Countdowns[AbilityName.Fearless].gameObject.SetActive(false);
             }
         }
 
         if (mouseIsFat)
         {
+            var timeLeft = TimeLeft(AbilityName.FatMouse);
+            abilityUi.Countdowns[AbilityName.FatMouse].text = timeLeft.ToString();
+            activeStatuses.Add(string.Format("{0} seconds of Fat Mouse left!", timeLeft));
             if (!IsStillActive(AbilityName.FatMouse))
             {
                 mouse.GrowthAbility = 1;
                 mouseIsFat = false;
+                abilityUi.Countdowns[AbilityName.FatMouse].gameObject.SetActive(false);
             }
         }
 
         if (mouseIsOffscreen)
         {
+            var timeLeft = scaryCatDuration - DateTime.Now.Subtract(abilityLastActivatedTimes[AbilityName.ScaryCat]).Seconds;
+            activeStatuses.Add(string.Format("{0} seconds until mouse returns!", timeLeft));
             if (!IsStillActive(AbilityName.ScaryCat, scaryCatDuration))
             {
                 mouse.Offscreen = false;
@@ -183,31 +234,121 @@ public class AbilityController : NetworkBehaviour
 
         if (beastlyBuffetIsActive)
         {
+            var timeLeft = beastlyBuffetDuration - DateTime.Now.Subtract(abilityLastActivatedTimes[AbilityName.BeastlyBuffet]).Seconds;
+            activeStatuses.Add(string.Format("{0} seconds of Beastly Buffet remaining!", timeLeft));
             if (!IsStillActive(AbilityName.BeastlyBuffet, beastlyBuffetDuration))
             {
-                foodController.setMaxFoodCount(beastlyBuffetBoostedFood, defaultMaxFoodCounts[beastlyBuffetBoostedFood]);
+                foodController.setMaxFoodCount(beastlyBuffetBoostedFood, bbOriginalCount);
                 foodController.setFoodSpawnWeight(beastlyBuffetBoostedFood,
-                    defaultFoodSpawnWeights[beastlyBuffetBoostedFood]);
+                    bbOriginalWeight);
                 beastlyBuffetIsActive = false;
             }
         }
 
         if (mouseIsThief)
         {
+            var timeLeft = TimeLeft(AbilityName.Thief);
+            abilityUi.Countdowns[AbilityName.Thief].text = timeLeft.ToString();
+            activeStatuses.Add(string.Format("{0} seconds until Thief buff runs out!", timeLeft));
             if (!IsStillActive(AbilityName.Thief))
             {
                 foodController.SpawnRate = 1f;
                 mouseIsThief = false;
+                abilityUi.Countdowns[AbilityName.Thief].gameObject.SetActive(false);
             }
         }
 
         if (mouseIsThiefVictim)
         {
+            var timeLeft = thiefVictimDuration - DateTime.Now.Subtract(lastStolenFrom).Seconds;
+            activeStatuses.Add(string.Format("{0} seconds until Thief debuff runs out!", timeLeft));
             if (DateTime.Now.Subtract(lastStolenFrom).Seconds > thiefVictimDuration)
             {
                 foodController.SpawnRate = 1f;
                 mouseIsThiefVictim = false;
             }
+        }
+
+        //        var statuses = string.Join("\n", activeStatuses.ToArray());
+
+        gameMessages.RemoveAll(o => DateTime.Now.Subtract(o.time).Seconds > 5);
+        var gameMsgs = string.Join("\n", gameMessages.Select(o => o.message).ToArray());
+        messageBox.text = gameMsgs;
+        activeStatuses.Clear();
+    }
+
+    /// <summary>
+    /// Function that will look for a local player level controller object and get a reference to it.
+    /// 
+    /// Since the ability controller starts before the main scene is initialised, we can only get references
+    /// to main scene objects after the main scene has loaded. These methods are called to attach the 
+    /// ability controller to the respective main scene objects.
+    /// </summary>
+    /// <returns>This ability controller, so that calls can be chained.</returns>
+    public AbilityController AttachToLevelController()
+    {
+        levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+        if (levelController == null)
+        {
+            Debug.LogError(player.Name + " AbilityController failed to attach to LevelController.");
+            return this;
+        }
+        Debug.Log(player.Name + " AbilityController component attached to level controller.");
+        return this;
+    }
+
+    /// <summary>
+    /// Function that will look for a local player abilityUI object and get a reference to it.
+    /// 
+    /// Since the ability controller starts before the main scene is initialised, we can only get references
+    /// to main scene objects after the main scene has loaded. These methods are called to attach the 
+    /// ability controller to the respective main scene objects.
+    /// </summary>
+    /// <returns>This ability controller, so that calls can be chained.</returns>
+    public AbilityController AttachToAbilityUi()
+    {
+        abilityUi = GameObject.Find("Canvas").transform.Find("Abilities").gameObject.GetComponent<AbilityUI>();
+        if (abilityUi == null)
+        {
+            Debug.LogError("AbilityController failed to attach to AbilityUi.");
+            return this;
+        }
+        Debug.Log(player.Name + " AbilityController attached to AbilityUi.");
+        return this;
+    }
+
+    public AbilityController AttachToMessageBox()
+    {
+        messageBox = GameObject.Find("GameMessages").GetComponent<Text>();
+        if (messageBox == null)
+        {
+            Debug.LogError("AbilityController failed to attach to MessageBox.");
+            return this;
+        }
+        Debug.Log(player.Name + " AbilityController attached to MessageBox");
+        return this;
+    }
+
+    public bool IsActive(AbilityName ability)
+    {
+        switch (ability)
+        {
+            case AbilityName.Immunity:
+                return mouseIsImmune;
+            case AbilityName.TreatsGalore:
+                return treatsGaloreIsActive;
+            case AbilityName.Fearless:
+                return mouseIsFearless;
+            case AbilityName.FatMouse:
+                return mouseIsFat;
+            case AbilityName.ScaryCat:
+                return false;
+            case AbilityName.BeastlyBuffet:
+                return beastlyBuffetIsActive;
+            case AbilityName.Thief:
+                return mouseIsThief;
+            default:
+                throw new ArgumentOutOfRangeException("ability", ability, null);
         }
     }
 
@@ -220,6 +361,16 @@ public class AbilityController : NetworkBehaviour
             return timeSinceLastActivation < player.PAbilities[ability].Duration;
         }
         else return false;
+    }
+
+    private int TimeLeft(AbilityName ability)
+    {
+        if (abilityLastActivatedTimes.ContainsKey(ability))
+        {
+            var timeSinceLastActivation = DateTime.Now.Subtract(abilityLastActivatedTimes[ability]).Seconds;
+            return player.PAbilities[ability].Duration - timeSinceLastActivation;
+        }
+        else return -1;
     }
 
     // Function to check if an ability is still active using the specified duration.
@@ -245,15 +396,27 @@ public class AbilityController : NetworkBehaviour
         {
             case AbilityName.Immunity:
                 ActivateImmunity();
+                abilityUi.Countdowns[ability].text = player.PAbilities[AbilityName.Immunity]
+                    .Duration.ToString();
+                abilityUi.Countdowns[ability].gameObject.SetActive(true);
                 break;
             case AbilityName.TreatsGalore:
                 ActivateTreatsGalore();
+                abilityUi.Countdowns[ability].text = player.PAbilities[AbilityName.TreatsGalore]
+    .Duration.ToString();
+                abilityUi.Countdowns[ability].gameObject.SetActive(true);
                 break;
             case AbilityName.Fearless:
                 ActivateFearless();
+                abilityUi.Countdowns[ability].text = player.PAbilities[AbilityName.Fearless]
+    .Duration.ToString();
+                abilityUi.Countdowns[ability].gameObject.SetActive(true);
                 break;
             case AbilityName.FatMouse:
                 ActivateFatMouse();
+                abilityUi.Countdowns[ability].text = player.PAbilities[AbilityName.FatMouse]
+    .Duration.ToString();
+                abilityUi.Countdowns[ability].gameObject.SetActive(true);
                 break;
             case AbilityName.ScaryCat:
                 ActivateScaryCat();
@@ -263,18 +426,33 @@ public class AbilityController : NetworkBehaviour
                 break;
             case AbilityName.Thief:
                 ActivateThief();
+                abilityUi.Countdowns[ability].text = player.PAbilities[AbilityName.Thief]
+    .Duration.ToString();
+                abilityUi.Countdowns[ability].gameObject.SetActive(true);
                 break;
             default:
                 throw new ArgumentOutOfRangeException("ability", ability, null);
         }
     }
 
+    /// <summary>
+    /// Improves one of the player's abilities. Does nothing if the ability level is already at maximum.
+    /// </summary>
+    /// <param name="ability"></param>
     public void ImproveAbility(AbilityName ability)
     {
         if (player.PAbilities[ability].Level >= player.PAbilities[ability].MaxLevel) return;
         player.PAbilities.SetAbility(ability, player.PAbilities[ability].Level + 1);
         abilityUi.UpdateAbilityLevelOnButton(ability);
         abilityPoints--;
+
+        NewGameMessage("Improved " + player.PAbilities[ability].Name + "!");
+    }
+
+    public void NewGameMessage(string message)
+    {
+        gameMessages.Add(new GameMessage(DateTime.Now, message));
+        //        if (gameMessages.Count > 3) gameMessages.Dequeue();
     }
 
     /// <summary>
@@ -293,6 +471,8 @@ public class AbilityController : NetworkBehaviour
         mouse.Immunity = true;
         abilityLastActivatedTimes[AbilityName.Immunity] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.Immunity.Cost;
+
+        NewGameMessage("Immunity activated!");
     }
 
     /// <summary>
@@ -311,6 +491,8 @@ public class AbilityController : NetworkBehaviour
         mouse.Fearless = true;
         abilityLastActivatedTimes[AbilityName.Fearless] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.Fearless.Cost;
+
+        NewGameMessage("Fearless activated!");
     }
 
     /// <summary>
@@ -323,19 +505,24 @@ public class AbilityController : NetworkBehaviour
     public void ActivateTreatsGalore()
     {
         Debug.LogWarning("Activating treats galore.");
+        if (treatsGaloreIsActive) return;
+
 #if UNITY_EDITOR
 #else
         if (mouse.Happiness < player.PAbilities.TreatsGalore.Cost) return; 
 #endif
         var goodFoods = foodController.FoodValues.Where(food => food.Value > player.PAbilities.TreatsGalore.PointThreshold).ToList();
         var boostedFood = goodFoods[new Random().Next(goodFoods.Count)].Key;
-        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * player.PAbilities.TreatsGalore.SpawnLimitMultiplier);
-        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * player.PAbilities.TreatsGalore.SpawnWeightMultiplier);
+        tgOriginalCount = foodController.getMaxFoodCount(boostedFood);
+        foodController.setMaxFoodCount(boostedFood, tgOriginalCount * player.PAbilities.TreatsGalore.SpawnLimitMultiplier);
+        tgOriginalWeight = foodController.getFoodSpawnWeight(boostedFood);
+        foodController.setFoodSpawnWeight(boostedFood, tgOriginalWeight * player.PAbilities.TreatsGalore.SpawnWeightMultiplier);
         treatsGaloreBoostedFood = boostedFood;
         treatsGaloreIsActive = true;
         abilityLastActivatedTimes[AbilityName.TreatsGalore] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.TreatsGalore.Cost;
 
+        NewGameMessage("Treats Galore activated!");
         Debug.Log(string.Format("{0} activated Treats Galore and boosted {1}", player.Name, boostedFood));
     }
 
@@ -357,6 +544,7 @@ public class AbilityController : NetworkBehaviour
         abilityLastActivatedTimes[AbilityName.FatMouse] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.FatMouse.Cost;
 
+        NewGameMessage("Fat Mouse activated!");
         Debug.Log(string.Format("{0} activated Fat Mouse. Weight gain multiplier: {1}", player.Name, mouse.GrowthAbility));
     }
 
@@ -374,6 +562,8 @@ public class AbilityController : NetworkBehaviour
 #endif
         CmdDispatchScaryCat(player.Name, targetedPlayer, player.PAbilities.ScaryCat.Duration, player.PAbilities.ScaryCat.HappinessReduction, player.PAbilities.ScaryCat.WeightReduction);
         mouse.Happiness -= player.PAbilities.ScaryCat.Cost;
+
+        NewGameMessage("Sent Scary Cat to " + targetedPlayer + "!");
     }
 
     [Command]
@@ -381,7 +571,7 @@ public class AbilityController : NetworkBehaviour
     {
         if (!isServer) return;
         var victim = GameObject.FindGameObjectsWithTag("Player").First(o => o.GetComponent<Player>().Name.Equals(target));
-        victim.GetComponent<AbilityController>().RpcReceiveScaryCat(duration, happinessReduction, weightReduction);
+        victim.GetComponent<AbilityController>().RpcReceiveScaryCat(caller, duration, happinessReduction, weightReduction);
     }
 
     /// <summary>
@@ -394,7 +584,7 @@ public class AbilityController : NetworkBehaviour
     /// <param name="happinessReduction"></param>
     /// <param name="weightReduction"></param>
     [ClientRpc]
-    public void RpcReceiveScaryCat(int duration, int happinessReduction, int weightReduction)
+    public void RpcReceiveScaryCat(string caller, int duration, int happinessReduction, int weightReduction)
     {
         if (!isLocalPlayer) return;
         levelController.ScaryCatAnimation();
@@ -434,6 +624,8 @@ public class AbilityController : NetworkBehaviour
                 scaryCatDuration = duration;
             }
         }
+
+        NewGameMessage(caller + " sent a Scary Cat over!");
     }
 
     /// <summary>
@@ -451,14 +643,24 @@ public class AbilityController : NetworkBehaviour
         CmdDispatchBeastlyBuffet(player.Name, targetedPlayer, player.PAbilities.BeastlyBuffet.Duration, player.PAbilities.BeastlyBuffet.PointThreshold, player.PAbilities.BeastlyBuffet.SpawnLimitMultiplier, player.PAbilities.BeastlyBuffet.SpawnWeightMultiplier);
         mouse.Happiness -= player.PAbilities.BeastlyBuffet.Cost;
 
+        NewGameMessage("Sent Beastly Buffet to " + targetedPlayer + "!");
     }
 
+    /// <summary>
+    /// Command which is called on the server when a player target another player with Beastly Buffet.
+    /// Looks for the target player and triggers an RPC call on it to call the Receive function.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="duration"></param>
+    /// <param name="pointThreshold"></param>
+    /// <param name="spawnLimitMultiplier"></param>
+    /// <param name="spawnWeightMultiplier"></param>
     [Command]
     public void CmdDispatchBeastlyBuffet(string caller, string target, int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
     {
         if (!isServer) return;
         var victim = GameObject.FindGameObjectsWithTag("Player").First(p => p.GetComponent<Player>().Name.Equals(target));
-        victim.GetComponent<AbilityController>().RpcReceiveBeastlyBuffet(duration, pointThreshold, spawnLimitMultiplier, spawnWeightMultiplier);
+        victim.GetComponent<AbilityController>().RpcReceiveBeastlyBuffet(caller, duration, pointThreshold, spawnLimitMultiplier, spawnWeightMultiplier);
     }
 
     /// <summary>
@@ -471,21 +673,25 @@ public class AbilityController : NetworkBehaviour
     /// <param name="spawnLimitMultiplier"></param>
     /// <param name="spawnWeightMultiplier"></param>
     [ClientRpc]
-    public void RpcReceiveBeastlyBuffet(int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
+    public void RpcReceiveBeastlyBuffet(string caller, int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
     {
         if (!isLocalPlayer) return;
         var badFoods = foodController.FoodValues.Where(food => food.Value < pointThreshold).ToList();
         var boostedFood = badFoods[new Random().Next(badFoods.Count)].Key;
-        foodController.setMaxFoodCount(boostedFood, foodController.getMaxFoodCount(boostedFood) * spawnLimitMultiplier);
-        foodController.setFoodSpawnWeight(boostedFood, foodController.getFoodSpawnWeight(boostedFood) * spawnWeightMultiplier);
+        bbOriginalCount = foodController.getMaxFoodCount(boostedFood);
+        foodController.setMaxFoodCount(boostedFood, bbOriginalCount * spawnLimitMultiplier);
+        bbOriginalWeight = foodController.getFoodSpawnWeight(boostedFood);
+        foodController.setFoodSpawnWeight(boostedFood, bbOriginalWeight * spawnWeightMultiplier);
         beastlyBuffetBoostedFood = boostedFood;
         beastlyBuffetIsActive = true;
         abilityLastActivatedTimes[AbilityName.BeastlyBuffet] = DateTime.Now;
         beastlyBuffetDuration = duration;
+
+        NewGameMessage(caller + " sent a Beastly Buffet over!");
     }
 
     /// <summary>
-    /// WORK IN PROGRESS
+    /// Use the Thief ability on the currently targeted player. 
     /// </summary>
     public void ActivateThief()
     {
@@ -498,8 +704,17 @@ public class AbilityController : NetworkBehaviour
         mouseIsThief = true;
         abilityLastActivatedTimes[AbilityName.Thief] = DateTime.Now;
         mouse.Happiness -= player.PAbilities.Thief.Cost;
+
+        NewGameMessage("Stealing food from " + targetedPlayer + "!");
     }
 
+    /// <summary>
+    /// Command to look for the target player and call the Receive function on it.
+    /// </summary>
+    /// <param name="caller"></param>
+    /// <param name="target"></param>
+    /// <param name="duration"></param>
+    /// <param name="foodUnitsTransferred"></param>
     [Command]
     public void CmdDispatchThief(string caller, string target, int duration, int foodUnitsTransferred)
     {
@@ -508,6 +723,13 @@ public class AbilityController : NetworkBehaviour
         victim.GetComponent<AbilityController>().RpcReceiveThief(caller, duration, foodUnitsTransferred);
     }
 
+    /// <summary>
+    /// Called when another player uses the Thief ability on this mouse. Randomly chooses and removes some
+    /// good food from on screen and transfers it to the caller.
+    /// </summary>
+    /// <param name="caller"></param>
+    /// <param name="duration"></param>
+    /// <param name="foodUnitsTransferred"></param>
     [ClientRpc]
     public void RpcReceiveThief(string caller, int duration, int foodUnitsTransferred)
     {
@@ -523,8 +745,7 @@ public class AbilityController : NetworkBehaviour
         {
             try
             {
-                var pieceOfFoodToBeStolen = foodController.GetComponentsInChildren<PoolMember>()
-                    .First(o => o.gameObject.activeSelf && o.gameObject.GetComponent<Food>().NutritionalValue > 0);
+                var pieceOfFoodToBeStolen = foodController.GetComponentsInChildren<PoolMember>().First(o => o.gameObject.activeSelf && o.gameObject.GetComponent<Food>().NutritionalValue > 0);
                 toTransfer.Add(pieceOfFoodToBeStolen.GetComponent<Food>().Type);
                 pieceOfFoodToBeStolen.Deactivate();
             }
@@ -540,8 +761,15 @@ public class AbilityController : NetworkBehaviour
         lastStolenFrom = DateTime.Now;
 
         CmdDispatchStolenFood(caller, toTransfer.ToArray());
+
+        NewGameMessage(caller + " stole some food from you!");
     }
 
+    /// <summary>
+    /// Called to return the stolen food back to the player who originally used Thief.
+    /// </summary>
+    /// <param name="caller"></param>
+    /// <param name="foodsTaken"></param>
     [Command]
     public void CmdDispatchStolenFood(string caller, string[] foodsTaken)
     {
@@ -551,6 +779,10 @@ public class AbilityController : NetworkBehaviour
         thief.GetComponent<AbilityController>().RpcReceiveStolenFood(foodsTaken);
     }
 
+    /// <summary>
+    /// Client RPC to spawn food stolen by thief back on the original caller's screen.
+    /// </summary>
+    /// <param name="foodsTaken"></param>
     [ClientRpc]
     public void RpcReceiveStolenFood(string[] foodsTaken)
     {
