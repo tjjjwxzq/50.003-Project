@@ -2,10 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.IO;
-# if UNITY_EDITOR
-using UnityEditor;
-# endif
 
 /// <summary>
 /// Script attached to FoodController object that 
@@ -14,7 +10,10 @@ using UnityEditor;
 
 public class FoodController : MonoBehaviour {
 
-    public enum Movements { Static, Horizontal, Vertical, Random }; // enumerator of food movements
+    /// <summary>
+    /// Enumerator of food movement modes
+    /// </summary>
+    public enum Movements { Static, Horizontal, Vertical, Random }; 
 
     private SpriteRenderer mouseSpriteRenderer;
 
@@ -22,30 +21,15 @@ public class FoodController : MonoBehaviour {
     public Sprite[] FoodSprites; //<! Array of food sprites, to be assigned in the inspector
     private Dictionary<string,Sprite> foodSpritesDict = new Dictionary<string,Sprite>(); //<! array of food sprites
     /// Dictionary of ObjectPool script components attached to FoodController and keyed by the food name
-    private Dictionary<string, ObjectPool> foodPoolsDict = new Dictionary<string,ObjectPool>();
-    private Movements foodMovement = Movements.Random;//!< Current food movement mode
-    private Dictionary<string, int> foodValues = new Dictionary<string, int> //!< Dictionary of food values
-    {
-        // Good foods
-        {"Normal" , 5},
-        {"Cheese" , 10 },
-        {"Carrot" , 7 },
-        {"Oat" , 15 },
-        {"Apple" , 8 },
-        {"Anchovy" , 12 },
-        {"Bread" , 18 },
-        {"Seed" , 20 },
-
-        // Bad foods
-        {"Bad", -5},
-        {"Peanut", -7 },
-        {"Orange", -10 },
-        {"Garlic", -15 },
-        {"Chocolate", -20 },
-        {"Poison", -50 }
-    };
-
+    /// </summary>
+    private Dictionary<string, ObjectPool> objPoolsDict = new Dictionary<string,ObjectPool>();
+    /// <summary>
+    /// Current food movement mode
+    /// </summary>
+    private Movements foodMovement = Movements.Random;
+    /// <summary>
     /// Dictionary of max number of food for each type that can be on the screen
+    /// </summary>
     private Dictionary<string, int> maxFoodCounts = new Dictionary<string, int>
     {
         // Good foods
@@ -67,8 +51,9 @@ public class FoodController : MonoBehaviour {
         {"Poison", 1 }
     };
     private int totalMaxFoodCount; //!< The total number of food that can be on the screen
-
+    /// <summary>
     /// Dictionary of spawning probability weights for each type of food
+    /// </summary>
     private Dictionary<string, float> foodSpawnWeights = new Dictionary<string, float>
     {
          // Good foods
@@ -89,6 +74,7 @@ public class FoodController : MonoBehaviour {
         {"Chocolate", 0.8f },
         {"Poison", 0.2f }
     };
+<<<<<<< HEAD:Yay-A-Mouse/Assets/Scripts/Main/FoodController.cs
     private float totalFoodSpawnWeight; // Sum of all food spawn probability weights
     private float[] cumulativeFoodWeights; // for generating weighted random food 
 
@@ -150,6 +136,14 @@ public class FoodController : MonoBehaviour {
     {
         get { return new Dictionary<string, Sprite>(foodSpritesDict); }
     }
+=======
+    private float totalFoodSpawnWeight; //!< Sum of all food spawn probability weights
+
+    private float minSpawnTime = 1f; //!< Minimum time to wait between food spawning
+    private float maxSpawnTime = 3.0f; //!< Maximum time to wait between food spawning
+    private int foodDirection = 1; //!< Change food direction for Horizontal and Vertical Movement
+    private Vector2[] randDirections; //!< Array of random directions For Random Movement
+>>>>>>> origin/Hetty:Yay-A-Mouse/Assets/Scripts/FoodController.cs
     
     // Ensure that certain members are initialized before
     // they are referenced in the initialization code
@@ -159,6 +153,7 @@ public class FoodController : MonoBehaviour {
         // Get mouse sprite renderer for getting mouse bounds
         mouseSpriteRenderer = GameObject.Find("Mouse").GetComponent<SpriteRenderer>();
 
+<<<<<<< HEAD:Yay-A-Mouse/Assets/Scripts/Main/FoodController.cs
         // Get array of food names from sprites assigned in inspector
         foodNames = new string[FoodSprites.Length];
         for(int i = 0; i < FoodSprites.Length; i ++)
@@ -168,9 +163,17 @@ public class FoodController : MonoBehaviour {
 
         // Add entries to foodSpriteDict
         for(int i = 0; i < FoodSprites.Length; i ++)
+=======
+	// Use this for initialization
+	void Start () {
+        ObjectPool[] objPools = gameObject.GetComponents<ObjectPool>();
+        foreach(ObjectPool objPool in objPools)
+>>>>>>> origin/Hetty:Yay-A-Mouse/Assets/Scripts/FoodController.cs
         {
-            foodSpritesDict.Add(foodNames[i], FoodSprites[i]);
+            Debug.Log(objPool.gameObject);
+            objPoolsDict.Add(objPool.obj.GetComponent<Food>().type, objPool); 
         }
+<<<<<<< HEAD:Yay-A-Mouse/Assets/Scripts/Main/FoodController.cs
 
         // Dynamically add food object pools
         foreach(KeyValuePair<string,int> entry in foodValues)
@@ -211,6 +214,9 @@ public class FoodController : MonoBehaviour {
             foodPool.PoolObject = Resources.Load("Prefabs/"+entry.Key) as GameObject;
         }
 
+=======
+        Debug.Log(objPoolsDict);
+>>>>>>> origin/Hetty:Yay-A-Mouse/Assets/Scripts/FoodController.cs
         totalMaxFoodCount = maxFoodCounts.Sum(x => x.Value);
         totalFoodSpawnWeight = foodSpawnWeights.Sum(x => x.Value);
 
@@ -295,7 +301,7 @@ public class FoodController : MonoBehaviour {
     {
         while (true)
         {
-            string foodName = foodNames[Random.Range(0, foodNames.Length)];
+            string foodName = FoodNames[Random.Range(0, FoodNames.Length)];
             float prob = Random.value * totalFoodSpawnWeight;
             for(int i =0; i < cumulativeFoodWeights.Length; i++)
             {
@@ -317,9 +323,10 @@ public class FoodController : MonoBehaviour {
         {
             string foodName = "";
             // Randomize which food type to spawn
-            while (!foodPoolsDict.ContainsKey(foodName))
+            while (!objPoolsDict.ContainsKey(foodName))
                 foodName = RandomizeFoodType();
 
+<<<<<<< HEAD:Yay-A-Mouse/Assets/Scripts/Main/FoodController.cs
 
             if (foodPoolsDict[foodName].ActiveObjects < maxFoodCounts[foodName])
             {
@@ -369,6 +376,48 @@ public class FoodController : MonoBehaviour {
                 {
                     break;
                 }
+=======
+            if( objPoolsDict[foodName].getActiveObjects() < maxFoodCounts[foodName])
+            {
+                GameObject food = objPoolsDict[foodName].getObj();
+
+                // Spawn at a random position
+                // make sure it doesn't overlap with
+                // over food objects or the mouse
+                float x;
+                float y;
+                while(true){
+                    // Make ranges of spawn position with different probabilities
+                    //  magnitude < orthoSize/3: P = 0.2
+                    //  magnitude < 2* orthoSize/3: P = 0.3
+                    //  magnitude < orthosize: P = 0.5
+                    x = Random.Range(CameraController.MinXUnits, CameraController.MaxXUnits);
+                    y = Random.Range(CameraController.MinYUnits, CameraController.MaxYUnits);
+                    Vector2 foodPos = new Vector2(x, y);
+                    Collider2D colObj = Physics2D.OverlapPoint(foodPos);
+                    if (colObj == null)
+                    {
+                        float prob = Random.value;
+                        if (prob <= 0.2 && foodPos.magnitude < Camera.main.orthographicSize/3f)
+                        {
+                            break;
+                        }
+                        else if(prob > 0.2 && prob <= 0.5 && foodPos.magnitude <= 2*Camera.main.orthographicSize/3f
+                            && foodPos.magnitude > Camera.main.orthographicSize / 3f)
+                        {
+                            break;
+                        }
+                        else if(prob > 0.5 && foodPos.magnitude > 2 * Camera.main.orthographicSize / 3f)
+                        {
+                            break;
+                        }
+ 
+                    }
+                }
+
+                food.GetComponent<Rigidbody2D>().position = new Vector3(x,y,0);
+            }
+>>>>>>> origin/Hetty:Yay-A-Mouse/Assets/Scripts/FoodController.cs
 
             }
         }
@@ -399,14 +448,16 @@ public class FoodController : MonoBehaviour {
             foodDirection *= -1;
 
             // For Random Movement
-            randDirections.Clear(); // clear list of random movements
+            randDirections = new Vector2[totalMaxFoodCount];
+            int i = 0;
             foreach(Transform food in transform)
             {
                 float drag = food.gameObject.GetComponent<Rigidbody2D>().drag;
-                randDirections.Add(Random.insideUnitCircle * drag);
+                randDirections[i] = Random.insideUnitCircle * drag;
+                i++;
             }
-
-            yield return new WaitForSeconds( Random.Range(minChangeTime, maxChangeTime));
+            float waittime = Random.Range(5f, 20f);
+            yield return new WaitForSeconds(3);
         }
         
     }
