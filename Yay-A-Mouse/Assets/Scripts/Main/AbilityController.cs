@@ -605,7 +605,6 @@ public class AbilityController : NetworkBehaviour
     [ClientRpc]
     public void RpcReceiveScaryCat(string caller, int duration, int happinessReduction, int weightReduction)
     {
-        audio.PlayOneShot(SoundCat);
         if (!isLocalPlayer) return;
         levelController.ScaryCatAnimation();
 
@@ -679,6 +678,7 @@ public class AbilityController : NetworkBehaviour
     [Command]
     public void CmdDispatchBeastlyBuffet(string caller, string target, int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
     {
+        Debug.Log("Dispatching beastly buffet");
         if (!isServer) return;
         var victim = GameObject.FindGameObjectsWithTag("Player").First(p => p.GetComponent<Player>().Name.Equals(target));
         victim.GetComponent<AbilityController>().RpcReceiveBeastlyBuffet(caller, duration, pointThreshold, spawnLimitMultiplier, spawnWeightMultiplier);
@@ -696,9 +696,8 @@ public class AbilityController : NetworkBehaviour
     [ClientRpc]
     public void RpcReceiveBeastlyBuffet(string caller, int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)
     {
-        audio.PlayOneShot(SoundBeastlyBuffet);
-
         if (!isLocalPlayer) return;
+//        playBeastlyBuffetAudio();
         var badFoods = foodController.FoodValues.Where(food => food.Value < pointThreshold).ToList();
         var boostedFood = badFoods[new Random().Next(badFoods.Count)].Key;
         bbOriginalCount = foodController.getMaxFoodCount(boostedFood);
@@ -711,6 +710,11 @@ public class AbilityController : NetworkBehaviour
         beastlyBuffetDuration = duration;
 
         NewGameMessage(caller + " sent a Beastly Buffet over!");
+    }
+
+    private void playBeastlyBuffetAudio()
+    {
+        audio.PlayOneShot(SoundBeastlyBuffet);
     }
 
     /// <summary>
@@ -757,13 +761,13 @@ public class AbilityController : NetworkBehaviour
     [ClientRpc]
     public void RpcReceiveThief(string caller, int duration, int foodUnitsTransferred)
     {
-        audio.PlayOneShot(SoundThief);
         if (!isLocalPlayer) return;
         if (foodController == null)
         {
             Debug.LogError("foodController is null");
             return;
         }
+//        playThiefAudio();
         var toTransfer = new List<string>();
 
         for (int i = 0; i < foodUnitsTransferred; i++)
@@ -788,6 +792,11 @@ public class AbilityController : NetworkBehaviour
         CmdDispatchStolenFood(caller, toTransfer.ToArray());
 
         NewGameMessage(caller + " stole some food from you!");
+    }
+
+    private void playThiefAudio()
+    {
+        audio.PlayOneShot(SoundThief);
     }
 
     /// <summary>

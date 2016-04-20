@@ -13,6 +13,7 @@ using System.Linq;
 public class LevelController : MonoBehaviour
 {
     public AudioClip SoundInGameBGM;
+    public AudioClip SoundCat;
     public AudioClip SoundFrenzyMode;
     public AudioClip SoundCombo;
     public AudioClip SoundWin;
@@ -216,7 +217,7 @@ public class LevelController : MonoBehaviour
         {
             playerObjects = GameObject.FindGameObjectsWithTag("Player");
             Debug.Log("Finding players");
-            foreach(GameObject player in playerObjects)
+            foreach (GameObject player in playerObjects)
             {
                 player.GetComponent<Player>().AttachToMouse();
             }
@@ -477,6 +478,7 @@ public class LevelController : MonoBehaviour
     /// </summary>
     public void ScaryCatAnimation()
     {
+        audio.PlayOneShot(SoundCat);
         scaryCatShock.SetActive(true);
         scaryCat.SetActive(true);
     }
@@ -575,10 +577,10 @@ public class LevelController : MonoBehaviour
     /// </summary>
     private void checkEndGame()
     {
-        if(playerObjects != null)
+        if (playerObjects != null)
         {
             bool gameEnd = false;
-            foreach(GameObject player in playerObjects)
+            foreach (GameObject player in playerObjects)
             {
                 if (player.GetComponent<Player>().PlayerWon)
                 {
@@ -594,7 +596,7 @@ public class LevelController : MonoBehaviour
                 foodController.DeactivateController();
 
                 bool localPlayerWon = true;
-                foreach(GameObject player in nonLocalPlayerObjects)
+                foreach (GameObject player in nonLocalPlayerObjects)
                 {
                     if (player.GetComponent<Player>().PlayerWon)
                     {
