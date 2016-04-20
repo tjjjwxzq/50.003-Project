@@ -20,9 +20,10 @@ public class AbilityUI : MonoBehaviour
     private List<Ability> playerAbilities;
     private Mouse mouse;
 
-    private IDictionary<AbilityName, GameObject> abilityButtons = new Dictionary<AbilityName, GameObject>();
+    public IDictionary<AbilityName, GameObject> AbilityButtons = new Dictionary<AbilityName, GameObject>();
     private IDictionary<AbilityName, GameObject> abilityUpgradeButtons = new Dictionary<AbilityName, GameObject>();
     private IDictionary<AbilityName, Sprite> abilitySpritesDict = new Dictionary<AbilityName, Sprite>();
+    public Dictionary<AbilityName, Text> Countdowns; 
 
     // Use this for initialization
     void Start()
@@ -51,12 +52,18 @@ public class AbilityUI : MonoBehaviour
         Debug.Log("Button local scale " + buttonRect.localScale);
 
         float yOffset = -playerAbilities.Count / 2 * offset;
+        Countdowns = new Dictionary<AbilityName, Text>();
         foreach (Ability ability in playerAbilities)
         {
             InstantiateButton(yOffset, ability.Name);
             Debug.Log("instantiated button");
-            abilityButtons[ability.Name].name = ability.Name.ToString();
+            AbilityButtons[ability.Name].name = ability.Name.ToString();
             yOffset += offset;
+
+            Countdowns[ability.Name] =
+                AbilityButtons[ability.Name].transform.Find("Countdown").gameObject.GetComponent<Text>();
+            Countdowns[ability.Name].gameObject.SetActive(false);
+
         }
     }
 
@@ -70,22 +77,24 @@ public class AbilityUI : MonoBehaviour
 
 #if UNITY_EDITOR
 #else
-
             var sufficientHappiness = mouse.Happiness >= localPlayer.PAbilities[ability.Name].Cost;
-            abilityButtons[ability.Name].GetComponent<Button>().interactable = sufficientHappiness;
-
+            AbilityButtons[ability.Name].GetComponent<Button>().interactable = sufficientHappiness;
             if (!sufficientHappiness) continue;
 #endif
+
+            AbilityButtons[ability.Name].GetComponent<Button>().interactable = !abilityController.IsActive(ability.Name);
+            if (abilityController.IsActive(ability.Name)) continue;
+
             if ((ability.Name == AbilityName.BeastlyBuffet) || (ability.Name == AbilityName.ScaryCat) || (ability.Name == AbilityName.Thief))
             {
-                abilityButtons[ability.Name].GetComponent<Button>().interactable = abilityController.targetedPlayer.Length != 0;
+                AbilityButtons[ability.Name].GetComponent<Button>().interactable = abilityController.targetedPlayer.Length != 0;
             }
         }
     }
 
     public void UpdateAbilityLevelOnButton(AbilityName abilityName)
     {
-        abilityButtons[abilityName].GetComponentInChildren<Text>().text = localPlayer.PAbilities[abilityName].Level.ToString();
+        AbilityButtons[abilityName].GetComponentInChildren<Text>().text = localPlayer.PAbilities[abilityName].Level.ToString();
     }
 
     public bool CheckIfMaxed(AbilityName ability)
@@ -111,7 +120,7 @@ public class AbilityUI : MonoBehaviour
         var plusButton = button.transform.Find("PlusButton").gameObject;
         plusButton.GetComponent<Button>().onClick.AddListener(() => abilityController.ImproveAbility(ability));
 
-        abilityButtons[ability] = button;
+        AbilityButtons[ability] = button;
         abilityUpgradeButtons[ability] = plusButton;
     }
 }
