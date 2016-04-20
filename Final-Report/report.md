@@ -169,7 +169,7 @@ LobbyManager->LobbyManager: ServerChangeScene("Main")
 (insert fancy diagram with different components: food controller, mouse, level controller)
 This is where the main gameplay occurs. There are three main components: the Mouse, the Food Controller, and the Level Controller.
 
-The Mouse Game Object sits in the center of the screen waiting to be fed. The 'feeding' is basically implemented as collision detection between Game Objects with Collider2D components, namely between the Mouse Game Object and the Food Game Objects that the player swipes towards the Mouse. The Mouse behaviour is implemented by the attached Mouse Script component, which controls such things as the rotation of the mouse, the behaviour on collision detection with food, the detection of a player stroking the mouse to increase happiness,
+The Mouse Game Object sits in the center of the screen waiting to be fed. The 'feeding' is basically implemented as collision detection between Game Objects with Collider2D components, namely between the Mouse Game Object and the Food Game Objects that the player swipes towards the Mouse. The Mouse behaviour is implemented by the attached Mouse Script component, which controls such things as the rotation of the mouse, the behaviour on collision detection with food, the detection of a player stroking the mouse to increase happiness, the change of the mouse sprite when it levels up, and the playing of sound effects when the mouse is touched and fed.
 
 implemented as a coroutine that increments or decrements the rotation of the  Mouse Game Object's Transform component by a linearly interpolated amount everytime
 
@@ -231,6 +231,7 @@ Note left of LevelController: checks if the sequence count\n is 3, meaning a com
 
 ## Entering and exiting frenzy mode
 Frenzy mode is entered once the player has attained 10 combos (not necessarily consecutively). It lasts for 10 seconds then the game returns to normal mode.
+
 
 ```sequence
 Title: Entering and Exiting Frenzy Mode

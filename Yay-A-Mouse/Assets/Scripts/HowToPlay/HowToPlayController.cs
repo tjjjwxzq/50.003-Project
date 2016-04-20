@@ -35,9 +35,12 @@ public class HowToPlayController : MonoBehaviour {
     /// </summary>
     public void OnNextButton()
     {
-        sectionAnimatorsDict[sectionNames[currentSectionIndex]].SetTrigger("Exit");
-        currentSectionIndex++;
-        Invoke("AnimateEntry", 0.5f);
+        if (sectionAnimatorsDict[sectionNames[currentSectionIndex]].GetCurrentAnimatorStateInfo(0).IsName("Default"))
+        {
+            sectionAnimatorsDict[sectionNames[currentSectionIndex]].SetTrigger("Exit");
+            currentSectionIndex++;
+            Invoke("AnimateEntry", 0.5f);
+        }
     }
 
     // Invoke entry 1 second after exit
