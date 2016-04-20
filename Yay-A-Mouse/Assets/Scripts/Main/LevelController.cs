@@ -102,7 +102,7 @@ public class LevelController : MonoBehaviour
         foodPool = GetComponent<ObjectPool>();
         foodPool.PoolObject = Resources.Load("Prefabs/Normal") as GameObject;
 
-        abilityController =
+        /*abilityController =
             GameObject.FindGameObjectsWithTag("Player")
                 .First(o => o.GetComponent<AbilityController>().isLocalPlayer)
                 .GetComponent<AbilityController>();
@@ -110,7 +110,7 @@ public class LevelController : MonoBehaviour
         abilityController.AttachToFoodController()
             .AttachToMouse()
             .AttachToLevelController()
-            .AttachToAbilityUi();
+            .AttachToAbilityUi();*/
 
         // Get Combo UI
         comboUI = GameObject.Find("Combo");
@@ -226,7 +226,7 @@ public class LevelController : MonoBehaviour
         }
 
         updatePlayerScores();
-        checkEndGame();
+        //checkEndGame();
 
         checkComboStreak();
         checkGameMode();

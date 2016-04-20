@@ -90,7 +90,6 @@ public class StartController : MonoBehaviour {
     public void OnHostGame()
     {
         lobbyManager.StartHost();
-        networkDiscovery.StartAsServer();
         Debug.Log("Host name " + Dns.GetHostName());
         foreach(IPAddress ipAdd in Dns.GetHostAddresses(Dns.GetHostName()))
         {

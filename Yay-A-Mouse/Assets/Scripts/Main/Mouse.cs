@@ -543,6 +543,7 @@ public class Mouse: MonoBehaviour {
     // Check for collision with food
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Colliding with mouse!");
         // Food nom nom
         if(collision.gameObject.tag == "Food")  // different food prefabs are tagged with food
         {
