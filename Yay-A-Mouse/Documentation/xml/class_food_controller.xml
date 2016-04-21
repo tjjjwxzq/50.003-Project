@@ -1,0 +1,886 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_food_controller" kind="class" language="C#" prot="public">
+    <compoundname>FoodController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79" prot="public" static="no">
+        <name>Movements</name>
+        <enumvalue id="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79a84a8921b25f505d0d2077aeb5db4bc16" prot="public">
+          <name>Static</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79ac1b5fa03ecdb95d4a45dd1c40b02527f" prot="public">
+          <name>Horizontal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79a06ce2a25e5d12c166a36f654dbea6012" prot="public">
+          <name>Vertical</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79a64663f4646781c9c0110838b905daa23" prot="public">
+          <name>Random</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="17" column="1" bodyfile="Main/FoodController.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_food_controller_1a0f024c365daa0676e09b3c501f5baa9d" prot="private" static="no" mutable="no">
+        <type>SpriteRenderer</type>
+        <definition>SpriteRenderer FoodController.mouseSpriteRenderer</definition>
+        <argsstring></argsstring>
+        <name>mouseSpriteRenderer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="19" column="1" bodyfile="Main/FoodController.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a4ac71ac860a17c8ffc371cf197719d74" prot="private" static="no" mutable="no">
+        <type>string[]</type>
+        <definition>string [] FoodController.foodNames</definition>
+        <argsstring></argsstring>
+        <name>foodNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="21" column="1" bodyfile="Main/FoodController.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a6d53489b898a0f8f65e83b98974cf949" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; string, Sprite &gt;</type>
+        <definition>Dictionary&lt;string,Sprite&gt; FoodController.foodSpritesDict</definition>
+        <argsstring></argsstring>
+        <name>foodSpritesDict</name>
+        <initializer>= new Dictionary&lt;string,Sprite&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="23" column="1" bodyfile="Main/FoodController.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a96d97dde641bf7b1f0772b4c2e62c935" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; string, <ref refid="class_object_pool" kindref="compound">ObjectPool</ref> &gt;</type>
+        <definition>Dictionary&lt;string, ObjectPool&gt; FoodController.foodPoolsDict</definition>
+        <argsstring></argsstring>
+        <name>foodPoolsDict</name>
+        <initializer>= new Dictionary&lt;string,<ref refid="class_object_pool" kindref="compound">ObjectPool</ref>&gt;()</initializer>
+        <briefdescription>
+<para>Dictionary of <ref refid="class_object_pool" kindref="compound">ObjectPool</ref> script components attached to <ref refid="class_food_controller" kindref="compound">FoodController</ref> and keyed by the food name. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="25" column="1" bodyfile="Main/FoodController.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1ad8ad63cefee23ca50e58b788eb625d85" prot="private" static="no" mutable="no">
+        <type>Movements</type>
+        <definition>Movements FoodController.foodMovement</definition>
+        <argsstring></argsstring>
+        <name>foodMovement</name>
+        <initializer>= Movements.Random</initializer>
+        <briefdescription>
+<para>Current food movement mode. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="26" column="1" bodyfile="Main/FoodController.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a482b757ad4c3105c85179f9754ff76a7" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; string, int &gt;</type>
+        <definition>Dictionary&lt;string, int&gt; FoodController.foodValues</definition>
+        <argsstring></argsstring>
+        <name>foodValues</name>
+        <initializer>= new Dictionary&lt;string, int&gt;
+    {
+        
+        {&quot;Normal&quot; , 5},
+        {&quot;Cheese&quot; , 10 },
+        {&quot;Carrot&quot; , 7 },
+        {&quot;Oat&quot; , 15 },
+        {&quot;Apple&quot; , 8 },
+        {&quot;Anchovy&quot; , 12 },
+        {&quot;Bread&quot; , 18 },
+        {&quot;Seed&quot; , 20 },
+
+        
+        {&quot;Bad&quot;, -5},
+        {&quot;Peanut&quot;, -7 },
+        {&quot;Orange&quot;, -10 },
+        {&quot;Garlic&quot;, -15 },
+        {&quot;Chocolate&quot;, -20 },
+        {&quot;Poison&quot;, -50 }
+    }</initializer>
+        <briefdescription>
+<para>Dictionary of food values. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="27" column="1" bodyfile="Main/FoodController.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a9304771bdf73aa6d997eb73d77d18cec" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; string, int &gt;</type>
+        <definition>Dictionary&lt;string, int&gt; FoodController.maxFoodCounts</definition>
+        <argsstring></argsstring>
+        <name>maxFoodCounts</name>
+        <initializer>= new Dictionary&lt;string, int&gt;
+    {
+        
+        {&quot;Normal&quot; , 15 },
+        {&quot;Cheese&quot; , 8 },
+        {&quot;Carrot&quot; , 10 },
+        {&quot;Oat&quot; , 5 },
+        {&quot;Apple&quot; , 9 },
+        {&quot;Anchovy&quot; , 3 },
+        {&quot;Bread&quot; , 3 },
+        {&quot;Seed&quot; , 2 },
+
+        
+        {&quot;Bad&quot;, 10 },
+        {&quot;Peanut&quot;, 7 },
+        {&quot;Orange&quot;, 5 },
+        {&quot;Garlic&quot;, 3 },
+        {&quot;Chocolate&quot;, 2 },
+        {&quot;Poison&quot;, 1 }
+    }</initializer>
+        <briefdescription>
+<para>Dictionary of max number of food for each type that can be on the screen. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="49" column="1" bodyfile="Main/FoodController.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1afc775771917c86c719a720c47eae096c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FoodController.totalMaxFoodCount</definition>
+        <argsstring></argsstring>
+        <name>totalMaxFoodCount</name>
+        <briefdescription>
+<para>The total number of food that can be on the screen. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="69" column="1" bodyfile="Main/FoodController.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a4f0c0df590b03a0f24df1c541d1ad68c" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; string, float &gt;</type>
+        <definition>Dictionary&lt;string, float&gt; FoodController.foodSpawnWeights</definition>
+        <argsstring></argsstring>
+        <name>foodSpawnWeights</name>
+        <initializer>= new Dictionary&lt;string, float&gt;
+    {
+         
+        {&quot;Normal&quot; , 9f},
+        {&quot;Cheese&quot; , 4f },
+        {&quot;Carrot&quot; , 6f},
+        {&quot;Oat&quot; , 3.5f },
+        {&quot;Apple&quot; , 5f },
+        {&quot;Anchovy&quot; , 2.5f },
+        {&quot;Bread&quot; , 2f },
+        {&quot;Seed&quot; , 1.5f },
+
+        
+        {&quot;Bad&quot;, 4f },
+        {&quot;Peanut&quot;, 2.5f },
+        {&quot;Orange&quot;, 1.5f },
+        {&quot;Garlic&quot;, 1.2f },
+        {&quot;Chocolate&quot;, 0.8f },
+        {&quot;Poison&quot;, 0.2f }
+    }</initializer>
+        <briefdescription>
+<para>Dictionary of spawning probability weights for each type of food. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="72" column="1" bodyfile="Main/FoodController.cs" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1aeabdab8e1954a5c77cb8b68d61c6f9b6" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FoodController.totalFoodSpawnWeight</definition>
+        <argsstring></argsstring>
+        <name>totalFoodSpawnWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="92" column="1" bodyfile="Main/FoodController.cs" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a32bde1caeb81804dacf03abe609e6ea8" prot="private" static="no" mutable="no">
+        <type>float[]</type>
+        <definition>float [] FoodController.cumulativeFoodWeights</definition>
+        <argsstring></argsstring>
+        <name>cumulativeFoodWeights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="93" column="1" bodyfile="Main/FoodController.cs" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a639e2742280337fb8b8ef557dc36ee1a" prot="private" static="no" mutable="no">
+        <type>IEnumerator</type>
+        <definition>IEnumerator FoodController.spawnCoroutine</definition>
+        <argsstring></argsstring>
+        <name>spawnCoroutine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="96" column="1" bodyfile="Main/FoodController.cs" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a26df97ff60408f7c862c64e706ffce0b" prot="private" static="no" mutable="no">
+        <type>IEnumerator</type>
+        <definition>IEnumerator FoodController.changeDirectionsCoroutine</definition>
+        <argsstring></argsstring>
+        <name>changeDirectionsCoroutine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="97" column="1" bodyfile="Main/FoodController.cs" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a5e065df9cd1378b731f817ab2e2f20dd" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FoodController.minSpawnTime</definition>
+        <argsstring></argsstring>
+        <name>minSpawnTime</name>
+        <initializer>= 0.3f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="98" column="1" bodyfile="Main/FoodController.cs" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1aae63e70e4018d8fb53b63e719ce8981b" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FoodController.maxSpawnTime</definition>
+        <argsstring></argsstring>
+        <name>maxSpawnTime</name>
+        <initializer>= 2.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="99" column="1" bodyfile="Main/FoodController.cs" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1aace55484f24f2b64b28c2546a30529b4" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FoodController.spawnRateMultiplier</definition>
+        <argsstring></argsstring>
+        <name>spawnRateMultiplier</name>
+        <initializer>= 1f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="100" column="1" bodyfile="Main/FoodController.cs" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a438ba73e5ad4b2ba27b4d2377f26b2ec" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FoodController.minChangeTime</definition>
+        <argsstring></argsstring>
+        <name>minChangeTime</name>
+        <initializer>= 0.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="101" column="1" bodyfile="Main/FoodController.cs" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a51ea35cffe4d3ae9e6d4dc420887ad4f" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FoodController.maxChangeTime</definition>
+        <argsstring></argsstring>
+        <name>maxChangeTime</name>
+        <initializer>= 15f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="102" column="1" bodyfile="Main/FoodController.cs" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1ae827bd5ff16999a966e2e52902a1978b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FoodController.foodDirection</definition>
+        <argsstring></argsstring>
+        <name>foodDirection</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="103" column="1" bodyfile="Main/FoodController.cs" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_controller_1a4314af3cbf4db290888be26e657fa6f2" prot="private" static="no" mutable="no">
+        <type>List&lt; Vector2 &gt;</type>
+        <definition>List&lt;Vector2&gt; FoodController.randDirections</definition>
+        <argsstring></argsstring>
+        <name>randDirections</name>
+        <initializer>= new List&lt;Vector2&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="104" column="1" bodyfile="Main/FoodController.cs" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_food_controller_1a057095438030110578a6670576c6fa43" prot="public" static="no" mutable="no">
+        <type>Sprite[]</type>
+        <definition>Sprite [] FoodController.FoodSprites</definition>
+        <argsstring></argsstring>
+        <name>FoodSprites</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="22" column="1" bodyfile="Main/FoodController.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_food_controller_1a5780c78529b71e8dc914cff2963569b5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string[]</type>
+        <definition>string [] FoodController.FoodNames</definition>
+        <argsstring></argsstring>
+        <name>FoodNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="108" column="1" bodyfile="Main/FoodController.cs" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_food_controller_1afeffab7f30cd1307157192889ab06721" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float FoodController.TotalFoodSpawnWeight</definition>
+        <argsstring></argsstring>
+        <name>TotalFoodSpawnWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="113" column="1" bodyfile="Main/FoodController.cs" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_food_controller_1a593ff92b13ffdcfd4658a71f78718f96" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float FoodController.SpawnRate</definition>
+        <argsstring></argsstring>
+        <name>SpawnRate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="119" column="1" bodyfile="Main/FoodController.cs" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_food_controller_1a4440f445f989fec97ae4ceee2ffbd841" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Dictionary&lt; string, int &gt;</type>
+        <definition>Dictionary&lt;string, int&gt; FoodController.FoodValues</definition>
+        <argsstring></argsstring>
+        <name>FoodValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="129" column="1" bodyfile="Main/FoodController.cs" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_food_controller_1ab1af49799b84e19e2be274d9c5b149a4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Dictionary&lt; string, int &gt;</type>
+        <definition>Dictionary&lt;string, int&gt; FoodController.MaxFoodCounts</definition>
+        <argsstring></argsstring>
+        <name>MaxFoodCounts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="134" column="1" bodyfile="Main/FoodController.cs" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_food_controller_1a41c8e47c4b31ac4de5f31599aeed0e36" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Dictionary&lt; string, float &gt;</type>
+        <definition>Dictionary&lt;string, float&gt; FoodController.FoodSpawnWeights</definition>
+        <argsstring></argsstring>
+        <name>FoodSpawnWeights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="139" column="1" bodyfile="Main/FoodController.cs" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_food_controller_1ac2f8e1257214b9e6cc350c95524e927e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Dictionary&lt; string, <ref refid="class_object_pool" kindref="compound">ObjectPool</ref> &gt;</type>
+        <definition>Dictionary&lt;string, ObjectPool&gt; FoodController.FoodPools</definition>
+        <argsstring></argsstring>
+        <name>FoodPools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="144" column="1" bodyfile="Main/FoodController.cs" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_food_controller_1a4837550fa19b967c11af34a644fa0eea" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Dictionary&lt; string, Sprite &gt;</type>
+        <definition>Dictionary&lt;string,Sprite&gt; FoodController.FoodSpritesDict</definition>
+        <argsstring></argsstring>
+        <name>FoodSpritesDict</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="149" column="1" bodyfile="Main/FoodController.cs" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_food_controller_1a345844b04406827705d89526d92a246d" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>Movements</type>
+        <definition>Movements FoodController.FoodMovement</definition>
+        <argsstring></argsstring>
+        <name>FoodMovement</name>
+        <briefdescription>
+<para>Property to set food movement mode. (May not actually need this?) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="471" column="1" bodyfile="Main/FoodController.cs" bodystart="472" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_food_controller_1ad9d401344b277dafe3d2b1c23c04d594" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.Awake</definition>
+        <argsstring>()</argsstring>
+        <name>Awake</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="157" column="1" bodyfile="Main/FoodController.cs" bodystart="157" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1ad7a818132f5fc56c3fc716fc0c1a6a81" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="237" column="1" bodyfile="Main/FoodController.cs" bodystart="237" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1a7a41712be5a0fb6319e16cea685361cf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="245" column="1" bodyfile="Main/FoodController.cs" bodystart="245" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1ad77714b191cd5457df2d83963186c0c2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.FixedUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>FixedUpdate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Add force to move food based on food movement mode</para>        </inbodydescription>
+        <location file="Main/FoodController.cs" line="248" column="1" bodyfile="Main/FoodController.cs" bodystart="248" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1a4bcf19036c5bb3a9983edd7d4b72bb94" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string FoodController.RandomizeFoodType</definition>
+        <argsstring>()</argsstring>
+        <name>RandomizeFoodType</name>
+        <briefdescription>
+<para>Randomly gets the name of a food type to spawn Probabilities are weighted To be called in ::SpawnFood() </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="294" column="1" bodyfile="Main/FoodController.cs" bodystart="294" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1af87320e8747fea0b2feb5d661593d2b9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator FoodController.SpawnFood</definition>
+        <argsstring>()</argsstring>
+        <name>SpawnFood</name>
+        <briefdescription>
+<para>Coroutine that spawns food on screen Spawns one food object each time it is executed, from a randomly selected type </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="314" column="1" bodyfile="Main/FoodController.cs" bodystart="314" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1a0774206c6e1603f0332dbc79e4ff7565" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator FoodController.ChangeFoodDirection</definition>
+        <argsstring>()</argsstring>
+        <name>ChangeFoodDirection</name>
+        <briefdescription>
+<para>Coroutine that changes the direction of food movement every random time interval within a range </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="389" column="1" bodyfile="Main/FoodController.cs" bodystart="389" bodyend="412"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_food_controller_1a1b6ce03eccc63fa42d9c13c9f17c6356" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.SpawnFood</definition>
+        <argsstring>(string foodName)</argsstring>
+        <name>SpawnFood</name>
+        <param>
+          <type>string</type>
+          <declname>foodName</declname>
+        </param>
+        <briefdescription>
+<para>Spawns a given food object on the string </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>foodName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the food type to spawn</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="337" column="1" bodyfile="Main/FoodController.cs" bodystart="337" bodyend="383"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1a9f0f153ce5e90b4e081f4d903cf17808" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.setMaxFoodCount</definition>
+        <argsstring>(string name, int count)</argsstring>
+        <name>setMaxFoodCount</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Sets the max food count for the specified food type Can be called by <ref refid="class_player" kindref="compound">Player</ref> <ref refid="class_ability" kindref="compound">Ability</ref> code </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of food</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Max count to set to</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="420" column="1" bodyfile="Main/FoodController.cs" bodystart="420" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1af9fcb378c2333de7796093ef368bfd93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int FoodController.getMaxFoodCount</definition>
+        <argsstring>(string name)</argsstring>
+        <name>getMaxFoodCount</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Gets the max food count for the specified food type Can be called by <ref refid="class_player" kindref="compound">Player</ref> <ref refid="class_ability" kindref="compound">Ability</ref> code </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_food" kindref="compound">Food</ref> type to get count for</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="431" column="1" bodyfile="Main/FoodController.cs" bodystart="431" bodyend="434"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1ae118c67950b39a9b3aaa8e15f027a37b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.setFoodSpawnWeight</definition>
+        <argsstring>(string name, float weight)</argsstring>
+        <name>setFoodSpawnWeight</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight</declname>
+        </param>
+        <briefdescription>
+<para>Sets the food spawn probability weight for the specified food type Can be called by <ref refid="class_player" kindref="compound">Player</ref> <ref refid="class_ability" kindref="compound">Ability</ref> code </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>weight</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="442" column="1" bodyfile="Main/FoodController.cs" bodystart="442" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1aa210ae3e7b1cc83ba3dab4a36970e19f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float FoodController.getFoodSpawnWeight</definition>
+        <argsstring>(string name)</argsstring>
+        <name>getFoodSpawnWeight</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Gets the food spawn probability weight for the specified food type Can be called by <ref refid="class_player" kindref="compound">Player</ref> <ref refid="class_ability" kindref="compound">Ability</ref> code </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_food" kindref="compound">Food</ref> type to get spawn probability weight for</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="453" column="1" bodyfile="Main/FoodController.cs" bodystart="453" bodyend="456"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1a40646d26ad453438ab96bcde7a99d97a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.SetDifficulty</definition>
+        <argsstring>(int level)</argsstring>
+        <name>SetDifficulty</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+<para>Changes food spawning difficulty Can be called by <ref refid="class_level_controller" kindref="compound">LevelController</ref> to change difficulty of the game </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="463" column="1" bodyfile="Main/FoodController.cs" bodystart="463" bodyend="466"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1a8c30969d35cd04d5945e1d5378d2971f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.DeactivateController</definition>
+        <argsstring>()</argsstring>
+        <name>DeactivateController</name>
+        <briefdescription>
+<para>Stops food spawning and change of food direction and freezes all food on screen in place </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="480" column="1" bodyfile="Main/FoodController.cs" bodystart="480" bodyend="490"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_controller_1a91371568499fb3fbbc3ebfd961858a06" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FoodController.ActivateController</definition>
+        <argsstring>()</argsstring>
+        <name>ActivateController</name>
+        <briefdescription>
+<para>Restarts food spawning and chaning of food direction </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/FoodController.cs" line="495" column="1" bodyfile="Main/FoodController.cs" bodystart="495" bodyend="505"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script attached to <ref refid="class_food_controller" kindref="compound">FoodController</ref> object that controls behavior such as food spawning, and food movement. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="94">
+        <label>FoodController</label>
+        <link refid="class_food_controller"/>
+        <childnode refid="95" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="96">
+        <label>FoodController</label>
+        <link refid="class_food_controller"/>
+        <childnode refid="97" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Main/FoodController.cs" line="15" column="1" bodyfile="Main/FoodController.cs" bodystart="15" bodyend="509"/>
+    <listofallmembers>
+      <member refid="class_food_controller_1a91371568499fb3fbbc3ebfd961858a06" prot="public" virt="non-virtual"><scope>FoodController</scope><name>ActivateController</name></member>
+      <member refid="class_food_controller_1ad9d401344b277dafe3d2b1c23c04d594" prot="private" virt="non-virtual"><scope>FoodController</scope><name>Awake</name></member>
+      <member refid="class_food_controller_1a26df97ff60408f7c862c64e706ffce0b" prot="private" virt="non-virtual"><scope>FoodController</scope><name>changeDirectionsCoroutine</name></member>
+      <member refid="class_food_controller_1a0774206c6e1603f0332dbc79e4ff7565" prot="private" virt="non-virtual"><scope>FoodController</scope><name>ChangeFoodDirection</name></member>
+      <member refid="class_food_controller_1a32bde1caeb81804dacf03abe609e6ea8" prot="private" virt="non-virtual"><scope>FoodController</scope><name>cumulativeFoodWeights</name></member>
+      <member refid="class_food_controller_1a8c30969d35cd04d5945e1d5378d2971f" prot="public" virt="non-virtual"><scope>FoodController</scope><name>DeactivateController</name></member>
+      <member refid="class_food_controller_1ad77714b191cd5457df2d83963186c0c2" prot="private" virt="non-virtual"><scope>FoodController</scope><name>FixedUpdate</name></member>
+      <member refid="class_food_controller_1ae827bd5ff16999a966e2e52902a1978b" prot="private" virt="non-virtual"><scope>FoodController</scope><name>foodDirection</name></member>
+      <member refid="class_food_controller_1ad8ad63cefee23ca50e58b788eb625d85" prot="private" virt="non-virtual"><scope>FoodController</scope><name>foodMovement</name></member>
+      <member refid="class_food_controller_1a345844b04406827705d89526d92a246d" prot="public" virt="non-virtual"><scope>FoodController</scope><name>FoodMovement</name></member>
+      <member refid="class_food_controller_1a5780c78529b71e8dc914cff2963569b5" prot="public" virt="non-virtual"><scope>FoodController</scope><name>FoodNames</name></member>
+      <member refid="class_food_controller_1a4ac71ac860a17c8ffc371cf197719d74" prot="private" virt="non-virtual"><scope>FoodController</scope><name>foodNames</name></member>
+      <member refid="class_food_controller_1ac2f8e1257214b9e6cc350c95524e927e" prot="public" virt="non-virtual"><scope>FoodController</scope><name>FoodPools</name></member>
+      <member refid="class_food_controller_1a96d97dde641bf7b1f0772b4c2e62c935" prot="private" virt="non-virtual"><scope>FoodController</scope><name>foodPoolsDict</name></member>
+      <member refid="class_food_controller_1a4f0c0df590b03a0f24df1c541d1ad68c" prot="private" virt="non-virtual"><scope>FoodController</scope><name>foodSpawnWeights</name></member>
+      <member refid="class_food_controller_1a41c8e47c4b31ac4de5f31599aeed0e36" prot="public" virt="non-virtual"><scope>FoodController</scope><name>FoodSpawnWeights</name></member>
+      <member refid="class_food_controller_1a057095438030110578a6670576c6fa43" prot="public" virt="non-virtual"><scope>FoodController</scope><name>FoodSprites</name></member>
+      <member refid="class_food_controller_1a6d53489b898a0f8f65e83b98974cf949" prot="private" virt="non-virtual"><scope>FoodController</scope><name>foodSpritesDict</name></member>
+      <member refid="class_food_controller_1a4837550fa19b967c11af34a644fa0eea" prot="public" virt="non-virtual"><scope>FoodController</scope><name>FoodSpritesDict</name></member>
+      <member refid="class_food_controller_1a482b757ad4c3105c85179f9754ff76a7" prot="private" virt="non-virtual"><scope>FoodController</scope><name>foodValues</name></member>
+      <member refid="class_food_controller_1a4440f445f989fec97ae4ceee2ffbd841" prot="public" virt="non-virtual"><scope>FoodController</scope><name>FoodValues</name></member>
+      <member refid="class_food_controller_1aa210ae3e7b1cc83ba3dab4a36970e19f" prot="public" virt="non-virtual"><scope>FoodController</scope><name>getFoodSpawnWeight</name></member>
+      <member refid="class_food_controller_1af9fcb378c2333de7796093ef368bfd93" prot="public" virt="non-virtual"><scope>FoodController</scope><name>getMaxFoodCount</name></member>
+      <member refid="class_food_controller_1a51ea35cffe4d3ae9e6d4dc420887ad4f" prot="private" virt="non-virtual"><scope>FoodController</scope><name>maxChangeTime</name></member>
+      <member refid="class_food_controller_1a9304771bdf73aa6d997eb73d77d18cec" prot="private" virt="non-virtual"><scope>FoodController</scope><name>maxFoodCounts</name></member>
+      <member refid="class_food_controller_1ab1af49799b84e19e2be274d9c5b149a4" prot="public" virt="non-virtual"><scope>FoodController</scope><name>MaxFoodCounts</name></member>
+      <member refid="class_food_controller_1aae63e70e4018d8fb53b63e719ce8981b" prot="private" virt="non-virtual"><scope>FoodController</scope><name>maxSpawnTime</name></member>
+      <member refid="class_food_controller_1a438ba73e5ad4b2ba27b4d2377f26b2ec" prot="private" virt="non-virtual"><scope>FoodController</scope><name>minChangeTime</name></member>
+      <member refid="class_food_controller_1a5e065df9cd1378b731f817ab2e2f20dd" prot="private" virt="non-virtual"><scope>FoodController</scope><name>minSpawnTime</name></member>
+      <member refid="class_food_controller_1a0f024c365daa0676e09b3c501f5baa9d" prot="private" virt="non-virtual"><scope>FoodController</scope><name>mouseSpriteRenderer</name></member>
+      <member refid="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79" prot="public" virt="non-virtual"><scope>FoodController</scope><name>Movements</name></member>
+      <member refid="class_food_controller_1a4314af3cbf4db290888be26e657fa6f2" prot="private" virt="non-virtual"><scope>FoodController</scope><name>randDirections</name></member>
+      <member refid="class_food_controller_1a4bcf19036c5bb3a9983edd7d4b72bb94" prot="private" virt="non-virtual"><scope>FoodController</scope><name>RandomizeFoodType</name></member>
+      <member refid="class_food_controller_1a40646d26ad453438ab96bcde7a99d97a" prot="public" virt="non-virtual"><scope>FoodController</scope><name>SetDifficulty</name></member>
+      <member refid="class_food_controller_1ae118c67950b39a9b3aaa8e15f027a37b" prot="public" virt="non-virtual"><scope>FoodController</scope><name>setFoodSpawnWeight</name></member>
+      <member refid="class_food_controller_1a9f0f153ce5e90b4e081f4d903cf17808" prot="public" virt="non-virtual"><scope>FoodController</scope><name>setMaxFoodCount</name></member>
+      <member refid="class_food_controller_1a639e2742280337fb8b8ef557dc36ee1a" prot="private" virt="non-virtual"><scope>FoodController</scope><name>spawnCoroutine</name></member>
+      <member refid="class_food_controller_1af87320e8747fea0b2feb5d661593d2b9" prot="private" virt="non-virtual"><scope>FoodController</scope><name>SpawnFood</name></member>
+      <member refid="class_food_controller_1a1b6ce03eccc63fa42d9c13c9f17c6356" prot="public" virt="non-virtual"><scope>FoodController</scope><name>SpawnFood</name></member>
+      <member refid="class_food_controller_1a593ff92b13ffdcfd4658a71f78718f96" prot="public" virt="non-virtual"><scope>FoodController</scope><name>SpawnRate</name></member>
+      <member refid="class_food_controller_1aace55484f24f2b64b28c2546a30529b4" prot="private" virt="non-virtual"><scope>FoodController</scope><name>spawnRateMultiplier</name></member>
+      <member refid="class_food_controller_1ad7a818132f5fc56c3fc716fc0c1a6a81" prot="private" virt="non-virtual"><scope>FoodController</scope><name>Start</name></member>
+      <member refid="class_food_controller_1afeffab7f30cd1307157192889ab06721" prot="public" virt="non-virtual"><scope>FoodController</scope><name>TotalFoodSpawnWeight</name></member>
+      <member refid="class_food_controller_1aeabdab8e1954a5c77cb8b68d61c6f9b6" prot="private" virt="non-virtual"><scope>FoodController</scope><name>totalFoodSpawnWeight</name></member>
+      <member refid="class_food_controller_1afc775771917c86c719a720c47eae096c" prot="private" virt="non-virtual"><scope>FoodController</scope><name>totalMaxFoodCount</name></member>
+      <member refid="class_food_controller_1a7a41712be5a0fb6319e16cea685361cf" prot="private" virt="non-virtual"><scope>FoodController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

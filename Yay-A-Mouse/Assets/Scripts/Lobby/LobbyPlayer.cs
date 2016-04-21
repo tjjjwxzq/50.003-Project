@@ -5,6 +5,10 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Handles networking of lobby player state. 
+/// Attached to the LobbyPlayer prefab that is spawned by the LobbyManager
+/// </summary>
 public class LobbyPlayer : NetworkLobbyPlayer{
 
     // For testing, to check local player in inspector

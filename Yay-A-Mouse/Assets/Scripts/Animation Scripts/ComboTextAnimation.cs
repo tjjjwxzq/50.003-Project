@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Script to be calle on the end of the combo text animation
+/// </summary>
 public class ComboTextAnimation : MonoBehaviour {
 
     /// <summary>

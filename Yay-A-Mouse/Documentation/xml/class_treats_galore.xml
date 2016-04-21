@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_treats_galore" kind="class" language="C#" prot="public">
+    <compoundname>TreatsGalore</compoundname>
+    <basecompoundref refid="class_ability" prot="public" virt="non-virtual">Ability</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_treats_galore_1a6306c19dd728607ada172be9666a7da3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int TreatsGalore.PointThreshold</definition>
+        <argsstring></argsstring>
+        <name>PointThreshold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="197" column="1" bodyfile="Main/Abilities.cs" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_treats_galore_1a8d9b5ef547e7eafc44eded4ebbb558b1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int TreatsGalore.SpawnWeightMultiplier</definition>
+        <argsstring></argsstring>
+        <name>SpawnWeightMultiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="198" column="1" bodyfile="Main/Abilities.cs" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_treats_galore_1ac98fd56615afcf831c8693019e2a3868" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int TreatsGalore.SpawnLimitMultiplier</definition>
+        <argsstring></argsstring>
+        <name>SpawnLimitMultiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="199" column="1" bodyfile="Main/Abilities.cs" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_treats_galore_1ab9946890bea321ef15fa0d5116d1ce72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TreatsGalore.TreatsGalore</definition>
+        <argsstring>(int level)</argsstring>
+        <name>TreatsGalore</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="201" column="1" bodyfile="Main/Abilities.cs" bodystart="201" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="class_treats_galore_1a25a1fb8619afeb31b866b5fd9692aa65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override string</type>
+        <definition>override string TreatsGalore.GetDetails</definition>
+        <argsstring>()</argsstring>
+        <name>GetDetails</name>
+        <reimplements refid="class_ability_1ae212a441357426b070a0af254f5b97cc">GetDetails</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="239" column="1" bodyfile="Main/Abilities.cs" bodystart="239" bodyend="245"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A player&apos;s Treats Galore ability. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="183">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="182">
+        <label>TreatsGalore</label>
+        <link refid="class_treats_galore"/>
+        <childnode refid="183" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="185">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="184">
+        <label>TreatsGalore</label>
+        <link refid="class_treats_galore"/>
+        <childnode refid="185" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Abilities.cs" line="196" column="1" bodyfile="Main/Abilities.cs" bodystart="195" bodyend="246"/>
+    <listofallmembers>
+      <member refid="class_ability_1ae2d8aec43091f7b83e366137d43135ef" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>Cost</name></member>
+      <member refid="class_ability_1af41791e9c6a26592c29f8158fbeed0bf" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>Description</name></member>
+      <member refid="class_ability_1a5bfb4991a7a4cf857e10f3a33cdd3925" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>Duration</name></member>
+      <member refid="class_treats_galore_1a25a1fb8619afeb31b866b5fd9692aa65" prot="public" virt="virtual"><scope>TreatsGalore</scope><name>GetDetails</name></member>
+      <member refid="class_ability_1a4ca153df49091be7325904960f49b810" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>Level</name></member>
+      <member refid="class_ability_1abdd222bf37890bf0f2dfdd5c8555593e" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>MaxLevel</name></member>
+      <member refid="class_ability_1a7d67b154e83cae1c52d821cac6f81abe" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>Name</name></member>
+      <member refid="class_treats_galore_1a6306c19dd728607ada172be9666a7da3" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>PointThreshold</name></member>
+      <member refid="class_treats_galore_1ac98fd56615afcf831c8693019e2a3868" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>SpawnLimitMultiplier</name></member>
+      <member refid="class_treats_galore_1a8d9b5ef547e7eafc44eded4ebbb558b1" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>SpawnWeightMultiplier</name></member>
+      <member refid="class_treats_galore_1ab9946890bea321ef15fa0d5116d1ce72" prot="public" virt="non-virtual"><scope>TreatsGalore</scope><name>TreatsGalore</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

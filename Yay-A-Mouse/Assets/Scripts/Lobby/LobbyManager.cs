@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Networking;
 
+/// <summary>
+/// Main class that handles networking and the multiplayer lobby
+/// </summary>
 public class LobbyManager : NetworkLobbyManager {
 
     // for tracking if lobby players are ready on the client, and saving local player state

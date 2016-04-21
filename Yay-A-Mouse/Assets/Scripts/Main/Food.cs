@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Component attached to Food GameObjects that handles
+/// swipe detection
+/// </summary>
 public class Food: MonoBehaviour {
 
     private Rigidbody2D rigidbody;
@@ -17,6 +21,13 @@ public class Food: MonoBehaviour {
     private float moveTimeCountDown; // prevents food for moving if player swipes too slowly
 
     // Factory method
+    /// <summary>
+    /// Factory method to be called by the FoodController
+    /// for programatically generating prefabs of each food type
+    /// </summary>
+    /// <param name="food">The food GameObject to create</param>
+    /// <param name="nutritionalValue">The nutritional value of the food</param>
+    /// <param name="type">The name of the food type</param>
     public static void CreateFood( GameObject food, int nutritionalValue, string type)
     {
         Food foodScript = food.AddComponent<Food>();

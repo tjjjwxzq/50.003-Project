@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['maxxunits',['MaxXUnits',['../class_camera_controller.html#a6b97db2514a3f59c74eb56a013e00c85',1,'CameraController']]],
-  ['maxyunits',['MaxYUnits',['../class_camera_controller.html#a1467ca3823ce8566582bcb6a37d19913',1,'CameraController']]],
-  ['minxunits',['MinXUnits',['../class_camera_controller.html#afbf830e2978734f35fb745fd63d13ca4',1,'CameraController']]],
-  ['minyunits',['MinYUnits',['../class_camera_controller.html#a66577648bab85619c6e72059e0ac4029',1,'CameraController']]],
-  ['mockplayer',['MockPlayer',['../class_assets_1_1_scripts_1_1_player.html#ac7e9d32a9524d55fb9f975208a7d89a2',1,'Assets::Scripts::Player']]],
-  ['mouse',['Mouse',['../class_mouse.html',1,'']]]
+  ['immunity',['Immunity',['../class_immunity.html',1,'Immunity'],['../class_abilities.html#a1dd839f597a7474f0a1618ab8f326be4',1,'Abilities.Immunity()'],['../class_mouse.html#a7916f98be8b4afcd422794bbf8994e25',1,'Mouse.Immunity()']]],
+  ['improveability',['ImproveAbility',['../class_ability_controller.html#a3a0150b50e0f2b667509d3669b24ff20',1,'AbilityController']]],
+  ['ishost',['IsHost',['../class_lobby_manager.html#a967fdb7824ce1f6de983be556b989708',1,'LobbyManager']]]
 ];

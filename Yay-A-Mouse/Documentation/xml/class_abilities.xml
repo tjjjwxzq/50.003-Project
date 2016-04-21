@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_abilities" kind="class" language="C#" prot="public">
+    <compoundname>Abilities</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_abilities_1a1dd839f597a7474f0a1618ab8f326be4" prot="public" static="no" mutable="no">
+        <type><ref refid="class_immunity" kindref="compound">Immunity</ref></type>
+        <definition>Immunity Abilities.Immunity</definition>
+        <argsstring></argsstring>
+        <name>Immunity</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref>&apos;s <ref refid="class_immunity" kindref="compound">Immunity</ref> ability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="10" column="1" bodyfile="Main/Abilities.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_abilities_1a206cabddc9d901aa7b83307b7d80d4e4" prot="public" static="no" mutable="no">
+        <type><ref refid="class_treats_galore" kindref="compound">TreatsGalore</ref></type>
+        <definition>TreatsGalore Abilities.TreatsGalore</definition>
+        <argsstring></argsstring>
+        <name>TreatsGalore</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref>&apos;s Treats Galore ability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="11" column="1" bodyfile="Main/Abilities.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_abilities_1a87959e5d0d3b801e4850629239946b95" prot="public" static="no" mutable="no">
+        <type><ref refid="class_fearless" kindref="compound">Fearless</ref></type>
+        <definition>Fearless Abilities.Fearless</definition>
+        <argsstring></argsstring>
+        <name>Fearless</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref>&apos;s <ref refid="class_fearless" kindref="compound">Fearless</ref> ability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="12" column="1" bodyfile="Main/Abilities.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_abilities_1a4014f53ffe3878ca09adbb699f013aaf" prot="public" static="no" mutable="no">
+        <type><ref refid="class_fat_mouse" kindref="compound">FatMouse</ref></type>
+        <definition>FatMouse Abilities.FatMouse</definition>
+        <argsstring></argsstring>
+        <name>FatMouse</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref>&apos;s Fat <ref refid="class_mouse" kindref="compound">Mouse</ref> ability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="13" column="1" bodyfile="Main/Abilities.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_abilities_1a43ac151f7278d7640b6808539607a0a1" prot="public" static="no" mutable="no">
+        <type><ref refid="class_scary_cat" kindref="compound">ScaryCat</ref></type>
+        <definition>ScaryCat Abilities.ScaryCat</definition>
+        <argsstring></argsstring>
+        <name>ScaryCat</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref>&apos;s Scary Cat ability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="14" column="1" bodyfile="Main/Abilities.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_abilities_1afbc391622b333d879a808efe1fd117eb" prot="public" static="no" mutable="no">
+        <type><ref refid="class_beastly_buffet" kindref="compound">BeastlyBuffet</ref></type>
+        <definition>BeastlyBuffet Abilities.BeastlyBuffet</definition>
+        <argsstring></argsstring>
+        <name>BeastlyBuffet</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref>&apos;s Beastly Buffet ability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="15" column="1" bodyfile="Main/Abilities.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_abilities_1ac71ab3ee9a0d9fc8daf678c8763ac2a8" prot="public" static="no" mutable="no">
+        <type><ref refid="class_thief" kindref="compound">Thief</ref></type>
+        <definition>Thief Abilities.Thief</definition>
+        <argsstring></argsstring>
+        <name>Thief</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref>&apos;s <ref refid="class_thief" kindref="compound">Thief</ref> ability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="16" column="1" bodyfile="Main/Abilities.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_abilities_1ad2b90b365897b841aeb301092813d09b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_ability" kindref="compound">Ability</ref></type>
+        <definition>Ability Abilities.this[AbilityName ability]</definition>
+        <argsstring></argsstring>
+        <name>this[AbilityName ability]</name>
+        <briefdescription>
+<para>&lt; Convenience property to index abilities by AbilityName enum </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="18" column="1" bodyfile="Main/Abilities.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_abilities_1a33bc828e5b43e25dcd78ee7c473ab024" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_abilities" kindref="compound">Abilities</ref></type>
+        <definition>Abilities Abilities.LevelOneAbilities</definition>
+        <argsstring></argsstring>
+        <name>LevelOneAbilities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="55" column="1" bodyfile="Main/Abilities.cs" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_abilities_1a42446f09bb231ba0439e7e3de4d3ae02" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_abilities" kindref="compound">Abilities</ref></type>
+        <definition>Abilities Abilities.EmptyAbilities</definition>
+        <argsstring></argsstring>
+        <name>EmptyAbilities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="60" column="1" bodyfile="Main/Abilities.cs" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_abilities_1a5fbfd470cbc7e89b72f91c40081a35aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Abilities.Abilities</definition>
+        <argsstring>(int immunityLevel, int treatsGaloreLevel, int fearlessLevel, int fatMouseLevel, int scaryCatLevel, int beastlyBuffetLevel, int thiefLevel)</argsstring>
+        <name>Abilities</name>
+        <param>
+          <type>int</type>
+          <declname>immunityLevel</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>treatsGaloreLevel</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fearlessLevel</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fatMouseLevel</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>scaryCatLevel</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>beastlyBuffetLevel</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>thiefLevel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="44" column="1" bodyfile="Main/Abilities.cs" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_abilities_1afcbec74e5bb70d221f0fc0ec8ed53196" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Abilities.SetAbility</definition>
+        <argsstring>(AbilityName ability, int level)</argsstring>
+        <name>SetAbility</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+<para>Method to set a player&apos;s ability to a certain level. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ability</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_ability" kindref="compound">Ability</ref> to be changed</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New level</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="70" column="1" bodyfile="Main/Abilities.cs" bodystart="70" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_abilities_1ad473b84500204ae481b9f3a675610cf0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_ability" kindref="compound">Ability</ref> &gt;</type>
+        <definition>List&lt;Ability&gt; Abilities.GetListOfAbilities</definition>
+        <argsstring>()</argsstring>
+        <name>GetListOfAbilities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="100" column="1" bodyfile="Main/Abilities.cs" bodystart="100" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Container class for a player&apos;s abilities at any point in time. Always associated with a <ref refid="class_player" kindref="compound">Player</ref> instance. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="8">
+        <label>ScaryCat</label>
+        <link refid="class_scary_cat"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Immunity</label>
+        <link refid="class_immunity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="4">
+        <label>Thief</label>
+        <link refid="class_thief"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BeastlyBuffet</label>
+        <link refid="class_beastly_buffet"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Abilities</label>
+        <link refid="class_abilities"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>BeastlyBuffet</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Thief</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>TreatsGalore</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>FatMouse</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Immunity</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>ScaryCat</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Fearless</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>FatMouse</label>
+        <link refid="class_fat_mouse"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Fearless</label>
+        <link refid="class_fearless"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>TreatsGalore</label>
+        <link refid="class_treats_galore"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Abilities.cs" line="9" column="1" bodyfile="Main/Abilities.cs" bodystart="8" bodyend="104"/>
+    <listofallmembers>
+      <member refid="class_abilities_1a5fbfd470cbc7e89b72f91c40081a35aa" prot="public" virt="non-virtual"><scope>Abilities</scope><name>Abilities</name></member>
+      <member refid="class_abilities_1afbc391622b333d879a808efe1fd117eb" prot="public" virt="non-virtual"><scope>Abilities</scope><name>BeastlyBuffet</name></member>
+      <member refid="class_abilities_1a42446f09bb231ba0439e7e3de4d3ae02" prot="public" virt="non-virtual"><scope>Abilities</scope><name>EmptyAbilities</name></member>
+      <member refid="class_abilities_1a4014f53ffe3878ca09adbb699f013aaf" prot="public" virt="non-virtual"><scope>Abilities</scope><name>FatMouse</name></member>
+      <member refid="class_abilities_1a87959e5d0d3b801e4850629239946b95" prot="public" virt="non-virtual"><scope>Abilities</scope><name>Fearless</name></member>
+      <member refid="class_abilities_1ad473b84500204ae481b9f3a675610cf0" prot="public" virt="non-virtual"><scope>Abilities</scope><name>GetListOfAbilities</name></member>
+      <member refid="class_abilities_1a1dd839f597a7474f0a1618ab8f326be4" prot="public" virt="non-virtual"><scope>Abilities</scope><name>Immunity</name></member>
+      <member refid="class_abilities_1a33bc828e5b43e25dcd78ee7c473ab024" prot="public" virt="non-virtual"><scope>Abilities</scope><name>LevelOneAbilities</name></member>
+      <member refid="class_abilities_1a43ac151f7278d7640b6808539607a0a1" prot="public" virt="non-virtual"><scope>Abilities</scope><name>ScaryCat</name></member>
+      <member refid="class_abilities_1afcbec74e5bb70d221f0fc0ec8ed53196" prot="public" virt="non-virtual"><scope>Abilities</scope><name>SetAbility</name></member>
+      <member refid="class_abilities_1ac71ab3ee9a0d9fc8daf678c8763ac2a8" prot="public" virt="non-virtual"><scope>Abilities</scope><name>Thief</name></member>
+      <member refid="class_abilities_1ad2b90b365897b841aeb301092813d09b" prot="public" virt="non-virtual"><scope>Abilities</scope><name>this[AbilityName ability]</name></member>
+      <member refid="class_abilities_1a206cabddc9d901aa7b83307b7d80d4e4" prot="public" virt="non-virtual"><scope>Abilities</scope><name>TreatsGalore</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

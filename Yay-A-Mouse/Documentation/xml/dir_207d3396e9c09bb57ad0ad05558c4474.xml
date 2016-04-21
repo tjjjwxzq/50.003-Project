@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_207d3396e9c09bb57ad0ad05558c4474" kind="dir">
+    <compoundname>Animation Scripts</compoundname>
+    <innerfile refid="_combo_change_animation_8cs">ComboChangeAnimation.cs</innerfile>
+    <innerfile refid="_combo_text_animation_8cs">ComboTextAnimation.cs</innerfile>
+    <innerfile refid="_countdown_text_animation_8cs">CountdownTextAnimation.cs</innerfile>
+    <innerfile refid="_deactivate_on_finish_animation_8cs">DeactivateOnFinishAnimation.cs</innerfile>
+    <innerfile refid="_end_game_animation_8cs">EndGameAnimation.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Animation Scripts/"/>
+  </compounddef>
+</doxygen>

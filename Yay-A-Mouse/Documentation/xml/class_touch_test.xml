@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_touch_test" kind="class" language="C#" prot="public">
+    <compoundname>TouchTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_touch_test_1ac590e65cd645257d9027fb0537703285" prot="private" static="no" mutable="no">
+        <type>GUIStyle</type>
+        <definition>GUIStyle TouchTest.GUIStyle</definition>
+        <argsstring></argsstring>
+        <name>GUIStyle</name>
+        <initializer>= new GUIStyle()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="TouchTest.cs" line="9" column="1" bodyfile="TouchTest.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_touch_test_1ad538907cb0816082e3646f5f81e11716" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchTest.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="TouchTest.cs" line="11" column="1" bodyfile="TouchTest.cs" bodystart="11" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_touch_test_1a9e0efcfb3ec7b24fc86efd0c3baaa8eb" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchTest.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="TouchTest.cs" line="26" column="1" bodyfile="TouchTest.cs" bodystart="26" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_touch_test_1a07cd0accbd8b6c6694de6cbcbc6a3758" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void TouchTest.OnGUI</definition>
+        <argsstring>()</argsstring>
+        <name>OnGUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="TouchTest.cs" line="30" column="1" bodyfile="TouchTest.cs" bodystart="30" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script for testing touch input </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="178">
+        <label>TouchTest</label>
+        <link refid="class_touch_test"/>
+        <childnode refid="179" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="179">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="180">
+        <label>TouchTest</label>
+        <link refid="class_touch_test"/>
+        <childnode refid="181" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="181">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="TouchTest.cs" line="7" column="1" bodyfile="TouchTest.cs" bodystart="7" bodyend="46"/>
+    <listofallmembers>
+      <member refid="class_touch_test_1ac590e65cd645257d9027fb0537703285" prot="private" virt="non-virtual"><scope>TouchTest</scope><name>GUIStyle</name></member>
+      <member refid="class_touch_test_1a07cd0accbd8b6c6694de6cbcbc6a3758" prot="private" virt="non-virtual"><scope>TouchTest</scope><name>OnGUI</name></member>
+      <member refid="class_touch_test_1ad538907cb0816082e3646f5f81e11716" prot="private" virt="non-virtual"><scope>TouchTest</scope><name>Start</name></member>
+      <member refid="class_touch_test_1a9e0efcfb3ec7b24fc86efd0c3baaa8eb" prot="private" virt="non-virtual"><scope>TouchTest</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

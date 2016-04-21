@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="struct_ability_controller_1_1_game_message" kind="struct" language="C#" prot="private">
+    <compoundname>AbilityController::GameMessage</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_ability_controller_1_1_game_message_1af57f74cd83e2fb35ec249fecaf51f704" prot="public" static="no" mutable="no">
+        <type>DateTime</type>
+        <definition>DateTime AbilityController.GameMessage.time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="43" column="1" bodyfile="Main/AbilityController.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ability_controller_1_1_game_message_1a453aa3d31cffc3836adf2c4b062491a6" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AbilityController.GameMessage.message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="44" column="1" bodyfile="Main/AbilityController.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_ability_controller_1_1_game_message_1a32e6f7fd74d6124e500f1fa36bf05de9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AbilityController.GameMessage.GameMessage</definition>
+        <argsstring>(DateTime time, string message)</argsstring>
+        <name>GameMessage</name>
+        <param>
+          <type>DateTime</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="46" column="1" bodyfile="Main/AbilityController.cs" bodystart="46" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Main/AbilityController.cs" line="42" column="1" bodyfile="Main/AbilityController.cs" bodystart="41" bodyend="51"/>
+    <listofallmembers>
+      <member refid="struct_ability_controller_1_1_game_message_1a32e6f7fd74d6124e500f1fa36bf05de9" prot="public" virt="non-virtual"><scope>AbilityController::GameMessage</scope><name>GameMessage</name></member>
+      <member refid="struct_ability_controller_1_1_game_message_1a453aa3d31cffc3836adf2c4b062491a6" prot="public" virt="non-virtual"><scope>AbilityController::GameMessage</scope><name>message</name></member>
+      <member refid="struct_ability_controller_1_1_game_message_1af57f74cd83e2fb35ec249fecaf51f704" prot="public" virt="non-virtual"><scope>AbilityController::GameMessage</scope><name>time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_765fff2a260f0ca7868b33268536dd19" kind="dir">
+    <compoundname>Lobby</compoundname>
+    <innerfile refid="_lobby_manager_8cs">LobbyManager.cs</innerfile>
+    <innerfile refid="_lobby_player_8cs">LobbyPlayer.cs</innerfile>
+    <innerfile refid="_my_network_discovery_8cs">MyNetworkDiscovery.cs</innerfile>
+    <innerfile refid="_start_controller_8cs">StartController.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Lobby/"/>
+  </compounddef>
+</doxygen>

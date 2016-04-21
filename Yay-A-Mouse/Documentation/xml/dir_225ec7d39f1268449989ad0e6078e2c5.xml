@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_225ec7d39f1268449989ad0e6078e2c5" kind="dir">
+    <compoundname>PromptName</compoundname>
+    <innerfile refid="_name_prompt_8cs">NamePrompt.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="PromptName/"/>
+  </compounddef>
+</doxygen>

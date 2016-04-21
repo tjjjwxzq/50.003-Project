@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_ability" kind="class" language="C#" prot="public" abstract="yes">
+    <compoundname>Ability</compoundname>
+    <derivedcompoundref refid="class_beastly_buffet" prot="public" virt="non-virtual">BeastlyBuffet</derivedcompoundref>
+    <derivedcompoundref refid="class_fat_mouse" prot="public" virt="non-virtual">FatMouse</derivedcompoundref>
+    <derivedcompoundref refid="class_fearless" prot="public" virt="non-virtual">Fearless</derivedcompoundref>
+    <derivedcompoundref refid="class_immunity" prot="public" virt="non-virtual">Immunity</derivedcompoundref>
+    <derivedcompoundref refid="class_scary_cat" prot="public" virt="non-virtual">ScaryCat</derivedcompoundref>
+    <derivedcompoundref refid="class_thief" prot="public" virt="non-virtual">Thief</derivedcompoundref>
+    <derivedcompoundref refid="class_treats_galore" prot="public" virt="non-virtual">TreatsGalore</derivedcompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_ability_1a7d67b154e83cae1c52d821cac6f81abe" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>AbilityName</type>
+        <definition>AbilityName Ability.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="147" column="1" bodyfile="Main/Abilities.cs" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_ability_1af41791e9c6a26592c29f8158fbeed0bf" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>string</type>
+        <definition>string Ability.Description</definition>
+        <argsstring></argsstring>
+        <name>Description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="148" column="1" bodyfile="Main/Abilities.cs" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_ability_1abdd222bf37890bf0f2dfdd5c8555593e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>int</type>
+        <definition>int Ability.MaxLevel</definition>
+        <argsstring></argsstring>
+        <name>MaxLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="149" column="1" bodyfile="Main/Abilities.cs" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_ability_1a4ca153df49091be7325904960f49b810" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>int</type>
+        <definition>int Ability.Level</definition>
+        <argsstring></argsstring>
+        <name>Level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="152" column="1" bodyfile="Main/Abilities.cs" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_ability_1ae2d8aec43091f7b83e366137d43135ef" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>int</type>
+        <definition>int Ability.Cost</definition>
+        <argsstring></argsstring>
+        <name>Cost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="153" column="1" bodyfile="Main/Abilities.cs" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_ability_1a5bfb4991a7a4cf857e10f3a33cdd3925" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="yes">
+        <type>int</type>
+        <definition>int Ability.Duration</definition>
+        <argsstring></argsstring>
+        <name>Duration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="154" column="1" bodyfile="Main/Abilities.cs" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_ability_1ae212a441357426b070a0af254f5b97cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract string</type>
+        <definition>abstract string Ability.GetDetails</definition>
+        <argsstring>()</argsstring>
+        <name>GetDetails</name>
+        <reimplementedby refid="class_immunity_1a4b2b00f44b06b639d42cbee1a0a12e06">GetDetails</reimplementedby>
+        <reimplementedby refid="class_treats_galore_1a25a1fb8619afeb31b866b5fd9692aa65">GetDetails</reimplementedby>
+        <reimplementedby refid="class_fearless_1ab5f61dc97edd9480901d1964467c12eb">GetDetails</reimplementedby>
+        <reimplementedby refid="class_fat_mouse_1a5a5151c870ec948d12eec75b5c67375e">GetDetails</reimplementedby>
+        <reimplementedby refid="class_scary_cat_1ad198001346904b158d4b7fa1638e2275">GetDetails</reimplementedby>
+        <reimplementedby refid="class_beastly_buffet_1a747e5908d89b21f2aa9970ceb1ce4143">GetDetails</reimplementedby>
+        <reimplementedby refid="class_thief_1aad5cbc449c37fc67cb26f094ac25fd0c">GetDetails</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="150" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base class to where all abilities with a Happiness cost and limited duration are derived from. </para>    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_ability" kindref="compound">Ability</ref> instances are always associated with an <ref refid="class_abilities" kindref="compound">Abilities</ref> instance which is associated with a <ref refid="class_player" kindref="compound">Player</ref> instance. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="15">
+        <label>ScaryCat</label>
+        <link refid="class_scary_cat"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Immunity</label>
+        <link refid="class_immunity"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="16">
+        <label>Thief</label>
+        <link refid="class_thief"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>BeastlyBuffet</label>
+        <link refid="class_beastly_buffet"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FatMouse</label>
+        <link refid="class_fat_mouse"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Fearless</label>
+        <link refid="class_fearless"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>TreatsGalore</label>
+        <link refid="class_treats_galore"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="Main/Abilities.cs" line="146" column="1" bodyfile="Main/Abilities.cs" bodystart="145" bodyend="155"/>
+    <listofallmembers>
+      <member refid="class_ability_1ae2d8aec43091f7b83e366137d43135ef" prot="public" virt="non-virtual"><scope>Ability</scope><name>Cost</name></member>
+      <member refid="class_ability_1af41791e9c6a26592c29f8158fbeed0bf" prot="public" virt="non-virtual"><scope>Ability</scope><name>Description</name></member>
+      <member refid="class_ability_1a5bfb4991a7a4cf857e10f3a33cdd3925" prot="public" virt="non-virtual"><scope>Ability</scope><name>Duration</name></member>
+      <member refid="class_ability_1ae212a441357426b070a0af254f5b97cc" prot="public" virt="pure-virtual"><scope>Ability</scope><name>GetDetails</name></member>
+      <member refid="class_ability_1a4ca153df49091be7325904960f49b810" prot="public" virt="non-virtual"><scope>Ability</scope><name>Level</name></member>
+      <member refid="class_ability_1abdd222bf37890bf0f2dfdd5c8555593e" prot="public" virt="non-virtual"><scope>Ability</scope><name>MaxLevel</name></member>
+      <member refid="class_ability_1a7d67b154e83cae1c52d821cac6f81abe" prot="public" virt="non-virtual"><scope>Ability</scope><name>Name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

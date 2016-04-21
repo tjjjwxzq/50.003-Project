@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_8f40ea08f34c3fb91b313a40aae5a6ad" kind="dir">
+    <compoundname>Ability Selection</compoundname>
+    <innerfile refid="_ability_selection_controller_8cs">AbilitySelectionController.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Ability Selection/"/>
+  </compounddef>
+</doxygen>

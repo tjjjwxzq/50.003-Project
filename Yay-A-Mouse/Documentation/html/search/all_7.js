@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['level',['Level',['../class_mouse.html#a76debda38af30b4b2249757bc316f66e',1,'Mouse']]],
-  ['levelcontroller',['LevelController',['../class_level_controller.html',1,'']]]
+  ['hasability',['hasAbility',['../class_player.html#aea710f526c61cf47f9990439025701b1',1,'Player']]],
+  ['howtoplaycontroller',['HowToPlayController',['../class_how_to_play_controller.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['immunity',['Immunity',['../class_immunity.html',1,'']]]
+  ['endgameanimation',['EndGameAnimation',['../class_end_game_animation.html',1,'']]]
 ];

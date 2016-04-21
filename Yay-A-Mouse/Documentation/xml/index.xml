@@ -1,0 +1,782 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.11">
+  <compound refid="class_abilities" kind="class"><name>Abilities</name>
+    <member refid="class_abilities_1a1dd839f597a7474f0a1618ab8f326be4" kind="variable"><name>Immunity</name></member>
+    <member refid="class_abilities_1a206cabddc9d901aa7b83307b7d80d4e4" kind="variable"><name>TreatsGalore</name></member>
+    <member refid="class_abilities_1a87959e5d0d3b801e4850629239946b95" kind="variable"><name>Fearless</name></member>
+    <member refid="class_abilities_1a4014f53ffe3878ca09adbb699f013aaf" kind="variable"><name>FatMouse</name></member>
+    <member refid="class_abilities_1a43ac151f7278d7640b6808539607a0a1" kind="variable"><name>ScaryCat</name></member>
+    <member refid="class_abilities_1afbc391622b333d879a808efe1fd117eb" kind="variable"><name>BeastlyBuffet</name></member>
+    <member refid="class_abilities_1ac71ab3ee9a0d9fc8daf678c8763ac2a8" kind="variable"><name>Thief</name></member>
+    <member refid="class_abilities_1ad2b90b365897b841aeb301092813d09b" kind="property"><name>this[AbilityName ability]</name></member>
+    <member refid="class_abilities_1a33bc828e5b43e25dcd78ee7c473ab024" kind="property"><name>LevelOneAbilities</name></member>
+    <member refid="class_abilities_1a42446f09bb231ba0439e7e3de4d3ae02" kind="property"><name>EmptyAbilities</name></member>
+    <member refid="class_abilities_1a5fbfd470cbc7e89b72f91c40081a35aa" kind="function"><name>Abilities</name></member>
+    <member refid="class_abilities_1afcbec74e5bb70d221f0fc0ec8ed53196" kind="function"><name>SetAbility</name></member>
+    <member refid="class_abilities_1ad473b84500204ae481b9f3a675610cf0" kind="function"><name>GetListOfAbilities</name></member>
+  </compound>
+  <compound refid="class_ability" kind="class"><name>Ability</name>
+    <member refid="class_ability_1a7d67b154e83cae1c52d821cac6f81abe" kind="property"><name>Name</name></member>
+    <member refid="class_ability_1af41791e9c6a26592c29f8158fbeed0bf" kind="property"><name>Description</name></member>
+    <member refid="class_ability_1abdd222bf37890bf0f2dfdd5c8555593e" kind="property"><name>MaxLevel</name></member>
+    <member refid="class_ability_1a4ca153df49091be7325904960f49b810" kind="property"><name>Level</name></member>
+    <member refid="class_ability_1ae2d8aec43091f7b83e366137d43135ef" kind="property"><name>Cost</name></member>
+    <member refid="class_ability_1a5bfb4991a7a4cf857e10f3a33cdd3925" kind="property"><name>Duration</name></member>
+    <member refid="class_ability_1ae212a441357426b070a0af254f5b97cc" kind="function"><name>GetDetails</name></member>
+  </compound>
+  <compound refid="class_ability_controller" kind="class"><name>AbilityController</name>
+    <member refid="class_ability_controller_1a4ac438cd524c9f586128c99ce7e62b79" kind="variable"><name>SoundImmunity</name></member>
+    <member refid="class_ability_controller_1ad084b43c5e481db36c73891b12bfba24" kind="variable"><name>SoundCat</name></member>
+    <member refid="class_ability_controller_1af56d5dfbf6cf299c182d7b57aa88ca84" kind="variable"><name>SoundFearless</name></member>
+    <member refid="class_ability_controller_1ada5a8f8767e24fd12692fbffc89a9d95" kind="variable"><name>SoundFatMouse</name></member>
+    <member refid="class_ability_controller_1a8ee7b892eb932fc1c0d90ac5531fbc57" kind="variable"><name>SoundTreatsGalore</name></member>
+    <member refid="class_ability_controller_1ad5385cff2dd6f19c984b04addd039eb8" kind="variable"><name>SoundBeastlyBuffet</name></member>
+    <member refid="class_ability_controller_1a7435e16d71e820b28f35462ae07f635d" kind="variable"><name>SoundThief</name></member>
+    <member refid="class_ability_controller_1a1e5b176a336fd5d43c8cc38b9c07437b" kind="variable"><name>player</name></member>
+    <member refid="class_ability_controller_1aa47a187931d9492c4de193eab4178da6" kind="variable"><name>abilityPoints</name></member>
+    <member refid="class_ability_controller_1af7b2d20b54fffc29fdddcc566341e532" kind="variable"><name>targetedPlayer</name></member>
+    <member refid="class_ability_controller_1a1f82cc462eb6c562888b700567041f1a" kind="variable"><name>audio</name></member>
+    <member refid="class_ability_controller_1abc7f88d601b71675ed9d7f1ffed6dee6" kind="variable"><name>mouse</name></member>
+    <member refid="class_ability_controller_1a475b2ceb4038fe214357a5593df85bac" kind="variable"><name>foodController</name></member>
+    <member refid="class_ability_controller_1af486c369a19867732d0703eee1e7f23d" kind="variable"><name>levelController</name></member>
+    <member refid="class_ability_controller_1a0e7d5cdaa2a0d58115e221299ef868ca" kind="variable"><name>abilityUi</name></member>
+    <member refid="class_ability_controller_1a8bb385de4342c5f119f0f5953c980d9e" kind="variable"><name>messageBox</name></member>
+    <member refid="class_ability_controller_1ac45abfa58cae3489b260350b32a41f68" kind="variable"><name>activeStatuses</name></member>
+    <member refid="class_ability_controller_1a093824c10b3c0ca61c70537d0d6e8ad0" kind="variable"><name>gameMessages</name></member>
+    <member refid="class_ability_controller_1ae619fb133843371dd4c1056336c1b83f" kind="variable"><name>mouseIsImmune</name></member>
+    <member refid="class_ability_controller_1aa5ade0bed3ad4c3f107d1bdd77f89f03" kind="variable"><name>mouseIsFearless</name></member>
+    <member refid="class_ability_controller_1a3f241f149500b1b8fa114a51e1c3a5cb" kind="variable"><name>mouseIsFat</name></member>
+    <member refid="class_ability_controller_1a91481c95834bced3444d38a9c46b5f50" kind="variable"><name>maxLevelAchieved</name></member>
+    <member refid="class_ability_controller_1aa731c12a4d01d266f8d7370f3d15fe28" kind="variable"><name>prevLevel</name></member>
+    <member refid="class_ability_controller_1a3c2a17b22b822083f95f9a2a3e86d358" kind="variable"><name>treatsGaloreIsActive</name></member>
+    <member refid="class_ability_controller_1a9f821b871eab3058824c94a53864f364" kind="variable"><name>treatsGaloreBoostedFood</name></member>
+    <member refid="class_ability_controller_1ad7c7b83446eac60932c09cc7d2488108" kind="variable"><name>tgOriginalWeight</name></member>
+    <member refid="class_ability_controller_1a9b0d9998c6cb9789c10fd4c529e3d655" kind="variable"><name>tgOriginalCount</name></member>
+    <member refid="class_ability_controller_1abee5d8a776b0ab4ab43da974921e96df" kind="variable"><name>mouseIsOffscreen</name></member>
+    <member refid="class_ability_controller_1a25309d3f22f2f9e01b2fc610d051a409" kind="variable"><name>scaryCatDuration</name></member>
+    <member refid="class_ability_controller_1a623e60ac7c9c100def2ed4060a4c21d3" kind="variable"><name>beastlyBuffetIsActive</name></member>
+    <member refid="class_ability_controller_1a1f5e24ab39cb2afcc79dcf30805f9aaa" kind="variable"><name>beastlyBuffetBoostedFood</name></member>
+    <member refid="class_ability_controller_1a9f49ee5acb3ecc7e7d3977f609c55740" kind="variable"><name>beastlyBuffetDuration</name></member>
+    <member refid="class_ability_controller_1aeeb3b27748cdbc00770cc9deae919a75" kind="variable"><name>bbOriginalWeight</name></member>
+    <member refid="class_ability_controller_1a6495ba98e68fecf74c83c8b33d319e9b" kind="variable"><name>bbOriginalCount</name></member>
+    <member refid="class_ability_controller_1aea164393aec9b36804be2ae42fc7f783" kind="variable"><name>mouseIsThief</name></member>
+    <member refid="class_ability_controller_1aaeed81daffd1d22d1e8b02729e9545d1" kind="variable"><name>mouseIsThiefVictim</name></member>
+    <member refid="class_ability_controller_1a0ca3fd7ed3d3133b9727ff74dc2b4d7b" kind="variable"><name>lastStolenFrom</name></member>
+    <member refid="class_ability_controller_1ad9407f04414379b23ade87ea1cdf9d43" kind="variable"><name>thiefVictimDuration</name></member>
+    <member refid="class_ability_controller_1abe06e05a2f5b37875ac141400f09fd86" kind="variable"><name>countdowns</name></member>
+    <member refid="class_ability_controller_1ae95911aa87411780f155a94fe3564a4f" kind="variable"><name>defaultFoodSpawnWeights</name></member>
+    <member refid="class_ability_controller_1ad42fee7317ed3210bca48dc00e1ded12" kind="variable"><name>defaultMaxFoodCounts</name></member>
+    <member refid="class_ability_controller_1ae30e7b98811f52d2146b2d741fbcc131" kind="variable"><name>abilityLastActivatedTimes</name></member>
+    <member refid="class_ability_controller_1acf9e8840421d5a4bc29baefe366f253a" kind="function"><name>Start</name></member>
+    <member refid="class_ability_controller_1a48a6e9b8a61785ab4ff045f597d88793" kind="function"><name>Update</name></member>
+    <member refid="class_ability_controller_1ac097275cb1c4239a8717e08237a33988" kind="function"><name>IsStillActive</name></member>
+    <member refid="class_ability_controller_1a0e85ba43a0759f2ebd84cd48bfdc01fd" kind="function"><name>TimeLeft</name></member>
+    <member refid="class_ability_controller_1af3fa5a0d3b303bbbf66e58382b26feb1" kind="function"><name>IsStillActive</name></member>
+    <member refid="class_ability_controller_1a54218436b37a6fe3be2c012604b1f006" kind="function"><name>playBeastlyBuffetAudio</name></member>
+    <member refid="class_ability_controller_1aeb4d6af3b022bc084aee3eb30046cef8" kind="function"><name>playThiefAudio</name></member>
+    <member refid="class_ability_controller_1ad0f5779a9715537185995444f6a1937a" kind="function"><name>AttachToMouse</name></member>
+    <member refid="class_ability_controller_1a080cc0033eb0f9d8ab95f19f82329991" kind="function"><name>AttachToFoodController</name></member>
+    <member refid="class_ability_controller_1a8bff51b6099630911bbee645fac23871" kind="function"><name>AttachToLevelController</name></member>
+    <member refid="class_ability_controller_1af0ea65b755efd83145eaee5be223feea" kind="function"><name>AttachToAbilityUi</name></member>
+    <member refid="class_ability_controller_1a5d22cfdaecd4710c66cb53a8425a1e32" kind="function"><name>AttachToMessageBox</name></member>
+    <member refid="class_ability_controller_1aa0543e057e05e2926f878c0dd7cad321" kind="function"><name>IsActive</name></member>
+    <member refid="class_ability_controller_1afb5f4f4c49337dcc4dfc1e52c0ff93c0" kind="function"><name>ActivateAbility</name></member>
+    <member refid="class_ability_controller_1a3a0150b50e0f2b667509d3669b24ff20" kind="function"><name>ImproveAbility</name></member>
+    <member refid="class_ability_controller_1abc797bafea24efd95944968c21bff478" kind="function"><name>NewGameMessage</name></member>
+    <member refid="class_ability_controller_1ab239b2b0f79e5f8036ffd92a60953976" kind="function"><name>ActivateImmunity</name></member>
+    <member refid="class_ability_controller_1a3871b151f0dbb4f695b326cb2c02c29c" kind="function"><name>ActivateFearless</name></member>
+    <member refid="class_ability_controller_1aa69b2c81a09b53e0a56f69d58b11007c" kind="function"><name>ActivateTreatsGalore</name></member>
+    <member refid="class_ability_controller_1af617ab2ad1e66f4fbe70e47d41f42c5d" kind="function"><name>ActivateFatMouse</name></member>
+    <member refid="class_ability_controller_1a665fadfb91f33423469ef2bbb1c02bbb" kind="function"><name>ActivateScaryCat</name></member>
+    <member refid="class_ability_controller_1ae358efb5ca5e7f9ccd007ae5e24592dd" kind="function"><name>CmdDispatchScaryCat</name></member>
+    <member refid="class_ability_controller_1a601d5c88b0b7f28be3628f2a36b0023c" kind="function"><name>RpcReceiveScaryCat</name></member>
+    <member refid="class_ability_controller_1a7f2712d50691dc9d63660114aa575dc2" kind="function"><name>ActivateBeastlyBuffet</name></member>
+    <member refid="class_ability_controller_1a0b2d3ff58e3ce3df8c549a0b7f8b0ae5" kind="function"><name>CmdDispatchBeastlyBuffet</name></member>
+    <member refid="class_ability_controller_1a500d4b41d2cce2dc9f1ca094e3f5a3cd" kind="function"><name>RpcReceiveBeastlyBuffet</name></member>
+    <member refid="class_ability_controller_1a2fdbe1484427e49e5e64e3e72ff4f069" kind="function"><name>ActivateThief</name></member>
+    <member refid="class_ability_controller_1abbc570651df0b0c424d2877d7d020a01" kind="function"><name>CmdDispatchThief</name></member>
+    <member refid="class_ability_controller_1a0180e2731d4a705fcaa6fc896ec33325" kind="function"><name>RpcReceiveThief</name></member>
+    <member refid="class_ability_controller_1a92e49d769642f13cf404a0f8152fc8a3" kind="function"><name>CmdDispatchStolenFood</name></member>
+    <member refid="class_ability_controller_1a1f4ec529d8fd9685e869607fd8e903ff" kind="function"><name>RpcReceiveStolenFood</name></member>
+  </compound>
+  <compound refid="struct_ability_selection_controller_1_1_ability_level" kind="struct"><name>AbilitySelectionController::AbilityLevel</name>
+    <member refid="struct_ability_selection_controller_1_1_ability_level_1ad6822eee4149f79cf53a5b06d0a255cc" kind="variable"><name>level</name></member>
+    <member refid="struct_ability_selection_controller_1_1_ability_level_1aae32400b8295b9cc5df3bf45e2aff28a" kind="variable"><name>happiness</name></member>
+    <member refid="struct_ability_selection_controller_1_1_ability_level_1a83bb4d74f2daf9e09ebcbf385074e486" kind="variable"><name>duration</name></member>
+    <member refid="struct_ability_selection_controller_1_1_ability_level_1a1878f36ba2b04032c5749107c413913d" kind="variable"><name>description</name></member>
+    <member refid="struct_ability_selection_controller_1_1_ability_level_1a10712fbc3eace1f19eba3c22988c5c8c" kind="function"><name>AbilityLevel</name></member>
+  </compound>
+  <compound refid="class_ability_selection_controller" kind="class"><name>AbilitySelectionController</name>
+    <member refid="class_ability_selection_controller_1a49e56bcce5e915cb5e87990a4653f41b" kind="variable"><name>SoundLobbyBGM</name></member>
+    <member refid="class_ability_selection_controller_1ae29e6ac154e0382408555bef0617c260" kind="variable"><name>SoundStartGame</name></member>
+    <member refid="class_ability_selection_controller_1a623c1f116ed061bdcbfb9391b9c1edbe" kind="variable"><name>SoundButton</name></member>
+    <member refid="class_ability_selection_controller_1af9b68709c7b81a7a089a47a1a25cdd9d" kind="variable"><name>cancelSelectionSprite</name></member>
+    <member refid="class_ability_selection_controller_1ac81739ab15496b54dc2bfcd0cccca3eb" kind="variable"><name>confirmSelectionSprite</name></member>
+    <member refid="class_ability_selection_controller_1a1603391272724a28739f1657f12eddee" kind="variable"><name>overlayIcon</name></member>
+    <member refid="class_ability_selection_controller_1aad5057c69a846e63ff5b34c9f4530353" kind="variable"><name>abilityIconSprites</name></member>
+    <member refid="class_ability_selection_controller_1aa2cc6ebb6f5d206a1c97852a711be15b" kind="variable"><name>player</name></member>
+    <member refid="class_ability_selection_controller_1ada7c64dbd4f99b75018b023cc623f1e5" kind="variable"><name>countdownUI</name></member>
+    <member refid="class_ability_selection_controller_1aa2158a48030571efff56b7413a344afc" kind="variable"><name>audio</name></member>
+    <member refid="class_ability_selection_controller_1abf25971f9c5c2b0cf79ec207302d5077" kind="variable"><name>abilityIconSpritesDict</name></member>
+    <member refid="class_ability_selection_controller_1af23f9ce6cfa451551aa2a5fcfab876fa" kind="variable"><name>abilityIconPrefab</name></member>
+    <member refid="class_ability_selection_controller_1a532893dff97013e28746354a4e0505be" kind="variable"><name>abilityIcons</name></member>
+    <member refid="class_ability_selection_controller_1a54e2cd16199c082b63a5528354734267" kind="variable"><name>introText</name></member>
+    <member refid="class_ability_selection_controller_1ad9f42c5ee75b544029379be92355d66a" kind="variable"><name>abilityIconUI</name></member>
+    <member refid="class_ability_selection_controller_1af4167af2dc8fd60957028f3347ad9e1b" kind="variable"><name>abilityDetailUI</name></member>
+    <member refid="class_ability_selection_controller_1a1035548dd62780539c7248a072508db9" kind="variable"><name>readyButtonObject</name></member>
+    <member refid="class_ability_selection_controller_1a1ecedaf3603a3a7e1fa26f7965dddbd9" kind="variable"><name>readyAndWaitingObject</name></member>
+    <member refid="class_ability_selection_controller_1a1709f883cc71b0524bf6963efd996c40" kind="variable"><name>alreadyChosenText</name></member>
+    <member refid="class_ability_selection_controller_1af8cd9950ecb873a084dee77458a37fc3" kind="variable"><name>selfHelpAbilityButtons</name></member>
+    <member refid="class_ability_selection_controller_1aab7c88dacc94529b733b8f5c603cc8c0" kind="variable"><name>sabotageAbilityButtons</name></member>
+    <member refid="class_ability_selection_controller_1ab5b2c848b0bfc6e89597cfd6cbd60d80" kind="variable"><name>selectedAbility</name></member>
+    <member refid="class_ability_selection_controller_1a0a92ad4d61ad13ff9646c8a7dd71579d" kind="variable"><name>selectedAbilityIcon</name></member>
+    <member refid="class_ability_selection_controller_1a280f4a69cb34cb342ca5ad19e2b0b099" kind="variable"><name>selectedAbilityTitle</name></member>
+    <member refid="class_ability_selection_controller_1a302c334c4376050d6751cb293127278f" kind="variable"><name>selectedAbilityDescription</name></member>
+    <member refid="class_ability_selection_controller_1a3ac323cf5cca903cc0f15d1fff4e689f" kind="variable"><name>chooseAbilityButton</name></member>
+    <member refid="class_ability_selection_controller_1abc926b1e30b850b29cab4c6db1d046da" kind="variable"><name>backToSelectionButton</name></member>
+    <member refid="class_ability_selection_controller_1ade54fb14ceb53207ec12e78f35a27e18" kind="variable"><name>selectedAbilityLevelDetails</name></member>
+    <member refid="class_ability_selection_controller_1a916630db9d91cab29c18dbb7a2246a7b" kind="variable"><name>selectedAbilityLevelHeader</name></member>
+    <member refid="class_ability_selection_controller_1a6bd6d28e301e7effe39ab6435b8edb3a" kind="variable"><name>selectedAbilityLevelHappiness</name></member>
+    <member refid="class_ability_selection_controller_1a563812b03b55f4712e78aa047aefaada" kind="variable"><name>selectedAbilityLevelDuration</name></member>
+    <member refid="class_ability_selection_controller_1a6787b39b3fd7e6a1e98e97dac2375609" kind="variable"><name>selectedAbilityLevelDetail</name></member>
+    <member refid="class_ability_selection_controller_1a4a816b526c40ea3bccaedd231f12d2a0" kind="variable"><name>currentLevelIndex</name></member>
+    <member refid="class_ability_selection_controller_1a98f116fd27272e7e867f6d73ebf3cdbc" kind="variable"><name>ready</name></member>
+    <member refid="class_ability_selection_controller_1a8413566172960a651c70ba8d78678048" kind="variable"><name>abilityTitles</name></member>
+    <member refid="class_ability_selection_controller_1a17f48041e56ca847f4ba5d77efb8fb59" kind="variable"><name>abilityDescription</name></member>
+    <member refid="class_ability_selection_controller_1aaf7ca2e3c8126cf75441910bbea22ece" kind="variable"><name>abilityLevelDetails</name></member>
+    <member refid="class_ability_selection_controller_1a6473a8e521ce39509292ed13de0d546f" kind="function"><name>Start</name></member>
+    <member refid="class_ability_selection_controller_1a2e07fcfc99de85e370bacdda5dd1b87c" kind="function"><name>Update</name></member>
+    <member refid="class_ability_selection_controller_1a71807672e582c6f712cabe05dee06869" kind="function"><name>OnAbilityDetail</name></member>
+    <member refid="class_ability_selection_controller_1a972e424cd6a2d9acb3f31964fd1d250d" kind="function"><name>OnNextAbilityLevel</name></member>
+    <member refid="class_ability_selection_controller_1aaa689e0828a8c155b29331b14d40697f" kind="function"><name>OnAbilityChosen</name></member>
+    <member refid="class_ability_selection_controller_1abfad6d6d95b478d8b0a6994067c45921" kind="function"><name>OnBackButton</name></member>
+    <member refid="class_ability_selection_controller_1a490860bbad01ac0a91c74c1bc8525351" kind="function"><name>OnReadyButton</name></member>
+    <member refid="class_ability_selection_controller_1a602462d1d7993a46f0f3d16ad6647eb7" kind="function"><name>StartCountdown</name></member>
+  </compound>
+  <compound refid="class_ability_u_i" kind="class"><name>AbilityUI</name>
+    <member refid="class_ability_u_i_1aa93b65607edc1001e17f676529b3682e" kind="variable"><name>abilitySprites</name></member>
+    <member refid="class_ability_u_i_1ab942ac734bf76084990e2b470cfed2a3" kind="variable"><name>AbilityButtons</name></member>
+    <member refid="class_ability_u_i_1aa3bb9a3aa88f873baa80bfb5c33bae73" kind="variable"><name>Countdowns</name></member>
+    <member refid="class_ability_u_i_1af6cc222175e6b237abb1f5e932e214db" kind="variable"><name>canvas</name></member>
+    <member refid="class_ability_u_i_1aa218928d01a0ef58e2419ae386bb6a2c" kind="variable"><name>abilityButtonPrefab</name></member>
+    <member refid="class_ability_u_i_1ab4cee14a08c4464cc9d5c6cfe44bb48c" kind="variable"><name>plusButtonPrefab</name></member>
+    <member refid="class_ability_u_i_1a1b3e733a8966ddb96911c97b4889de85" kind="variable"><name>abilityController</name></member>
+    <member refid="class_ability_u_i_1adfc70a362a62aa21842b3ea715c481eb" kind="variable"><name>localPlayer</name></member>
+    <member refid="class_ability_u_i_1a350824e50c88e47d3a3f64cec978bb08" kind="variable"><name>playerAbilities</name></member>
+    <member refid="class_ability_u_i_1a5778e3851129e4b3fd1d352625c4d652" kind="variable"><name>mouse</name></member>
+    <member refid="class_ability_u_i_1a823c090f098345c25e8caec3e5227a2e" kind="variable"><name>abilityUpgradeButtons</name></member>
+    <member refid="class_ability_u_i_1adff769d8724cabcc0b88aa6512624cad" kind="variable"><name>abilitySpritesDict</name></member>
+    <member refid="class_ability_u_i_1aa713c0f297130dff7197b84b22ff60e1" kind="function"><name>Start</name></member>
+    <member refid="class_ability_u_i_1aa8f06682b84f7f6397e6ae3bca355ae4" kind="function"><name>Update</name></member>
+    <member refid="class_ability_u_i_1a5f50ee508642c029af73486e4df26574" kind="function"><name>InstantiateButton</name></member>
+    <member refid="class_ability_u_i_1ab3fa778ae8eb05db222181e5d358b7d0" kind="function"><name>UpdateAbilityLevelOnButton</name></member>
+    <member refid="class_ability_u_i_1ac48ff10427ee30fbde82bb40d3ba6705" kind="function"><name>CheckIfMaxed</name></member>
+  </compound>
+  <compound refid="class_beastly_buffet" kind="class"><name>BeastlyBuffet</name>
+    <member refid="class_beastly_buffet_1afed4bafd87f66cbfa274754c42d36432" kind="property"><name>PointThreshold</name></member>
+    <member refid="class_beastly_buffet_1a7699500e2165dcb6c1a477e27000586e" kind="property"><name>SpawnWeightMultiplier</name></member>
+    <member refid="class_beastly_buffet_1abe3dfe823e7bb4fa09589b04f4dedd4b" kind="property"><name>SpawnLimitMultiplier</name></member>
+    <member refid="class_beastly_buffet_1a6e387536d0792b607afd11009c8c8f84" kind="function"><name>BeastlyBuffet</name></member>
+    <member refid="class_beastly_buffet_1a747e5908d89b21f2aa9970ceb1ce4143" kind="function"><name>GetDetails</name></member>
+  </compound>
+  <compound refid="class_camera_controller" kind="class"><name>CameraController</name>
+    <member refid="class_camera_controller_1ab0ae38b5ff75ed7e64435fb437957a3a" kind="variable"><name>camera</name></member>
+    <member refid="class_camera_controller_1a97baf17229dec65f32185c3357a70bf7" kind="variable"><name>defaultAspect</name></member>
+    <member refid="class_camera_controller_1a382108f331b87cc67e6694cde84b3910" kind="variable"><name>PixelsPerUnit</name></member>
+    <member refid="class_camera_controller_1afbf830e2978734f35fb745fd63d13ca4" kind="variable"><name>MinXUnits</name></member>
+    <member refid="class_camera_controller_1a6b97db2514a3f59c74eb56a013e00c85" kind="variable"><name>MaxXUnits</name></member>
+    <member refid="class_camera_controller_1a66577648bab85619c6e72059e0ac4029" kind="variable"><name>MinYUnits</name></member>
+    <member refid="class_camera_controller_1a1467ca3823ce8566582bcb6a37d19913" kind="variable"><name>MaxYUnits</name></member>
+    <member refid="class_camera_controller_1a266b0fde6845020de831bbd9bbcbc6a9" kind="function"><name>Awake</name></member>
+    <member refid="class_camera_controller_1a7c4f486f4bcbd1d54a346fdce9707bd5" kind="function"><name>Update</name></member>
+  </compound>
+  <compound refid="class_combo_change_animation" kind="class"><name>ComboChangeAnimation</name>
+    <member refid="class_combo_change_animation_1aeb159e5b1d0fee5d85a44c89504939c3" kind="function"><name>OnComboChanged</name></member>
+  </compound>
+  <compound refid="class_combo_text_animation" kind="class"><name>ComboTextAnimation</name>
+    <member refid="class_combo_text_animation_1a9e06d858a94d99fe7afe1639a8d254cd" kind="function"><name>OnComboTextEnd</name></member>
+  </compound>
+  <compound refid="class_countdown_text_animation" kind="class"><name>CountdownTextAnimation</name>
+    <member refid="class_countdown_text_animation_1a90758a16d16bc278ed7929e4a44ebc90" kind="variable"><name>numSeconds</name></member>
+    <member refid="class_countdown_text_animation_1a1ad1db768078da562c3ae5d65ea7468b" kind="variable"><name>countdownText</name></member>
+    <member refid="class_countdown_text_animation_1ab4db79353b0637eb78a9ef75905c6d7a" kind="variable"><name>countdownAnimator</name></member>
+    <member refid="class_countdown_text_animation_1a1291c275c4dd888fb556215ab7a04b9d" kind="function"><name>Start</name></member>
+    <member refid="class_countdown_text_animation_1a3ff727264eff872c7a2948835fd42704" kind="function"><name>OnNextSecond</name></member>
+  </compound>
+  <compound refid="class_deactivate_on_finish_animation" kind="class"><name>DeactivateOnFinishAnimation</name>
+    <member refid="class_deactivate_on_finish_animation_1afd8836488922fb662dd90e5a5e1d3f0d" kind="function"><name>OnAnimationEnd</name></member>
+  </compound>
+  <compound refid="class_end_game_animation" kind="class"><name>EndGameAnimation</name>
+    <member refid="class_end_game_animation_1af1ada12747d62e820c7e1b1039b15029" kind="function"><name>OnEndGame</name></member>
+  </compound>
+  <compound refid="class_fat_mouse" kind="class"><name>FatMouse</name>
+    <member refid="class_fat_mouse_1ab41ed59d91fcc4060339ac87e8556462" kind="property"><name>WeightMultiplier</name></member>
+    <member refid="class_fat_mouse_1a81bd39195a727a76c7516b875506141a" kind="function"><name>FatMouse</name></member>
+    <member refid="class_fat_mouse_1a5a5151c870ec948d12eec75b5c67375e" kind="function"><name>GetDetails</name></member>
+  </compound>
+  <compound refid="class_fearless" kind="class"><name>Fearless</name>
+    <member refid="class_fearless_1a4d6e43905dc0ecf63e083c5faf4447a1" kind="property"><name>DropHappiness</name></member>
+    <member refid="class_fearless_1a5a8619fd14af033d934b4774889fd853" kind="property"><name>DropWeight</name></member>
+    <member refid="class_fearless_1a499c79319b3238fff7c2ae563f3491f4" kind="function"><name>Fearless</name></member>
+    <member refid="class_fearless_1ab5f61dc97edd9480901d1964467c12eb" kind="function"><name>GetDetails</name></member>
+  </compound>
+  <compound refid="class_food" kind="class"><name>Food</name>
+    <member refid="class_food_1ad79e68a1ce0bceb9b7ac586d377ca9bd" kind="variable"><name>rigidbody</name></member>
+    <member refid="class_food_1a1542258e810eb85df66a2b86e4e89aa6" kind="variable"><name>spriteRenderer</name></member>
+    <member refid="class_food_1a02f4b6fd3563b9849a8eba6a98e43c50" kind="variable"><name>speedScale</name></member>
+    <member refid="class_food_1a97444ca01f4be9fb25c789f50251e5d6" kind="variable"><name>moveable</name></member>
+    <member refid="class_food_1afa4329c3f032329c3d3f3595a9176ba3" kind="variable"><name>SwipeDistance</name></member>
+    <member refid="class_food_1ae70d53fbb660f542d36812034fd1f00e" kind="variable"><name>firstPos</name></member>
+    <member refid="class_food_1a97b93383532a5eb6647241e70caa6f52" kind="variable"><name>lastPos</name></member>
+    <member refid="class_food_1ac52b97b25c87e44013e730b209be2f06" kind="variable"><name>MoveTime</name></member>
+    <member refid="class_food_1a7a48e4ba23187d9404de3a5cd3a4a749" kind="variable"><name>moveTimeCountDown</name></member>
+    <member refid="class_food_1a222e6263d31b64e4c65609ba4688e7df" kind="variable"><name>NutritionalValue</name></member>
+    <member refid="class_food_1ada3faa0f6a0b38caccd3b5930126b919" kind="variable"><name>Type</name></member>
+    <member refid="class_food_1ad909bec75236a3bf3f61755d080227a0" kind="function"><name>CreateFood</name></member>
+    <member refid="class_food_1a6523008d0c5b57949877fb1cd2b25707" kind="function"><name>Start</name></member>
+    <member refid="class_food_1a6ebfde85cd834ad5bbc9185c86ffe28a" kind="function"><name>Update</name></member>
+    <member refid="class_food_1a316bec11283edbef3d4a6c496d1f1764" kind="function"><name>detectMouseSwipe</name></member>
+    <member refid="class_food_1af74389b8e8961701bbf66b73ebeb87d7" kind="function"><name>detectTouchSwipe</name></member>
+    <member refid="class_food_1a791fae5687faeb36d34f614063d9fa2e" kind="function"><name>detectTouch</name></member>
+  </compound>
+  <compound refid="class_food_controller" kind="class"><name>FoodController</name>
+    <member refid="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79" kind="enum"><name>Movements</name></member>
+    <member refid="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79a84a8921b25f505d0d2077aeb5db4bc16" kind="enumvalue"><name>Static</name></member>
+    <member refid="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79ac1b5fa03ecdb95d4a45dd1c40b02527f" kind="enumvalue"><name>Horizontal</name></member>
+    <member refid="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79a06ce2a25e5d12c166a36f654dbea6012" kind="enumvalue"><name>Vertical</name></member>
+    <member refid="class_food_controller_1ad3c2e51ce55236ad80384113f1593c79a64663f4646781c9c0110838b905daa23" kind="enumvalue"><name>Random</name></member>
+    <member refid="class_food_controller_1a0f024c365daa0676e09b3c501f5baa9d" kind="variable"><name>mouseSpriteRenderer</name></member>
+    <member refid="class_food_controller_1a4ac71ac860a17c8ffc371cf197719d74" kind="variable"><name>foodNames</name></member>
+    <member refid="class_food_controller_1a6d53489b898a0f8f65e83b98974cf949" kind="variable"><name>foodSpritesDict</name></member>
+    <member refid="class_food_controller_1a96d97dde641bf7b1f0772b4c2e62c935" kind="variable"><name>foodPoolsDict</name></member>
+    <member refid="class_food_controller_1ad8ad63cefee23ca50e58b788eb625d85" kind="variable"><name>foodMovement</name></member>
+    <member refid="class_food_controller_1a482b757ad4c3105c85179f9754ff76a7" kind="variable"><name>foodValues</name></member>
+    <member refid="class_food_controller_1a9304771bdf73aa6d997eb73d77d18cec" kind="variable"><name>maxFoodCounts</name></member>
+    <member refid="class_food_controller_1afc775771917c86c719a720c47eae096c" kind="variable"><name>totalMaxFoodCount</name></member>
+    <member refid="class_food_controller_1a4f0c0df590b03a0f24df1c541d1ad68c" kind="variable"><name>foodSpawnWeights</name></member>
+    <member refid="class_food_controller_1aeabdab8e1954a5c77cb8b68d61c6f9b6" kind="variable"><name>totalFoodSpawnWeight</name></member>
+    <member refid="class_food_controller_1a32bde1caeb81804dacf03abe609e6ea8" kind="variable"><name>cumulativeFoodWeights</name></member>
+    <member refid="class_food_controller_1a639e2742280337fb8b8ef557dc36ee1a" kind="variable"><name>spawnCoroutine</name></member>
+    <member refid="class_food_controller_1a26df97ff60408f7c862c64e706ffce0b" kind="variable"><name>changeDirectionsCoroutine</name></member>
+    <member refid="class_food_controller_1a5e065df9cd1378b731f817ab2e2f20dd" kind="variable"><name>minSpawnTime</name></member>
+    <member refid="class_food_controller_1aae63e70e4018d8fb53b63e719ce8981b" kind="variable"><name>maxSpawnTime</name></member>
+    <member refid="class_food_controller_1aace55484f24f2b64b28c2546a30529b4" kind="variable"><name>spawnRateMultiplier</name></member>
+    <member refid="class_food_controller_1a438ba73e5ad4b2ba27b4d2377f26b2ec" kind="variable"><name>minChangeTime</name></member>
+    <member refid="class_food_controller_1a51ea35cffe4d3ae9e6d4dc420887ad4f" kind="variable"><name>maxChangeTime</name></member>
+    <member refid="class_food_controller_1ae827bd5ff16999a966e2e52902a1978b" kind="variable"><name>foodDirection</name></member>
+    <member refid="class_food_controller_1a4314af3cbf4db290888be26e657fa6f2" kind="variable"><name>randDirections</name></member>
+    <member refid="class_food_controller_1a057095438030110578a6670576c6fa43" kind="variable"><name>FoodSprites</name></member>
+    <member refid="class_food_controller_1a5780c78529b71e8dc914cff2963569b5" kind="property"><name>FoodNames</name></member>
+    <member refid="class_food_controller_1afeffab7f30cd1307157192889ab06721" kind="property"><name>TotalFoodSpawnWeight</name></member>
+    <member refid="class_food_controller_1a593ff92b13ffdcfd4658a71f78718f96" kind="property"><name>SpawnRate</name></member>
+    <member refid="class_food_controller_1a4440f445f989fec97ae4ceee2ffbd841" kind="property"><name>FoodValues</name></member>
+    <member refid="class_food_controller_1ab1af49799b84e19e2be274d9c5b149a4" kind="property"><name>MaxFoodCounts</name></member>
+    <member refid="class_food_controller_1a41c8e47c4b31ac4de5f31599aeed0e36" kind="property"><name>FoodSpawnWeights</name></member>
+    <member refid="class_food_controller_1ac2f8e1257214b9e6cc350c95524e927e" kind="property"><name>FoodPools</name></member>
+    <member refid="class_food_controller_1a4837550fa19b967c11af34a644fa0eea" kind="property"><name>FoodSpritesDict</name></member>
+    <member refid="class_food_controller_1a345844b04406827705d89526d92a246d" kind="property"><name>FoodMovement</name></member>
+    <member refid="class_food_controller_1ad9d401344b277dafe3d2b1c23c04d594" kind="function"><name>Awake</name></member>
+    <member refid="class_food_controller_1ad7a818132f5fc56c3fc716fc0c1a6a81" kind="function"><name>Start</name></member>
+    <member refid="class_food_controller_1a7a41712be5a0fb6319e16cea685361cf" kind="function"><name>Update</name></member>
+    <member refid="class_food_controller_1ad77714b191cd5457df2d83963186c0c2" kind="function"><name>FixedUpdate</name></member>
+    <member refid="class_food_controller_1a4bcf19036c5bb3a9983edd7d4b72bb94" kind="function"><name>RandomizeFoodType</name></member>
+    <member refid="class_food_controller_1af87320e8747fea0b2feb5d661593d2b9" kind="function"><name>SpawnFood</name></member>
+    <member refid="class_food_controller_1a0774206c6e1603f0332dbc79e4ff7565" kind="function"><name>ChangeFoodDirection</name></member>
+    <member refid="class_food_controller_1a1b6ce03eccc63fa42d9c13c9f17c6356" kind="function"><name>SpawnFood</name></member>
+    <member refid="class_food_controller_1a9f0f153ce5e90b4e081f4d903cf17808" kind="function"><name>setMaxFoodCount</name></member>
+    <member refid="class_food_controller_1af9fcb378c2333de7796093ef368bfd93" kind="function"><name>getMaxFoodCount</name></member>
+    <member refid="class_food_controller_1ae118c67950b39a9b3aaa8e15f027a37b" kind="function"><name>setFoodSpawnWeight</name></member>
+    <member refid="class_food_controller_1aa210ae3e7b1cc83ba3dab4a36970e19f" kind="function"><name>getFoodSpawnWeight</name></member>
+    <member refid="class_food_controller_1a40646d26ad453438ab96bcde7a99d97a" kind="function"><name>SetDifficulty</name></member>
+    <member refid="class_food_controller_1a8c30969d35cd04d5945e1d5378d2971f" kind="function"><name>DeactivateController</name></member>
+    <member refid="class_food_controller_1a91371568499fb3fbbc3ebfd961858a06" kind="function"><name>ActivateController</name></member>
+  </compound>
+  <compound refid="struct_ability_controller_1_1_game_message" kind="struct"><name>AbilityController::GameMessage</name>
+    <member refid="struct_ability_controller_1_1_game_message_1af57f74cd83e2fb35ec249fecaf51f704" kind="variable"><name>time</name></member>
+    <member refid="struct_ability_controller_1_1_game_message_1a453aa3d31cffc3836adf2c4b062491a6" kind="variable"><name>message</name></member>
+    <member refid="struct_ability_controller_1_1_game_message_1a32e6f7fd74d6124e500f1fa36bf05de9" kind="function"><name>GameMessage</name></member>
+  </compound>
+  <compound refid="class_how_to_play_controller" kind="class"><name>HowToPlayController</name>
+    <member refid="class_how_to_play_controller_1af4ee62aad652c5790d3d5dc7bc0ab2ed" kind="variable"><name>SoundLobby</name></member>
+    <member refid="class_how_to_play_controller_1a4338cea17f2fc958e3a4430f00d01c54" kind="variable"><name>SoundButtonPress</name></member>
+    <member refid="class_how_to_play_controller_1a6a12b4a8d160e6c34942b5a1214b0c7b" kind="variable"><name>audio</name></member>
+    <member refid="class_how_to_play_controller_1a47c553bafd2dbf8cd9c9f5c2d1b9fefc" kind="variable"><name>currentSectionIndex</name></member>
+    <member refid="class_how_to_play_controller_1a1dc53cdab4002bee5deefaed2cc9e5ba" kind="variable"><name>sections</name></member>
+    <member refid="class_how_to_play_controller_1a3f7f600176854fe17acf674e14b164f2" kind="variable"><name>sectionAnimators</name></member>
+    <member refid="class_how_to_play_controller_1a73862d6073f8bfdb6a10859977295596" kind="variable"><name>sectionAnimatorsDict</name></member>
+    <member refid="class_how_to_play_controller_1a53af306d28692fa01e4836b567319e8c" kind="variable"><name>sectionNames</name></member>
+    <member refid="class_how_to_play_controller_1a8e743cea84e6b99031be03f065388b31" kind="function"><name>Start</name></member>
+    <member refid="class_how_to_play_controller_1a3f36318dc4d8de9c2d93f739919bb046" kind="function"><name>AnimateEntry</name></member>
+    <member refid="class_how_to_play_controller_1aad7a3df672c3d9ab7d4928c0c732d57a" kind="function"><name>OnNextButton</name></member>
+    <member refid="class_how_to_play_controller_1afaff1cea5d3b7bb59cc40ebda5b3f556" kind="function"><name>OnOKButton</name></member>
+  </compound>
+  <compound refid="class_immunity" kind="class"><name>Immunity</name>
+    <member refid="class_immunity_1adb47a636740a4f4624d3ee930bbff558" kind="function"><name>Immunity</name></member>
+    <member refid="class_immunity_1a4b2b00f44b06b639d42cbee1a0a12e06" kind="function"><name>GetDetails</name></member>
+  </compound>
+  <compound refid="class_level_controller" kind="class"><name>LevelController</name>
+    <member refid="class_level_controller_1a8ebc7dce15d5299120bfcebe4f4446f1" kind="enum"><name>GameMode</name></member>
+    <member refid="class_level_controller_1a8ebc7dce15d5299120bfcebe4f4446f1a960b44c579bc2f6818d2daaf9e4c16f0" kind="enumvalue"><name>Normal</name></member>
+    <member refid="class_level_controller_1a8ebc7dce15d5299120bfcebe4f4446f1a011b6e14743b342a0f04a708de1dce7b" kind="enumvalue"><name>Frenzy</name></member>
+    <member refid="class_level_controller_1a9d841d29e60a3fc57d0e598c2d56f7c2" kind="variable"><name>SoundInGameBGM</name></member>
+    <member refid="class_level_controller_1afd28c21f58746a162810f3b9b80e15a8" kind="variable"><name>SoundCat</name></member>
+    <member refid="class_level_controller_1ae20d17899237a5d36846b56f9066131a" kind="variable"><name>SoundFrenzyMode</name></member>
+    <member refid="class_level_controller_1a096d8159ff57d4142506515bd7fd149e" kind="variable"><name>SoundCombo</name></member>
+    <member refid="class_level_controller_1a54a2020e131c7b5bc9109f2c95a4c8b1" kind="variable"><name>SoundWin</name></member>
+    <member refid="class_level_controller_1a3019306dd205123bc1b25c250a4ed055" kind="variable"><name>SoundLose</name></member>
+    <member refid="class_level_controller_1aaeb95cbd318d49357da9f67fc8ed199e" kind="variable"><name>YouWonSprite</name></member>
+    <member refid="class_level_controller_1abb3f583a7280793d40dbfaf71ec256b3" kind="variable"><name>YouLostSprite</name></member>
+    <member refid="class_level_controller_1a4a1ac9c3b1f1a2ddc0f6d6fa3c7d79b7" kind="variable"><name>NumPlayers</name></member>
+    <member refid="class_level_controller_1a05dde6623c8f3a6b7640f0779b569f27" kind="variable"><name>comboBGNormal</name></member>
+    <member refid="class_level_controller_1a51d2a209904b8527c9f360a1473b2311" kind="variable"><name>comboBGHighlight</name></member>
+    <member refid="class_level_controller_1aec75c19237c3527a42a64a0ebec4faa7" kind="variable"><name>audio</name></member>
+    <member refid="class_level_controller_1a82c40384891f86106d2a07f8d546fb15" kind="variable"><name>isUISet</name></member>
+    <member refid="class_level_controller_1a844056c73a04a98494c0b2a4b8e3adfb" kind="variable"><name>numOpponents</name></member>
+    <member refid="class_level_controller_1a8879bd0f6f3f9c2e327cb5486d43b17d" kind="variable"><name>mode</name></member>
+    <member refid="class_level_controller_1a9c32c9ae630ae55f62b5da684ef611fc" kind="variable"><name>foodController</name></member>
+    <member refid="class_level_controller_1ad8980b24451718dfa38a714172576a7d" kind="variable"><name>mouse</name></member>
+    <member refid="class_level_controller_1a0727aa662a4f9780ab9200dfb23bf848" kind="variable"><name>foodPool</name></member>
+    <member refid="class_level_controller_1afe7de7129813eec972a2c049200b107e" kind="variable"><name>abilityController</name></member>
+    <member refid="class_level_controller_1a6fdd7de369085ebe58639f786235f6b0" kind="variable"><name>eligibleFoods</name></member>
+    <member refid="class_level_controller_1a5caf0289d75621cac9eb343a76104aee" kind="variable"><name>foodCombo</name></member>
+    <member refid="class_level_controller_1a9bd213d15eacd2a51820abde2447dc16" kind="variable"><name>minUpdateTime</name></member>
+    <member refid="class_level_controller_1a2297acf95c427c41f9b2ad03b02453d0" kind="variable"><name>maxUpdateTime</name></member>
+    <member refid="class_level_controller_1aef018e020c752273fa4c1c39b0041cbb" kind="variable"><name>WeightedFoodCountMin</name></member>
+    <member refid="class_level_controller_1a60ab307843ed05642619b042efe38ede" kind="variable"><name>ScoreBonus</name></member>
+    <member refid="class_level_controller_1a7ada775b812a08a87e3ed9427344e6d8" kind="variable"><name>ComboAnimTime</name></member>
+    <member refid="class_level_controller_1a49b16076dac277ecc0b58e6715bd115a" kind="variable"><name>comboAnimCountDown</name></member>
+    <member refid="class_level_controller_1a3ffcb90c81e90bfe4c7fc6c0332f7db3" kind="variable"><name>numCombos</name></member>
+    <member refid="class_level_controller_1acb46e9dbe2d9be01172cec24f34bc083" kind="variable"><name>sequenceFed</name></member>
+    <member refid="class_level_controller_1af58a3387fe8e64ad400810341be8c4a1" kind="variable"><name>changedMode</name></member>
+    <member refid="class_level_controller_1a88ec387abd6df5777c9feee942f5401b" kind="variable"><name>FrenzyComboCount</name></member>
+    <member refid="class_level_controller_1a1b6a2044462057600bd0a103ab9af072" kind="variable"><name>FrenzyModeTime</name></member>
+    <member refid="class_level_controller_1aba4a5c8d49b298b8ec4190bfcaab0004" kind="variable"><name>frenzyTimer</name></member>
+    <member refid="class_level_controller_1a65f4c5d9454e99cdd01eee5000bb44f3" kind="variable"><name>frenzyText</name></member>
+    <member refid="class_level_controller_1af63678a87e9dda747aff8dadb04932b9" kind="variable"><name>frenzyBackground</name></member>
+    <member refid="class_level_controller_1a6ad5b4ac524b747fcce794ea1124e941" kind="variable"><name>frenzyFed</name></member>
+    <member refid="class_level_controller_1abe74d5ab1e7759ee1ebc2bcf33c14412" kind="variable"><name>frenzyMouseAnimator</name></member>
+    <member refid="class_level_controller_1a8cf8a19bcc18a59bd6a7d451cfe623fe" kind="variable"><name>scaryCatShock</name></member>
+    <member refid="class_level_controller_1a14cb54c9c1d3ab775dd319558147b5be" kind="variable"><name>scaryCat</name></member>
+    <member refid="class_level_controller_1a39d4831a03b75473da77591d13b64386" kind="variable"><name>playerObjects</name></member>
+    <member refid="class_level_controller_1aaa4eefb8b74bef388f83a1d5a2e18a99" kind="variable"><name>nonLocalPlayerObjects</name></member>
+    <member refid="class_level_controller_1a348f485705076cd8021fd70f827af81a" kind="variable"><name>comboUI</name></member>
+    <member refid="class_level_controller_1ac5eb404e499f3e0a95ff6a5d9b642f93" kind="variable"><name>comboText</name></member>
+    <member refid="class_level_controller_1ae98d3324e968d6770f095fe48ee2056f" kind="variable"><name>comboTextAnimator</name></member>
+    <member refid="class_level_controller_1a4b9947219cb4d8b4f7ecdf557cf211d5" kind="variable"><name>comboChange</name></member>
+    <member refid="class_level_controller_1a1603926f93f676689def0cec831a992e" kind="variable"><name>comboChangeAnimator</name></member>
+    <member refid="class_level_controller_1aaaed2c7b7f4d221c8354be3090268b04" kind="variable"><name>comboMouse</name></member>
+    <member refid="class_level_controller_1a4076df1c44444a7d736b948b7cd1db81" kind="variable"><name>comboBackgrounds</name></member>
+    <member refid="class_level_controller_1ab9f845ff1014cda6f617c319354e2d0a" kind="variable"><name>comboImages</name></member>
+    <member refid="class_level_controller_1a91542c30f76f4ea8339f003f014866c9" kind="variable"><name>comboAnimators</name></member>
+    <member refid="class_level_controller_1aec32a66ec208cfb163834ef686aff26a" kind="variable"><name>playerAvatarUI</name></member>
+    <member refid="class_level_controller_1ad9a34b52018bde2157f24b52a770305a" kind="variable"><name>playerAvatar</name></member>
+    <member refid="class_level_controller_1acc7bfd3deb35b23a04f58a1641a65e5a" kind="variable"><name>playerAvatars</name></member>
+    <member refid="class_level_controller_1a3a3f2bdf681d77527f1b7429e64c25dd" kind="variable"><name>playerColors</name></member>
+    <member refid="class_level_controller_1a9596422b0482e54c4024bedcb39909e7" kind="variable"><name>playerScores</name></member>
+    <member refid="class_level_controller_1a44d19aad0acbc04c9f33bd1ee36c162b" kind="variable"><name>playerScoresText</name></member>
+    <member refid="class_level_controller_1a39ce9e14c6fea281fa23cddb3a1f6164" kind="variable"><name>playerNames</name></member>
+    <member refid="class_level_controller_1a959d17f99db343cfd2d700c3dd75d62b" kind="variable"><name>playerNamesText</name></member>
+    <member refid="class_level_controller_1a204ce18aab99870ba572f93069d7af80" kind="variable"><name>endGame</name></member>
+    <member refid="class_level_controller_1a1c12e6c5d8b23ef6c5ebb5c4fb68217f" kind="function"><name>Start</name></member>
+    <member refid="class_level_controller_1a6c427f5d4c2983ef53424f65507599dd" kind="function"><name>FixedUpdate</name></member>
+    <member refid="class_level_controller_1a0debd800795b3ddf29e99998be15c07b" kind="function"><name>Update</name></member>
+    <member refid="class_level_controller_1a153eb2b8d4ba7d7ad74cb4dc3592d8ae" kind="function"><name>updateFoodCombo</name></member>
+    <member refid="class_level_controller_1a070f65514dc9dc74d09f04a554109934" kind="function"><name>primer</name></member>
+    <member refid="class_level_controller_1a92cadf84e207c9696aee31cf78500ac2" kind="function"><name>checkComboStreak</name></member>
+    <member refid="class_level_controller_1ad5c5bc89eae5560e128b0443ac9fc577" kind="function"><name>checkGameMode</name></member>
+    <member refid="class_level_controller_1a0bc4527d8377b93ec113d0fb14d7774d" kind="function"><name>enterNormal</name></member>
+    <member refid="class_level_controller_1adb825b2b597964debddacc3455afcd0b" kind="function"><name>enterFrenzy</name></member>
+    <member refid="class_level_controller_1a199b745738e8ebcecd9c0da9a7fb486b" kind="function"><name>runFrenzy</name></member>
+    <member refid="class_level_controller_1ab5bf7030275c6a9aa8027b78c4822da2" kind="function"><name>updatePlayerScores</name></member>
+    <member refid="class_level_controller_1a014a9d0e7e2f5afe797d31183023b9cf" kind="function"><name>setupPlayerAvatarUI</name></member>
+    <member refid="class_level_controller_1ad84c9b6f82bc375835400f9ff91970dc" kind="function"><name>checkEndGame</name></member>
+    <member refid="class_level_controller_1a285584baee67aac0bb530fe6f7048d7f" kind="function"><name>UpdateSequence</name></member>
+    <member refid="class_level_controller_1a99bc6e4854acff79a4848726854c9b2a" kind="function"><name>ScaryCatAnimation</name></member>
+  </compound>
+  <compound refid="class_lobby_manager" kind="class"><name>LobbyManager</name>
+    <member refid="class_lobby_manager_1aa3a55fd3796d63373a991cbe9723eed6" kind="variable"><name>lobbyPlayers</name></member>
+    <member refid="class_lobby_manager_1a7e4862564926f8bc0dd1b81995189c09" kind="variable"><name>players</name></member>
+    <member refid="class_lobby_manager_1ab1db9ae497c2b9b54577aacca9c1d0ec" kind="variable"><name>networkDiscovery</name></member>
+    <member refid="class_lobby_manager_1aa9ce59293c289aa904bf56e47cd3a203" kind="variable"><name>startController</name></member>
+    <member refid="class_lobby_manager_1aa174128df04e81ecce0d94e876790dff" kind="variable"><name>readyUIActive</name></member>
+    <member refid="class_lobby_manager_1a385dc0b5f5bce4d8c6953f5fe4189d39" kind="variable"><name>lobbyPlayerRectTransform</name></member>
+    <member refid="class_lobby_manager_1aaa6e7dea79421c5a4e18ea897c7306ab" kind="variable"><name>lobbyPlayerStartPos</name></member>
+    <member refid="class_lobby_manager_1ab52e55ce90dac85bcfdf2368c0b88f6f" kind="variable"><name>lobbyPlayerOffset</name></member>
+    <member refid="class_lobby_manager_1acfe1f383c397d463fd3081c29087fd60" kind="variable"><name>lobbyPlayerPosition</name></member>
+    <member refid="class_lobby_manager_1a2c1ba7692f307572d4706b49a51c4591" kind="variable"><name>countdownUI</name></member>
+    <member refid="class_lobby_manager_1a8be3d581616c692b72cb8cedac09189e" kind="variable"><name>readyCountdown</name></member>
+    <member refid="class_lobby_manager_1a269751b43a7398bf3c9e97c3a4d525f5" kind="variable"><name>readyToPlay</name></member>
+    <member refid="class_lobby_manager_1ac35d2ea9248f6dbaac492b578c7a1a29" kind="variable"><name>changingScene</name></member>
+    <member refid="class_lobby_manager_1a8bdad0d1d81ff77248ccc954e3eadba9" kind="variable"><name>isHost</name></member>
+    <member refid="class_lobby_manager_1af34547554ed68b489e3a5ab93b7fe7c9" kind="variable"><name>PlayerColor</name></member>
+    <member refid="class_lobby_manager_1ac5e53b0bcc19988bed8af9d0a90dc67f" kind="variable"><name>PlayerAbilities</name></member>
+    <member refid="class_lobby_manager_1a967fdb7824ce1f6de983be556b989708" kind="property"><name>IsHost</name></member>
+    <member refid="class_lobby_manager_1ace6da30a10e91f3d54a47636a0f8581c" kind="function"><name>Start</name></member>
+    <member refid="class_lobby_manager_1ad16f199d1f965a9b561e41de29a7d09d" kind="function"><name>Update</name></member>
+    <member refid="class_lobby_manager_1a3d69b79f80537a99e2f2df23791c7ce5" kind="function"><name>checkAllReady</name></member>
+    <member refid="class_lobby_manager_1ab399337c7cb17aeb33821803c929f345" kind="function"><name>UpdateLobbyPlayers</name></member>
+    <member refid="class_lobby_manager_1aa109f9d1f6fc7b99a16397d59bd856b0" kind="function"><name>checkAbilitiesReady</name></member>
+    <member refid="class_lobby_manager_1afb1f76966f91b13231d1cd2556b5620f" kind="function"><name>OnStartHost</name></member>
+    <member refid="class_lobby_manager_1ad80428defffdda7094c89630dba4216e" kind="function"><name>OnLobbyClientEnter</name></member>
+    <member refid="class_lobby_manager_1a2bd4b36db9f0c0818ab3c3cbf82ed09b" kind="function"><name>OnLobbyClientExit</name></member>
+    <member refid="class_lobby_manager_1a8bd1cd7be0dd34ed8391ac7811e0f9d7" kind="function"><name>OnServerAddPlayer</name></member>
+    <member refid="class_lobby_manager_1a64f4aa7b20d61828f493025c485e7273" kind="function"><name>OnLobbyClientDisconnect</name></member>
+    <member refid="class_lobby_manager_1a4eec6cd8e406dd2f941525946cec5021" kind="function"><name>OnStopServer</name></member>
+    <member refid="class_lobby_manager_1a21ad877c6f9ef942877d3b2314cee4a8" kind="function"><name>OnLobbyServerPlayersReady</name></member>
+    <member refid="class_lobby_manager_1afb0dff921773c41be7f94fd75e5f7723" kind="function"><name>OnLobbyClientSceneChanged</name></member>
+    <member refid="class_lobby_manager_1a37ffc4ac78782687f030e62d24bbef3e" kind="function"><name>OnClientSceneChanged</name></member>
+    <member refid="class_lobby_manager_1a15f4143f9baf5779e9e85ffb933b3eeb" kind="function"><name>OnServerSceneChanged</name></member>
+    <member refid="class_lobby_manager_1afcc84910a29c2c484e981e9b49812ee6" kind="function"><name>OnLobbyServerSceneLoadedForPlayer</name></member>
+    <member refid="class_lobby_manager_1af35ad749b09311811a02ba26a330eeae" kind="function"><name>AddLobbyPlayer</name></member>
+    <member refid="class_lobby_manager_1a4756314fed47047098038f152e1082c8" kind="function"><name>AddPlayer</name></member>
+    <member refid="class_lobby_manager_1a73b4da8e4b55680ac3c95a6dba3cf9e8" kind="function"><name>setLocalPlayerColor</name></member>
+    <member refid="class_lobby_manager_1a542ed736fab7a96d25212be963edd4d9" kind="function"><name>getUsedColors</name></member>
+    <member refid="class_lobby_manager_1ad644a4f7059885109e1a9d2084f135fe" kind="function"><name>OnStartGame</name></member>
+  </compound>
+  <compound refid="class_lobby_player" kind="class"><name>LobbyPlayer</name>
+    <member refid="class_lobby_player_1a826c545393e538b832cb86d449d1cee5" kind="variable"><name>isLocal</name></member>
+    <member refid="class_lobby_player_1ac9eea450b902efd46c20afbcd89d3aa3" kind="variable"><name>isServe</name></member>
+    <member refid="class_lobby_player_1adf185694cd5cc40a2a1f8329e6de7562" kind="variable"><name>PlayerReady</name></member>
+    <member refid="class_lobby_player_1a8ccc60d9016456cf2f0d43e70cd6c07a" kind="variable"><name>PlayerName</name></member>
+    <member refid="class_lobby_player_1a12cf8f95a697bcfdbc8f3fda9416362d" kind="variable"><name>PlayerColor</name></member>
+    <member refid="class_lobby_player_1a3461a5d730867b855a75ba5a5785895b" kind="variable"><name>PlayerPosition</name></member>
+    <member refid="class_lobby_player_1a1abebb87fd99fa7b08a39c27f853e68a" kind="variable"><name>playerScale</name></member>
+    <member refid="class_lobby_player_1a57cd809197288090c05307c048450401" kind="variable"><name>Colors</name></member>
+    <member refid="class_lobby_player_1a256fd0a13ce9d20561e4b3a1d0f36ef8" kind="variable"><name>currentColorIndex</name></member>
+    <member refid="class_lobby_player_1ac6803b505e6af116229b930f0169a149" kind="variable"><name>lobbyPlayerPositions</name></member>
+    <member refid="class_lobby_player_1a73049e3021d950510725ce7e4a43238c" kind="variable"><name>lobbyPlayerRectTransform</name></member>
+    <member refid="class_lobby_player_1ac4e72ae1c1202654724bf54aeabc93ec" kind="variable"><name>lobbyPlayerStartPos</name></member>
+    <member refid="class_lobby_player_1ae97f93ca010e1d5b84bc1573c5c169c9" kind="variable"><name>lobbyPlayerOffset</name></member>
+    <member refid="class_lobby_player_1ae3751c0ef9ba9293f1bfaacc35aab4d9" kind="variable"><name>canvasObj</name></member>
+    <member refid="class_lobby_player_1af417d02e476b2a52a93d328848ff3d32" kind="variable"><name>playerImage</name></member>
+    <member refid="class_lobby_player_1ac0fd972534714578003c5e62f7b6e319" kind="variable"><name>playerNameText</name></member>
+    <member refid="class_lobby_player_1aac956161514b01064821199891349d01" kind="variable"><name>playerQuitButtonObj</name></member>
+    <member refid="class_lobby_player_1a9ce08d1007a628ae9cefdb363d198ea0" kind="variable"><name>playerReadyButtonObj</name></member>
+    <member refid="class_lobby_player_1a5e0f1b9f2aabaf053ded017c16cd2322" kind="variable"><name>playerButton</name></member>
+    <member refid="class_lobby_player_1a998187c86123b750d306d1904b12159c" kind="function"><name>Start</name></member>
+    <member refid="class_lobby_player_1a22d7af3d7f8387582b603da068e7aedf" kind="function"><name>setColor</name></member>
+    <member refid="class_lobby_player_1abab7da821cd8daf86903c897b35a15b9" kind="function"><name>Update</name></member>
+    <member refid="class_lobby_player_1ab096684d09936df57757756ed8423eba" kind="function"><name>OnStartLocalPlayer</name></member>
+    <member refid="class_lobby_player_1a3710f55538024e8d4efd7b8ebed1d9c8" kind="function"><name>OnClientEnterLobby</name></member>
+    <member refid="class_lobby_player_1a97e959180c405affeb819519f4df157b" kind="function"><name>OnClientReady</name></member>
+    <member refid="class_lobby_player_1ade2d40b6d30c3519164b3a4d91f966c9" kind="function"><name>OnChangeName</name></member>
+    <member refid="class_lobby_player_1a460d56ea88204153e7108c80b4ef1df3" kind="function"><name>OnChangeColor</name></member>
+    <member refid="class_lobby_player_1addcd027f59daff8995210bb67504ef4d" kind="function"><name>CmdChangeName</name></member>
+    <member refid="class_lobby_player_1a6575d4f30dad50c67b23bb58284568c7" kind="function"><name>CmdChangeColor</name></member>
+    <member refid="class_lobby_player_1a8d71a15da4ec49f81039ed0b988afd20" kind="function"><name>OnReady</name></member>
+    <member refid="class_lobby_player_1a6cb117d851e6ef57d9f19630a2542ea2" kind="function"><name>OnToggleColor</name></member>
+    <member refid="class_lobby_player_1a05e468c00e731f9a180f67ffff8640e2" kind="function"><name>OnQuit</name></member>
+  </compound>
+  <compound refid="class_mouse" kind="class"><name>Mouse</name>
+    <member refid="class_mouse_1a5e03ef04169721020ee56c608507d277" kind="variable"><name>SoundmouseSqueak</name></member>
+    <member refid="class_mouse_1a5ab3fc41cc8d64df2e0c2721590bc6d9" kind="variable"><name>SoundmouseEat</name></member>
+    <member refid="class_mouse_1a36d2e6b24efa93b928ee0c835126d76a" kind="variable"><name>SoundLevelUp</name></member>
+    <member refid="class_mouse_1a215f93e37bb5d78b3890c79507461f1f" kind="variable"><name>LevelSprites</name></member>
+    <member refid="class_mouse_1a15e81f78d771e26d8116cb08618b4757" kind="variable"><name>ShadowSprites</name></member>
+    <member refid="class_mouse_1a4c4febebe798e39398129c308a3b7c70" kind="variable"><name>HappinessSprites</name></member>
+    <member refid="class_mouse_1ae514e8764ea1881ef1470f7dc85c34e3" kind="variable"><name>audio</name></member>
+    <member refid="class_mouse_1a06fa448faa17879440c3726ac751951e" kind="variable"><name>levelController</name></member>
+    <member refid="class_mouse_1ac1f2e10e5489d8a2ec67f3e90b065c0d" kind="variable"><name>rotationCoroutine</name></member>
+    <member refid="class_mouse_1a1f33d4cf65b02dfabedcd0c275165650" kind="variable"><name>spriteRenderer</name></member>
+    <member refid="class_mouse_1acedeb637eb46a057915233a7a49eb27c" kind="variable"><name>shadowSpriteRenderer</name></member>
+    <member refid="class_mouse_1aba7177af77a959c815f06991baec2ec8" kind="variable"><name>polygonColliders</name></member>
+    <member refid="class_mouse_1a79a46f6a746a1fc14eeaa264f728cf1f" kind="variable"><name>mouseHappinessImage</name></member>
+    <member refid="class_mouse_1ab5f2d3078a930c5391df7d1a2ed2b202" kind="variable"><name>mouseHappinessFill</name></member>
+    <member refid="class_mouse_1a9cb89f2a07015de0b2cd7522dac04cb4" kind="variable"><name>weight</name></member>
+    <member refid="class_mouse_1a320142dfe2bfebba707dee65ad9f928c" kind="variable"><name>happiness</name></member>
+    <member refid="class_mouse_1af1af663df0cd12b13dbc10b8d496c9bb" kind="variable"><name>level</name></member>
+    <member refid="class_mouse_1ab490a3d6a6b5fb972f50e8e68279d15a" kind="variable"><name>immunity</name></member>
+    <member refid="class_mouse_1a9284282ca5ad8ec85f46de5cbcbfb486" kind="variable"><name>leptinDeficiency</name></member>
+    <member refid="class_mouse_1ac4a3a94da019241814175063b4e4bb28" kind="variable"><name>fearless</name></member>
+    <member refid="class_mouse_1acf87981138797a0a0fa570bd5683e955" kind="variable"><name>offScreen</name></member>
+    <member refid="class_mouse_1a5a15fdf0be397de4d96167139a46a529" kind="variable"><name>alreadyOffScreen</name></member>
+    <member refid="class_mouse_1a3105fd54437f1973c07c214dfa1f66c1" kind="variable"><name>rotateBack</name></member>
+    <member refid="class_mouse_1aca73f2825f29e0ff5b2a9d3da6c7b896" kind="variable"><name>rotatingBack</name></member>
+    <member refid="class_mouse_1a2289f7b1d61f526885d42761945c6113" kind="variable"><name>runBack</name></member>
+    <member refid="class_mouse_1a9d8f4dec880abbf4a46e099dc7cb056d" kind="variable"><name>runningBack</name></member>
+    <member refid="class_mouse_1a0ee6c843c8333bffa40660e7e19f2a17" kind="variable"><name>returnToScreen</name></member>
+    <member refid="class_mouse_1a0142215641752787c5229d8d54ea0df9" kind="variable"><name>tapped</name></member>
+    <member refid="class_mouse_1af4cfc8c3c859ef92d724a35955ab8369" kind="variable"><name>stroked</name></member>
+    <member refid="class_mouse_1aaa98d9cca6b8ef1e8d488f906b1ca84c" kind="variable"><name>swipeFirstPos</name></member>
+    <member refid="class_mouse_1a131f86f730971af6baf04cbd82fcee4e" kind="variable"><name>swipeLastPos</name></member>
+    <member refid="class_mouse_1aa89b13e190a0d311a4c979b6bf3ac0c2" kind="variable"><name>SwipeDistance</name></member>
+    <member refid="class_mouse_1a307fbbbe747e96f7c8f79c6455167cac" kind="variable"><name>weightLevels</name></member>
+    <member refid="class_mouse_1a9d74742f3419a38d523897662fc2579a" kind="variable"><name>happinessLevels</name></member>
+    <member refid="class_mouse_1a95b5a0f764060e284d53bcac324ce29e" kind="variable"><name>levelUpObject</name></member>
+    <member refid="class_mouse_1a2e0563b5f7e12d22adbe511e7152c614" kind="variable"><name>defaultSize</name></member>
+    <member refid="class_mouse_1a7e00cd6c8c5c0a318dc20967082b5fb5" kind="variable"><name>defaultScale</name></member>
+    <member refid="class_mouse_1a942b43ed9874d5b6530e5e57a5ea4564" kind="variable"><name>scale</name></member>
+    <member refid="class_mouse_1a8e8758444f3cbd46689ef183fac8950a" kind="variable"><name>currentRotation</name></member>
+    <member refid="class_mouse_1a892d6ffeb10d154b9951761c6a072c19" kind="variable"><name>correctRotation</name></member>
+    <member refid="class_mouse_1adebf0e149466eda67b116f4755e7f99e" kind="variable"><name>rotationCorrected</name></member>
+    <member refid="class_mouse_1aed23f1e537d08cd813a82b847d0fea33" kind="variable"><name>finalAngle1</name></member>
+    <member refid="class_mouse_1a065d85d9ce9eb997341894ec67d13a93" kind="variable"><name>finalAngle2</name></member>
+    <member refid="class_mouse_1ac9a9382fbefd88177cda5898370b8fc5" kind="variable"><name>easeK</name></member>
+    <member refid="class_mouse_1a0db21ab3e05fcc93aba660f3908a9ab3" kind="variable"><name>maxTurnSteps</name></member>
+    <member refid="class_mouse_1abc76524ec127d4d1b824c955e1696e21" kind="variable"><name>turnSteps</name></member>
+    <member refid="class_mouse_1a574425577b019c17dafd9e2cfc0b7e39" kind="variable"><name>timer</name></member>
+    <member refid="class_mouse_1a27e86af0b614af49cab1211e1635a8a6" kind="property"><name>FinalWeight</name></member>
+    <member refid="class_mouse_1add4f90aa1a1e81b981a6b2dfdb0c9e24" kind="property"><name>Weight</name></member>
+    <member refid="class_mouse_1a76debda38af30b4b2249757bc316f66e" kind="property"><name>Level</name></member>
+    <member refid="class_mouse_1a91cb125845991ce20246753f7eef2b8e" kind="property"><name>Happiness</name></member>
+    <member refid="class_mouse_1a7916f98be8b4afcd422794bbf8994e25" kind="property"><name>Immunity</name></member>
+    <member refid="class_mouse_1a58afb42b0fa0f4d9fb30795d68a86b82" kind="property"><name>GrowthAbility</name></member>
+    <member refid="class_mouse_1aa866c3f02e0e310895d8e5ef4bca6db5" kind="property"><name>Fearless</name></member>
+    <member refid="class_mouse_1a4bdbd8793c98c76e0ed8b00717d34325" kind="property"><name>Offscreen</name></member>
+    <member refid="class_mouse_1a372fdf02cd633cfd32bfd642f1235db8" kind="property"><name>MouseCollider2D</name></member>
+    <member refid="class_mouse_1a9293e82127efa227ff89ecdb61ca4072" kind="function"><name>Start</name></member>
+    <member refid="class_mouse_1ae7847cb133f467e53b961375c6a2fb5d" kind="function"><name>Update</name></member>
+    <member refid="class_mouse_1a0f2b452dc82cc104a6ce10ee66cf586e" kind="function"><name>checkLevel</name></member>
+    <member refid="class_mouse_1a1520c88596df7cb1543e449ca6211ef4" kind="function"><name>checkHappiness</name></member>
+    <member refid="class_mouse_1aa56d19d2f2e68c0ce302b7e551f9dd46" kind="function"><name>updateHappiness</name></member>
+    <member refid="class_mouse_1a6cfa0d03e60734d683669f9b4997d29c" kind="function"><name>increaseHappiness</name></member>
+    <member refid="class_mouse_1af6a68432c6269c972364786bc9150408" kind="function"><name>detectTouch</name></member>
+    <member refid="class_mouse_1af2f06c04803dc7481e7801190474c80b" kind="function"><name>rotateWithEasing</name></member>
+    <member refid="class_mouse_1a13c4e5dca51e232e6ec22ccc07cd25e0" kind="function"><name>CorrectMouseRotation</name></member>
+    <member refid="class_mouse_1a4b4d0dc6b8751aae5ead8bdd5434664d" kind="function"><name>checkOffScreen</name></member>
+    <member refid="class_mouse_1a55eb4dad6a0eaae8ddd15baffefdeebc" kind="function"><name>mouseOffScreen</name></member>
+    <member refid="class_mouse_1a39ddbc60eee17c6919e1655d4cafd420" kind="function"><name>runOffScreen</name></member>
+    <member refid="class_mouse_1a0cc2af461f112ce4c78f168d50153a28" kind="function"><name>rotateBackToCenter</name></member>
+    <member refid="class_mouse_1ae8e5616666dbaa9655f6f1c16cdb51bf" kind="function"><name>runBackToCenter</name></member>
+    <member refid="class_mouse_1aac7ce81f7dfdf78f430c60704d07ed62" kind="function"><name>OnCollisionEnter2D</name></member>
+    <member refid="class_mouse_1a7089d7d561aec497313124923d43d6ab" kind="function"><name>detectTapping</name></member>
+    <member refid="class_mouse_1a703c6d2bf06fc507d4b6de7f873d2327" kind="function"><name>StopMouseRotation</name></member>
+    <member refid="class_mouse_1ab798e0bc7d7052264696c97b7d332666" kind="function"><name>StartMouseRotation</name></member>
+  </compound>
+  <compound refid="class_my_network_discovery" kind="class"><name>MyNetworkDiscovery</name>
+    <member refid="class_my_network_discovery_1a8335a03cf34de8cc79d5fe2dd5f6cddf" kind="function"><name>OnReceivedBroadcast</name></member>
+  </compound>
+  <compound refid="class_name_prompt" kind="class"><name>NamePrompt</name>
+    <member refid="class_name_prompt_1a188aef270479a1ede54b5095acf4313b" kind="variable"><name>SoundButton</name></member>
+    <member refid="class_name_prompt_1aa6dd6285c4975c02ec3095c539abd2fa" kind="variable"><name>audio</name></member>
+    <member refid="class_name_prompt_1a6b789fef16bd5c380b756b6ec5e80323" kind="variable"><name>nameInput</name></member>
+    <member refid="class_name_prompt_1a9e12f6200364a31eabd8515280fcc5c1" kind="variable"><name>promptText</name></member>
+    <member refid="class_name_prompt_1ab4d8eef9dedaf5cee82e7b81b15eebfe" kind="function"><name>Start</name></member>
+    <member refid="class_name_prompt_1ace3cd673ee9feea16c0abc8060967c87" kind="function"><name>OnOKButton</name></member>
+  </compound>
+  <compound refid="class_object_pool" kind="class"><name>ObjectPool</name>
+    <member refid="class_object_pool_1ab54421fb72fa4934d9cde669fe703919" kind="variable"><name>obj</name></member>
+    <member refid="class_object_pool_1a042d11a5c16a66a17e149db98b0ed679" kind="variable"><name>activeObjects</name></member>
+    <member refid="class_object_pool_1a7ac0293aa14d5177dff8d6a7e9a0b290" kind="variable"><name>pool</name></member>
+    <member refid="class_object_pool_1a60d15ca98c4df8f2698431d968570eac" kind="property"><name>ActiveObjects</name></member>
+    <member refid="class_object_pool_1af622a34197dab76dbbc8a1affa43adf2" kind="property"><name>PoolObject</name></member>
+    <member refid="class_object_pool_1a40c9b63a283e6e5b93230e8a31e49f1a" kind="function"><name>GetObj</name></member>
+    <member refid="class_object_pool_1a8000b2df1a73afd9a0c9f3ad4c8b9a43" kind="function"><name>ReturnObj</name></member>
+  </compound>
+  <compound refid="class_player" kind="class"><name>Player</name>
+    <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363" kind="enum"><name>Statuses</name></member>
+    <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a960b44c579bc2f6818d2daaf9e4c16f0" kind="enumvalue"><name>Normal</name></member>
+    <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363af830a68d1550d809c72524db82a1ca84" kind="enumvalue"><name>Immunity</name></member>
+    <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363adb8093804a0a5eb18fc03860751e101b" kind="enumvalue"><name>TreatsGalore</name></member>
+    <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a28af29c3fcfa1b71d38c69c1e52a17f1" kind="enumvalue"><name>Fearless</name></member>
+    <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363add85ae9aff11d564ed73313fd1c50de0" kind="enumvalue"><name>FatMouse</name></member>
+    <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a2b8f437e5f30b7c6c92ed05eba0bb77a" kind="enumvalue"><name>ScaryCat</name></member>
+    <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a813e6a1d5b7658fdbfe3a75808130e80" kind="enumvalue"><name>BeastlyBuffet</name></member>
+    <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a608f488597ee8de18664d975b04d8be8" kind="enumvalue"><name>Thief</name></member>
+    <member refid="class_player_1a6300973dc4595f2a05f7e02df68886fb" kind="variable"><name>isLocal</name></member>
+    <member refid="class_player_1a8953673cf9ed34e606b67d4e7ff10d66" kind="variable"><name>Name</name></member>
+    <member refid="class_player_1a60754a6d6bd688c9a8311c90409f6800" kind="variable"><name>Color</name></member>
+    <member refid="class_player_1a2b0f27c749db9fa30aadfede5a947533" kind="variable"><name>PAbilities</name></member>
+    <member refid="class_player_1a605591b1dc02d3c5b37a958bf0f6c1cb" kind="variable"><name>NumPlayers</name></member>
+    <member refid="class_player_1a26d4288e4b37749aed27336ed88688e1" kind="variable"><name>Score</name></member>
+    <member refid="class_player_1abfbd016d3f5e84990f6e12b032cbd060" kind="variable"><name>Status</name></member>
+    <member refid="class_player_1a7e5dbc20dbb071d8e7b6e00f87303dbf" kind="variable"><name>readyToPlay</name></member>
+    <member refid="class_player_1a23734371988526af51ba3ca3ce3a1e8a" kind="variable"><name>PlayerWon</name></member>
+    <member refid="class_player_1ab0a5244f114beee858a5c093961ec5aa" kind="variable"><name>abilityController</name></member>
+    <member refid="class_player_1a446250b94bf22c41c211ce5836dea6a1" kind="variable"><name>levelController</name></member>
+    <member refid="class_player_1a5e91ad00fd0626b88383f2bd3c0a99ce" kind="variable"><name>mouse</name></member>
+    <member refid="class_player_1aaddfa9f3b558df64f5d1d09e2b906901" kind="function"><name>Awake</name></member>
+    <member refid="class_player_1aace80372e18e32fe177e295fe5d93ba8" kind="function"><name>Update</name></member>
+    <member refid="class_player_1a6a178a089ae1759e815b6188678f1000" kind="function"><name>OnStartClient</name></member>
+    <member refid="class_player_1a66fa765495c346749cfa295d3e416403" kind="function"><name>OnStartLocalPlayer</name></member>
+    <member refid="class_player_1a3e082c57e9a482c3a1edce676bef1ee6" kind="function"><name>CmdChangeColor</name></member>
+    <member refid="class_player_1a9181eb3375a7571d878db876f34da529" kind="function"><name>CmdChangeName</name></member>
+    <member refid="class_player_1a3f28ee570b08687e05bcd1e24cbfc864" kind="function"><name>AttachToMouse</name></member>
+    <member refid="class_player_1afbdd10a28c0395a7b265480a69e91c53" kind="function"><name>CmdReadyToPlay</name></member>
+    <member refid="class_player_1aad20dbe372de7e8ca6e1788cee814057" kind="function"><name>CmdActivateAbilities</name></member>
+    <member refid="class_player_1af69b6b04aaa34f9551ffd1613ac75179" kind="function"><name>getAbilities</name></member>
+    <member refid="class_player_1acb200fbe834e2297e39591731441a8cc" kind="function"><name>addAbility</name></member>
+    <member refid="class_player_1a96dbc6808970c74582a7e9bafdc7d631" kind="function"><name>removeAbility</name></member>
+    <member refid="class_player_1aea710f526c61cf47f9990439025701b1" kind="function"><name>hasAbility</name></member>
+    <member refid="class_player_1aaa48ea92a483d89e781abc83a0b1b4f2" kind="function"><name>CmdUpdateScore</name></member>
+    <member refid="class_player_1a37fa6ab2177cda9f2fb3a9428e0b1f78" kind="function"><name>CmdUpdatePlayerWon</name></member>
+    <member refid="class_player_1a594f9f2151d4c97fa61ad91b8886c04b" kind="function"><name>checkStatus</name></member>
+    <member refid="class_player_1a1b9496293bea0f14a019ed58fae38800" kind="function"><name>checkPlayerWon</name></member>
+  </compound>
+  <compound refid="class_pool_member" kind="class"><name>PoolMember</name>
+    <member refid="class_pool_member_1ae603b4d8b40af37e228cba441d1f1795" kind="variable"><name>pool</name></member>
+    <member refid="class_pool_member_1a6f883eaed133e4b288a3847aea3ff33a" kind="function"><name>Deactivate</name></member>
+    <member refid="class_pool_member_1aa20f1ac6e12b3d7d3b6f71d49e0cd1af" kind="function"><name>setPool</name></member>
+  </compound>
+  <compound refid="class_scary_cat" kind="class"><name>ScaryCat</name>
+    <member refid="class_scary_cat_1abfd15aeb1a3bf66d53289f3ff48cd052" kind="property"><name>HappinessReduction</name></member>
+    <member refid="class_scary_cat_1a44a2db347230d52f598ef357674086fe" kind="property"><name>WeightReduction</name></member>
+    <member refid="class_scary_cat_1a78f35c5175a67080939452762912835a" kind="function"><name>ScaryCat</name></member>
+    <member refid="class_scary_cat_1ad198001346904b158d4b7fa1638e2275" kind="function"><name>GetDetails</name></member>
+  </compound>
+  <compound refid="class_settings_controller" kind="class"><name>SettingsController</name>
+    <member refid="class_settings_controller_1a7870b65f1661a29b16c49f5742b706e8" kind="variable"><name>SoundLobby</name></member>
+    <member refid="class_settings_controller_1ab6a2aa723685b31f65bfa43a117ac75c" kind="variable"><name>SoundButton</name></member>
+    <member refid="class_settings_controller_1a2bfe85dd119dd1d4e089d96bb512409d" kind="variable"><name>audio</name></member>
+    <member refid="class_settings_controller_1a51a9d3ae10fe636d753380852febccb6" kind="variable"><name>inputField</name></member>
+    <member refid="class_settings_controller_1a3e5777739f81b017043c91aa2c8e806e" kind="function"><name>Start</name></member>
+    <member refid="class_settings_controller_1a76e78ae4702ca6b7dd90a5b630f7ff5c" kind="function"><name>OnOKButton</name></member>
+  </compound>
+  <compound refid="class_start_controller" kind="class"><name>StartController</name>
+    <member refid="class_start_controller_1a1bff61f4289cf385be5431d5e5d60606" kind="variable"><name>SoundLobby</name></member>
+    <member refid="class_start_controller_1a82c830ab77b95f89aad8742582e9da4f" kind="variable"><name>SoundButtonPress</name></member>
+    <member refid="class_start_controller_1a4c4f3e99470c74247f1b3d9f8cebcfca" kind="variable"><name>audio</name></member>
+    <member refid="class_start_controller_1abceec2a4eb4c11f53039e3c619d843c8" kind="variable"><name>MaxPlayers</name></member>
+    <member refid="class_start_controller_1a84f1f1a631e5b06e1ce39d5ff85f3006" kind="variable"><name>canvasObj</name></member>
+    <member refid="class_start_controller_1aec7197caa367e00680cfef39971bbb91" kind="variable"><name>startUI</name></member>
+    <member refid="class_start_controller_1a5251decbc4d2a5d371e2c20f5144ba2d" kind="variable"><name>waitingUI</name></member>
+    <member refid="class_start_controller_1aa897baea0535ee7052fec6a52f8ad4d6" kind="variable"><name>readyUI</name></member>
+    <member refid="class_start_controller_1a386e541e2a410db28efc307e5b861b18" kind="variable"><name>readyWaitingText</name></member>
+    <member refid="class_start_controller_1a0eefd526a14e1b158c0551f7d2c26e67" kind="variable"><name>readyStartButton</name></member>
+    <member refid="class_start_controller_1af46f89c62f6a04b94a61d632ef4cb952" kind="variable"><name>startPositionPrefab</name></member>
+    <member refid="class_start_controller_1a9521a1e89c689bff1aa9bc91519fe553" kind="variable"><name>lobbyManager</name></member>
+    <member refid="class_start_controller_1a7640ccf6b701fdc2dec008815674655c" kind="variable"><name>networkDiscovery</name></member>
+    <member refid="class_start_controller_1a1cdb5acaa2a0ad55f38b6c133dc52a77" kind="function"><name>Start</name></member>
+    <member refid="class_start_controller_1ad3ebed37a2c7da797629a7c02054e980" kind="function"><name>checkPlayerName</name></member>
+    <member refid="class_start_controller_1ae3d6d4cad6df096d62c732941b2c9af3" kind="function"><name>OnHostGame</name></member>
+    <member refid="class_start_controller_1a9a90065712a34416c5669a7e2d5c9e70" kind="function"><name>OnJoinGame</name></member>
+    <member refid="class_start_controller_1a9c94103aa6a1465b1bf5912169e07fe2" kind="function"><name>OnJoinStopWaiting</name></member>
+    <member refid="class_start_controller_1aa189d5c93450b9d6eaf8571fe5fff59c" kind="function"><name>OnSettings</name></member>
+    <member refid="class_start_controller_1aa2f218cad01de8c8c7dbca74ef6f9acd" kind="function"><name>OnHowToPlay</name></member>
+    <member refid="class_start_controller_1a340b97d8cbc0560d669ef044d10604c6" kind="function"><name>ToggleStartUI</name></member>
+    <member refid="class_start_controller_1ae50781bf1e4343767135af6c677ddc48" kind="function"><name>ToggleWaitingUI</name></member>
+    <member refid="class_start_controller_1ada06ead514a8e7677fedc143394c239e" kind="function"><name>ToggleHostReadyUI</name></member>
+    <member refid="class_start_controller_1a4260d1540130a9e0797599571aac8eaa" kind="function"><name>ToggleClientReadyUI</name></member>
+  </compound>
+  <compound refid="class_thief" kind="class"><name>Thief</name>
+    <member refid="class_thief_1ad1ed53c6f931d1a648ea80a20009f476" kind="property"><name>FoodUnitsTransferred</name></member>
+    <member refid="class_thief_1adc3adc4afd7f38419f32b138a0fbd2cd" kind="property"><name>SpawnIntervalMultiplier</name></member>
+    <member refid="class_thief_1aa049df83957df923ee073f352874ef17" kind="function"><name>Thief</name></member>
+    <member refid="class_thief_1aad5cbc449c37fc67cb26f094ac25fd0c" kind="function"><name>GetDetails</name></member>
+  </compound>
+  <compound refid="class_touch_test" kind="class"><name>TouchTest</name>
+    <member refid="class_touch_test_1ac590e65cd645257d9027fb0537703285" kind="variable"><name>GUIStyle</name></member>
+    <member refid="class_touch_test_1ad538907cb0816082e3646f5f81e11716" kind="function"><name>Start</name></member>
+    <member refid="class_touch_test_1a9e0efcfb3ec7b24fc86efd0c3baaa8eb" kind="function"><name>Update</name></member>
+    <member refid="class_touch_test_1a07cd0accbd8b6c6694de6cbcbc6a3758" kind="function"><name>OnGUI</name></member>
+  </compound>
+  <compound refid="class_treats_galore" kind="class"><name>TreatsGalore</name>
+    <member refid="class_treats_galore_1a6306c19dd728607ada172be9666a7da3" kind="property"><name>PointThreshold</name></member>
+    <member refid="class_treats_galore_1a8d9b5ef547e7eafc44eded4ebbb558b1" kind="property"><name>SpawnWeightMultiplier</name></member>
+    <member refid="class_treats_galore_1ac98fd56615afcf831c8693019e2a3868" kind="property"><name>SpawnLimitMultiplier</name></member>
+    <member refid="class_treats_galore_1ab9946890bea321ef15fa0d5116d1ce72" kind="function"><name>TreatsGalore</name></member>
+    <member refid="class_treats_galore_1a25a1fb8619afeb31b866b5fd9692aa65" kind="function"><name>GetDetails</name></member>
+  </compound>
+  <compound refid="namespace_random" kind="namespace"><name>Random</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections" kind="namespace"><name>System::Collections</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_net" kind="namespace"><name>System::Net</name>
+  </compound>
+  <compound refid="namespace_system_1_1_net_1_1_network_information" kind="namespace"><name>System::Net::NetworkInformation</name>
+  </compound>
+  <compound refid="namespace_system_1_1_net_1_1_sockets" kind="namespace"><name>System::Net::Sockets</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="namespace_unity_engine" kind="namespace"><name>UnityEngine</name>
+  </compound>
+  <compound refid="namespace_unity_engine_1_1_event_systems" kind="namespace"><name>UnityEngine::EventSystems</name>
+  </compound>
+  <compound refid="namespace_unity_engine_1_1_networking" kind="namespace"><name>UnityEngine::Networking</name>
+  </compound>
+  <compound refid="namespace_unity_engine_1_1_scene_management" kind="namespace"><name>UnityEngine::SceneManagement</name>
+  </compound>
+  <compound refid="namespace_unity_engine_1_1_u_i" kind="namespace"><name>UnityEngine::UI</name>
+  </compound>
+  <compound refid="_ability_selection_controller_8cs" kind="file"><name>AbilitySelectionController.cs</name>
+  </compound>
+  <compound refid="_combo_change_animation_8cs" kind="file"><name>ComboChangeAnimation.cs</name>
+  </compound>
+  <compound refid="_combo_text_animation_8cs" kind="file"><name>ComboTextAnimation.cs</name>
+  </compound>
+  <compound refid="_countdown_text_animation_8cs" kind="file"><name>CountdownTextAnimation.cs</name>
+  </compound>
+  <compound refid="_deactivate_on_finish_animation_8cs" kind="file"><name>DeactivateOnFinishAnimation.cs</name>
+  </compound>
+  <compound refid="_end_game_animation_8cs" kind="file"><name>EndGameAnimation.cs</name>
+  </compound>
+  <compound refid="_how_to_play_controller_8cs" kind="file"><name>HowToPlayController.cs</name>
+  </compound>
+  <compound refid="_lobby_manager_8cs" kind="file"><name>LobbyManager.cs</name>
+  </compound>
+  <compound refid="_lobby_player_8cs" kind="file"><name>LobbyPlayer.cs</name>
+  </compound>
+  <compound refid="_my_network_discovery_8cs" kind="file"><name>MyNetworkDiscovery.cs</name>
+  </compound>
+  <compound refid="_start_controller_8cs" kind="file"><name>StartController.cs</name>
+  </compound>
+  <compound refid="_abilities_8cs" kind="file"><name>Abilities.cs</name>
+    <member refid="_abilities_8cs_1ab86fb5ebe97b5f22e41c2d1160008aba" kind="enum"><name>AbilityName</name></member>
+    <member refid="_abilities_8cs_1ab86fb5ebe97b5f22e41c2d1160008abaaf830a68d1550d809c72524db82a1ca84" kind="enumvalue"><name>Immunity</name></member>
+    <member refid="_abilities_8cs_1ab86fb5ebe97b5f22e41c2d1160008abaadb8093804a0a5eb18fc03860751e101b" kind="enumvalue"><name>TreatsGalore</name></member>
+    <member refid="_abilities_8cs_1ab86fb5ebe97b5f22e41c2d1160008abaa28af29c3fcfa1b71d38c69c1e52a17f1" kind="enumvalue"><name>Fearless</name></member>
+    <member refid="_abilities_8cs_1ab86fb5ebe97b5f22e41c2d1160008abaadd85ae9aff11d564ed73313fd1c50de0" kind="enumvalue"><name>FatMouse</name></member>
+    <member refid="_abilities_8cs_1ab86fb5ebe97b5f22e41c2d1160008abaa2b8f437e5f30b7c6c92ed05eba0bb77a" kind="enumvalue"><name>ScaryCat</name></member>
+    <member refid="_abilities_8cs_1ab86fb5ebe97b5f22e41c2d1160008abaa813e6a1d5b7658fdbfe3a75808130e80" kind="enumvalue"><name>BeastlyBuffet</name></member>
+    <member refid="_abilities_8cs_1ab86fb5ebe97b5f22e41c2d1160008abaa608f488597ee8de18664d975b04d8be8" kind="enumvalue"><name>Thief</name></member>
+    <member refid="_abilities_8cs_1ac5f23ee514767ab5f1b4e11146605ca5" kind="enum"><name>SelfHelpAbilities</name></member>
+    <member refid="_abilities_8cs_1ac5f23ee514767ab5f1b4e11146605ca5af830a68d1550d809c72524db82a1ca84" kind="enumvalue"><name>Immunity</name></member>
+    <member refid="_abilities_8cs_1ac5f23ee514767ab5f1b4e11146605ca5adb8093804a0a5eb18fc03860751e101b" kind="enumvalue"><name>TreatsGalore</name></member>
+    <member refid="_abilities_8cs_1ac5f23ee514767ab5f1b4e11146605ca5a28af29c3fcfa1b71d38c69c1e52a17f1" kind="enumvalue"><name>Fearless</name></member>
+    <member refid="_abilities_8cs_1ac5f23ee514767ab5f1b4e11146605ca5add85ae9aff11d564ed73313fd1c50de0" kind="enumvalue"><name>FatMouse</name></member>
+    <member refid="_abilities_8cs_1a73af7565d97c696b9ec25a800a36b68b" kind="enum"><name>SabotageAbilities</name></member>
+    <member refid="_abilities_8cs_1a73af7565d97c696b9ec25a800a36b68ba2b8f437e5f30b7c6c92ed05eba0bb77a" kind="enumvalue"><name>ScaryCat</name></member>
+    <member refid="_abilities_8cs_1a73af7565d97c696b9ec25a800a36b68ba813e6a1d5b7658fdbfe3a75808130e80" kind="enumvalue"><name>BeastlyBuffet</name></member>
+    <member refid="_abilities_8cs_1a73af7565d97c696b9ec25a800a36b68ba608f488597ee8de18664d975b04d8be8" kind="enumvalue"><name>Thief</name></member>
+  </compound>
+  <compound refid="_ability_controller_8cs" kind="file"><name>AbilityController.cs</name>
+    <member refid="_ability_controller_8cs_1a24953b19d956caa76c403684c71b4e5b" kind="typedef"><name>Random</name></member>
+  </compound>
+  <compound refid="_ability_u_i_8cs" kind="file"><name>AbilityUI.cs</name>
+  </compound>
+  <compound refid="_camera_controller_8cs" kind="file"><name>CameraController.cs</name>
+  </compound>
+  <compound refid="_food_8cs" kind="file"><name>Food.cs</name>
+  </compound>
+  <compound refid="_food_controller_8cs" kind="file"><name>FoodController.cs</name>
+  </compound>
+  <compound refid="_level_controller_8cs" kind="file"><name>LevelController.cs</name>
+  </compound>
+  <compound refid="_mouse_8cs" kind="file"><name>Mouse.cs</name>
+  </compound>
+  <compound refid="_object_pool_8cs" kind="file"><name>ObjectPool.cs</name>
+  </compound>
+  <compound refid="_player_8cs" kind="file"><name>Player.cs</name>
+  </compound>
+  <compound refid="_pool_member_8cs" kind="file"><name>PoolMember.cs</name>
+  </compound>
+  <compound refid="_name_prompt_8cs" kind="file"><name>NamePrompt.cs</name>
+  </compound>
+  <compound refid="_settings_controller_8cs" kind="file"><name>SettingsController.cs</name>
+  </compound>
+  <compound refid="_touch_test_8cs" kind="file"><name>TouchTest.cs</name>
+  </compound>
+  <compound refid="dir_8f40ea08f34c3fb91b313a40aae5a6ad" kind="dir"><name>Ability Selection</name>
+  </compound>
+  <compound refid="dir_207d3396e9c09bb57ad0ad05558c4474" kind="dir"><name>Animation Scripts</name>
+  </compound>
+  <compound refid="dir_8e5b9cb9cacea4d49fac063f5ff5375f" kind="dir"><name>HowToPlay</name>
+  </compound>
+  <compound refid="dir_765fff2a260f0ca7868b33268536dd19" kind="dir"><name>Lobby</name>
+  </compound>
+  <compound refid="dir_f4e982bca5d979afcf7d664254407d09" kind="dir"><name>Main</name>
+  </compound>
+  <compound refid="dir_225ec7d39f1268449989ad0e6078e2c5" kind="dir"><name>PromptName</name>
+  </compound>
+  <compound refid="dir_8ae0dd75af039a94f4269584fb8eef13" kind="dir"><name>Settings</name>
+  </compound>
+</doxygenindex>

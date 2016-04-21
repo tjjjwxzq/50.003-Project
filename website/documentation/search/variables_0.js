@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['food_5fnames',['FOOD_NAMES',['../class_food_controller.html#a8068d88c9eae23423e9b247f2381c600',1,'FoodController']]]
+  ['beastlybuffet',['BeastlyBuffet',['../class_abilities.html#afbc391622b333d879a808efe1fd117eb',1,'Abilities']]]
 ];

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Script for testing touch input
+/// </summary>
 public class TouchTest : MonoBehaviour {
 
     private GUIStyle GUIStyle = new GUIStyle();

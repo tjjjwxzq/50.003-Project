@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_immunity" kind="class" language="C#" prot="public">
+    <compoundname>Immunity</compoundname>
+    <basecompoundref refid="class_ability" prot="public" virt="non-virtual">Ability</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_immunity_1adb47a636740a4f4624d3ee930bbff558" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Immunity.Immunity</definition>
+        <argsstring>(int level)</argsstring>
+        <name>Immunity</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="162" column="1" bodyfile="Main/Abilities.cs" bodystart="162" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="class_immunity_1a4b2b00f44b06b639d42cbee1a0a12e06" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override string</type>
+        <definition>override string Immunity.GetDetails</definition>
+        <argsstring>()</argsstring>
+        <name>GetDetails</name>
+        <reimplements refid="class_ability_1ae212a441357426b070a0af254f5b97cc">GetDetails</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="186" column="1" bodyfile="Main/Abilities.cs" bodystart="186" bodyend="189"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A player&apos;s <ref refid="class_immunity" kindref="compound">Immunity</ref> ability. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="104">
+        <label>Immunity</label>
+        <link refid="class_immunity"/>
+        <childnode refid="105" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="106">
+        <label>Immunity</label>
+        <link refid="class_immunity"/>
+        <childnode refid="107" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Abilities.cs" line="161" column="1" bodyfile="Main/Abilities.cs" bodystart="160" bodyend="190"/>
+    <listofallmembers>
+      <member refid="class_ability_1ae2d8aec43091f7b83e366137d43135ef" prot="public" virt="non-virtual"><scope>Immunity</scope><name>Cost</name></member>
+      <member refid="class_ability_1af41791e9c6a26592c29f8158fbeed0bf" prot="public" virt="non-virtual"><scope>Immunity</scope><name>Description</name></member>
+      <member refid="class_ability_1a5bfb4991a7a4cf857e10f3a33cdd3925" prot="public" virt="non-virtual"><scope>Immunity</scope><name>Duration</name></member>
+      <member refid="class_immunity_1a4b2b00f44b06b639d42cbee1a0a12e06" prot="public" virt="virtual"><scope>Immunity</scope><name>GetDetails</name></member>
+      <member refid="class_immunity_1adb47a636740a4f4624d3ee930bbff558" prot="public" virt="non-virtual"><scope>Immunity</scope><name>Immunity</name></member>
+      <member refid="class_ability_1a4ca153df49091be7325904960f49b810" prot="public" virt="non-virtual"><scope>Immunity</scope><name>Level</name></member>
+      <member refid="class_ability_1abdd222bf37890bf0f2dfdd5c8555593e" prot="public" virt="non-virtual"><scope>Immunity</scope><name>MaxLevel</name></member>
+      <member refid="class_ability_1a7d67b154e83cae1c52d821cac6f81abe" prot="public" virt="non-virtual"><scope>Immunity</scope><name>Name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

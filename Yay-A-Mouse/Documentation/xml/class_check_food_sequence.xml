@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_check_food_sequence" kind="class" language="C#" prot="public">
+    <compoundname>CheckFoodSequence</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_check_food_sequence_1a6d9a09ed2f4ab6c4d7042e58568ea8bb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CheckFoodSequence.NormalMode</definition>
+        <argsstring></argsstring>
+        <name>NormalMode</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="15" column="1" bodyfile="CheckFoodSequence.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a2540615f2892f2214b09583e803babd7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CheckFoodSequence.FrenzyMode</definition>
+        <argsstring></argsstring>
+        <name>FrenzyMode</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="16" column="1" bodyfile="CheckFoodSequence.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a5979355502eae7cfbeca6f00f69c2660" prot="private" static="no" mutable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; CheckFoodSequence.playerSwipedCombo</definition>
+        <argsstring></argsstring>
+        <name>playerSwipedCombo</name>
+        <initializer>= new List&lt;string&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="29" column="1" bodyfile="CheckFoodSequence.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a75ed4a13d531ae3b5ac8446c7afadd19" prot="private" static="no" mutable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; CheckFoodSequence.currentCombinationToSwipe</definition>
+        <argsstring></argsstring>
+        <name>currentCombinationToSwipe</name>
+        <initializer>= new List&lt;string&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="30" column="1" bodyfile="CheckFoodSequence.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a6250d2e48ca9bfe161176836c8507db9" prot="private" static="no" mutable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; CheckFoodSequence.tester</definition>
+        <argsstring></argsstring>
+        <name>tester</name>
+        <initializer>= new List&lt;string&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="31" column="1" bodyfile="CheckFoodSequence.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a5d2382ad6e3af881ac05b4cfe2cfebbe" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CheckFoodSequence.time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <initializer>= 30.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="41" column="1" bodyfile="CheckFoodSequence.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a68d72988014909ab8e50738b6ddcaaf8" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CheckFoodSequence.timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="42" column="1" bodyfile="CheckFoodSequence.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_check_food_sequence_1a1691bb5c86df8607f0cad22530cb15c4" prot="public" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text CheckFoodSequence.scoreDisplay</definition>
+        <argsstring></argsstring>
+        <name>scoreDisplay</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="19" column="1" bodyfile="CheckFoodSequence.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a296c8f9729e97bd913867517444e9d35" prot="public" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text CheckFoodSequence.streakCountDisplay</definition>
+        <argsstring></argsstring>
+        <name>streakCountDisplay</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="20" column="1" bodyfile="CheckFoodSequence.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1aa7ee2a0eaba72289aed91487dd6a9845" prot="public" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text CheckFoodSequence.frenzyModeTitle</definition>
+        <argsstring></argsstring>
+        <name>frenzyModeTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="21" column="1" bodyfile="CheckFoodSequence.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a121f6b8add1c3f96f35c7f477cf716da" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CheckFoodSequence.countStreak</definition>
+        <argsstring></argsstring>
+        <name>countStreak</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="23" column="1" bodyfile="CheckFoodSequence.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a568d5709e8a3a26ae207a431250ce753" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CheckFoodSequence.sequenceFed</definition>
+        <argsstring></argsstring>
+        <name>sequenceFed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="24" column="1" bodyfile="CheckFoodSequence.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1aea166f11c4fe3ebcd0835cba53e2a19e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CheckFoodSequence.orderNumber</definition>
+        <argsstring></argsstring>
+        <name>orderNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="25" column="1" bodyfile="CheckFoodSequence.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a16ee7e7b1cb772dc758dc18c9510a81f" prot="public" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image CheckFoodSequence.SeqBox1</definition>
+        <argsstring></argsstring>
+        <name>SeqBox1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="34" column="1" bodyfile="CheckFoodSequence.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1aa6c7fcd0404dd5c1c2564b47798a90a2" prot="public" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image CheckFoodSequence.SeqBox2</definition>
+        <argsstring></argsstring>
+        <name>SeqBox2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="35" column="1" bodyfile="CheckFoodSequence.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1acbc30724b57603ff5a4773d073a7d454" prot="public" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image CheckFoodSequence.SeqBox3</definition>
+        <argsstring></argsstring>
+        <name>SeqBox3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="36" column="1" bodyfile="CheckFoodSequence.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_check_food_sequence_1a906911688c82a80597e6c1b61749cb71" prot="public" static="no" mutable="no">
+        <type>System.DateTime</type>
+        <definition>System.DateTime CheckFoodSequence.startTime</definition>
+        <argsstring></argsstring>
+        <name>startTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="43" column="1" bodyfile="CheckFoodSequence.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_check_food_sequence_1a3ae8d59d2c9ee82cfa035b9b9eb809be" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CheckFoodSequence.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="45" column="1" bodyfile="CheckFoodSequence.cs" bodystart="45" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_check_food_sequence_1ab33a4b6070f5049be0474701b975f455" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CheckFoodSequence.OnTriggerEnter</definition>
+        <argsstring>(Collider collider)</argsstring>
+        <name>OnTriggerEnter</name>
+        <param>
+          <type>Collider</type>
+          <declname>collider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CheckFoodSequence.cs" line="86" column="1" bodyfile="CheckFoodSequence.cs" bodystart="86" bodyend="173"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="62">
+        <label>CheckFoodSequence</label>
+        <link refid="class_check_food_sequence"/>
+        <childnode refid="63" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="64">
+        <label>CheckFoodSequence</label>
+        <link refid="class_check_food_sequence"/>
+        <childnode refid="65" relation="public-inheritance">
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>streakCountDisplay</edgelabel>
+          <edgelabel>scoreDisplay</edgelabel>
+          <edgelabel>frenzyModeTitle</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>startTime</edgelabel>
+        </childnode>
+      </node>
+      <node id="67">
+        <label>System</label>
+      </node>
+      <node id="66">
+        <label>Text</label>
+      </node>
+      <node id="65">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="CheckFoodSequence.cs" line="7" column="1" bodyfile="CheckFoodSequence.cs" bodystart="7" bodyend="203"/>
+    <listofallmembers>
+      <member refid="class_check_food_sequence_1a121f6b8add1c3f96f35c7f477cf716da" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>countStreak</name></member>
+      <member refid="class_check_food_sequence_1a75ed4a13d531ae3b5ac8446c7afadd19" prot="private" virt="non-virtual"><scope>CheckFoodSequence</scope><name>currentCombinationToSwipe</name></member>
+      <member refid="class_check_food_sequence_1a2540615f2892f2214b09583e803babd7" prot="private" virt="non-virtual"><scope>CheckFoodSequence</scope><name>FrenzyMode</name></member>
+      <member refid="class_check_food_sequence_1aa7ee2a0eaba72289aed91487dd6a9845" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>frenzyModeTitle</name></member>
+      <member refid="class_check_food_sequence_1a6d9a09ed2f4ab6c4d7042e58568ea8bb" prot="private" virt="non-virtual"><scope>CheckFoodSequence</scope><name>NormalMode</name></member>
+      <member refid="class_check_food_sequence_1ab33a4b6070f5049be0474701b975f455" prot="private" virt="non-virtual"><scope>CheckFoodSequence</scope><name>OnTriggerEnter</name></member>
+      <member refid="class_check_food_sequence_1aea166f11c4fe3ebcd0835cba53e2a19e" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>orderNumber</name></member>
+      <member refid="class_check_food_sequence_1a5979355502eae7cfbeca6f00f69c2660" prot="private" virt="non-virtual"><scope>CheckFoodSequence</scope><name>playerSwipedCombo</name></member>
+      <member refid="class_check_food_sequence_1a1691bb5c86df8607f0cad22530cb15c4" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>scoreDisplay</name></member>
+      <member refid="class_check_food_sequence_1a16ee7e7b1cb772dc758dc18c9510a81f" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>SeqBox1</name></member>
+      <member refid="class_check_food_sequence_1aa6c7fcd0404dd5c1c2564b47798a90a2" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>SeqBox2</name></member>
+      <member refid="class_check_food_sequence_1acbc30724b57603ff5a4773d073a7d454" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>SeqBox3</name></member>
+      <member refid="class_check_food_sequence_1a568d5709e8a3a26ae207a431250ce753" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>sequenceFed</name></member>
+      <member refid="class_check_food_sequence_1a3ae8d59d2c9ee82cfa035b9b9eb809be" prot="private" virt="non-virtual"><scope>CheckFoodSequence</scope><name>Start</name></member>
+      <member refid="class_check_food_sequence_1a906911688c82a80597e6c1b61749cb71" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>startTime</name></member>
+      <member refid="class_check_food_sequence_1a296c8f9729e97bd913867517444e9d35" prot="public" virt="non-virtual"><scope>CheckFoodSequence</scope><name>streakCountDisplay</name></member>
+      <member refid="class_check_food_sequence_1a6250d2e48ca9bfe161176836c8507db9" prot="private" virt="non-virtual"><scope>CheckFoodSequence</scope><name>tester</name></member>
+      <member refid="class_check_food_sequence_1a5d2382ad6e3af881ac05b4cfe2cfebbe" prot="private" virt="non-virtual"><scope>CheckFoodSequence</scope><name>time</name></member>
+      <member refid="class_check_food_sequence_1a68d72988014909ab8e50738b6ddcaaf8" prot="private" virt="non-virtual"><scope>CheckFoodSequence</scope><name>timeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

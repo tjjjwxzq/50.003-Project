@@ -39,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -84,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="class_mouse-members.html">List of all members</a>  </div>
@@ -103,17 +103,44 @@ Inheritance diagram for Mouse:</div>
 </map>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a7089d7d561aec497313124923d43d6ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a7089d7d561aec497313124923d43d6ab">detectTapping</a> ()</td></tr>
+<tr class="memdesc:a7089d7d561aec497313124923d43d6ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be called by level controller to see whether mouse has been tapped Fires food at mouse if mouse is tapped  <a href="#a7089d7d561aec497313124923d43d6ab">More...</a><br /></td></tr>
+<tr class="separator:a7089d7d561aec497313124923d43d6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a703c6d2bf06fc507d4b6de7f873d2327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a703c6d2bf06fc507d4b6de7f873d2327">StopMouseRotation</a> ()</td></tr>
+<tr class="memdesc:a703c6d2bf06fc507d4b6de7f873d2327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop mouse rotation  <a href="#a703c6d2bf06fc507d4b6de7f873d2327">More...</a><br /></td></tr>
+<tr class="separator:a703c6d2bf06fc507d4b6de7f873d2327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab798e0bc7d7052264696c97b7d332666"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#ab798e0bc7d7052264696c97b7d332666">StartMouseRotation</a> ()</td></tr>
+<tr class="memdesc:ab798e0bc7d7052264696c97b7d332666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start mouse rotation  <a href="#ab798e0bc7d7052264696c97b7d332666">More...</a><br /></td></tr>
+<tr class="separator:ab798e0bc7d7052264696c97b7d332666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a5e03ef04169721020ee56c608507d277"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e03ef04169721020ee56c608507d277"></a>
+AudioClip&#160;</td><td class="memItemRight" valign="bottom"><b>SoundmouseSqueak</b></td></tr>
+<tr class="separator:a5e03ef04169721020ee56c608507d277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab3fc41cc8d64df2e0c2721590bc6d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ab3fc41cc8d64df2e0c2721590bc6d9"></a>
+AudioClip&#160;</td><td class="memItemRight" valign="bottom"><b>SoundmouseEat</b></td></tr>
+<tr class="separator:a5ab3fc41cc8d64df2e0c2721590bc6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36d2e6b24efa93b928ee0c835126d76a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36d2e6b24efa93b928ee0c835126d76a"></a>
+AudioClip&#160;</td><td class="memItemRight" valign="bottom"><b>SoundLevelUp</b></td></tr>
+<tr class="separator:a36d2e6b24efa93b928ee0c835126d76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a215f93e37bb5d78b3890c79507461f1f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a215f93e37bb5d78b3890c79507461f1f"></a>
-Sprite[]&#160;</td><td class="memItemRight" valign="bottom"><b>LevelSprites</b> = new Sprite[11]</td></tr>
+Sprite[]&#160;</td><td class="memItemRight" valign="bottom"><b>LevelSprites</b></td></tr>
 <tr class="separator:a215f93e37bb5d78b3890c79507461f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15e81f78d771e26d8116cb08618b4757"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15e81f78d771e26d8116cb08618b4757"></a>
+Sprite[]&#160;</td><td class="memItemRight" valign="bottom"><b>ShadowSprites</b></td></tr>
+<tr class="separator:a15e81f78d771e26d8116cb08618b4757"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c4febebe798e39398129c308a3b7c70"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c4febebe798e39398129c308a3b7c70"></a>
 Sprite[]&#160;</td><td class="memItemRight" valign="bottom"><b>HappinessSprites</b> = new Sprite[5]</td></tr>
 <tr class="separator:a4c4febebe798e39398129c308a3b7c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
+<tr class="memitem:a27e86af0b614af49cab1211e1635a8a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a27e86af0b614af49cab1211e1635a8a6">FinalWeight</a><code> [get]</code></td></tr>
+<tr class="memdesc:a27e86af0b614af49cab1211e1635a8a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum mouse weight  <a href="#a27e86af0b614af49cab1211e1635a8a6">More...</a><br /></td></tr>
+<tr class="separator:a27e86af0b614af49cab1211e1635a8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add4f90aa1a1e81b981a6b2dfdb0c9e24"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#add4f90aa1a1e81b981a6b2dfdb0c9e24">Weight</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:add4f90aa1a1e81b981a6b2dfdb0c9e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get mouse weight. Read only.  <a href="#add4f90aa1a1e81b981a6b2dfdb0c9e24">More...</a><br /></td></tr>
 <tr class="separator:add4f90aa1a1e81b981a6b2dfdb0c9e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,21 +151,76 @@ Properties</h2></td></tr>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Happiness</b><code> [get, set]</code></td></tr>
 <tr class="separator:a91cb125845991ce20246753f7eef2b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7916f98be8b4afcd422794bbf8994e25"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a7916f98be8b4afcd422794bbf8994e25">Immunity</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a7916f98be8b4afcd422794bbf8994e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get and set mouse immunity Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#a7916f98be8b4afcd422794bbf8994e25">More...</a><br /></td></tr>
+<tr class="memdesc:a7916f98be8b4afcd422794bbf8994e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get and set mouse immunity Can be called by <a class="el" href="class_player.html" title="Class to contain player specific data, currently only contains the player&#39;s Abilities. ">Player</a> <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#a7916f98be8b4afcd422794bbf8994e25">More...</a><br /></td></tr>
 <tr class="separator:a7916f98be8b4afcd422794bbf8994e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58afb42b0fa0f4d9fb30795d68a86b82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a58afb42b0fa0f4d9fb30795d68a86b82">GrowthAbility</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a58afb42b0fa0f4d9fb30795d68a86b82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get and set mouse growth ability (leptin deficiency) Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#a58afb42b0fa0f4d9fb30795d68a86b82">More...</a><br /></td></tr>
+<tr class="memdesc:a58afb42b0fa0f4d9fb30795d68a86b82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get and set mouse growth ability (leptin deficiency) Can be called by <a class="el" href="class_player.html" title="Class to contain player specific data, currently only contains the player&#39;s Abilities. ">Player</a> <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#a58afb42b0fa0f4d9fb30795d68a86b82">More...</a><br /></td></tr>
 <tr class="separator:a58afb42b0fa0f4d9fb30795d68a86b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa866c3f02e0e310895d8e5ef4bca6db5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#aa866c3f02e0e310895d8e5ef4bca6db5">Fearless</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:aa866c3f02e0e310895d8e5ef4bca6db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get and set mouse fearless(ness) Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#aa866c3f02e0e310895d8e5ef4bca6db5">More...</a><br /></td></tr>
+<tr class="memdesc:aa866c3f02e0e310895d8e5ef4bca6db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get and set mouse fearless(ness) Can be called by <a class="el" href="class_player.html" title="Class to contain player specific data, currently only contains the player&#39;s Abilities. ">Player</a> <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#aa866c3f02e0e310895d8e5ef4bca6db5">More...</a><br /></td></tr>
 <tr class="separator:aa866c3f02e0e310895d8e5ef4bca6db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bdbd8793c98c76e0ed8b00717d34325"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse.html#a4bdbd8793c98c76e0ed8b00717d34325">Offscreen</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a4bdbd8793c98c76e0ed8b00717d34325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get and set whether the mouse is off-screen Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#a4bdbd8793c98c76e0ed8b00717d34325">More...</a><br /></td></tr>
+<tr class="memdesc:a4bdbd8793c98c76e0ed8b00717d34325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get and set whether the mouse is off-screen Can be called by <a class="el" href="class_player.html" title="Class to contain player specific data, currently only contains the player&#39;s Abilities. ">Player</a> <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code  <a href="#a4bdbd8793c98c76e0ed8b00717d34325">More...</a><br /></td></tr>
 <tr class="separator:a4bdbd8793c98c76e0ed8b00717d34325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a372fdf02cd633cfd32bfd642f1235db8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a372fdf02cd633cfd32bfd642f1235db8"></a>
+PolygonCollider2D&#160;</td><td class="memItemRight" valign="bottom"><b>MouseCollider2D</b><code> [get]</code></td></tr>
+<tr class="separator:a372fdf02cd633cfd32bfd642f1235db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Script class that controls behaviour of the mouse. Keeps track of mouses status such as weight, happiness, level, and attributes that can be set by player abilities: (immunity, leptinDeficiency, fearless) </p>
-</div><h2 class="groupheader">Property Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a7089d7d561aec497313124923d43d6ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Mouse.detectTapping </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>To be called by level controller to see whether mouse has been tapped Fires food at mouse if mouse is tapped </p>
+
+</div>
+</div>
+<a class="anchor" id="ab798e0bc7d7052264696c97b7d332666"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mouse.StartMouseRotation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start mouse rotation </p>
+
+</div>
+</div>
+<a class="anchor" id="a703c6d2bf06fc507d4b6de7f873d2327"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mouse.StopMouseRotation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stop mouse rotation </p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
 <a class="anchor" id="aa866c3f02e0e310895d8e5ef4bca6db5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +239,29 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Happiness</b><code> [g
 </table>
 </div><div class="memdoc">
 
-<p>Property to get and set mouse fearless(ness) Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
+<p>Property to get and set mouse fearless(ness) Can be called by <a class="el" href="class_player.html" title="Class to contain player specific data, currently only contains the player&#39;s Abilities. ">Player</a> <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
+
+</div>
+</div>
+<a class="anchor" id="a27e86af0b614af49cab1211e1635a8a6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Mouse.FinalWeight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the maximum mouse weight </p>
 
 </div>
 </div>
@@ -179,7 +283,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Happiness</b><code> [g
 </table>
 </div><div class="memdoc">
 
-<p>Property to get and set mouse growth ability (leptin deficiency) Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
+<p>Property to get and set mouse growth ability (leptin deficiency) Can be called by <a class="el" href="class_player.html" title="Class to contain player specific data, currently only contains the player&#39;s Abilities. ">Player</a> <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
 
 </div>
 </div>
@@ -201,7 +305,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Happiness</b><code> [g
 </table>
 </div><div class="memdoc">
 
-<p>Property to get and set mouse immunity Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
+<p>Property to get and set mouse immunity Can be called by <a class="el" href="class_player.html" title="Class to contain player specific data, currently only contains the player&#39;s Abilities. ">Player</a> <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
 
 </div>
 </div>
@@ -245,7 +349,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Happiness</b><code> [g
 </table>
 </div><div class="memdoc">
 
-<p>Property to get and set whether the mouse is off-screen Can be called by Player <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
+<p>Property to get and set whether the mouse is off-screen Can be called by <a class="el" href="class_player.html" title="Class to contain player specific data, currently only contains the player&#39;s Abilities. ">Player</a> <a class="el" href="class_ability.html" title="Base class to where all abilities with a Happiness cost and limited duration are derived from...">Ability</a> code </p>
 
 </div>
 </div>
@@ -272,7 +376,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Happiness</b><code> [g
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Assets/Scripts/Mouse.cs</li>
+<li>Main/Mouse.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

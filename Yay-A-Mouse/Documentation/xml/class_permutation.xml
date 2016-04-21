@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_permutation" kind="class" language="C#" prot="public">
+    <compoundname>Permutation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <innerclass refid="class_permutation_1_1_type_tester" prot="public">Permutation::TypeTester</innerclass>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_permutation_1a02bbb45c28eb22a12de9c9dccf10f3a9" prot="public" static="no" mutable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; Permutation.chosenComboPublic</definition>
+        <argsstring></argsstring>
+        <name>chosenComboPublic</name>
+        <initializer>= new List&lt;string&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Permutation.cs" line="10" column="1" bodyfile="Permutation.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_permutation_1a60890012d4a4f9f80d1f836bd2b2a26a" prot="private" static="no" mutable="no">
+        <type>string[]</type>
+        <definition>string [] Permutation.FoodNamesFromController</definition>
+        <argsstring></argsstring>
+        <name>FoodNamesFromController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Permutation.cs" line="11" column="1" bodyfile="Permutation.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_permutation_1aca993992bc7db289eebf06d8ae297305" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject Permutation.mouseObject</definition>
+        <argsstring></argsstring>
+        <name>mouseObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Permutation.cs" line="12" column="1" bodyfile="Permutation.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_permutation_1afa7f9020f5ec5c4cf0f11efef441bb0f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Permutation.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Permutation.cs" line="14" column="1" bodyfile="Permutation.cs" bodystart="14" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_permutation_1a0e023944c338766b64383848e674d62f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int Permutation.RandomNumber</definition>
+        <argsstring>(int min, int max)</argsstring>
+        <name>RandomNumber</name>
+        <param>
+          <type>int</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Permutation.cs" line="20" column="1" bodyfile="Permutation.cs" bodystart="20" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_permutation_1a9648c38a37c9575895de477e366c6ac7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; string &gt;</type>
+        <definition>static List&lt;string&gt; Permutation.getfoodCombo</definition>
+        <argsstring>()</argsstring>
+        <name>getfoodCombo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Permutation.cs" line="28" column="1" bodyfile="Permutation.cs" bodystart="28" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_permutation_1a08dc086df3ee0f9b35a911edf814b55c" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IList&lt; IList&lt; T &gt; &gt;</type>
+        <definition>static IList&lt;IList&lt;T&gt; &gt; Permutation.Permutations&lt; T &gt;</definition>
+        <argsstring>(IList&lt; T &gt; list)</argsstring>
+        <name>Permutations&lt; T &gt;</name>
+        <param>
+          <type>IList&lt; T &gt;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Permutation.cs" line="84" column="1" bodyfile="Permutation.cs" bodystart="84" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="163">
+        <label>Permutation</label>
+        <link refid="class_permutation"/>
+        <childnode refid="164" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="164">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="165">
+        <label>Permutation</label>
+        <link refid="class_permutation"/>
+        <childnode refid="166" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="166">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Permutation.cs" line="7" column="1" bodyfile="Permutation.cs" bodystart="6" bodyend="127"/>
+    <listofallmembers>
+      <member refid="class_permutation_1a02bbb45c28eb22a12de9c9dccf10f3a9" prot="public" virt="non-virtual"><scope>Permutation</scope><name>chosenComboPublic</name></member>
+      <member refid="class_permutation_1a60890012d4a4f9f80d1f836bd2b2a26a" prot="private" virt="non-virtual"><scope>Permutation</scope><name>FoodNamesFromController</name></member>
+      <member refid="class_permutation_1a9648c38a37c9575895de477e366c6ac7" prot="public" virt="non-virtual"><scope>Permutation</scope><name>getfoodCombo</name></member>
+      <member refid="class_permutation_1aca993992bc7db289eebf06d8ae297305" prot="private" virt="non-virtual"><scope>Permutation</scope><name>mouseObject</name></member>
+      <member refid="class_permutation_1a08dc086df3ee0f9b35a911edf814b55c" prot="private" virt="non-virtual"><scope>Permutation</scope><name>Permutations&lt; T &gt;</name></member>
+      <member refid="class_permutation_1a0e023944c338766b64383848e674d62f" prot="public" virt="non-virtual"><scope>Permutation</scope><name>RandomNumber</name></member>
+      <member refid="class_permutation_1afa7f9020f5ec5c4cf0f11efef441bb0f" prot="private" virt="non-virtual"><scope>Permutation</scope><name>Start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

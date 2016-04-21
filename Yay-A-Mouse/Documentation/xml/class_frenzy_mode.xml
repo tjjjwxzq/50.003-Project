@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_frenzy_mode" kind="class" language="C#" prot="public">
+    <compoundname>FrenzyMode</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_frenzy_mode_1a2a7b708e4831d3bd74c7db746c293963" prot="private" static="no" mutable="no">
+        <type>RaycastHit</type>
+        <definition>RaycastHit FrenzyMode.hit</definition>
+        <argsstring></argsstring>
+        <name>hit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FrenzyMode.cs" line="13" column="1" bodyfile="FrenzyMode.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_frenzy_mode_1ab34f78a619b7778d5d86b7f4ef990083" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FrenzyMode.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FrenzyMode.cs" line="16" column="1" bodyfile="FrenzyMode.cs" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_frenzy_mode_1a59e9505028d0e70b3493d4028b7ddb05" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FrenzyMode.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FrenzyMode.cs" line="22" column="1" bodyfile="FrenzyMode.cs" bodystart="22" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="108">
+        <label>FrenzyMode</label>
+        <link refid="class_frenzy_mode"/>
+        <childnode refid="109" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="110">
+        <label>FrenzyMode</label>
+        <link refid="class_frenzy_mode"/>
+        <childnode refid="111" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="FrenzyMode.cs" line="11" column="1" bodyfile="FrenzyMode.cs" bodystart="10" bodyend="46"/>
+    <listofallmembers>
+      <member refid="class_frenzy_mode_1a2a7b708e4831d3bd74c7db746c293963" prot="private" virt="non-virtual"><scope>FrenzyMode</scope><name>hit</name></member>
+      <member refid="class_frenzy_mode_1ab34f78a619b7778d5d86b7f4ef990083" prot="private" virt="non-virtual"><scope>FrenzyMode</scope><name>Start</name></member>
+      <member refid="class_frenzy_mode_1a59e9505028d0e70b3493d4028b7ddb05" prot="private" virt="non-virtual"><scope>FrenzyMode</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

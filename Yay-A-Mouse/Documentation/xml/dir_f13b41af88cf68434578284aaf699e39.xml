@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_f13b41af88cf68434578284aaf699e39" kind="dir">
+    <compoundname>Assets/Scripts</compoundname>
+    <innerfile refid="_check_food_sequence_8cs">CheckFoodSequence.cs</innerfile>
+    <innerfile refid="_frenzy_mode_8cs">FrenzyMode.cs</innerfile>
+    <innerfile refid="_normal_mode_8cs">NormalMode.cs</innerfile>
+    <innerfile refid="_permutation_8cs">Permutation.cs</innerfile>
+    <innerfile refid="_touch_test_8cs">TouchTest.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Assets/Scripts/"/>
+  </compounddef>
+</doxygen>

@@ -5,6 +5,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controls UI in the ability selection scene
+/// </summary>
 public class AbilitySelectionController : MonoBehaviour
 {
     public AudioClip SoundLobbyBGM;

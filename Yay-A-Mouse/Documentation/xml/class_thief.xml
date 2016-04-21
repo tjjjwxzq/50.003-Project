@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_thief" kind="class" language="C#" prot="public">
+    <compoundname>Thief</compoundname>
+    <basecompoundref refid="class_ability" prot="public" virt="non-virtual">Ability</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_thief_1ad1ed53c6f931d1a648ea80a20009f476" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int Thief.FoodUnitsTransferred</definition>
+        <argsstring></argsstring>
+        <name>FoodUnitsTransferred</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="443" column="1" bodyfile="Main/Abilities.cs" bodystart="443" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_thief_1adc3adc4afd7f38419f32b138a0fbd2cd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Thief.SpawnIntervalMultiplier</definition>
+        <argsstring></argsstring>
+        <name>SpawnIntervalMultiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="444" column="1" bodyfile="Main/Abilities.cs" bodystart="444" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_thief_1aa049df83957df923ee073f352874ef17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Thief.Thief</definition>
+        <argsstring>(int level)</argsstring>
+        <name>Thief</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="446" column="1" bodyfile="Main/Abilities.cs" bodystart="446" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="function" id="class_thief_1aad5cbc449c37fc67cb26f094ac25fd0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override string</type>
+        <definition>override string Thief.GetDetails</definition>
+        <argsstring>()</argsstring>
+        <name>GetDetails</name>
+        <reimplements refid="class_ability_1ae212a441357426b070a0af254f5b97cc">GetDetails</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="475" column="1" bodyfile="Main/Abilities.cs" bodystart="475" bodyend="481"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A player&apos;s <ref refid="class_thief" kindref="compound">Thief</ref> ability. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="175">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="174">
+        <label>Thief</label>
+        <link refid="class_thief"/>
+        <childnode refid="175" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="177">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="176">
+        <label>Thief</label>
+        <link refid="class_thief"/>
+        <childnode refid="177" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Abilities.cs" line="442" column="1" bodyfile="Main/Abilities.cs" bodystart="441" bodyend="482"/>
+    <listofallmembers>
+      <member refid="class_ability_1ae2d8aec43091f7b83e366137d43135ef" prot="public" virt="non-virtual"><scope>Thief</scope><name>Cost</name></member>
+      <member refid="class_ability_1af41791e9c6a26592c29f8158fbeed0bf" prot="public" virt="non-virtual"><scope>Thief</scope><name>Description</name></member>
+      <member refid="class_ability_1a5bfb4991a7a4cf857e10f3a33cdd3925" prot="public" virt="non-virtual"><scope>Thief</scope><name>Duration</name></member>
+      <member refid="class_thief_1ad1ed53c6f931d1a648ea80a20009f476" prot="public" virt="non-virtual"><scope>Thief</scope><name>FoodUnitsTransferred</name></member>
+      <member refid="class_thief_1aad5cbc449c37fc67cb26f094ac25fd0c" prot="public" virt="virtual"><scope>Thief</scope><name>GetDetails</name></member>
+      <member refid="class_ability_1a4ca153df49091be7325904960f49b810" prot="public" virt="non-virtual"><scope>Thief</scope><name>Level</name></member>
+      <member refid="class_ability_1abdd222bf37890bf0f2dfdd5c8555593e" prot="public" virt="non-virtual"><scope>Thief</scope><name>MaxLevel</name></member>
+      <member refid="class_ability_1a7d67b154e83cae1c52d821cac6f81abe" prot="public" virt="non-virtual"><scope>Thief</scope><name>Name</name></member>
+      <member refid="class_thief_1adc3adc4afd7f38419f32b138a0fbd2cd" prot="public" virt="non-virtual"><scope>Thief</scope><name>SpawnIntervalMultiplier</name></member>
+      <member refid="class_thief_1aa049df83957df923ee073f352874ef17" prot="public" virt="non-virtual"><scope>Thief</scope><name>Thief</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

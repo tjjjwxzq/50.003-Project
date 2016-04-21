@@ -1,0 +1,1158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_mouse" kind="class" language="C#" prot="public">
+    <compoundname>Mouse</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_mouse_1a5e03ef04169721020ee56c608507d277" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip Mouse.SoundmouseSqueak</definition>
+        <argsstring></argsstring>
+        <name>SoundmouseSqueak</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="16" column="1" bodyfile="Main/Mouse.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a5ab3fc41cc8d64df2e0c2721590bc6d9" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip Mouse.SoundmouseEat</definition>
+        <argsstring></argsstring>
+        <name>SoundmouseEat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="17" column="1" bodyfile="Main/Mouse.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a36d2e6b24efa93b928ee0c835126d76a" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip Mouse.SoundLevelUp</definition>
+        <argsstring></argsstring>
+        <name>SoundLevelUp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="18" column="1" bodyfile="Main/Mouse.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a215f93e37bb5d78b3890c79507461f1f" prot="public" static="no" mutable="no">
+        <type>Sprite[]</type>
+        <definition>Sprite [] Mouse.LevelSprites</definition>
+        <argsstring></argsstring>
+        <name>LevelSprites</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="31" column="1" bodyfile="Main/Mouse.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a15e81f78d771e26d8116cb08618b4757" prot="public" static="no" mutable="no">
+        <type>Sprite[]</type>
+        <definition>Sprite [] Mouse.ShadowSprites</definition>
+        <argsstring></argsstring>
+        <name>ShadowSprites</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="32" column="1" bodyfile="Main/Mouse.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a4c4febebe798e39398129c308a3b7c70" prot="public" static="no" mutable="no">
+        <type>Sprite[]</type>
+        <definition>Sprite [] Mouse.HappinessSprites</definition>
+        <argsstring></argsstring>
+        <name>HappinessSprites</name>
+        <initializer>= new Sprite[5]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="38" column="1" bodyfile="Main/Mouse.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_mouse_1ae514e8764ea1881ef1470f7dc85c34e3" prot="private" static="no" mutable="no">
+        <type>AudioSource</type>
+        <definition>AudioSource Mouse.audio</definition>
+        <argsstring></argsstring>
+        <name>audio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="20" column="1" bodyfile="Main/Mouse.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a06fa448faa17879440c3726ac751951e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_level_controller" kindref="compound">LevelController</ref></type>
+        <definition>LevelController Mouse.levelController</definition>
+        <argsstring></argsstring>
+        <name>levelController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="23" column="1" bodyfile="Main/Mouse.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1ac1f2e10e5489d8a2ec67f3e90b065c0d" prot="private" static="no" mutable="no">
+        <type>IEnumerator</type>
+        <definition>IEnumerator Mouse.rotationCoroutine</definition>
+        <argsstring></argsstring>
+        <name>rotationCoroutine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="26" column="1" bodyfile="Main/Mouse.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a1f33d4cf65b02dfabedcd0c275165650" prot="private" static="no" mutable="no">
+        <type>SpriteRenderer</type>
+        <definition>SpriteRenderer Mouse.spriteRenderer</definition>
+        <argsstring></argsstring>
+        <name>spriteRenderer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="29" column="1" bodyfile="Main/Mouse.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1acedeb637eb46a057915233a7a49eb27c" prot="private" static="no" mutable="no">
+        <type>SpriteRenderer</type>
+        <definition>SpriteRenderer Mouse.shadowSpriteRenderer</definition>
+        <argsstring></argsstring>
+        <name>shadowSpriteRenderer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="30" column="1" bodyfile="Main/Mouse.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1aba7177af77a959c815f06991baec2ec8" prot="private" static="no" mutable="no">
+        <type>PolygonCollider2D[]</type>
+        <definition>PolygonCollider2D [] Mouse.polygonColliders</definition>
+        <argsstring></argsstring>
+        <name>polygonColliders</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="33" column="1" bodyfile="Main/Mouse.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a79a46f6a746a1fc14eeaa264f728cf1f" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image Mouse.mouseHappinessImage</definition>
+        <argsstring></argsstring>
+        <name>mouseHappinessImage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="36" column="1" bodyfile="Main/Mouse.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1ab5f2d3078a930c5391df7d1a2ed2b202" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image Mouse.mouseHappinessFill</definition>
+        <argsstring></argsstring>
+        <name>mouseHappinessFill</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="37" column="1" bodyfile="Main/Mouse.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a9cb89f2a07015de0b2cd7522dac04cb4" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Mouse.weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Acts as the player score. Increases/decreases when mouse eats good/bad food. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="41" column="1" bodyfile="Main/Mouse.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a320142dfe2bfebba707dee65ad9f928c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Mouse.happiness</definition>
+        <argsstring></argsstring>
+        <name>happiness</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Acts as mana for player abilities. Increased by player stroking. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="42" column="1" bodyfile="Main/Mouse.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1af1af663df0cd12b13dbc10b8d496c9bb" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Mouse.level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para><ref refid="class_mouse" kindref="compound">Mouse</ref> level increases at certain weight thresholds. Affects game difficulty and player abilities. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="43" column="1" bodyfile="Main/Mouse.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1ab490a3d6a6b5fb972f50e8e68279d15a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.immunity</definition>
+        <argsstring></argsstring>
+        <name>immunity</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para><ref refid="class_immunity" kindref="compound">Immunity</ref> to bad foods. Can be set by player ability. (cover all bad foods or only some?) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="44" column="1" bodyfile="Main/Mouse.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a9284282ca5ad8ec85f46de5cbcbfb486" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Mouse.leptinDeficiency</definition>
+        <argsstring></argsstring>
+        <name>leptinDeficiency</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para><ref refid="class_ability" kindref="compound">Ability</ref> to gain weight; acts as score multiplier to food points. Can be set by player ability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="45" column="1" bodyfile="Main/Mouse.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1ac4a3a94da019241814175063b4e4bb28" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.fearless</definition>
+        <argsstring></argsstring>
+        <name>fearless</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>immunity to being scared by cats, ants etc. Can be set by player ability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="46" column="1" bodyfile="Main/Mouse.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1acf87981138797a0a0fa570bd5683e955" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.offScreen</definition>
+        <argsstring></argsstring>
+        <name>offScreen</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Whether the mouse should be scared off-screen. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="47" column="1" bodyfile="Main/Mouse.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a5a15fdf0be397de4d96167139a46a529" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.alreadyOffScreen</definition>
+        <argsstring></argsstring>
+        <name>alreadyOffScreen</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="48" column="1" bodyfile="Main/Mouse.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a3105fd54437f1973c07c214dfa1f66c1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.rotateBack</definition>
+        <argsstring></argsstring>
+        <name>rotateBack</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="49" column="1" bodyfile="Main/Mouse.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1aca73f2825f29e0ff5b2a9d3da6c7b896" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.rotatingBack</definition>
+        <argsstring></argsstring>
+        <name>rotatingBack</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="50" column="1" bodyfile="Main/Mouse.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a2289f7b1d61f526885d42761945c6113" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.runBack</definition>
+        <argsstring></argsstring>
+        <name>runBack</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="51" column="1" bodyfile="Main/Mouse.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a9d8f4dec880abbf4a46e099dc7cb056d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.runningBack</definition>
+        <argsstring></argsstring>
+        <name>runningBack</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="52" column="1" bodyfile="Main/Mouse.cs" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a0ee6c843c8333bffa40660e7e19f2a17" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.returnToScreen</definition>
+        <argsstring></argsstring>
+        <name>returnToScreen</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="53" column="1" bodyfile="Main/Mouse.cs" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a0142215641752787c5229d8d54ea0df9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.tapped</definition>
+        <argsstring></argsstring>
+        <name>tapped</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="56" column="1" bodyfile="Main/Mouse.cs" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1af4cfc8c3c859ef92d724a35955ab8369" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.stroked</definition>
+        <argsstring></argsstring>
+        <name>stroked</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>For detecting if a stroke has started. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="59" column="1" bodyfile="Main/Mouse.cs" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1aaa98d9cca6b8ef1e8d488f906b1ca84c" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Mouse.swipeFirstPos</definition>
+        <argsstring></argsstring>
+        <name>swipeFirstPos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="60" column="1" bodyfile="Main/Mouse.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a131f86f730971af6baf04cbd82fcee4e" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Mouse.swipeLastPos</definition>
+        <argsstring></argsstring>
+        <name>swipeLastPos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="61" column="1" bodyfile="Main/Mouse.cs" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1aa89b13e190a0d311a4c979b6bf3ac0c2" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Mouse.SwipeDistance</definition>
+        <argsstring></argsstring>
+        <name>SwipeDistance</name>
+        <initializer>= Screen.height * 5f / 100f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="62" column="1" bodyfile="Main/Mouse.cs" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a307fbbbe747e96f7c8f79c6455167cac" prot="private" static="no" mutable="no">
+        <type>readonly int[]</type>
+        <definition>readonly int [] Mouse.weightLevels</definition>
+        <argsstring></argsstring>
+        <name>weightLevels</name>
+        <initializer>= new int[] {0,50,150,300,500,750,1000,1300,1700,2100,2500,3000 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="65" column="1" bodyfile="Main/Mouse.cs" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a9d74742f3419a38d523897662fc2579a" prot="private" static="no" mutable="no">
+        <type>readonly int[]</type>
+        <definition>readonly int [] Mouse.happinessLevels</definition>
+        <argsstring></argsstring>
+        <name>happinessLevels</name>
+        <initializer>= new int[] { 0, 20, 40, 60, 80, 100 }</initializer>
+        <briefdescription>
+<para>Happiness levels at which to change happiness indicator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="66" column="1" bodyfile="Main/Mouse.cs" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a95b5a0f764060e284d53bcac324ce29e" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject Mouse.levelUpObject</definition>
+        <argsstring></argsstring>
+        <name>levelUpObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="69" column="1" bodyfile="Main/Mouse.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a2e0563b5f7e12d22adbe511e7152c614" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Mouse.defaultSize</definition>
+        <argsstring></argsstring>
+        <name>defaultSize</name>
+        <initializer>= 1280</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="73" column="1" bodyfile="Main/Mouse.cs" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a7e00cd6c8c5c0a318dc20967082b5fb5" prot="private" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 Mouse.defaultScale</definition>
+        <argsstring></argsstring>
+        <name>defaultScale</name>
+        <initializer>= new Vector3(1,1,1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="74" column="1" bodyfile="Main/Mouse.cs" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a942b43ed9874d5b6530e5e57a5ea4564" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Mouse.scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="75" column="1" bodyfile="Main/Mouse.cs" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a8e8758444f3cbd46689ef183fac8950a" prot="private" static="no" mutable="no">
+        <type>Quaternion</type>
+        <definition>Quaternion Mouse.currentRotation</definition>
+        <argsstring></argsstring>
+        <name>currentRotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="78" column="1" bodyfile="Main/Mouse.cs" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a892d6ffeb10d154b9951761c6a072c19" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.correctRotation</definition>
+        <argsstring></argsstring>
+        <name>correctRotation</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="79" column="1" bodyfile="Main/Mouse.cs" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1adebf0e149466eda67b116f4755e7f99e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Mouse.rotationCorrected</definition>
+        <argsstring></argsstring>
+        <name>rotationCorrected</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="80" column="1" bodyfile="Main/Mouse.cs" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1aed23f1e537d08cd813a82b847d0fea33" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Mouse.finalAngle1</definition>
+        <argsstring></argsstring>
+        <name>finalAngle1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="81" column="1" bodyfile="Main/Mouse.cs" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a065d85d9ce9eb997341894ec67d13a93" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Mouse.finalAngle2</definition>
+        <argsstring></argsstring>
+        <name>finalAngle2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="82" column="1" bodyfile="Main/Mouse.cs" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1ac9a9382fbefd88177cda5898370b8fc5" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Mouse.easeK</definition>
+        <argsstring></argsstring>
+        <name>easeK</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="83" column="1" bodyfile="Main/Mouse.cs" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a0db21ab3e05fcc93aba660f3908a9ab3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Mouse.maxTurnSteps</definition>
+        <argsstring></argsstring>
+        <name>maxTurnSteps</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="84" column="1" bodyfile="Main/Mouse.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1abc76524ec127d4d1b824c955e1696e21" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Mouse.turnSteps</definition>
+        <argsstring></argsstring>
+        <name>turnSteps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="85" column="1" bodyfile="Main/Mouse.cs" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_1a574425577b019c17dafd9e2cfc0b7e39" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Mouse.timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="87" column="1" bodyfile="Main/Mouse.cs" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_mouse_1a27e86af0b614af49cab1211e1635a8a6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Mouse.FinalWeight</definition>
+        <argsstring></argsstring>
+        <name>FinalWeight</name>
+        <briefdescription>
+<para>Gets the maximum mouse weight </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="579" column="1" bodyfile="Main/Mouse.cs" bodystart="580" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_1add4f90aa1a1e81b981a6b2dfdb0c9e24" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Mouse.Weight</definition>
+        <argsstring></argsstring>
+        <name>Weight</name>
+        <briefdescription>
+<para>Property to get mouse weight. Read only. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="587" column="1" bodyfile="Main/Mouse.cs" bodystart="588" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_1a76debda38af30b4b2249757bc316f66e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Mouse.Level</definition>
+        <argsstring></argsstring>
+        <name>Level</name>
+        <briefdescription>
+<para>Property to get mouse level. Read only. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="600" column="1" bodyfile="Main/Mouse.cs" bodystart="601" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_1a91cb125845991ce20246753f7eef2b8e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Mouse.Happiness</definition>
+        <argsstring></argsstring>
+        <name>Happiness</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="605" column="1" bodyfile="Main/Mouse.cs" bodystart="606" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_1a7916f98be8b4afcd422794bbf8994e25" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Mouse.Immunity</definition>
+        <argsstring></argsstring>
+        <name>Immunity</name>
+        <briefdescription>
+<para>Property to get and set mouse immunity Can be called by <ref refid="class_player" kindref="compound">Player</ref> <ref refid="class_ability" kindref="compound">Ability</ref> code </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="619" column="1" bodyfile="Main/Mouse.cs" bodystart="620" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_1a58afb42b0fa0f4d9fb30795d68a86b82" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Mouse.GrowthAbility</definition>
+        <argsstring></argsstring>
+        <name>GrowthAbility</name>
+        <briefdescription>
+<para>Property to get and set mouse growth ability (leptin deficiency) Can be called by <ref refid="class_player" kindref="compound">Player</ref> <ref refid="class_ability" kindref="compound">Ability</ref> code </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="629" column="1" bodyfile="Main/Mouse.cs" bodystart="630" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_1aa866c3f02e0e310895d8e5ef4bca6db5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Mouse.Fearless</definition>
+        <argsstring></argsstring>
+        <name>Fearless</name>
+        <briefdescription>
+<para>Property to get and set mouse fearless(ness) Can be called by <ref refid="class_player" kindref="compound">Player</ref> <ref refid="class_ability" kindref="compound">Ability</ref> code </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="639" column="1" bodyfile="Main/Mouse.cs" bodystart="640" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_1a4bdbd8793c98c76e0ed8b00717d34325" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Mouse.Offscreen</definition>
+        <argsstring></argsstring>
+        <name>Offscreen</name>
+        <briefdescription>
+<para>Property to get and set whether the mouse is off-screen Can be called by <ref refid="class_player" kindref="compound">Player</ref> <ref refid="class_ability" kindref="compound">Ability</ref> code </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="649" column="1" bodyfile="Main/Mouse.cs" bodystart="650" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_1a372fdf02cd633cfd32bfd642f1235db8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>PolygonCollider2D</type>
+        <definition>PolygonCollider2D Mouse.MouseCollider2D</definition>
+        <argsstring></argsstring>
+        <name>MouseCollider2D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="655" column="1" bodyfile="Main/Mouse.cs" bodystart="656" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_mouse_1a9293e82127efa227ff89ecdb61ca4072" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="90" column="1" bodyfile="Main/Mouse.cs" bodystart="90" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1ae7847cb133f467e53b961375c6a2fb5d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="130" column="1" bodyfile="Main/Mouse.cs" bodystart="130" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a0f2b452dc82cc104a6ce10ee66cf586e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.checkLevel</definition>
+        <argsstring>()</argsstring>
+        <name>checkLevel</name>
+        <briefdescription>
+<para>Checks and updates mouse level and changes sprite accordingly </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="165" column="1" bodyfile="Main/Mouse.cs" bodystart="165" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a1520c88596df7cb1543e449ca6211ef4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.checkHappiness</definition>
+        <argsstring>()</argsstring>
+        <name>checkHappiness</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="190" column="1" bodyfile="Main/Mouse.cs" bodystart="190" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1aa56d19d2f2e68c0ce302b7e551f9dd46" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.updateHappiness</definition>
+        <argsstring>()</argsstring>
+        <name>updateHappiness</name>
+        <briefdescription>
+<para>Updates mouse happiness when stroked Works for both touch and mouse input </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="224" column="1" bodyfile="Main/Mouse.cs" bodystart="224" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a6cfa0d03e60734d683669f9b4997d29c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.increaseHappiness</definition>
+        <argsstring>()</argsstring>
+        <name>increaseHappiness</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="310" column="1" bodyfile="Main/Mouse.cs" bodystart="310" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1af6a68432c6269c972364786bc9150408" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Mouse.detectTouch</definition>
+        <argsstring>(Vector3 pos)</argsstring>
+        <name>detectTouch</name>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>Detects whether mouse has been touched If yes sets stroked to true to begin stroke detection </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position of touch</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="354" column="1" bodyfile="Main/Mouse.cs" bodystart="354" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1af2f06c04803dc7481e7801190474c80b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator Mouse.rotateWithEasing</definition>
+        <argsstring>(float angle1, float angle2, Transform trans)</argsstring>
+        <name>rotateWithEasing</name>
+        <param>
+          <type>float</type>
+          <declname>angle1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>angle2</declname>
+        </param>
+        <param>
+          <type>Transform</type>
+          <declname>trans</declname>
+        </param>
+        <briefdescription>
+<para>coroutine that rotates specified transform starting counterclockwise from its origin between two specified angles with linear easing angle1 must be negative and angle2 positive To track the state of easeK it cannot be passed as a parameter or its value will reset each time </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Smaller angle; must be negative</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>angle2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Larger angle; must be positive</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trans</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The transform to rotate</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="381" column="1" bodyfile="Main/Mouse.cs" bodystart="381" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a13c4e5dca51e232e6ec22ccc07cd25e0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.CorrectMouseRotation</definition>
+        <argsstring>()</argsstring>
+        <name>CorrectMouseRotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="430" column="1" bodyfile="Main/Mouse.cs" bodystart="430" bodyend="438"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a4b4d0dc6b8751aae5ead8bdd5434664d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.checkOffScreen</definition>
+        <argsstring>()</argsstring>
+        <name>checkOffScreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="449" column="1" bodyfile="Main/Mouse.cs" bodystart="449" bodyend="487"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a55eb4dad6a0eaae8ddd15baffefdeebc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.mouseOffScreen</definition>
+        <argsstring>()</argsstring>
+        <name>mouseOffScreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="490" column="1" bodyfile="Main/Mouse.cs" bodystart="490" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a39ddbc60eee17c6919e1655d4cafd420" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator Mouse.runOffScreen</definition>
+        <argsstring>()</argsstring>
+        <name>runOffScreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="497" column="1" bodyfile="Main/Mouse.cs" bodystart="497" bodyend="511"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a0cc2af461f112ce4c78f168d50153a28" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator Mouse.rotateBackToCenter</definition>
+        <argsstring>()</argsstring>
+        <name>rotateBackToCenter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="514" column="1" bodyfile="Main/Mouse.cs" bodystart="514" bodyend="531"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1ae8e5616666dbaa9655f6f1c16cdb51bf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator Mouse.runBackToCenter</definition>
+        <argsstring>()</argsstring>
+        <name>runBackToCenter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="534" column="1" bodyfile="Main/Mouse.cs" bodystart="534" bodyend="550"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1aac7ce81f7dfdf78f430c60704d07ed62" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.OnCollisionEnter2D</definition>
+        <argsstring>(Collision2D collision)</argsstring>
+        <name>OnCollisionEnter2D</name>
+        <param>
+          <type>Collision2D</type>
+          <declname>collision</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="553" column="1" bodyfile="Main/Mouse.cs" bodystart="553" bodyend="572"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_mouse_1a7089d7d561aec497313124923d43d6ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Mouse.detectTapping</definition>
+        <argsstring>()</argsstring>
+        <name>detectTapping</name>
+        <briefdescription>
+<para>To be called by level controller to see whether mouse has been tapped Fires food at mouse if mouse is tapped </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="321" column="1" bodyfile="Main/Mouse.cs" bodystart="321" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1a703c6d2bf06fc507d4b6de7f873d2327" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.StopMouseRotation</definition>
+        <argsstring>()</argsstring>
+        <name>StopMouseRotation</name>
+        <briefdescription>
+<para>Stop mouse rotation </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="423" column="1" bodyfile="Main/Mouse.cs" bodystart="423" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_1ab798e0bc7d7052264696c97b7d332666" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Mouse.StartMouseRotation</definition>
+        <argsstring>()</argsstring>
+        <name>StartMouseRotation</name>
+        <briefdescription>
+<para>Start mouse rotation </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Mouse.cs" line="443" column="1" bodyfile="Main/Mouse.cs" bodystart="443" bodyend="446"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script class that controls behaviour of the mouse. Keeps track of mouses status such as weight, happiness, level, and attributes that can be set by player abilities: (immunity, leptinDeficiency, fearless) </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="129">
+        <label>Mouse</label>
+        <link refid="class_mouse"/>
+        <childnode refid="130" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="131">
+        <label>Mouse</label>
+        <link refid="class_mouse"/>
+        <childnode refid="132" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Mouse.cs" line="14" column="1" bodyfile="Main/Mouse.cs" bodystart="14" bodyend="660"/>
+    <listofallmembers>
+      <member refid="class_mouse_1a5a15fdf0be397de4d96167139a46a529" prot="private" virt="non-virtual"><scope>Mouse</scope><name>alreadyOffScreen</name></member>
+      <member refid="class_mouse_1ae514e8764ea1881ef1470f7dc85c34e3" prot="private" virt="non-virtual"><scope>Mouse</scope><name>audio</name></member>
+      <member refid="class_mouse_1a1520c88596df7cb1543e449ca6211ef4" prot="private" virt="non-virtual"><scope>Mouse</scope><name>checkHappiness</name></member>
+      <member refid="class_mouse_1a0f2b452dc82cc104a6ce10ee66cf586e" prot="private" virt="non-virtual"><scope>Mouse</scope><name>checkLevel</name></member>
+      <member refid="class_mouse_1a4b4d0dc6b8751aae5ead8bdd5434664d" prot="private" virt="non-virtual"><scope>Mouse</scope><name>checkOffScreen</name></member>
+      <member refid="class_mouse_1a13c4e5dca51e232e6ec22ccc07cd25e0" prot="private" virt="non-virtual"><scope>Mouse</scope><name>CorrectMouseRotation</name></member>
+      <member refid="class_mouse_1a892d6ffeb10d154b9951761c6a072c19" prot="private" virt="non-virtual"><scope>Mouse</scope><name>correctRotation</name></member>
+      <member refid="class_mouse_1a8e8758444f3cbd46689ef183fac8950a" prot="private" virt="non-virtual"><scope>Mouse</scope><name>currentRotation</name></member>
+      <member refid="class_mouse_1a7e00cd6c8c5c0a318dc20967082b5fb5" prot="private" virt="non-virtual"><scope>Mouse</scope><name>defaultScale</name></member>
+      <member refid="class_mouse_1a2e0563b5f7e12d22adbe511e7152c614" prot="private" virt="non-virtual"><scope>Mouse</scope><name>defaultSize</name></member>
+      <member refid="class_mouse_1a7089d7d561aec497313124923d43d6ab" prot="public" virt="non-virtual"><scope>Mouse</scope><name>detectTapping</name></member>
+      <member refid="class_mouse_1af6a68432c6269c972364786bc9150408" prot="private" virt="non-virtual"><scope>Mouse</scope><name>detectTouch</name></member>
+      <member refid="class_mouse_1ac9a9382fbefd88177cda5898370b8fc5" prot="private" virt="non-virtual"><scope>Mouse</scope><name>easeK</name></member>
+      <member refid="class_mouse_1ac4a3a94da019241814175063b4e4bb28" prot="private" virt="non-virtual"><scope>Mouse</scope><name>fearless</name></member>
+      <member refid="class_mouse_1aa866c3f02e0e310895d8e5ef4bca6db5" prot="public" virt="non-virtual"><scope>Mouse</scope><name>Fearless</name></member>
+      <member refid="class_mouse_1aed23f1e537d08cd813a82b847d0fea33" prot="private" virt="non-virtual"><scope>Mouse</scope><name>finalAngle1</name></member>
+      <member refid="class_mouse_1a065d85d9ce9eb997341894ec67d13a93" prot="private" virt="non-virtual"><scope>Mouse</scope><name>finalAngle2</name></member>
+      <member refid="class_mouse_1a27e86af0b614af49cab1211e1635a8a6" prot="public" virt="non-virtual"><scope>Mouse</scope><name>FinalWeight</name></member>
+      <member refid="class_mouse_1a58afb42b0fa0f4d9fb30795d68a86b82" prot="public" virt="non-virtual"><scope>Mouse</scope><name>GrowthAbility</name></member>
+      <member refid="class_mouse_1a320142dfe2bfebba707dee65ad9f928c" prot="private" virt="non-virtual"><scope>Mouse</scope><name>happiness</name></member>
+      <member refid="class_mouse_1a91cb125845991ce20246753f7eef2b8e" prot="public" virt="non-virtual"><scope>Mouse</scope><name>Happiness</name></member>
+      <member refid="class_mouse_1a9d74742f3419a38d523897662fc2579a" prot="private" virt="non-virtual"><scope>Mouse</scope><name>happinessLevels</name></member>
+      <member refid="class_mouse_1a4c4febebe798e39398129c308a3b7c70" prot="public" virt="non-virtual"><scope>Mouse</scope><name>HappinessSprites</name></member>
+      <member refid="class_mouse_1ab490a3d6a6b5fb972f50e8e68279d15a" prot="private" virt="non-virtual"><scope>Mouse</scope><name>immunity</name></member>
+      <member refid="class_mouse_1a7916f98be8b4afcd422794bbf8994e25" prot="public" virt="non-virtual"><scope>Mouse</scope><name>Immunity</name></member>
+      <member refid="class_mouse_1a6cfa0d03e60734d683669f9b4997d29c" prot="private" virt="non-virtual"><scope>Mouse</scope><name>increaseHappiness</name></member>
+      <member refid="class_mouse_1a9284282ca5ad8ec85f46de5cbcbfb486" prot="private" virt="non-virtual"><scope>Mouse</scope><name>leptinDeficiency</name></member>
+      <member refid="class_mouse_1af1af663df0cd12b13dbc10b8d496c9bb" prot="private" virt="non-virtual"><scope>Mouse</scope><name>level</name></member>
+      <member refid="class_mouse_1a76debda38af30b4b2249757bc316f66e" prot="public" virt="non-virtual"><scope>Mouse</scope><name>Level</name></member>
+      <member refid="class_mouse_1a06fa448faa17879440c3726ac751951e" prot="private" virt="non-virtual"><scope>Mouse</scope><name>levelController</name></member>
+      <member refid="class_mouse_1a215f93e37bb5d78b3890c79507461f1f" prot="public" virt="non-virtual"><scope>Mouse</scope><name>LevelSprites</name></member>
+      <member refid="class_mouse_1a95b5a0f764060e284d53bcac324ce29e" prot="private" virt="non-virtual"><scope>Mouse</scope><name>levelUpObject</name></member>
+      <member refid="class_mouse_1a0db21ab3e05fcc93aba660f3908a9ab3" prot="private" virt="non-virtual"><scope>Mouse</scope><name>maxTurnSteps</name></member>
+      <member refid="class_mouse_1a372fdf02cd633cfd32bfd642f1235db8" prot="public" virt="non-virtual"><scope>Mouse</scope><name>MouseCollider2D</name></member>
+      <member refid="class_mouse_1ab5f2d3078a930c5391df7d1a2ed2b202" prot="private" virt="non-virtual"><scope>Mouse</scope><name>mouseHappinessFill</name></member>
+      <member refid="class_mouse_1a79a46f6a746a1fc14eeaa264f728cf1f" prot="private" virt="non-virtual"><scope>Mouse</scope><name>mouseHappinessImage</name></member>
+      <member refid="class_mouse_1a55eb4dad6a0eaae8ddd15baffefdeebc" prot="private" virt="non-virtual"><scope>Mouse</scope><name>mouseOffScreen</name></member>
+      <member refid="class_mouse_1acf87981138797a0a0fa570bd5683e955" prot="private" virt="non-virtual"><scope>Mouse</scope><name>offScreen</name></member>
+      <member refid="class_mouse_1a4bdbd8793c98c76e0ed8b00717d34325" prot="public" virt="non-virtual"><scope>Mouse</scope><name>Offscreen</name></member>
+      <member refid="class_mouse_1aac7ce81f7dfdf78f430c60704d07ed62" prot="private" virt="non-virtual"><scope>Mouse</scope><name>OnCollisionEnter2D</name></member>
+      <member refid="class_mouse_1aba7177af77a959c815f06991baec2ec8" prot="private" virt="non-virtual"><scope>Mouse</scope><name>polygonColliders</name></member>
+      <member refid="class_mouse_1a0ee6c843c8333bffa40660e7e19f2a17" prot="private" virt="non-virtual"><scope>Mouse</scope><name>returnToScreen</name></member>
+      <member refid="class_mouse_1a3105fd54437f1973c07c214dfa1f66c1" prot="private" virt="non-virtual"><scope>Mouse</scope><name>rotateBack</name></member>
+      <member refid="class_mouse_1a0cc2af461f112ce4c78f168d50153a28" prot="private" virt="non-virtual"><scope>Mouse</scope><name>rotateBackToCenter</name></member>
+      <member refid="class_mouse_1af2f06c04803dc7481e7801190474c80b" prot="private" virt="non-virtual"><scope>Mouse</scope><name>rotateWithEasing</name></member>
+      <member refid="class_mouse_1aca73f2825f29e0ff5b2a9d3da6c7b896" prot="private" virt="non-virtual"><scope>Mouse</scope><name>rotatingBack</name></member>
+      <member refid="class_mouse_1ac1f2e10e5489d8a2ec67f3e90b065c0d" prot="private" virt="non-virtual"><scope>Mouse</scope><name>rotationCoroutine</name></member>
+      <member refid="class_mouse_1adebf0e149466eda67b116f4755e7f99e" prot="private" virt="non-virtual"><scope>Mouse</scope><name>rotationCorrected</name></member>
+      <member refid="class_mouse_1a2289f7b1d61f526885d42761945c6113" prot="private" virt="non-virtual"><scope>Mouse</scope><name>runBack</name></member>
+      <member refid="class_mouse_1ae8e5616666dbaa9655f6f1c16cdb51bf" prot="private" virt="non-virtual"><scope>Mouse</scope><name>runBackToCenter</name></member>
+      <member refid="class_mouse_1a9d8f4dec880abbf4a46e099dc7cb056d" prot="private" virt="non-virtual"><scope>Mouse</scope><name>runningBack</name></member>
+      <member refid="class_mouse_1a39ddbc60eee17c6919e1655d4cafd420" prot="private" virt="non-virtual"><scope>Mouse</scope><name>runOffScreen</name></member>
+      <member refid="class_mouse_1a942b43ed9874d5b6530e5e57a5ea4564" prot="private" virt="non-virtual"><scope>Mouse</scope><name>scale</name></member>
+      <member refid="class_mouse_1acedeb637eb46a057915233a7a49eb27c" prot="private" virt="non-virtual"><scope>Mouse</scope><name>shadowSpriteRenderer</name></member>
+      <member refid="class_mouse_1a15e81f78d771e26d8116cb08618b4757" prot="public" virt="non-virtual"><scope>Mouse</scope><name>ShadowSprites</name></member>
+      <member refid="class_mouse_1a36d2e6b24efa93b928ee0c835126d76a" prot="public" virt="non-virtual"><scope>Mouse</scope><name>SoundLevelUp</name></member>
+      <member refid="class_mouse_1a5ab3fc41cc8d64df2e0c2721590bc6d9" prot="public" virt="non-virtual"><scope>Mouse</scope><name>SoundmouseEat</name></member>
+      <member refid="class_mouse_1a5e03ef04169721020ee56c608507d277" prot="public" virt="non-virtual"><scope>Mouse</scope><name>SoundmouseSqueak</name></member>
+      <member refid="class_mouse_1a1f33d4cf65b02dfabedcd0c275165650" prot="private" virt="non-virtual"><scope>Mouse</scope><name>spriteRenderer</name></member>
+      <member refid="class_mouse_1a9293e82127efa227ff89ecdb61ca4072" prot="private" virt="non-virtual"><scope>Mouse</scope><name>Start</name></member>
+      <member refid="class_mouse_1ab798e0bc7d7052264696c97b7d332666" prot="public" virt="non-virtual"><scope>Mouse</scope><name>StartMouseRotation</name></member>
+      <member refid="class_mouse_1a703c6d2bf06fc507d4b6de7f873d2327" prot="public" virt="non-virtual"><scope>Mouse</scope><name>StopMouseRotation</name></member>
+      <member refid="class_mouse_1af4cfc8c3c859ef92d724a35955ab8369" prot="private" virt="non-virtual"><scope>Mouse</scope><name>stroked</name></member>
+      <member refid="class_mouse_1aa89b13e190a0d311a4c979b6bf3ac0c2" prot="private" virt="non-virtual"><scope>Mouse</scope><name>SwipeDistance</name></member>
+      <member refid="class_mouse_1aaa98d9cca6b8ef1e8d488f906b1ca84c" prot="private" virt="non-virtual"><scope>Mouse</scope><name>swipeFirstPos</name></member>
+      <member refid="class_mouse_1a131f86f730971af6baf04cbd82fcee4e" prot="private" virt="non-virtual"><scope>Mouse</scope><name>swipeLastPos</name></member>
+      <member refid="class_mouse_1a0142215641752787c5229d8d54ea0df9" prot="private" virt="non-virtual"><scope>Mouse</scope><name>tapped</name></member>
+      <member refid="class_mouse_1a574425577b019c17dafd9e2cfc0b7e39" prot="private" virt="non-virtual"><scope>Mouse</scope><name>timer</name></member>
+      <member refid="class_mouse_1abc76524ec127d4d1b824c955e1696e21" prot="private" virt="non-virtual"><scope>Mouse</scope><name>turnSteps</name></member>
+      <member refid="class_mouse_1ae7847cb133f467e53b961375c6a2fb5d" prot="private" virt="non-virtual"><scope>Mouse</scope><name>Update</name></member>
+      <member refid="class_mouse_1aa56d19d2f2e68c0ce302b7e551f9dd46" prot="private" virt="non-virtual"><scope>Mouse</scope><name>updateHappiness</name></member>
+      <member refid="class_mouse_1a9cb89f2a07015de0b2cd7522dac04cb4" prot="private" virt="non-virtual"><scope>Mouse</scope><name>weight</name></member>
+      <member refid="class_mouse_1add4f90aa1a1e81b981a6b2dfdb0c9e24" prot="public" virt="non-virtual"><scope>Mouse</scope><name>Weight</name></member>
+      <member refid="class_mouse_1a307fbbbe747e96f7c8f79c6455167cac" prot="private" virt="non-virtual"><scope>Mouse</scope><name>weightLevels</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

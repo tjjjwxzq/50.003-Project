@@ -1,0 +1,1484 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_ability_controller" kind="class" language="C#" prot="public">
+    <compoundname>AbilityController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">NetworkBehaviour</basecompoundref>
+    <innerclass refid="struct_ability_controller_1_1_game_message" prot="private">AbilityController::GameMessage</innerclass>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_ability_controller_1a4ac438cd524c9f586128c99ce7e62b79" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilityController.SoundImmunity</definition>
+        <argsstring></argsstring>
+        <name>SoundImmunity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="19" column="1" bodyfile="Main/AbilityController.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ad084b43c5e481db36c73891b12bfba24" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilityController.SoundCat</definition>
+        <argsstring></argsstring>
+        <name>SoundCat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="20" column="1" bodyfile="Main/AbilityController.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1af56d5dfbf6cf299c182d7b57aa88ca84" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilityController.SoundFearless</definition>
+        <argsstring></argsstring>
+        <name>SoundFearless</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="21" column="1" bodyfile="Main/AbilityController.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ada5a8f8767e24fd12692fbffc89a9d95" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilityController.SoundFatMouse</definition>
+        <argsstring></argsstring>
+        <name>SoundFatMouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="22" column="1" bodyfile="Main/AbilityController.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a8ee7b892eb932fc1c0d90ac5531fbc57" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilityController.SoundTreatsGalore</definition>
+        <argsstring></argsstring>
+        <name>SoundTreatsGalore</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="23" column="1" bodyfile="Main/AbilityController.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ad5385cff2dd6f19c984b04addd039eb8" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilityController.SoundBeastlyBuffet</definition>
+        <argsstring></argsstring>
+        <name>SoundBeastlyBuffet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="24" column="1" bodyfile="Main/AbilityController.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a7435e16d71e820b28f35462ae07f635d" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilityController.SoundThief</definition>
+        <argsstring></argsstring>
+        <name>SoundThief</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="25" column="1" bodyfile="Main/AbilityController.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a1e5b176a336fd5d43c8cc38b9c07437b" prot="public" static="no" mutable="no">
+        <type><ref refid="class_player" kindref="compound">Player</ref></type>
+        <definition>Player AbilityController.player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="31" column="1" bodyfile="Main/AbilityController.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1aa47a187931d9492c4de193eab4178da6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AbilityController.abilityPoints</definition>
+        <argsstring></argsstring>
+        <name>abilityPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="61" column="1" bodyfile="Main/AbilityController.cs" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1af7b2d20b54fffc29fdddcc566341e532" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AbilityController.targetedPlayer</definition>
+        <argsstring></argsstring>
+        <name>targetedPlayer</name>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="87" column="1" bodyfile="Main/AbilityController.cs" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_ability_controller_1a1f82cc462eb6c562888b700567041f1a" prot="private" static="no" mutable="no">
+        <type>AudioSource</type>
+        <definition>AudioSource AbilityController.audio</definition>
+        <argsstring></argsstring>
+        <name>audio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="27" column="1" bodyfile="Main/AbilityController.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1abc7f88d601b71675ed9d7f1ffed6dee6" prot="private" static="no" mutable="no">
+        <type><ref refid="class_mouse" kindref="compound">Mouse</ref></type>
+        <definition>Mouse AbilityController.mouse</definition>
+        <argsstring></argsstring>
+        <name>mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="30" column="1" bodyfile="Main/AbilityController.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a475b2ceb4038fe214357a5593df85bac" prot="private" static="no" mutable="no">
+        <type><ref refid="class_food_controller" kindref="compound">FoodController</ref></type>
+        <definition>FoodController AbilityController.foodController</definition>
+        <argsstring></argsstring>
+        <name>foodController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="32" column="1" bodyfile="Main/AbilityController.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1af486c369a19867732d0703eee1e7f23d" prot="private" static="no" mutable="no">
+        <type><ref refid="class_level_controller" kindref="compound">LevelController</ref></type>
+        <definition>LevelController AbilityController.levelController</definition>
+        <argsstring></argsstring>
+        <name>levelController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="33" column="1" bodyfile="Main/AbilityController.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a0e7d5cdaa2a0d58115e221299ef868ca" prot="private" static="no" mutable="no">
+        <type><ref refid="class_ability_u_i" kindref="compound">AbilityUI</ref></type>
+        <definition>AbilityUI AbilityController.abilityUi</definition>
+        <argsstring></argsstring>
+        <name>abilityUi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="34" column="1" bodyfile="Main/AbilityController.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a8bb385de4342c5f119f0f5953c980d9e" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text AbilityController.messageBox</definition>
+        <argsstring></argsstring>
+        <name>messageBox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="35" column="1" bodyfile="Main/AbilityController.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ac45abfa58cae3489b260350b32a41f68" prot="private" static="no" mutable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; AbilityController.activeStatuses</definition>
+        <argsstring></argsstring>
+        <name>activeStatuses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="38" column="1" bodyfile="Main/AbilityController.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a093824c10b3c0ca61c70537d0d6e8ad0" prot="private" static="no" mutable="no">
+        <type>List&lt; GameMessage &gt;</type>
+        <definition>List&lt;GameMessage&gt; AbilityController.gameMessages</definition>
+        <argsstring></argsstring>
+        <name>gameMessages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="39" column="1" bodyfile="Main/AbilityController.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ae619fb133843371dd4c1056336c1b83f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbilityController.mouseIsImmune</definition>
+        <argsstring></argsstring>
+        <name>mouseIsImmune</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="54" column="1" bodyfile="Main/AbilityController.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1aa5ade0bed3ad4c3f107d1bdd77f89f03" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbilityController.mouseIsFearless</definition>
+        <argsstring></argsstring>
+        <name>mouseIsFearless</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="55" column="1" bodyfile="Main/AbilityController.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a3f241f149500b1b8fa114a51e1c3a5cb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbilityController.mouseIsFat</definition>
+        <argsstring></argsstring>
+        <name>mouseIsFat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="56" column="1" bodyfile="Main/AbilityController.cs" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a91481c95834bced3444d38a9c46b5f50" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AbilityController.maxLevelAchieved</definition>
+        <argsstring></argsstring>
+        <name>maxLevelAchieved</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="59" column="1" bodyfile="Main/AbilityController.cs" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1aa731c12a4d01d266f8d7370f3d15fe28" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AbilityController.prevLevel</definition>
+        <argsstring></argsstring>
+        <name>prevLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="60" column="1" bodyfile="Main/AbilityController.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a3c2a17b22b822083f95f9a2a3e86d358" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbilityController.treatsGaloreIsActive</definition>
+        <argsstring></argsstring>
+        <name>treatsGaloreIsActive</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="64" column="1" bodyfile="Main/AbilityController.cs" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a9f821b871eab3058824c94a53864f364" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AbilityController.treatsGaloreBoostedFood</definition>
+        <argsstring></argsstring>
+        <name>treatsGaloreBoostedFood</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="65" column="1" bodyfile="Main/AbilityController.cs" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ad7c7b83446eac60932c09cc7d2488108" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float AbilityController.tgOriginalWeight</definition>
+        <argsstring></argsstring>
+        <name>tgOriginalWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="66" column="1" bodyfile="Main/AbilityController.cs" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a9b0d9998c6cb9789c10fd4c529e3d655" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AbilityController.tgOriginalCount</definition>
+        <argsstring></argsstring>
+        <name>tgOriginalCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="67" column="1" bodyfile="Main/AbilityController.cs" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1abee5d8a776b0ab4ab43da974921e96df" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbilityController.mouseIsOffscreen</definition>
+        <argsstring></argsstring>
+        <name>mouseIsOffscreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="70" column="1" bodyfile="Main/AbilityController.cs" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a25309d3f22f2f9e01b2fc610d051a409" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AbilityController.scaryCatDuration</definition>
+        <argsstring></argsstring>
+        <name>scaryCatDuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="71" column="1" bodyfile="Main/AbilityController.cs" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a623e60ac7c9c100def2ed4060a4c21d3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbilityController.beastlyBuffetIsActive</definition>
+        <argsstring></argsstring>
+        <name>beastlyBuffetIsActive</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="74" column="1" bodyfile="Main/AbilityController.cs" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a1f5e24ab39cb2afcc79dcf30805f9aaa" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AbilityController.beastlyBuffetBoostedFood</definition>
+        <argsstring></argsstring>
+        <name>beastlyBuffetBoostedFood</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="75" column="1" bodyfile="Main/AbilityController.cs" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a9f49ee5acb3ecc7e7d3977f609c55740" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AbilityController.beastlyBuffetDuration</definition>
+        <argsstring></argsstring>
+        <name>beastlyBuffetDuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="76" column="1" bodyfile="Main/AbilityController.cs" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1aeeb3b27748cdbc00770cc9deae919a75" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float AbilityController.bbOriginalWeight</definition>
+        <argsstring></argsstring>
+        <name>bbOriginalWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="77" column="1" bodyfile="Main/AbilityController.cs" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a6495ba98e68fecf74c83c8b33d319e9b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AbilityController.bbOriginalCount</definition>
+        <argsstring></argsstring>
+        <name>bbOriginalCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="78" column="1" bodyfile="Main/AbilityController.cs" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1aea164393aec9b36804be2ae42fc7f783" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbilityController.mouseIsThief</definition>
+        <argsstring></argsstring>
+        <name>mouseIsThief</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="81" column="1" bodyfile="Main/AbilityController.cs" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1aaeed81daffd1d22d1e8b02729e9545d1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbilityController.mouseIsThiefVictim</definition>
+        <argsstring></argsstring>
+        <name>mouseIsThiefVictim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="82" column="1" bodyfile="Main/AbilityController.cs" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1a0ca3fd7ed3d3133b9727ff74dc2b4d7b" prot="private" static="no" mutable="no">
+        <type>DateTime</type>
+        <definition>DateTime AbilityController.lastStolenFrom</definition>
+        <argsstring></argsstring>
+        <name>lastStolenFrom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="83" column="1" bodyfile="Main/AbilityController.cs" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ad9407f04414379b23ade87ea1cdf9d43" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AbilityController.thiefVictimDuration</definition>
+        <argsstring></argsstring>
+        <name>thiefVictimDuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="84" column="1" bodyfile="Main/AbilityController.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1abe06e05a2f5b37875ac141400f09fd86" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; AbilityName, Text &gt;</type>
+        <definition>Dictionary&lt;AbilityName, Text&gt; AbilityController.countdowns</definition>
+        <argsstring></argsstring>
+        <name>countdowns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="90" column="1" bodyfile="Main/AbilityController.cs" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ae95911aa87411780f155a94fe3564a4f" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; string, float &gt;</type>
+        <definition>Dictionary&lt;string, float&gt; AbilityController.defaultFoodSpawnWeights</definition>
+        <argsstring></argsstring>
+        <name>defaultFoodSpawnWeights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="92" column="1" bodyfile="Main/AbilityController.cs" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ad42fee7317ed3210bca48dc00e1ded12" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; string, int &gt;</type>
+        <definition>Dictionary&lt;string, int&gt; AbilityController.defaultMaxFoodCounts</definition>
+        <argsstring></argsstring>
+        <name>defaultMaxFoodCounts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="94" column="1" bodyfile="Main/AbilityController.cs" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_controller_1ae30e7b98811f52d2146b2d741fbcc131" prot="private" static="no" mutable="no">
+        <type>IDictionary&lt; AbilityName, DateTime &gt;</type>
+        <definition>IDictionary&lt;AbilityName, DateTime&gt; AbilityController.abilityLastActivatedTimes</definition>
+        <argsstring></argsstring>
+        <name>abilityLastActivatedTimes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="96" column="1" bodyfile="Main/AbilityController.cs" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_ability_controller_1acf9e8840421d5a4bc29baefe366f253a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="98" column="1" bodyfile="Main/AbilityController.cs" bodystart="98" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a48a6e9b8a61785ab4ff045f597d88793" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+<para>The Update method is called once per frame. The ability controller checks the state of various game variables and updates them if necessary. </para>        </briefdescription>
+        <detaileddescription>
+<para>Variables checked:</para><para><ref refid="class_immunity" kindref="compound">Immunity</ref> ability last used and duration <ref refid="class_mouse" kindref="compound">Mouse</ref> level <ref refid="class_mouse" kindref="compound">Mouse</ref> <ref refid="class_immunity" kindref="compound">Immunity</ref> status Treats galore ability last used and duration <ref refid="class_food_controller" kindref="compound">FoodController</ref> treats galore active <ref refid="class_mouse" kindref="compound">Mouse</ref> <ref refid="class_fearless" kindref="compound">Fearless</ref> ability last used and duration <ref refid="class_mouse" kindref="compound">Mouse</ref> <ref refid="class_fearless" kindref="compound">Fearless</ref> active Fat <ref refid="class_mouse" kindref="compound">Mouse</ref> ability last used and duration <ref refid="class_thief" kindref="compound">Thief</ref> spawn boost last activated and duration <ref refid="class_mouse" kindref="compound">Mouse</ref> Fat active <ref refid="class_mouse" kindref="compound">Mouse</ref> last chased offscreen by Scary Cat and duration <ref refid="class_mouse" kindref="compound">Mouse</ref> Offscreen <ref refid="class_mouse" kindref="compound">Mouse</ref> last affected by Beastly Buffet and duration <ref refid="class_mouse" kindref="compound">Mouse</ref> last affected by <ref refid="class_thief" kindref="compound">Thief</ref> and duration </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="171" column="1" bodyfile="Main/AbilityController.cs" bodystart="171" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1ac097275cb1c4239a8717e08237a33988" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AbilityController.IsStillActive</definition>
+        <argsstring>(AbilityName ability)</argsstring>
+        <name>IsStillActive</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="369" column="1" bodyfile="Main/AbilityController.cs" bodystart="369" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a0e85ba43a0759f2ebd84cd48bfdc01fd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int AbilityController.TimeLeft</definition>
+        <argsstring>(AbilityName ability)</argsstring>
+        <name>TimeLeft</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="379" column="1" bodyfile="Main/AbilityController.cs" bodystart="379" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1af3fa5a0d3b303bbbf66e58382b26feb1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AbilityController.IsStillActive</definition>
+        <argsstring>(AbilityName ability, int duration)</argsstring>
+        <name>IsStillActive</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>duration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="390" column="1" bodyfile="Main/AbilityController.cs" bodystart="390" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a54218436b37a6fe3be2c012604b1f006" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.playBeastlyBuffetAudio</definition>
+        <argsstring>()</argsstring>
+        <name>playBeastlyBuffetAudio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="715" column="1" bodyfile="Main/AbilityController.cs" bodystart="715" bodyend="718"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1aeb4d6af3b022bc084aee3eb30046cef8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.playThiefAudio</definition>
+        <argsstring>()</argsstring>
+        <name>playThiefAudio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="797" column="1" bodyfile="Main/AbilityController.cs" bodystart="797" bodyend="800"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_ability_controller_1ad0f5779a9715537185995444f6a1937a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_ability_controller" kindref="compound">AbilityController</ref></type>
+        <definition>AbilityController AbilityController.AttachToMouse</definition>
+        <argsstring>()</argsstring>
+        <name>AttachToMouse</name>
+        <briefdescription>
+<para>Function that will look for a local player mouse object and get a reference to it. </para>        </briefdescription>
+        <detaileddescription>
+<para>Since the ability controller starts before the main scene is initialised, we can only get references to main scene objects after the main scene has loaded. These methods are called to attach the ability controller to the respective main scene objects. </para><para><simplesect kind="return"><para>This ability controller, so that calls can be chained.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="117" column="1" bodyfile="Main/AbilityController.cs" bodystart="117" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a080cc0033eb0f9d8ab95f19f82329991" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_ability_controller" kindref="compound">AbilityController</ref></type>
+        <definition>AbilityController AbilityController.AttachToFoodController</definition>
+        <argsstring>()</argsstring>
+        <name>AttachToFoodController</name>
+        <briefdescription>
+<para>Function that will look for a local player food controller object and get a reference to it. </para>        </briefdescription>
+        <detaileddescription>
+<para>Since the ability controller starts before the main scene is initialised, we can only get references to main scene objects after the main scene has loaded. These methods are called to attach the ability controller to the respective main scene objects. </para><para><simplesect kind="return"><para>This ability controller, so that calls can be chained.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="138" column="1" bodyfile="Main/AbilityController.cs" bodystart="138" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a8bff51b6099630911bbee645fac23871" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_ability_controller" kindref="compound">AbilityController</ref></type>
+        <definition>AbilityController AbilityController.AttachToLevelController</definition>
+        <argsstring>()</argsstring>
+        <name>AttachToLevelController</name>
+        <briefdescription>
+<para>Function that will look for a local player level controller object and get a reference to it. </para>        </briefdescription>
+        <detaileddescription>
+<para>Since the ability controller starts before the main scene is initialised, we can only get references to main scene objects after the main scene has loaded. These methods are called to attach the ability controller to the respective main scene objects. </para><para><simplesect kind="return"><para>This ability controller, so that calls can be chained.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="301" column="1" bodyfile="Main/AbilityController.cs" bodystart="301" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1af0ea65b755efd83145eaee5be223feea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_ability_controller" kindref="compound">AbilityController</ref></type>
+        <definition>AbilityController AbilityController.AttachToAbilityUi</definition>
+        <argsstring>()</argsstring>
+        <name>AttachToAbilityUi</name>
+        <briefdescription>
+<para>Function that will look for a local player abilityUI object and get a reference to it. </para>        </briefdescription>
+        <detaileddescription>
+<para>Since the ability controller starts before the main scene is initialised, we can only get references to main scene objects after the main scene has loaded. These methods are called to attach the ability controller to the respective main scene objects. </para><para><simplesect kind="return"><para>This ability controller, so that calls can be chained.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="321" column="1" bodyfile="Main/AbilityController.cs" bodystart="321" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a5d22cfdaecd4710c66cb53a8425a1e32" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_ability_controller" kindref="compound">AbilityController</ref></type>
+        <definition>AbilityController AbilityController.AttachToMessageBox</definition>
+        <argsstring>()</argsstring>
+        <name>AttachToMessageBox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="333" column="1" bodyfile="Main/AbilityController.cs" bodystart="333" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1aa0543e057e05e2926f878c0dd7cad321" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AbilityController.IsActive</definition>
+        <argsstring>(AbilityName ability)</argsstring>
+        <name>IsActive</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="345" column="1" bodyfile="Main/AbilityController.cs" bodystart="345" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1afb5f4f4c49337dcc4dfc1e52c0ff93c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.ActivateAbility</definition>
+        <argsstring>(AbilityName ability)</argsstring>
+        <name>ActivateAbility</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+<para>To be called by the <ref refid="class_player" kindref="compound">Player</ref> script to activate the ability based on the tapped icon </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ability</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="406" column="1" bodyfile="Main/AbilityController.cs" bodystart="406" bodyend="449"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a3a0150b50e0f2b667509d3669b24ff20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.ImproveAbility</definition>
+        <argsstring>(AbilityName ability)</argsstring>
+        <name>ImproveAbility</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+<para>Improves one of the player&apos;s abilities. Does nothing if the ability level is already at maximum. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ability</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="455" column="1" bodyfile="Main/AbilityController.cs" bodystart="455" bodyend="463"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1abc797bafea24efd95944968c21bff478" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.NewGameMessage</definition>
+        <argsstring>(string message)</argsstring>
+        <name>NewGameMessage</name>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="465" column="1" bodyfile="Main/AbilityController.cs" bodystart="465" bodyend="469"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1ab239b2b0f79e5f8036ffd92a60953976" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.ActivateImmunity</definition>
+        <argsstring>()</argsstring>
+        <name>ActivateImmunity</name>
+        <briefdescription>
+<para>Function to be called when a player activates the <ref refid="class_immunity" kindref="compound">Immunity</ref> ability. Checks that <ref refid="class_immunity" kindref="compound">Immunity</ref> is not already activated and the mouse has sufficient Happiness and sets the mouse <ref refid="class_immunity" kindref="compound">Immunity</ref> state. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="476" column="1" bodyfile="Main/AbilityController.cs" bodystart="476" bodyend="491"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a3871b151f0dbb4f695b326cb2c02c29c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.ActivateFearless</definition>
+        <argsstring>()</argsstring>
+        <name>ActivateFearless</name>
+        <briefdescription>
+<para>Function to be called when a player activates the <ref refid="class_fearless" kindref="compound">Fearless</ref> ability. Checks that <ref refid="class_fearless" kindref="compound">Fearless</ref> is not already activated and the mouse has sufficient Happiness and sets the mouse <ref refid="class_fearless" kindref="compound">Fearless</ref> state. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="498" column="1" bodyfile="Main/AbilityController.cs" bodystart="498" bodyend="512"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1aa69b2c81a09b53e0a56f69d58b11007c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.ActivateTreatsGalore</definition>
+        <argsstring>()</argsstring>
+        <name>ActivateTreatsGalore</name>
+        <briefdescription>
+<para>Function to be called when the player activates the Treats Galore ability. Checks that Treats Galore is not already activated and the mouse has sufficient Happiness. Chooses a random food above a certain point threshold specified in the ability level and boosts its max food count and spawn weight through the associated <ref refid="class_food_controller" kindref="compound">FoodController</ref> instance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="521" column="1" bodyfile="Main/AbilityController.cs" bodystart="521" bodyend="544"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1af617ab2ad1e66f4fbe70e47d41f42c5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.ActivateFatMouse</definition>
+        <argsstring>()</argsstring>
+        <name>ActivateFatMouse</name>
+        <briefdescription>
+<para>Function to be called when the player activates the Fat <ref refid="class_mouse" kindref="compound">Mouse</ref> ability. Checks that Fat <ref refid="class_mouse" kindref="compound">Mouse</ref> is not already activated and the mouse has sufficient Happiness. Sets the mouse GrowthAbility to the multiplier specified by the ability level. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="552" column="1" bodyfile="Main/AbilityController.cs" bodystart="552" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a665fadfb91f33423469ef2bbb1c02bbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.ActivateScaryCat</definition>
+        <argsstring>()</argsstring>
+        <name>ActivateScaryCat</name>
+        <briefdescription>
+<para>Function to be called when a player targets another player with the Scary Cat ability. Checks that the mouse has enough Happiness and calls the RpcReceiveScaryCat function on the targeted player. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="574" column="1" bodyfile="Main/AbilityController.cs" bodystart="574" bodyend="586"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1ae358efb5ca5e7f9ccd007ae5e24592dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.CmdDispatchScaryCat</definition>
+        <argsstring>(string caller, string target, int duration, int happinessReduction, int weightReduction)</argsstring>
+        <name>CmdDispatchScaryCat</name>
+        <param>
+          <type>string</type>
+          <declname>caller</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>happinessReduction</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>weightReduction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="589" column="1" bodyfile="Main/AbilityController.cs" bodystart="589" bodyend="594"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a601d5c88b0b7f28be3628f2a36b0023c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.RpcReceiveScaryCat</definition>
+        <argsstring>(string caller, int duration, int happinessReduction, int weightReduction)</argsstring>
+        <name>RpcReceiveScaryCat</name>
+        <param>
+          <type>string</type>
+          <declname>caller</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>happinessReduction</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>weightReduction</declname>
+        </param>
+        <briefdescription>
+<para>Function to be called when a player is affected by another player&apos;s Scary Cat ability. May send the player&apos;s mouse offscreen and drop its Weight and Happiness depending on whether the player&apos;s <ref refid="class_fearless" kindref="compound">Fearless</ref> ability is activated and its level. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>duration</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>happinessReduction</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>weightReduction</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="606" column="1" bodyfile="Main/AbilityController.cs" bodystart="606" bodyend="648"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a7f2712d50691dc9d63660114aa575dc2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.ActivateBeastlyBuffet</definition>
+        <argsstring>()</argsstring>
+        <name>ActivateBeastlyBuffet</name>
+        <briefdescription>
+<para>Function to be called when a player targets another player with the Beastly Buffet ability. Checks that the mouse has sufficient Happiness and calls the RpcReceiveBeastlyBuffet function on the targeted player. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="655" column="1" bodyfile="Main/AbilityController.cs" bodystart="655" bodyend="667"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a0b2d3ff58e3ce3df8c549a0b7f8b0ae5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.CmdDispatchBeastlyBuffet</definition>
+        <argsstring>(string caller, string target, int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)</argsstring>
+        <name>CmdDispatchBeastlyBuffet</name>
+        <param>
+          <type>string</type>
+          <declname>caller</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pointThreshold</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>spawnLimitMultiplier</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>spawnWeightMultiplier</declname>
+        </param>
+        <briefdescription>
+<para>Command which is called on the server when a player target another player with Beastly Buffet. Looks for the target player and triggers an RPC call on it to call the Receive function. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>duration</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pointThreshold</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spawnLimitMultiplier</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spawnWeightMultiplier</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="679" column="1" bodyfile="Main/AbilityController.cs" bodystart="679" bodyend="685"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a500d4b41d2cce2dc9f1ca094e3f5a3cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.RpcReceiveBeastlyBuffet</definition>
+        <argsstring>(string caller, int duration, int pointThreshold, int spawnLimitMultiplier, int spawnWeightMultiplier)</argsstring>
+        <name>RpcReceiveBeastlyBuffet</name>
+        <param>
+          <type>string</type>
+          <declname>caller</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pointThreshold</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>spawnLimitMultiplier</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>spawnWeightMultiplier</declname>
+        </param>
+        <briefdescription>
+<para>Function to be called when a player is affected by another player&apos;s Beastly Buffet ability. Chooses a random food below a certain point threshold specified by the attacker&apos;s ability and boosts its max food count and spawn weight through the associated Foodcontroller instance. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>duration</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pointThreshold</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spawnLimitMultiplier</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spawnWeightMultiplier</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="697" column="1" bodyfile="Main/AbilityController.cs" bodystart="697" bodyend="713"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a2fdbe1484427e49e5e64e3e72ff4f069" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.ActivateThief</definition>
+        <argsstring>()</argsstring>
+        <name>ActivateThief</name>
+        <briefdescription>
+<para>Use the <ref refid="class_thief" kindref="compound">Thief</ref> ability on the currently targeted player. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="723" column="1" bodyfile="Main/AbilityController.cs" bodystart="723" bodyend="737"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1abbc570651df0b0c424d2877d7d020a01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.CmdDispatchThief</definition>
+        <argsstring>(string caller, string target, int duration, int foodUnitsTransferred)</argsstring>
+        <name>CmdDispatchThief</name>
+        <param>
+          <type>string</type>
+          <declname>caller</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>foodUnitsTransferred</declname>
+        </param>
+        <briefdescription>
+<para>Command to look for the target player and call the Receive function on it. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>caller</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>duration</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>foodUnitsTransferred</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="747" column="1" bodyfile="Main/AbilityController.cs" bodystart="747" bodyend="752"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a0180e2731d4a705fcaa6fc896ec33325" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.RpcReceiveThief</definition>
+        <argsstring>(string caller, int duration, int foodUnitsTransferred)</argsstring>
+        <name>RpcReceiveThief</name>
+        <param>
+          <type>string</type>
+          <declname>caller</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>foodUnitsTransferred</declname>
+        </param>
+        <briefdescription>
+<para>Called when another player uses the <ref refid="class_thief" kindref="compound">Thief</ref> ability on this mouse. Randomly chooses and removes some good food from on screen and transfers it to the caller. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>caller</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>duration</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>foodUnitsTransferred</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="762" column="1" bodyfile="Main/AbilityController.cs" bodystart="762" bodyend="795"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a92e49d769642f13cf404a0f8152fc8a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.CmdDispatchStolenFood</definition>
+        <argsstring>(string caller, string[] foodsTaken)</argsstring>
+        <name>CmdDispatchStolenFood</name>
+        <param>
+          <type>string</type>
+          <declname>caller</declname>
+        </param>
+        <param>
+          <type>string[]</type>
+          <declname>foodsTaken</declname>
+        </param>
+        <briefdescription>
+<para>Called to return the stolen food back to the player who originally used <ref refid="class_thief" kindref="compound">Thief</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>caller</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>foodsTaken</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="808" column="1" bodyfile="Main/AbilityController.cs" bodystart="808" bodyend="814"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_controller_1a1f4ec529d8fd9685e869607fd8e903ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityController.RpcReceiveStolenFood</definition>
+        <argsstring>(string[] foodsTaken)</argsstring>
+        <name>RpcReceiveStolenFood</name>
+        <param>
+          <type>string[]</type>
+          <declname>foodsTaken</declname>
+        </param>
+        <briefdescription>
+<para>Client RPC to spawn food stolen by thief back on the original caller&apos;s screen. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>foodsTaken</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityController.cs" line="821" column="1" bodyfile="Main/AbilityController.cs" bodystart="821" bodyend="829"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script class to encapsulate mouse ability logic. Implements functions to be called when abilities are activated by a player or when a player is affected by an ability activated by another player. Should be attached to a <ref refid="class_player" kindref="compound">Player</ref> object, but only if it is the local player This component is attached to the local player object when the scene is changed to Main </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="20">
+        <label>NetworkBehaviour</label>
+      </node>
+      <node id="19">
+        <label>AbilityController</label>
+        <link refid="class_ability_controller"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="22">
+        <label>NetworkBehaviour</label>
+      </node>
+      <node id="31">
+        <label>ScaryCat</label>
+        <link refid="class_scary_cat"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>Immunity</label>
+        <link refid="class_immunity"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="27">
+        <label>Thief</label>
+        <link refid="class_thief"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>BeastlyBuffet</label>
+        <link refid="class_beastly_buffet"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>Abilities</label>
+        <link refid="class_abilities"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>BeastlyBuffet</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>Thief</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>TreatsGalore</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>FatMouse</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>Immunity</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>ScaryCat</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>Fearless</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>AbilityController</label>
+        <link refid="class_ability_controller"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>player</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>PAbilities</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>FatMouse</label>
+        <link refid="class_fat_mouse"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>Fearless</label>
+        <link refid="class_fearless"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>TreatsGalore</label>
+        <link refid="class_treats_galore"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Main/AbilityController.cs" line="17" column="1" bodyfile="Main/AbilityController.cs" bodystart="16" bodyend="848"/>
+    <listofallmembers>
+      <member refid="class_ability_controller_1ae30e7b98811f52d2146b2d741fbcc131" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>abilityLastActivatedTimes</name></member>
+      <member refid="class_ability_controller_1aa47a187931d9492c4de193eab4178da6" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>abilityPoints</name></member>
+      <member refid="class_ability_controller_1a0e7d5cdaa2a0d58115e221299ef868ca" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>abilityUi</name></member>
+      <member refid="class_ability_controller_1afb5f4f4c49337dcc4dfc1e52c0ff93c0" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>ActivateAbility</name></member>
+      <member refid="class_ability_controller_1a7f2712d50691dc9d63660114aa575dc2" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>ActivateBeastlyBuffet</name></member>
+      <member refid="class_ability_controller_1af617ab2ad1e66f4fbe70e47d41f42c5d" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>ActivateFatMouse</name></member>
+      <member refid="class_ability_controller_1a3871b151f0dbb4f695b326cb2c02c29c" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>ActivateFearless</name></member>
+      <member refid="class_ability_controller_1ab239b2b0f79e5f8036ffd92a60953976" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>ActivateImmunity</name></member>
+      <member refid="class_ability_controller_1a665fadfb91f33423469ef2bbb1c02bbb" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>ActivateScaryCat</name></member>
+      <member refid="class_ability_controller_1a2fdbe1484427e49e5e64e3e72ff4f069" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>ActivateThief</name></member>
+      <member refid="class_ability_controller_1aa69b2c81a09b53e0a56f69d58b11007c" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>ActivateTreatsGalore</name></member>
+      <member refid="class_ability_controller_1ac45abfa58cae3489b260350b32a41f68" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>activeStatuses</name></member>
+      <member refid="class_ability_controller_1af0ea65b755efd83145eaee5be223feea" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>AttachToAbilityUi</name></member>
+      <member refid="class_ability_controller_1a080cc0033eb0f9d8ab95f19f82329991" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>AttachToFoodController</name></member>
+      <member refid="class_ability_controller_1a8bff51b6099630911bbee645fac23871" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>AttachToLevelController</name></member>
+      <member refid="class_ability_controller_1a5d22cfdaecd4710c66cb53a8425a1e32" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>AttachToMessageBox</name></member>
+      <member refid="class_ability_controller_1ad0f5779a9715537185995444f6a1937a" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>AttachToMouse</name></member>
+      <member refid="class_ability_controller_1a1f82cc462eb6c562888b700567041f1a" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>audio</name></member>
+      <member refid="class_ability_controller_1a6495ba98e68fecf74c83c8b33d319e9b" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>bbOriginalCount</name></member>
+      <member refid="class_ability_controller_1aeeb3b27748cdbc00770cc9deae919a75" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>bbOriginalWeight</name></member>
+      <member refid="class_ability_controller_1a1f5e24ab39cb2afcc79dcf30805f9aaa" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>beastlyBuffetBoostedFood</name></member>
+      <member refid="class_ability_controller_1a9f49ee5acb3ecc7e7d3977f609c55740" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>beastlyBuffetDuration</name></member>
+      <member refid="class_ability_controller_1a623e60ac7c9c100def2ed4060a4c21d3" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>beastlyBuffetIsActive</name></member>
+      <member refid="class_ability_controller_1a0b2d3ff58e3ce3df8c549a0b7f8b0ae5" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>CmdDispatchBeastlyBuffet</name></member>
+      <member refid="class_ability_controller_1ae358efb5ca5e7f9ccd007ae5e24592dd" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>CmdDispatchScaryCat</name></member>
+      <member refid="class_ability_controller_1a92e49d769642f13cf404a0f8152fc8a3" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>CmdDispatchStolenFood</name></member>
+      <member refid="class_ability_controller_1abbc570651df0b0c424d2877d7d020a01" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>CmdDispatchThief</name></member>
+      <member refid="class_ability_controller_1abe06e05a2f5b37875ac141400f09fd86" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>countdowns</name></member>
+      <member refid="class_ability_controller_1ae95911aa87411780f155a94fe3564a4f" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>defaultFoodSpawnWeights</name></member>
+      <member refid="class_ability_controller_1ad42fee7317ed3210bca48dc00e1ded12" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>defaultMaxFoodCounts</name></member>
+      <member refid="class_ability_controller_1a475b2ceb4038fe214357a5593df85bac" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>foodController</name></member>
+      <member refid="class_ability_controller_1a093824c10b3c0ca61c70537d0d6e8ad0" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>gameMessages</name></member>
+      <member refid="class_ability_controller_1a3a0150b50e0f2b667509d3669b24ff20" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>ImproveAbility</name></member>
+      <member refid="class_ability_controller_1aa0543e057e05e2926f878c0dd7cad321" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>IsActive</name></member>
+      <member refid="class_ability_controller_1ac097275cb1c4239a8717e08237a33988" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>IsStillActive</name></member>
+      <member refid="class_ability_controller_1af3fa5a0d3b303bbbf66e58382b26feb1" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>IsStillActive</name></member>
+      <member refid="class_ability_controller_1a0ca3fd7ed3d3133b9727ff74dc2b4d7b" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>lastStolenFrom</name></member>
+      <member refid="class_ability_controller_1af486c369a19867732d0703eee1e7f23d" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>levelController</name></member>
+      <member refid="class_ability_controller_1a91481c95834bced3444d38a9c46b5f50" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>maxLevelAchieved</name></member>
+      <member refid="class_ability_controller_1a8bb385de4342c5f119f0f5953c980d9e" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>messageBox</name></member>
+      <member refid="class_ability_controller_1abc7f88d601b71675ed9d7f1ffed6dee6" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>mouse</name></member>
+      <member refid="class_ability_controller_1a3f241f149500b1b8fa114a51e1c3a5cb" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>mouseIsFat</name></member>
+      <member refid="class_ability_controller_1aa5ade0bed3ad4c3f107d1bdd77f89f03" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>mouseIsFearless</name></member>
+      <member refid="class_ability_controller_1ae619fb133843371dd4c1056336c1b83f" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>mouseIsImmune</name></member>
+      <member refid="class_ability_controller_1abee5d8a776b0ab4ab43da974921e96df" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>mouseIsOffscreen</name></member>
+      <member refid="class_ability_controller_1aea164393aec9b36804be2ae42fc7f783" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>mouseIsThief</name></member>
+      <member refid="class_ability_controller_1aaeed81daffd1d22d1e8b02729e9545d1" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>mouseIsThiefVictim</name></member>
+      <member refid="class_ability_controller_1abc797bafea24efd95944968c21bff478" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>NewGameMessage</name></member>
+      <member refid="class_ability_controller_1a54218436b37a6fe3be2c012604b1f006" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>playBeastlyBuffetAudio</name></member>
+      <member refid="class_ability_controller_1a1e5b176a336fd5d43c8cc38b9c07437b" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>player</name></member>
+      <member refid="class_ability_controller_1aeb4d6af3b022bc084aee3eb30046cef8" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>playThiefAudio</name></member>
+      <member refid="class_ability_controller_1aa731c12a4d01d266f8d7370f3d15fe28" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>prevLevel</name></member>
+      <member refid="class_ability_controller_1a500d4b41d2cce2dc9f1ca094e3f5a3cd" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>RpcReceiveBeastlyBuffet</name></member>
+      <member refid="class_ability_controller_1a601d5c88b0b7f28be3628f2a36b0023c" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>RpcReceiveScaryCat</name></member>
+      <member refid="class_ability_controller_1a1f4ec529d8fd9685e869607fd8e903ff" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>RpcReceiveStolenFood</name></member>
+      <member refid="class_ability_controller_1a0180e2731d4a705fcaa6fc896ec33325" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>RpcReceiveThief</name></member>
+      <member refid="class_ability_controller_1a25309d3f22f2f9e01b2fc610d051a409" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>scaryCatDuration</name></member>
+      <member refid="class_ability_controller_1ad5385cff2dd6f19c984b04addd039eb8" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>SoundBeastlyBuffet</name></member>
+      <member refid="class_ability_controller_1ad084b43c5e481db36c73891b12bfba24" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>SoundCat</name></member>
+      <member refid="class_ability_controller_1ada5a8f8767e24fd12692fbffc89a9d95" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>SoundFatMouse</name></member>
+      <member refid="class_ability_controller_1af56d5dfbf6cf299c182d7b57aa88ca84" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>SoundFearless</name></member>
+      <member refid="class_ability_controller_1a4ac438cd524c9f586128c99ce7e62b79" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>SoundImmunity</name></member>
+      <member refid="class_ability_controller_1a7435e16d71e820b28f35462ae07f635d" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>SoundThief</name></member>
+      <member refid="class_ability_controller_1a8ee7b892eb932fc1c0d90ac5531fbc57" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>SoundTreatsGalore</name></member>
+      <member refid="class_ability_controller_1acf9e8840421d5a4bc29baefe366f253a" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>Start</name></member>
+      <member refid="class_ability_controller_1af7b2d20b54fffc29fdddcc566341e532" prot="public" virt="non-virtual"><scope>AbilityController</scope><name>targetedPlayer</name></member>
+      <member refid="class_ability_controller_1a9b0d9998c6cb9789c10fd4c529e3d655" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>tgOriginalCount</name></member>
+      <member refid="class_ability_controller_1ad7c7b83446eac60932c09cc7d2488108" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>tgOriginalWeight</name></member>
+      <member refid="class_ability_controller_1ad9407f04414379b23ade87ea1cdf9d43" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>thiefVictimDuration</name></member>
+      <member refid="class_ability_controller_1a0e85ba43a0759f2ebd84cd48bfdc01fd" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>TimeLeft</name></member>
+      <member refid="class_ability_controller_1a9f821b871eab3058824c94a53864f364" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>treatsGaloreBoostedFood</name></member>
+      <member refid="class_ability_controller_1a3c2a17b22b822083f95f9a2a3e86d358" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>treatsGaloreIsActive</name></member>
+      <member refid="class_ability_controller_1a48a6e9b8a61785ab4ff045f597d88793" prot="private" virt="non-virtual"><scope>AbilityController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_scary_cat" kind="class" language="C#" prot="public">
+    <compoundname>ScaryCat</compoundname>
+    <basecompoundref refid="class_ability" prot="public" virt="non-virtual">Ability</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_scary_cat_1abfd15aeb1a3bf66d53289f3ff48cd052" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int ScaryCat.HappinessReduction</definition>
+        <argsstring></argsstring>
+        <name>HappinessReduction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="344" column="1" bodyfile="Main/Abilities.cs" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_scary_cat_1a44a2db347230d52f598ef357674086fe" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int ScaryCat.WeightReduction</definition>
+        <argsstring></argsstring>
+        <name>WeightReduction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="345" column="1" bodyfile="Main/Abilities.cs" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_scary_cat_1a78f35c5175a67080939452762912835a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ScaryCat.ScaryCat</definition>
+        <argsstring>(int level)</argsstring>
+        <name>ScaryCat</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="347" column="1" bodyfile="Main/Abilities.cs" bodystart="347" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scary_cat_1ad198001346904b158d4b7fa1638e2275" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override string</type>
+        <definition>override string ScaryCat.GetDetails</definition>
+        <argsstring>()</argsstring>
+        <name>GetDetails</name>
+        <reimplements refid="class_ability_1ae212a441357426b070a0af254f5b97cc">GetDetails</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="376" column="1" bodyfile="Main/Abilities.cs" bodystart="376" bodyend="380"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A player&apos;s Scary Cat ability. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="162">
+        <label>ScaryCat</label>
+        <link refid="class_scary_cat"/>
+        <childnode refid="163" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="163">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="164">
+        <label>ScaryCat</label>
+        <link refid="class_scary_cat"/>
+        <childnode refid="165" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="165">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Abilities.cs" line="343" column="1" bodyfile="Main/Abilities.cs" bodystart="342" bodyend="381"/>
+    <listofallmembers>
+      <member refid="class_ability_1ae2d8aec43091f7b83e366137d43135ef" prot="public" virt="non-virtual"><scope>ScaryCat</scope><name>Cost</name></member>
+      <member refid="class_ability_1af41791e9c6a26592c29f8158fbeed0bf" prot="public" virt="non-virtual"><scope>ScaryCat</scope><name>Description</name></member>
+      <member refid="class_ability_1a5bfb4991a7a4cf857e10f3a33cdd3925" prot="public" virt="non-virtual"><scope>ScaryCat</scope><name>Duration</name></member>
+      <member refid="class_scary_cat_1ad198001346904b158d4b7fa1638e2275" prot="public" virt="virtual"><scope>ScaryCat</scope><name>GetDetails</name></member>
+      <member refid="class_scary_cat_1abfd15aeb1a3bf66d53289f3ff48cd052" prot="public" virt="non-virtual"><scope>ScaryCat</scope><name>HappinessReduction</name></member>
+      <member refid="class_ability_1a4ca153df49091be7325904960f49b810" prot="public" virt="non-virtual"><scope>ScaryCat</scope><name>Level</name></member>
+      <member refid="class_ability_1abdd222bf37890bf0f2dfdd5c8555593e" prot="public" virt="non-virtual"><scope>ScaryCat</scope><name>MaxLevel</name></member>
+      <member refid="class_ability_1a7d67b154e83cae1c52d821cac6f81abe" prot="public" virt="non-virtual"><scope>ScaryCat</scope><name>Name</name></member>
+      <member refid="class_scary_cat_1a78f35c5175a67080939452762912835a" prot="public" virt="non-virtual"><scope>ScaryCat</scope><name>ScaryCat</name></member>
+      <member refid="class_scary_cat_1a44a2db347230d52f598ef357674086fe" prot="public" virt="non-virtual"><scope>ScaryCat</scope><name>WeightReduction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

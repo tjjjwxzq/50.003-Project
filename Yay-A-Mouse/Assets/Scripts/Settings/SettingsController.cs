@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+/// <summary>
+/// Controls UI in the settings screen
+/// </summary>
 public class SettingsController : MonoBehaviour {
     public AudioClip SoundLobby;
     public AudioClip SoundButton;

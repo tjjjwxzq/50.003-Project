@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_countdown_text_animation" kind="class" language="C#" prot="public">
+    <compoundname>CountdownTextAnimation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_countdown_text_animation_1a90758a16d16bc278ed7929e4a44ebc90" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CountdownTextAnimation.numSeconds</definition>
+        <argsstring></argsstring>
+        <name>numSeconds</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Animation Scripts/CountdownTextAnimation.cs" line="10" column="1" bodyfile="Animation Scripts/CountdownTextAnimation.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_countdown_text_animation_1a1ad1db768078da562c3ae5d65ea7468b" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text CountdownTextAnimation.countdownText</definition>
+        <argsstring></argsstring>
+        <name>countdownText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Animation Scripts/CountdownTextAnimation.cs" line="11" column="1" bodyfile="Animation Scripts/CountdownTextAnimation.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_countdown_text_animation_1ab4db79353b0637eb78a9ef75905c6d7a" prot="private" static="no" mutable="no">
+        <type>Animator</type>
+        <definition>Animator CountdownTextAnimation.countdownAnimator</definition>
+        <argsstring></argsstring>
+        <name>countdownAnimator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Animation Scripts/CountdownTextAnimation.cs" line="12" column="1" bodyfile="Animation Scripts/CountdownTextAnimation.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_countdown_text_animation_1a1291c275c4dd888fb556215ab7a04b9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CountdownTextAnimation.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Animation Scripts/CountdownTextAnimation.cs" line="14" column="1" bodyfile="Animation Scripts/CountdownTextAnimation.cs" bodystart="14" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_countdown_text_animation_1a3ff727264eff872c7a2948835fd42704" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CountdownTextAnimation.OnNextSecond</definition>
+        <argsstring>()</argsstring>
+        <name>OnNextSecond</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Animation Scripts/CountdownTextAnimation.cs" line="20" column="1" bodyfile="Animation Scripts/CountdownTextAnimation.cs" bodystart="20" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script to be called on the end of the countdown text animation </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="70">
+        <label>CountdownTextAnimation</label>
+        <link refid="class_countdown_text_animation"/>
+        <childnode refid="71" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="72">
+        <label>CountdownTextAnimation</label>
+        <link refid="class_countdown_text_animation"/>
+        <childnode refid="73" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Animation Scripts/CountdownTextAnimation.cs" line="9" column="1" bodyfile="Animation Scripts/CountdownTextAnimation.cs" bodystart="8" bodyend="29"/>
+    <listofallmembers>
+      <member refid="class_countdown_text_animation_1ab4db79353b0637eb78a9ef75905c6d7a" prot="private" virt="non-virtual"><scope>CountdownTextAnimation</scope><name>countdownAnimator</name></member>
+      <member refid="class_countdown_text_animation_1a1ad1db768078da562c3ae5d65ea7468b" prot="private" virt="non-virtual"><scope>CountdownTextAnimation</scope><name>countdownText</name></member>
+      <member refid="class_countdown_text_animation_1a90758a16d16bc278ed7929e4a44ebc90" prot="private" virt="non-virtual"><scope>CountdownTextAnimation</scope><name>numSeconds</name></member>
+      <member refid="class_countdown_text_animation_1a3ff727264eff872c7a2948835fd42704" prot="public" virt="non-virtual"><scope>CountdownTextAnimation</scope><name>OnNextSecond</name></member>
+      <member refid="class_countdown_text_animation_1a1291c275c4dd888fb556215ab7a04b9d" prot="public" virt="non-virtual"><scope>CountdownTextAnimation</scope><name>Start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

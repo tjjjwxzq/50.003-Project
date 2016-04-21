@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_my_network_discovery" kind="class" language="C#" prot="public">
+    <compoundname>MyNetworkDiscovery</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">NetworkDiscovery</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_network_discovery_1a8335a03cf34de8cc79d5fe2dd5f6cddf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void MyNetworkDiscovery.OnReceivedBroadcast</definition>
+        <argsstring>(string fromAddress, string data)</argsstring>
+        <name>OnReceivedBroadcast</name>
+        <param>
+          <type>string</type>
+          <declname>fromAddress</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/MyNetworkDiscovery.cs" line="13" column="1" bodyfile="Lobby/MyNetworkDiscovery.cs" bodystart="13" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Overrides NetworkDiscovery base class to handle reception of broadcast message from server on the host </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="134">
+        <label>NetworkDiscovery</label>
+      </node>
+      <node id="133">
+        <label>MyNetworkDiscovery</label>
+        <link refid="class_my_network_discovery"/>
+        <childnode refid="134" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="136">
+        <label>NetworkDiscovery</label>
+      </node>
+      <node id="135">
+        <label>MyNetworkDiscovery</label>
+        <link refid="class_my_network_discovery"/>
+        <childnode refid="136" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Lobby/MyNetworkDiscovery.cs" line="11" column="1" bodyfile="Lobby/MyNetworkDiscovery.cs" bodystart="11" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_my_network_discovery_1a8335a03cf34de8cc79d5fe2dd5f6cddf" prot="public" virt="non-virtual"><scope>MyNetworkDiscovery</scope><name>OnReceivedBroadcast</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

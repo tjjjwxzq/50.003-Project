@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_how_to_play_controller" kind="class" language="C#" prot="public">
+    <compoundname>HowToPlayController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_how_to_play_controller_1af4ee62aad652c5790d3d5dc7bc0ab2ed" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip HowToPlayController.SoundLobby</definition>
+        <argsstring></argsstring>
+        <name>SoundLobby</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="11" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_how_to_play_controller_1a4338cea17f2fc958e3a4430f00d01c54" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip HowToPlayController.SoundButtonPress</definition>
+        <argsstring></argsstring>
+        <name>SoundButtonPress</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="12" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_how_to_play_controller_1a6a12b4a8d160e6c34942b5a1214b0c7b" prot="private" static="no" mutable="no">
+        <type>AudioSource</type>
+        <definition>AudioSource HowToPlayController.audio</definition>
+        <argsstring></argsstring>
+        <name>audio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="13" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_how_to_play_controller_1a47c553bafd2dbf8cd9c9f5c2d1b9fefc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int HowToPlayController.currentSectionIndex</definition>
+        <argsstring></argsstring>
+        <name>currentSectionIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="15" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_how_to_play_controller_1a1dc53cdab4002bee5deefaed2cc9e5ba" prot="private" static="no" mutable="no">
+        <type>GameObject[]</type>
+        <definition>GameObject [] HowToPlayController.sections</definition>
+        <argsstring></argsstring>
+        <name>sections</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="16" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_how_to_play_controller_1a3f7f600176854fe17acf674e14b164f2" prot="private" static="no" mutable="no">
+        <type>Animator[]</type>
+        <definition>Animator [] HowToPlayController.sectionAnimators</definition>
+        <argsstring></argsstring>
+        <name>sectionAnimators</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="17" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_how_to_play_controller_1a73862d6073f8bfdb6a10859977295596" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; string, Animator &gt;</type>
+        <definition>Dictionary&lt;string, Animator&gt; HowToPlayController.sectionAnimatorsDict</definition>
+        <argsstring></argsstring>
+        <name>sectionAnimatorsDict</name>
+        <initializer>= new Dictionary&lt;string, Animator&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="18" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_how_to_play_controller_1a53af306d28692fa01e4836b567319e8c" prot="private" static="no" mutable="no">
+        <type>readonly string[]</type>
+        <definition>readonly string [] HowToPlayController.sectionNames</definition>
+        <argsstring></argsstring>
+        <name>sectionNames</name>
+        <initializer>= {&quot;Introduction&quot;, &quot;TastyTreats&quot;, &quot;JunkFood&quot;, &quot;Combo&quot;, &quot;FrenzyMode&quot;, &quot;<ref refid="class_abilities" kindref="compound">Abilities</ref>&quot;, &quot;ThatsAll&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="19" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_how_to_play_controller_1a8e743cea84e6b99031be03f065388b31" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HowToPlayController.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="21" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="21" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_how_to_play_controller_1a3f36318dc4d8de9c2d93f739919bb046" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HowToPlayController.AnimateEntry</definition>
+        <argsstring>()</argsstring>
+        <name>AnimateEntry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="56" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="56" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_how_to_play_controller_1aad7a3df672c3d9ab7d4928c0c732d57a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HowToPlayController.OnNextButton</definition>
+        <argsstring>()</argsstring>
+        <name>OnNextButton</name>
+        <briefdescription>
+<para>Callback when next section button is pressed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="45" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="45" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_how_to_play_controller_1afaff1cea5d3b7bb59cc40ebda5b3f556" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HowToPlayController.OnOKButton</definition>
+        <argsstring>()</argsstring>
+        <name>OnOKButton</name>
+        <briefdescription>
+<para>Callback when OK button is pressed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HowToPlay/HowToPlayController.cs" line="64" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="64" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Controls the UI in the HowToPlay scene </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="100">
+        <label>HowToPlayController</label>
+        <link refid="class_how_to_play_controller"/>
+        <childnode refid="101" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="101">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="102">
+        <label>HowToPlayController</label>
+        <link refid="class_how_to_play_controller"/>
+        <childnode refid="103" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="103">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="HowToPlay/HowToPlayController.cs" line="10" column="1" bodyfile="HowToPlay/HowToPlayController.cs" bodystart="10" bodyend="70"/>
+    <listofallmembers>
+      <member refid="class_how_to_play_controller_1a3f36318dc4d8de9c2d93f739919bb046" prot="private" virt="non-virtual"><scope>HowToPlayController</scope><name>AnimateEntry</name></member>
+      <member refid="class_how_to_play_controller_1a6a12b4a8d160e6c34942b5a1214b0c7b" prot="private" virt="non-virtual"><scope>HowToPlayController</scope><name>audio</name></member>
+      <member refid="class_how_to_play_controller_1a47c553bafd2dbf8cd9c9f5c2d1b9fefc" prot="private" virt="non-virtual"><scope>HowToPlayController</scope><name>currentSectionIndex</name></member>
+      <member refid="class_how_to_play_controller_1aad7a3df672c3d9ab7d4928c0c732d57a" prot="public" virt="non-virtual"><scope>HowToPlayController</scope><name>OnNextButton</name></member>
+      <member refid="class_how_to_play_controller_1afaff1cea5d3b7bb59cc40ebda5b3f556" prot="public" virt="non-virtual"><scope>HowToPlayController</scope><name>OnOKButton</name></member>
+      <member refid="class_how_to_play_controller_1a3f7f600176854fe17acf674e14b164f2" prot="private" virt="non-virtual"><scope>HowToPlayController</scope><name>sectionAnimators</name></member>
+      <member refid="class_how_to_play_controller_1a73862d6073f8bfdb6a10859977295596" prot="private" virt="non-virtual"><scope>HowToPlayController</scope><name>sectionAnimatorsDict</name></member>
+      <member refid="class_how_to_play_controller_1a53af306d28692fa01e4836b567319e8c" prot="private" virt="non-virtual"><scope>HowToPlayController</scope><name>sectionNames</name></member>
+      <member refid="class_how_to_play_controller_1a1dc53cdab4002bee5deefaed2cc9e5ba" prot="private" virt="non-virtual"><scope>HowToPlayController</scope><name>sections</name></member>
+      <member refid="class_how_to_play_controller_1a4338cea17f2fc958e3a4430f00d01c54" prot="public" virt="non-virtual"><scope>HowToPlayController</scope><name>SoundButtonPress</name></member>
+      <member refid="class_how_to_play_controller_1af4ee62aad652c5790d3d5dc7bc0ab2ed" prot="public" virt="non-virtual"><scope>HowToPlayController</scope><name>SoundLobby</name></member>
+      <member refid="class_how_to_play_controller_1a8e743cea84e6b99031be03f065388b31" prot="private" virt="non-virtual"><scope>HowToPlayController</scope><name>Start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

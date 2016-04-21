@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_combo_change_animation" kind="class" language="C#" prot="public">
+    <compoundname>ComboChangeAnimation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_combo_change_animation_1aeb159e5b1d0fee5d85a44c89504939c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ComboChangeAnimation.OnComboChanged</definition>
+        <argsstring>()</argsstring>
+        <name>OnComboChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Animation Scripts/ComboChangeAnimation.cs" line="10" column="1" bodyfile="Animation Scripts/ComboChangeAnimation.cs" bodystart="10" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script to be called on the end of the combo change animation </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="62">
+        <label>ComboChangeAnimation</label>
+        <link refid="class_combo_change_animation"/>
+        <childnode refid="63" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="64">
+        <label>ComboChangeAnimation</label>
+        <link refid="class_combo_change_animation"/>
+        <childnode refid="65" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Animation Scripts/ComboChangeAnimation.cs" line="8" column="1" bodyfile="Animation Scripts/ComboChangeAnimation.cs" bodystart="7" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_combo_change_animation_1aeb159e5b1d0fee5d85a44c89504939c3" prot="public" virt="non-virtual"><scope>ComboChangeAnimation</scope><name>OnComboChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_camera_controller" kind="class" language="C#" prot="public">
+    <compoundname>CameraController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_camera_controller_1ab0ae38b5ff75ed7e64435fb437957a3a" prot="private" static="no" mutable="no">
+        <type>Camera</type>
+        <definition>Camera CameraController.camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/CameraController.cs" line="15" column="1" bodyfile="Main/CameraController.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_camera_controller_1a97baf17229dec65f32185c3357a70bf7" prot="private" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float CameraController.defaultAspect</definition>
+        <argsstring></argsstring>
+        <name>defaultAspect</name>
+        <initializer>= 10f / 16f</initializer>
+        <briefdescription>
+<para>Default aspect ratio. Used to calculate whether to pillarbox or letterbox on different devices </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/CameraController.cs" line="19" column="1" bodyfile="Main/CameraController.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_camera_controller_1a382108f331b87cc67e6694cde84b3910" prot="public" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float CameraController.PixelsPerUnit</definition>
+        <argsstring></argsstring>
+        <name>PixelsPerUnit</name>
+        <briefdescription>
+<para>Pixels per unit, for referencing in other scripts </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/CameraController.cs" line="23" column="1" bodyfile="Main/CameraController.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_controller_1afbf830e2978734f35fb745fd63d13ca4" prot="public" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float CameraController.MinXUnits</definition>
+        <argsstring></argsstring>
+        <name>MinXUnits</name>
+        <briefdescription>
+<para>Smallest x coordinate, in Unity units, that fits into the screen </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/CameraController.cs" line="27" column="1" bodyfile="Main/CameraController.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_controller_1a6b97db2514a3f59c74eb56a013e00c85" prot="public" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float CameraController.MaxXUnits</definition>
+        <argsstring></argsstring>
+        <name>MaxXUnits</name>
+        <briefdescription>
+<para>Largest x coordinate, in Unity units, that fits into the screen </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/CameraController.cs" line="31" column="1" bodyfile="Main/CameraController.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_controller_1a66577648bab85619c6e72059e0ac4029" prot="public" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float CameraController.MinYUnits</definition>
+        <argsstring></argsstring>
+        <name>MinYUnits</name>
+        <briefdescription>
+<para>Smallest y coordinate, in Unity units, that fits into the screen </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/CameraController.cs" line="35" column="1" bodyfile="Main/CameraController.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_controller_1a1467ca3823ce8566582bcb6a37d19913" prot="public" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float CameraController.MaxYUnits</definition>
+        <argsstring></argsstring>
+        <name>MaxYUnits</name>
+        <briefdescription>
+<para>Largest y coordinate, in Unity units, that fits into the screen </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/CameraController.cs" line="39" column="1" bodyfile="Main/CameraController.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_camera_controller_1a266b0fde6845020de831bbd9bbcbc6a9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraController.Awake</definition>
+        <argsstring>()</argsstring>
+        <name>Awake</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/CameraController.cs" line="41" column="1" bodyfile="Main/CameraController.cs" bodystart="41" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_controller_1a7c4f486f4bcbd1d54a346fdce9707bd5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraController.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/CameraController.cs" line="84" column="1" bodyfile="Main/CameraController.cs" bodystart="84" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script for controlling camera behavior Stores global screen info such as the default aspect ratio, pixels per unit, and min. and max. x and y coordinates in Unity units Camera viewport adapts to device screen size and introduces pillarboxing/letterboxing to maintain the correct aspect ratio </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="58">
+        <label>CameraController</label>
+        <link refid="class_camera_controller"/>
+        <childnode refid="59" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="60">
+        <label>CameraController</label>
+        <link refid="class_camera_controller"/>
+        <childnode refid="61" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Main/CameraController.cs" line="13" column="1" bodyfile="Main/CameraController.cs" bodystart="13" bodyend="87"/>
+    <listofallmembers>
+      <member refid="class_camera_controller_1a266b0fde6845020de831bbd9bbcbc6a9" prot="private" virt="non-virtual"><scope>CameraController</scope><name>Awake</name></member>
+      <member refid="class_camera_controller_1ab0ae38b5ff75ed7e64435fb437957a3a" prot="private" virt="non-virtual"><scope>CameraController</scope><name>camera</name></member>
+      <member refid="class_camera_controller_1a97baf17229dec65f32185c3357a70bf7" prot="private" virt="non-virtual"><scope>CameraController</scope><name>defaultAspect</name></member>
+      <member refid="class_camera_controller_1a6b97db2514a3f59c74eb56a013e00c85" prot="public" virt="non-virtual"><scope>CameraController</scope><name>MaxXUnits</name></member>
+      <member refid="class_camera_controller_1a1467ca3823ce8566582bcb6a37d19913" prot="public" virt="non-virtual"><scope>CameraController</scope><name>MaxYUnits</name></member>
+      <member refid="class_camera_controller_1afbf830e2978734f35fb745fd63d13ca4" prot="public" virt="non-virtual"><scope>CameraController</scope><name>MinXUnits</name></member>
+      <member refid="class_camera_controller_1a66577648bab85619c6e72059e0ac4029" prot="public" virt="non-virtual"><scope>CameraController</scope><name>MinYUnits</name></member>
+      <member refid="class_camera_controller_1a382108f331b87cc67e6694cde84b3910" prot="public" virt="non-virtual"><scope>CameraController</scope><name>PixelsPerUnit</name></member>
+      <member refid="class_camera_controller_1a7c4f486f4bcbd1d54a346fdce9707bd5" prot="private" virt="non-virtual"><scope>CameraController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

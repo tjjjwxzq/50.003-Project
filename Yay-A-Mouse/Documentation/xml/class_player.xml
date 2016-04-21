@@ -1,0 +1,709 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_player" kind="class" language="C#" prot="public">
+    <compoundname>Player</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">NetworkBehaviour</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_player_1a7b08a304bdb24c68f7bec3d6391e6363" prot="public" static="no">
+        <name>Statuses</name>
+        <enumvalue id="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a960b44c579bc2f6818d2daaf9e4c16f0" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_player_1a7b08a304bdb24c68f7bec3d6391e6363af830a68d1550d809c72524db82a1ca84" prot="public">
+          <name>Immunity</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_player_1a7b08a304bdb24c68f7bec3d6391e6363adb8093804a0a5eb18fc03860751e101b" prot="public">
+          <name>TreatsGalore</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a28af29c3fcfa1b71d38c69c1e52a17f1" prot="public">
+          <name>Fearless</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_player_1a7b08a304bdb24c68f7bec3d6391e6363add85ae9aff11d564ed73313fd1c50de0" prot="public">
+          <name>FatMouse</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a2b8f437e5f30b7c6c92ed05eba0bb77a" prot="public">
+          <name>ScaryCat</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a813e6a1d5b7658fdbfe3a75808130e80" prot="public">
+          <name>BeastlyBuffet</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_player_1a7b08a304bdb24c68f7bec3d6391e6363a608f488597ee8de18664d975b04d8be8" prot="public">
+          <name>Thief</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="72" column="1" bodyfile="Main/Player.cs" bodystart="71" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_player_1a6300973dc4595f2a05f7e02df68886fb" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Player.isLocal</definition>
+        <argsstring></argsstring>
+        <name>isLocal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="17" column="1" bodyfile="Main/Player.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a8953673cf9ed34e606b67d4e7ff10d66" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Player.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref> name synchronized from server </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="27" column="1" bodyfile="Main/Player.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a60754a6d6bd688c9a8311c90409f6800" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color Player.Color</definition>
+        <argsstring></argsstring>
+        <name>Color</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref> color synchronized from client </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="33" column="1" bodyfile="Main/Player.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a2b0f27c749db9fa30aadfede5a947533" prot="public" static="no" mutable="no">
+        <type><ref refid="class_abilities" kindref="compound">Abilities</ref></type>
+        <definition>Abilities Player.PAbilities</definition>
+        <argsstring></argsstring>
+        <name>PAbilities</name>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref> abilities </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="38" column="1" bodyfile="Main/Player.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a605591b1dc02d3c5b37a958bf0f6c1cb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Player.NumPlayers</definition>
+        <argsstring></argsstring>
+        <name>NumPlayers</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>For synchronizing the number of players over host and clients since LobbyManager.numPlayers is only valid on the host </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="45" column="1" bodyfile="Main/Player.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a26d4288e4b37749aed27336ed88688e1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Player.Score</definition>
+        <argsstring></argsstring>
+        <name>Score</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref> score synchronized from server </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="51" column="1" bodyfile="Main/Player.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1abfbd016d3f5e84990f6e12b032cbd060" prot="public" static="no" mutable="no">
+        <type>Statuses</type>
+        <definition>Statuses Player.Status</definition>
+        <argsstring></argsstring>
+        <name>Status</name>
+        <initializer>= Statuses.Normal</initializer>
+        <briefdescription>
+<para><ref refid="class_player" kindref="compound">Player</ref> status synchronized from server </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="57" column="1" bodyfile="Main/Player.cs" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a7e5dbc20dbb071d8e7b6e00f87303dbf" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Player.readyToPlay</definition>
+        <argsstring></argsstring>
+        <name>readyToPlay</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Flag set when players have chosen their starting abilities and are ready to play </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="63" column="1" bodyfile="Main/Player.cs" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a23734371988526af51ba3ca3ce3a1e8a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Player.PlayerWon</definition>
+        <argsstring></argsstring>
+        <name>PlayerWon</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Flag set when player has won the game, synchronized from server </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="69" column="1" bodyfile="Main/Player.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_player_1ab0a5244f114beee858a5c093961ec5aa" prot="private" static="no" mutable="no">
+        <type><ref refid="class_ability_controller" kindref="compound">AbilityController</ref></type>
+        <definition>AbilityController Player.abilityController</definition>
+        <argsstring></argsstring>
+        <name>abilityController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="19" column="1" bodyfile="Main/Player.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a446250b94bf22c41c211ce5836dea6a1" prot="private" static="no" mutable="no">
+        <type><ref refid="class_level_controller" kindref="compound">LevelController</ref></type>
+        <definition>LevelController Player.levelController</definition>
+        <argsstring></argsstring>
+        <name>levelController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="20" column="1" bodyfile="Main/Player.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a5e91ad00fd0626b88383f2bd3c0a99ce" prot="private" static="no" mutable="no">
+        <type><ref refid="class_mouse" kindref="compound">Mouse</ref></type>
+        <definition>Mouse Player.mouse</definition>
+        <argsstring></argsstring>
+        <name>mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="21" column="1" bodyfile="Main/Player.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_player_1aaddfa9f3b558df64f5d1d09e2b906901" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.Awake</definition>
+        <argsstring>()</argsstring>
+        <name>Awake</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="84" column="1" bodyfile="Main/Player.cs" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aace80372e18e32fe177e295fe5d93ba8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="89" column="1" bodyfile="Main/Player.cs" bodystart="89" bodyend="131"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_player_1a6a178a089ae1759e815b6188678f1000" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void Player.OnStartClient</definition>
+        <argsstring>()</argsstring>
+        <name>OnStartClient</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="133" column="1" bodyfile="Main/Player.cs" bodystart="133" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a66fa765495c346749cfa295d3e416403" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void Player.OnStartLocalPlayer</definition>
+        <argsstring>()</argsstring>
+        <name>OnStartLocalPlayer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="143" column="1" bodyfile="Main/Player.cs" bodystart="143" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a3e082c57e9a482c3a1edce676bef1ee6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.CmdChangeColor</definition>
+        <argsstring>(Color color)</argsstring>
+        <name>CmdChangeColor</name>
+        <param>
+          <type><ref refid="class_player_1a60754a6d6bd688c9a8311c90409f6800" kindref="member">Color</ref></type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Changes player color on the server </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="167" column="1" bodyfile="Main/Player.cs" bodystart="167" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a9181eb3375a7571d878db876f34da529" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.CmdChangeName</definition>
+        <argsstring>(string name)</argsstring>
+        <name>CmdChangeName</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Changes player name on the server </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="177" column="1" bodyfile="Main/Player.cs" bodystart="177" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a3f28ee570b08687e05bcd1e24cbfc864" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.AttachToMouse</definition>
+        <argsstring>()</argsstring>
+        <name>AttachToMouse</name>
+        <briefdescription>
+<para>For getting a reference on the <ref refid="class_mouse" kindref="compound">Mouse</ref> object when the Main scene begins. Called by <ref refid="class_level_controller" kindref="compound">LevelController</ref> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="189" column="1" bodyfile="Main/Player.cs" bodystart="189" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1afbdd10a28c0395a7b265480a69e91c53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.CmdReadyToPlay</definition>
+        <argsstring>(bool ready)</argsstring>
+        <name>CmdReadyToPlay</name>
+        <param>
+          <type>bool</type>
+          <declname>ready</declname>
+        </param>
+        <briefdescription>
+<para>Set the readyToPlay flag on the server </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ready</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="200" column="1" bodyfile="Main/Player.cs" bodystart="200" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aad20dbe372de7e8ca6e1788cee814057" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.CmdActivateAbilities</definition>
+        <argsstring>(GameObject button)</argsstring>
+        <name>CmdActivateAbilities</name>
+        <param>
+          <type>GameObject</type>
+          <declname>button</declname>
+        </param>
+        <briefdescription>
+<para>Activates the selected ability on the server </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>button</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="212" column="1" bodyfile="Main/Player.cs" bodystart="212" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1af69b6b04aaa34f9551ffd1613ac75179" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_ability" kindref="compound">Ability</ref> &gt;</type>
+        <definition>List&lt;Ability&gt; Player.getAbilities</definition>
+        <argsstring>()</argsstring>
+        <name>getAbilities</name>
+        <briefdescription>
+<para>Get list of player abilities </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="222" column="1" bodyfile="Main/Player.cs" bodystart="222" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1acb200fbe834e2297e39591731441a8cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.addAbility</definition>
+        <argsstring>(AbilityName ability)</argsstring>
+        <name>addAbility</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+<para>Add an ability to the player&apos;s list </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ability</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="231" column="1" bodyfile="Main/Player.cs" bodystart="231" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a96dbc6808970c74582a7e9bafdc7d631" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.removeAbility</definition>
+        <argsstring>(AbilityName ability)</argsstring>
+        <name>removeAbility</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+<para>Remove an ability from the player&apos;s list </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ability</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="243" column="1" bodyfile="Main/Player.cs" bodystart="243" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aea710f526c61cf47f9990439025701b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Player.hasAbility</definition>
+        <argsstring>(AbilityName ability)</argsstring>
+        <name>hasAbility</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+<para>Checks if player has the ability indicated </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ability</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="256" column="1" bodyfile="Main/Player.cs" bodystart="256" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aaa48ea92a483d89e781abc83a0b1b4f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.CmdUpdateScore</definition>
+        <argsstring>(int newScore)</argsstring>
+        <name>CmdUpdateScore</name>
+        <param>
+          <type>int</type>
+          <declname>newScore</declname>
+        </param>
+        <briefdescription>
+<para>Updates player score on server </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newScore</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="268" column="1" bodyfile="Main/Player.cs" bodystart="268" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a37fa6ab2177cda9f2fb3a9428e0b1f78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.CmdUpdatePlayerWon</definition>
+        <argsstring>(bool won)</argsstring>
+        <name>CmdUpdatePlayerWon</name>
+        <param>
+          <type>bool</type>
+          <declname>won</declname>
+        </param>
+        <briefdescription>
+<para>Set PlayerWon flag on server </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>won</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="278" column="1" bodyfile="Main/Player.cs" bodystart="278" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a594f9f2151d4c97fa61ad91b8886c04b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Statuses</type>
+        <definition>Statuses Player.checkStatus</definition>
+        <argsstring>()</argsstring>
+        <name>checkStatus</name>
+        <briefdescription>
+<para>Check which status the mouse is in for updating status on avatar (TODO) </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="288" column="1" bodyfile="Main/Player.cs" bodystart="288" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a1b9496293bea0f14a019ed58fae38800" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player.checkPlayerWon</definition>
+        <argsstring>()</argsstring>
+        <name>checkPlayerWon</name>
+        <briefdescription>
+<para>Checks whether player has won and updates flags accordingly </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Player.cs" line="296" column="1" bodyfile="Main/Player.cs" bodystart="296" bodyend="304"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class to contain player specific data, currently only contains the player&apos;s <ref refid="class_abilities" kindref="compound">Abilities</ref>. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="146">
+        <label>NetworkBehaviour</label>
+      </node>
+      <node id="145">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="146" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="148">
+        <label>NetworkBehaviour</label>
+      </node>
+      <node id="156">
+        <label>ScaryCat</label>
+        <link refid="class_scary_cat"/>
+        <childnode refid="151" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="155">
+        <label>Immunity</label>
+        <link refid="class_immunity"/>
+        <childnode refid="151" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="151">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="152">
+        <label>Thief</label>
+        <link refid="class_thief"/>
+        <childnode refid="151" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="150">
+        <label>BeastlyBuffet</label>
+        <link refid="class_beastly_buffet"/>
+        <childnode refid="151" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="149">
+        <label>Abilities</label>
+        <link refid="class_abilities"/>
+        <childnode refid="150" relation="usage">
+          <edgelabel>BeastlyBuffet</edgelabel>
+        </childnode>
+        <childnode refid="152" relation="usage">
+          <edgelabel>Thief</edgelabel>
+        </childnode>
+        <childnode refid="153" relation="usage">
+          <edgelabel>TreatsGalore</edgelabel>
+        </childnode>
+        <childnode refid="154" relation="usage">
+          <edgelabel>FatMouse</edgelabel>
+        </childnode>
+        <childnode refid="155" relation="usage">
+          <edgelabel>Immunity</edgelabel>
+        </childnode>
+        <childnode refid="156" relation="usage">
+          <edgelabel>ScaryCat</edgelabel>
+        </childnode>
+        <childnode refid="157" relation="usage">
+          <edgelabel>Fearless</edgelabel>
+        </childnode>
+      </node>
+      <node id="147">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="148" relation="public-inheritance">
+        </childnode>
+        <childnode refid="149" relation="usage">
+          <edgelabel>PAbilities</edgelabel>
+        </childnode>
+      </node>
+      <node id="154">
+        <label>FatMouse</label>
+        <link refid="class_fat_mouse"/>
+        <childnode refid="151" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="157">
+        <label>Fearless</label>
+        <link refid="class_fearless"/>
+        <childnode refid="151" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="153">
+        <label>TreatsGalore</label>
+        <link refid="class_treats_galore"/>
+        <childnode refid="151" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Player.cs" line="15" column="1" bodyfile="Main/Player.cs" bodystart="14" bodyend="307"/>
+    <listofallmembers>
+      <member refid="class_player_1ab0a5244f114beee858a5c093961ec5aa" prot="private" virt="non-virtual"><scope>Player</scope><name>abilityController</name></member>
+      <member refid="class_player_1acb200fbe834e2297e39591731441a8cc" prot="public" virt="non-virtual"><scope>Player</scope><name>addAbility</name></member>
+      <member refid="class_player_1a3f28ee570b08687e05bcd1e24cbfc864" prot="public" virt="non-virtual"><scope>Player</scope><name>AttachToMouse</name></member>
+      <member refid="class_player_1aaddfa9f3b558df64f5d1d09e2b906901" prot="private" virt="non-virtual"><scope>Player</scope><name>Awake</name></member>
+      <member refid="class_player_1a1b9496293bea0f14a019ed58fae38800" prot="public" virt="non-virtual"><scope>Player</scope><name>checkPlayerWon</name></member>
+      <member refid="class_player_1a594f9f2151d4c97fa61ad91b8886c04b" prot="public" virt="non-virtual"><scope>Player</scope><name>checkStatus</name></member>
+      <member refid="class_player_1aad20dbe372de7e8ca6e1788cee814057" prot="public" virt="non-virtual"><scope>Player</scope><name>CmdActivateAbilities</name></member>
+      <member refid="class_player_1a3e082c57e9a482c3a1edce676bef1ee6" prot="public" virt="non-virtual"><scope>Player</scope><name>CmdChangeColor</name></member>
+      <member refid="class_player_1a9181eb3375a7571d878db876f34da529" prot="public" virt="non-virtual"><scope>Player</scope><name>CmdChangeName</name></member>
+      <member refid="class_player_1afbdd10a28c0395a7b265480a69e91c53" prot="public" virt="non-virtual"><scope>Player</scope><name>CmdReadyToPlay</name></member>
+      <member refid="class_player_1a37fa6ab2177cda9f2fb3a9428e0b1f78" prot="public" virt="non-virtual"><scope>Player</scope><name>CmdUpdatePlayerWon</name></member>
+      <member refid="class_player_1aaa48ea92a483d89e781abc83a0b1b4f2" prot="public" virt="non-virtual"><scope>Player</scope><name>CmdUpdateScore</name></member>
+      <member refid="class_player_1a60754a6d6bd688c9a8311c90409f6800" prot="public" virt="non-virtual"><scope>Player</scope><name>Color</name></member>
+      <member refid="class_player_1af69b6b04aaa34f9551ffd1613ac75179" prot="public" virt="non-virtual"><scope>Player</scope><name>getAbilities</name></member>
+      <member refid="class_player_1aea710f526c61cf47f9990439025701b1" prot="public" virt="non-virtual"><scope>Player</scope><name>hasAbility</name></member>
+      <member refid="class_player_1a6300973dc4595f2a05f7e02df68886fb" prot="public" virt="non-virtual"><scope>Player</scope><name>isLocal</name></member>
+      <member refid="class_player_1a446250b94bf22c41c211ce5836dea6a1" prot="private" virt="non-virtual"><scope>Player</scope><name>levelController</name></member>
+      <member refid="class_player_1a5e91ad00fd0626b88383f2bd3c0a99ce" prot="private" virt="non-virtual"><scope>Player</scope><name>mouse</name></member>
+      <member refid="class_player_1a8953673cf9ed34e606b67d4e7ff10d66" prot="public" virt="non-virtual"><scope>Player</scope><name>Name</name></member>
+      <member refid="class_player_1a605591b1dc02d3c5b37a958bf0f6c1cb" prot="public" virt="non-virtual"><scope>Player</scope><name>NumPlayers</name></member>
+      <member refid="class_player_1a6a178a089ae1759e815b6188678f1000" prot="public" virt="non-virtual"><scope>Player</scope><name>OnStartClient</name></member>
+      <member refid="class_player_1a66fa765495c346749cfa295d3e416403" prot="public" virt="non-virtual"><scope>Player</scope><name>OnStartLocalPlayer</name></member>
+      <member refid="class_player_1a2b0f27c749db9fa30aadfede5a947533" prot="public" virt="non-virtual"><scope>Player</scope><name>PAbilities</name></member>
+      <member refid="class_player_1a23734371988526af51ba3ca3ce3a1e8a" prot="public" virt="non-virtual"><scope>Player</scope><name>PlayerWon</name></member>
+      <member refid="class_player_1a7e5dbc20dbb071d8e7b6e00f87303dbf" prot="public" virt="non-virtual"><scope>Player</scope><name>readyToPlay</name></member>
+      <member refid="class_player_1a96dbc6808970c74582a7e9bafdc7d631" prot="public" virt="non-virtual"><scope>Player</scope><name>removeAbility</name></member>
+      <member refid="class_player_1a26d4288e4b37749aed27336ed88688e1" prot="public" virt="non-virtual"><scope>Player</scope><name>Score</name></member>
+      <member refid="class_player_1abfbd016d3f5e84990f6e12b032cbd060" prot="public" virt="non-virtual"><scope>Player</scope><name>Status</name></member>
+      <member refid="class_player_1a7b08a304bdb24c68f7bec3d6391e6363" prot="public" virt="non-virtual"><scope>Player</scope><name>Statuses</name></member>
+      <member refid="class_player_1aace80372e18e32fe177e295fe5d93ba8" prot="private" virt="non-virtual"><scope>Player</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

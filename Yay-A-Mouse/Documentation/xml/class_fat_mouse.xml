@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_fat_mouse" kind="class" language="C#" prot="public">
+    <compoundname>FatMouse</compoundname>
+    <basecompoundref refid="class_ability" prot="public" virt="non-virtual">Ability</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_fat_mouse_1ab41ed59d91fcc4060339ac87e8556462" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int FatMouse.WeightMultiplier</definition>
+        <argsstring></argsstring>
+        <name>WeightMultiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="304" column="1" bodyfile="Main/Abilities.cs" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_fat_mouse_1a81bd39195a727a76c7516b875506141a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FatMouse.FatMouse</definition>
+        <argsstring>(int level)</argsstring>
+        <name>FatMouse</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="306" column="1" bodyfile="Main/Abilities.cs" bodystart="306" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="class_fat_mouse_1a5a5151c870ec948d12eec75b5c67375e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override string</type>
+        <definition>override string FatMouse.GetDetails</definition>
+        <argsstring>()</argsstring>
+        <name>GetDetails</name>
+        <reimplements refid="class_ability_1ae212a441357426b070a0af254f5b97cc">GetDetails</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="332" column="1" bodyfile="Main/Abilities.cs" bodystart="332" bodyend="336"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A player&apos;s Fat <ref refid="class_mouse" kindref="compound">Mouse</ref> ability. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="83">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="82">
+        <label>FatMouse</label>
+        <link refid="class_fat_mouse"/>
+        <childnode refid="83" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="85">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="84">
+        <label>FatMouse</label>
+        <link refid="class_fat_mouse"/>
+        <childnode refid="85" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Abilities.cs" line="303" column="1" bodyfile="Main/Abilities.cs" bodystart="302" bodyend="337"/>
+    <listofallmembers>
+      <member refid="class_ability_1ae2d8aec43091f7b83e366137d43135ef" prot="public" virt="non-virtual"><scope>FatMouse</scope><name>Cost</name></member>
+      <member refid="class_ability_1af41791e9c6a26592c29f8158fbeed0bf" prot="public" virt="non-virtual"><scope>FatMouse</scope><name>Description</name></member>
+      <member refid="class_ability_1a5bfb4991a7a4cf857e10f3a33cdd3925" prot="public" virt="non-virtual"><scope>FatMouse</scope><name>Duration</name></member>
+      <member refid="class_fat_mouse_1a81bd39195a727a76c7516b875506141a" prot="public" virt="non-virtual"><scope>FatMouse</scope><name>FatMouse</name></member>
+      <member refid="class_fat_mouse_1a5a5151c870ec948d12eec75b5c67375e" prot="public" virt="virtual"><scope>FatMouse</scope><name>GetDetails</name></member>
+      <member refid="class_ability_1a4ca153df49091be7325904960f49b810" prot="public" virt="non-virtual"><scope>FatMouse</scope><name>Level</name></member>
+      <member refid="class_ability_1abdd222bf37890bf0f2dfdd5c8555593e" prot="public" virt="non-virtual"><scope>FatMouse</scope><name>MaxLevel</name></member>
+      <member refid="class_ability_1a7d67b154e83cae1c52d821cac6f81abe" prot="public" virt="non-virtual"><scope>FatMouse</scope><name>Name</name></member>
+      <member refid="class_fat_mouse_1ab41ed59d91fcc4060339ac87e8556462" prot="public" virt="non-virtual"><scope>FatMouse</scope><name>WeightMultiplier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

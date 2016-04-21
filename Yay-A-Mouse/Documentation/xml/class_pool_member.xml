@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_pool_member" kind="class" language="C#" prot="public">
+    <compoundname>PoolMember</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_pool_member_1ae603b4d8b40af37e228cba441d1f1795" prot="private" static="no" mutable="no">
+        <type><ref refid="class_object_pool" kindref="compound">ObjectPool</ref></type>
+        <definition>ObjectPool PoolMember.pool</definition>
+        <argsstring></argsstring>
+        <name>pool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/PoolMember.cs" line="12" column="1" bodyfile="Main/PoolMember.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_pool_member_1a6f883eaed133e4b288a3847aea3ff33a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PoolMember.Deactivate</definition>
+        <argsstring>()</argsstring>
+        <name>Deactivate</name>
+        <briefdescription>
+<para>Deactivates and returns the object to its pool </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/PoolMember.cs" line="17" column="1" bodyfile="Main/PoolMember.cs" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pool_member_1aa20f1ac6e12b3d7d3b6f71d49e0cd1af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PoolMember.setPool</definition>
+        <argsstring>(ObjectPool pool)</argsstring>
+        <name>setPool</name>
+        <param>
+          <type><ref refid="class_object_pool" kindref="compound">ObjectPool</ref></type>
+          <declname>pool</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/PoolMember.cs" line="22" column="1" bodyfile="Main/PoolMember.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script that is attached to members of an object pool when they are first instantiated. Allows object to keep track of the pool they belong to and be deactivated and returned to that pool. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="158">
+        <label>PoolMember</label>
+        <link refid="class_pool_member"/>
+        <childnode refid="159" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="159">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="160">
+        <label>PoolMember</label>
+        <link refid="class_pool_member"/>
+        <childnode refid="161" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="161">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Main/PoolMember.cs" line="10" column="1" bodyfile="Main/PoolMember.cs" bodystart="10" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_pool_member_1a6f883eaed133e4b288a3847aea3ff33a" prot="public" virt="non-virtual"><scope>PoolMember</scope><name>Deactivate</name></member>
+      <member refid="class_pool_member_1ae603b4d8b40af37e228cba441d1f1795" prot="private" virt="non-virtual"><scope>PoolMember</scope><name>pool</name></member>
+      <member refid="class_pool_member_1aa20f1ac6e12b3d7d3b6f71d49e0cd1af" prot="public" virt="non-virtual"><scope>PoolMember</scope><name>setPool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

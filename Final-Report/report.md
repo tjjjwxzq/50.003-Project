@@ -167,19 +167,20 @@ LobbyManager->LobbyManager: ServerChangeScene("Main")
 
 ### Main Scene
 (insert fancy diagram with different components: food controller, mouse, level controller)
-This is where the main gameplay occurs. There are three main components: the Mouse, the Food Controller, and the Level Controller.
+This is where the main gameplay occurs. There are four main components: the Mouse, the Food(s) and Food Controller, the Level Controller, and the Ability Controller, each encapsulated in Scripts of the name. These correspond directly to the logically separate functionalities required for the core mechanics: a mouse that gains weight when fed and happiness when stroked, the spawning, moving and swiping of food on screen, the tracking of combos and activating of frenzy mode, and the casting of player abilities.
 
-The Mouse Game Object sits in the center of the screen waiting to be fed. The 'feeding' is basically implemented as collision detection between Game Objects with Collider2D components, namely between the Mouse Game Object and the Food Game Objects that the player swipes towards the Mouse. The Mouse behaviour is implemented by the attached Mouse Script component, which controls such things as the rotation of the mouse, the behaviour on collision detection with food, the detection of a player stroking the mouse to increase happiness, the change of the mouse sprite when it levels up, and the playing of sound effects when the mouse is touched and fed.
+#### The Mouse
+The Mouse Game Object sits in the center of the screen waiting to be fed. The 'feeding' is basically implemented as collision detection between Game Objects with Collider2D components, namely between the Mouse Game Object and the Food Game Objects that the player swipes towards the Mouse. The Mouse behaviour is implemented by the attached Mouse Script component, which controls such things as the rotation of the mouse, the behaviour on collision detection with food, the detection of a player stroking the mouse to increase happiness, the change of the mouse sprite when it levels up, and the status of mouse, which changes when certain abilities are used.
 
-implemented as a coroutine that increments or decrements the rotation of the  Mouse Game Object's Transform component by a linearly interpolated amount everytime
+The mouse rotation is implemented as a coroutine that increments or decrements the rotation of the  Mouse Game Object's Transform component by a linearly interpolated amount on every frame update. Collision detection is handled in the built-in OnCollision2D hook, which is called another Game Object with a Collider2D component (in this case the Food objects) touches the Collider2D attached to the Mouse. On collision with a Food Game Object, the mouse gains or loses weight, and the collide Food object is deactivated  and returned to its object pool (the implementation of food spawning and object pooling will be discussed in detail further down). Detecting stroke is also done by collision detection between the touch position and the Mouse Collider2D component, and whether or not the finger moves far enough along the screen. An array stores the list of weights at which the mouse is considered to level up, and the mouse level is checked and updated on every frame update (this includes updating the object's Sprite and Collider2D). Finally, the Mouse Script has a set of properties which track its status (eg. Immunity, Fearlessness), and that can be set by the AbilityController when a player uses a status-changing ability.
 
-### Sequence diagrams
-MOVE SEQUENCE DIAGRAMS TO WITHIN THE SCENE SECTIONS
-#### Swiping Food
+The following sequence diagrams illustrate in more detail how some mouse behaviors are implemented:
+
+##### Feeding the Mouse
 The core mechanic of the game is having the player swipe treats towards the mouse and junk food away from it. 
 
 ```sequence
-Title: Swiping food
+Title: Feeding the Mouse
 
 participant Food
 
@@ -192,7 +193,7 @@ Mouse->Food.PoolMember: Deactivate()
 Note right of Mouse: The PoolMember script\n is attached to game objects\n which are members of an object pool.\n Deactivate returns the game object to its pool
 ```
 
-#### Gaining Happiness
+##### Gaining Happiness
 Mouse happiness is required for players to use their abilities, and is gained when players stroke their mouse.
 
 ```sequence
@@ -205,8 +206,44 @@ Player->Mouse: updateHappiness()
 Note right of Player: This method detects\n whether the player's finger\n has moved long enough\n to be counted as a stroke
 ```
 
+#### Food(s) and the Food Controller
+Throughout the game, food has to be spawned and moved across the screen. To control food spawning and movement, we have a FoodController Script that contains a list of different food types to spawn. It also contains dictionaries mapping each food type to its point value, its spawn weight (probability of spawning), as well as the maximum number of its type that can be active on the screen at any one time. The list of food types and their points is given below:
 
-## Generating and tracking combos
+### Food Types
+| Food types | Points|
+|:-----------|:-----:|
+| Good food  |       |
+| 1. Normal  |  5pt  |
+| 2. Cheese  |  10pt |
+| 3. Carrot  |  7pt  |
+| 4. Oat     |  15pt |
+| 5. Apple   |  8pt  |
+| 6. Anchovy |  12pt |
+| 7. Bread   |  18pt |
+| 8. Seed    |  20pt |
+|            |       |
+| Bad food   |       |
+| 1. Bad     |  -5pt |
+| 2. Peanut  |  -7pt |
+| 3. Orange  |  -10pt|
+| 4. Garlic  |  -15pt|
+| 5. Chocolate| -20pt|
+| 6. Poison  |  -50pt|
+
+Each food type is implemented as different Game Object prefabs with different sprites. While each is a different prefab, all are tagged as "Food" so they can be identified as such in other scripts. Each Food Game Object has a Food script attached which handles swipe detection. Since there are so many different food types, instead of manually creating each prefab in the editor, we create them programmatically. The FoodController will, depending on the spawn probability weights, randomly choose one of the types of food to spawn every so often (a randomly determined interval within a certain range), and the spawned object will be based on the prefab of the selected type.
+
+Since there may be many Food Game Objects on screen at the same time, and the food needs to be spawned continuously, it becomes computationally expensive to keep creating new Game Objects each time we want to spawn food, and destryoing them when the yare eaten or move out of the screen. Instead, we use object pooling. We have an ObjectPool Script that keeps a list of the Game Objects in the pool. At any one time some of these objects will be active on the screen while others will be inactive (returned to the pool). During initialization the FoodController generates an ObjectPool for each type of Food prefab. Each time the FoodController needs to spawn a Food Game Object of a certain type, it checks the respective ObjectPool and sees if there are any inactive objects in the pool available. If there are, it reactivates them rather than creating a new Game Object. If not, then a new Game Object is created and added to the pool.
+
+The last important functionality the FoodController provides is food movement. Every Food Game Object spawnd will be children of the FoodController Game Object, so every physics update the FoodController adds a force in a random direction to each of its children Food Game Objects.
+
+Since most of the implementation for this component of the game is internal to the FoodController class itself, we will not use sequence diagrams to illustrate this section.
+
+#### The LevelController
+The Level Controller has three main roles. The first is to control the UI, such as updating the happiness bar or the player avatars at the bottom of the screen. The second is to keep track of the food combos and upate the combo sequence every so often (a random interval within a certain range). The third is controlling the behaviour when the game enters frenzy mode. Upon entering frenzy mode, the LevelController will deactivate the FoodController (stop food spawning and moving) and send a message to the Mouse to tell it to stop rotating and start detecting taps. Each time the Mouse is tappe the LevelController will spawn a piece of food will fly straight towards it. The LevelController also activates the relevant animation, sounds and UI components on entering frenzy mode.
+
+The following sequence diagrams illustrate in greater detail the implementation of the aforementioned functionalities:
+
+##### Generating and tracking combos
 A controller object updates the combo sequence every so often and tracks whether the sequence of food fed to the mouse matches the combo sequence.
 
 ```sequence
@@ -229,7 +266,7 @@ LevelController->LevelController: checkComboStreak()
 Note left of LevelController: checks if the sequence count\n is 3, meaning a combo\n has been attained\n If so the player gets a\n score bonus and the combo\n count is incremented
 ```
 
-## Entering and exiting frenzy mode
+##### Entering and exiting frenzy mode
 Frenzy mode is entered once the player has attained 10 combos (not necessarily consecutively). It lasts for 10 seconds then the game returns to normal mode.
 
 
@@ -243,7 +280,9 @@ Note left of LevelController: after 10secs have elapsed\n the mode is set back t
 LevelController-->LevelController: enterNormal()
 ```
 
-#### Using abilities
+#### The Ability Controller
+Jia yu stuff
+##### Using abilities
 
 #### End game
 

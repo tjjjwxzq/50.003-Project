@@ -1,0 +1,782 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_ability_selection_controller" kind="class" language="C#" prot="public">
+    <compoundname>AbilitySelectionController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <innerclass refid="struct_ability_selection_controller_1_1_ability_level" prot="private">AbilitySelectionController::AbilityLevel</innerclass>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_ability_selection_controller_1a49e56bcce5e915cb5e87990a4653f41b" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilitySelectionController.SoundLobbyBGM</definition>
+        <argsstring></argsstring>
+        <name>SoundLobbyBGM</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="13" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1ae29e6ac154e0382408555bef0617c260" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilitySelectionController.SoundStartGame</definition>
+        <argsstring></argsstring>
+        <name>SoundStartGame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="14" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a623c1f116ed061bdcbfb9391b9c1edbe" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip AbilitySelectionController.SoundButton</definition>
+        <argsstring></argsstring>
+        <name>SoundButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="15" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1af9b68709c7b81a7a089a47a1a25cdd9d" prot="public" static="no" mutable="no">
+        <type>Sprite</type>
+        <definition>Sprite AbilitySelectionController.cancelSelectionSprite</definition>
+        <argsstring></argsstring>
+        <name>cancelSelectionSprite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="19" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1ac81739ab15496b54dc2bfcd0cccca3eb" prot="public" static="no" mutable="no">
+        <type>Sprite</type>
+        <definition>Sprite AbilitySelectionController.confirmSelectionSprite</definition>
+        <argsstring></argsstring>
+        <name>confirmSelectionSprite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="20" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a1603391272724a28739f1657f12eddee" prot="public" static="no" mutable="no">
+        <type>Sprite</type>
+        <definition>Sprite AbilitySelectionController.overlayIcon</definition>
+        <argsstring></argsstring>
+        <name>overlayIcon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="21" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1aad5057c69a846e63ff5b34c9f4530353" prot="public" static="no" mutable="no">
+        <type>Sprite[]</type>
+        <definition>Sprite [] AbilitySelectionController.abilityIconSprites</definition>
+        <argsstring></argsstring>
+        <name>abilityIconSprites</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="22" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1aa2cc6ebb6f5d206a1c97852a711be15b" prot="public" static="no" mutable="no">
+        <type><ref refid="class_player" kindref="compound">Player</ref></type>
+        <definition>Player AbilitySelectionController.player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="26" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1ada7c64dbd4f99b75018b023cc623f1e5" prot="public" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilitySelectionController.countdownUI</definition>
+        <argsstring></argsstring>
+        <name>countdownUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="53" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_ability_selection_controller_1aa2158a48030571efff56b7413a344afc" prot="private" static="no" mutable="no">
+        <type>AudioSource</type>
+        <definition>AudioSource AbilitySelectionController.audio</definition>
+        <argsstring></argsstring>
+        <name>audio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="17" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1abf25971f9c5c2b0cf79ec207302d5077" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; AbilityName, Sprite &gt;</type>
+        <definition>Dictionary&lt;AbilityName, Sprite&gt; AbilitySelectionController.abilityIconSpritesDict</definition>
+        <argsstring></argsstring>
+        <name>abilityIconSpritesDict</name>
+        <initializer>= new Dictionary&lt;AbilityName, Sprite&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="23" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1af23f9ce6cfa451551aa2a5fcfab876fa" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilitySelectionController.abilityIconPrefab</definition>
+        <argsstring></argsstring>
+        <name>abilityIconPrefab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="24" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a532893dff97013e28746354a4e0505be" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; AbilityName, GameObject &gt;</type>
+        <definition>Dictionary&lt;AbilityName, GameObject&gt; AbilitySelectionController.abilityIcons</definition>
+        <argsstring></argsstring>
+        <name>abilityIcons</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="25" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a54e2cd16199c082b63a5528354734267" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilitySelectionController.introText</definition>
+        <argsstring></argsstring>
+        <name>introText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="28" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1ad9f42c5ee75b544029379be92355d66a" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilitySelectionController.abilityIconUI</definition>
+        <argsstring></argsstring>
+        <name>abilityIconUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="29" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1af4167af2dc8fd60957028f3347ad9e1b" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilitySelectionController.abilityDetailUI</definition>
+        <argsstring></argsstring>
+        <name>abilityDetailUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="30" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a1035548dd62780539c7248a072508db9" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilitySelectionController.readyButtonObject</definition>
+        <argsstring></argsstring>
+        <name>readyButtonObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="31" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a1ecedaf3603a3a7e1fa26f7965dddbd9" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilitySelectionController.readyAndWaitingObject</definition>
+        <argsstring></argsstring>
+        <name>readyAndWaitingObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="32" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a1709f883cc71b0524bf6963efd996c40" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilitySelectionController.alreadyChosenText</definition>
+        <argsstring></argsstring>
+        <name>alreadyChosenText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="33" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1af8cd9950ecb873a084dee77458a37fc3" prot="private" static="no" mutable="no">
+        <type>GameObject[]</type>
+        <definition>GameObject [] AbilitySelectionController.selfHelpAbilityButtons</definition>
+        <argsstring></argsstring>
+        <name>selfHelpAbilityButtons</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="35" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1aab7c88dacc94529b733b8f5c603cc8c0" prot="private" static="no" mutable="no">
+        <type>GameObject[]</type>
+        <definition>GameObject [] AbilitySelectionController.sabotageAbilityButtons</definition>
+        <argsstring></argsstring>
+        <name>sabotageAbilityButtons</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="36" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1ab5b2c848b0bfc6e89597cfd6cbd60d80" prot="private" static="no" mutable="no">
+        <type>AbilityName</type>
+        <definition>AbilityName AbilitySelectionController.selectedAbility</definition>
+        <argsstring></argsstring>
+        <name>selectedAbility</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="39" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a0a92ad4d61ad13ff9646c8a7dd71579d" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image AbilitySelectionController.selectedAbilityIcon</definition>
+        <argsstring></argsstring>
+        <name>selectedAbilityIcon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="40" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a280f4a69cb34cb342ca5ad19e2b0b099" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text AbilitySelectionController.selectedAbilityTitle</definition>
+        <argsstring></argsstring>
+        <name>selectedAbilityTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="41" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a302c334c4376050d6751cb293127278f" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text AbilitySelectionController.selectedAbilityDescription</definition>
+        <argsstring></argsstring>
+        <name>selectedAbilityDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="42" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a3ac323cf5cca903cc0f15d1fff4e689f" prot="private" static="no" mutable="no">
+        <type>Button</type>
+        <definition>Button AbilitySelectionController.chooseAbilityButton</definition>
+        <argsstring></argsstring>
+        <name>chooseAbilityButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="43" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1abc926b1e30b850b29cab4c6db1d046da" prot="private" static="no" mutable="no">
+        <type>Button</type>
+        <definition>Button AbilitySelectionController.backToSelectionButton</definition>
+        <argsstring></argsstring>
+        <name>backToSelectionButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="44" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1ade54fb14ceb53207ec12e78f35a27e18" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilitySelectionController.selectedAbilityLevelDetails</definition>
+        <argsstring></argsstring>
+        <name>selectedAbilityLevelDetails</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="45" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a916630db9d91cab29c18dbb7a2246a7b" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text AbilitySelectionController.selectedAbilityLevelHeader</definition>
+        <argsstring></argsstring>
+        <name>selectedAbilityLevelHeader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="46" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a6bd6d28e301e7effe39ab6435b8edb3a" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text AbilitySelectionController.selectedAbilityLevelHappiness</definition>
+        <argsstring></argsstring>
+        <name>selectedAbilityLevelHappiness</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="47" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a563812b03b55f4712e78aa047aefaada" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text AbilitySelectionController.selectedAbilityLevelDuration</definition>
+        <argsstring></argsstring>
+        <name>selectedAbilityLevelDuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="48" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a6787b39b3fd7e6a1e98e97dac2375609" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text AbilitySelectionController.selectedAbilityLevelDetail</definition>
+        <argsstring></argsstring>
+        <name>selectedAbilityLevelDetail</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="49" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a4a816b526c40ea3bccaedd231f12d2a0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AbilitySelectionController.currentLevelIndex</definition>
+        <argsstring></argsstring>
+        <name>currentLevelIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="50" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a98f116fd27272e7e867f6d73ebf3cdbc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbilitySelectionController.ready</definition>
+        <argsstring></argsstring>
+        <name>ready</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="55" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a8413566172960a651c70ba8d78678048" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; AbilityName, string &gt;</type>
+        <definition>Dictionary&lt;AbilityName, string&gt; AbilitySelectionController.abilityTitles</definition>
+        <argsstring></argsstring>
+        <name>abilityTitles</name>
+        <initializer>= new Dictionary&lt;AbilityName, string&gt;
+    {
+        {AbilityName.Immunity, &quot;Immunity&quot; },
+        {AbilityName.TreatsGalore, &quot;Treats Galore&quot; },
+        {AbilityName.Fearless, &quot;Fearless&quot; },
+        {AbilityName.FatMouse, &quot;Fat <ref refid="class_mouse" kindref="compound">Mouse</ref>&quot; },
+        {AbilityName.Thief, &quot;Thief&quot; },
+        {AbilityName.ScaryCat, &quot;Scary Cat&quot; },
+        {AbilityName.BeastlyBuffet, &quot;Beastly Buffet&quot; }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="58" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1a17f48041e56ca847f4ba5d77efb8fb59" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; AbilityName, string &gt;</type>
+        <definition>Dictionary&lt;AbilityName, string&gt; AbilitySelectionController.abilityDescription</definition>
+        <argsstring></argsstring>
+        <name>abilityDescription</name>
+        <initializer>= new Dictionary&lt;AbilityName, string&gt;
+    {
+        {AbilityName.Immunity, &quot;Your mouse becomes immune to bad food for some time&quot; },
+        {AbilityName.TreatsGalore, &quot;Spawn more good food to feed your mouse&quot; },
+        {AbilityName.Fearless, &quot;Your mouse becomes fearless in the face of a scary cat&quot; },
+        {AbilityName.FatMouse, &quot;Your mouse gains weight more easily&quot; },
+        {AbilityName.Thief, &quot;Steal good food from one of you opponents&quot;},
+        {AbilityName.ScaryCat, &quot;Send a cat over to scare off your opponent&apos;s mouse&quot; },
+        {AbilityName.BeastlyBuffet, &quot;Spawn more bad food on your opponent&apos;s screen&quot; }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="69" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_selection_controller_1aaf7ca2e3c8126cf75441910bbea22ece" prot="private" static="no" mutable="no">
+        <type>Dictionary&lt; AbilityName, AbilityLevel[]&gt;</type>
+        <definition>Dictionary&lt;AbilityName, AbilityLevel[]&gt; AbilitySelectionController.abilityLevelDetails</definition>
+        <argsstring></argsstring>
+        <name>abilityLevelDetails</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="98" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_ability_selection_controller_1a6473a8e521ce39509292ed13de0d546f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilitySelectionController.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="144" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="144" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_selection_controller_1a2e07fcfc99de85e370bacdda5dd1b87c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilitySelectionController.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="238" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="238" bodyend="257"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_ability_selection_controller_1a71807672e582c6f712cabe05dee06869" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilitySelectionController.OnAbilityDetail</definition>
+        <argsstring>()</argsstring>
+        <name>OnAbilityDetail</name>
+        <briefdescription>
+<para>Callback when ability icons are clicked </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="262" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="262" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_selection_controller_1a972e424cd6a2d9acb3f31964fd1d250d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilitySelectionController.OnNextAbilityLevel</definition>
+        <argsstring>()</argsstring>
+        <name>OnNextAbilityLevel</name>
+        <briefdescription>
+<para>Callback when next level button is pressed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="317" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="317" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_selection_controller_1aaa689e0828a8c155b29331b14d40697f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilitySelectionController.OnAbilityChosen</definition>
+        <argsstring>()</argsstring>
+        <name>OnAbilityChosen</name>
+        <briefdescription>
+<para>Callback when ability is chosen </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="332" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="332" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_selection_controller_1abfad6d6d95b478d8b0a6994067c45921" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilitySelectionController.OnBackButton</definition>
+        <argsstring>()</argsstring>
+        <name>OnBackButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="362" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="362" bodyend="370"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_selection_controller_1a490860bbad01ac0a91c74c1bc8525351" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilitySelectionController.OnReadyButton</definition>
+        <argsstring>()</argsstring>
+        <name>OnReadyButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="373" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="373" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_selection_controller_1a602462d1d7993a46f0f3d16ad6647eb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilitySelectionController.StartCountdown</definition>
+        <argsstring>()</argsstring>
+        <name>StartCountdown</name>
+        <briefdescription>
+<para>Called by <ref refid="class_lobby_manager" kindref="compound">LobbyManager</ref> when ready countdown starts </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="393" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="393" bodyend="402"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Controls UI in the ability selection scene </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="35">
+        <label>AbilitySelectionController</label>
+        <link refid="class_ability_selection_controller"/>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="40">
+        <label>NetworkBehaviour</label>
+      </node>
+      <node id="48">
+        <label>ScaryCat</label>
+        <link refid="class_scary_cat"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>Immunity</label>
+        <link refid="class_immunity"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="44">
+        <label>Thief</label>
+        <link refid="class_thief"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>BeastlyBuffet</label>
+        <link refid="class_beastly_buffet"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>Abilities</label>
+        <link refid="class_abilities"/>
+        <childnode refid="42" relation="usage">
+          <edgelabel>BeastlyBuffet</edgelabel>
+        </childnode>
+        <childnode refid="44" relation="usage">
+          <edgelabel>Thief</edgelabel>
+        </childnode>
+        <childnode refid="45" relation="usage">
+          <edgelabel>TreatsGalore</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>FatMouse</edgelabel>
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>Immunity</edgelabel>
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>ScaryCat</edgelabel>
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>Fearless</edgelabel>
+        </childnode>
+      </node>
+      <node id="37">
+        <label>AbilitySelectionController</label>
+        <link refid="class_ability_selection_controller"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>player</edgelabel>
+        </childnode>
+      </node>
+      <node id="38">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="39">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="40" relation="public-inheritance">
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>PAbilities</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>FatMouse</label>
+        <link refid="class_fat_mouse"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>Fearless</label>
+        <link refid="class_fearless"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>TreatsGalore</label>
+        <link refid="class_treats_galore"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Ability Selection/AbilitySelectionController.cs" line="12" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="11" bodyend="403"/>
+    <listofallmembers>
+      <member refid="class_ability_selection_controller_1a17f48041e56ca847f4ba5d77efb8fb59" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>abilityDescription</name></member>
+      <member refid="class_ability_selection_controller_1af4167af2dc8fd60957028f3347ad9e1b" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>abilityDetailUI</name></member>
+      <member refid="class_ability_selection_controller_1af23f9ce6cfa451551aa2a5fcfab876fa" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>abilityIconPrefab</name></member>
+      <member refid="class_ability_selection_controller_1a532893dff97013e28746354a4e0505be" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>abilityIcons</name></member>
+      <member refid="class_ability_selection_controller_1aad5057c69a846e63ff5b34c9f4530353" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>abilityIconSprites</name></member>
+      <member refid="class_ability_selection_controller_1abf25971f9c5c2b0cf79ec207302d5077" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>abilityIconSpritesDict</name></member>
+      <member refid="class_ability_selection_controller_1ad9f42c5ee75b544029379be92355d66a" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>abilityIconUI</name></member>
+      <member refid="class_ability_selection_controller_1aaf7ca2e3c8126cf75441910bbea22ece" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>abilityLevelDetails</name></member>
+      <member refid="class_ability_selection_controller_1a8413566172960a651c70ba8d78678048" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>abilityTitles</name></member>
+      <member refid="class_ability_selection_controller_1a1709f883cc71b0524bf6963efd996c40" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>alreadyChosenText</name></member>
+      <member refid="class_ability_selection_controller_1aa2158a48030571efff56b7413a344afc" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>audio</name></member>
+      <member refid="class_ability_selection_controller_1abc926b1e30b850b29cab4c6db1d046da" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>backToSelectionButton</name></member>
+      <member refid="class_ability_selection_controller_1af9b68709c7b81a7a089a47a1a25cdd9d" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>cancelSelectionSprite</name></member>
+      <member refid="class_ability_selection_controller_1a3ac323cf5cca903cc0f15d1fff4e689f" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>chooseAbilityButton</name></member>
+      <member refid="class_ability_selection_controller_1ac81739ab15496b54dc2bfcd0cccca3eb" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>confirmSelectionSprite</name></member>
+      <member refid="class_ability_selection_controller_1ada7c64dbd4f99b75018b023cc623f1e5" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>countdownUI</name></member>
+      <member refid="class_ability_selection_controller_1a4a816b526c40ea3bccaedd231f12d2a0" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>currentLevelIndex</name></member>
+      <member refid="class_ability_selection_controller_1a54e2cd16199c082b63a5528354734267" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>introText</name></member>
+      <member refid="class_ability_selection_controller_1aaa689e0828a8c155b29331b14d40697f" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>OnAbilityChosen</name></member>
+      <member refid="class_ability_selection_controller_1a71807672e582c6f712cabe05dee06869" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>OnAbilityDetail</name></member>
+      <member refid="class_ability_selection_controller_1abfad6d6d95b478d8b0a6994067c45921" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>OnBackButton</name></member>
+      <member refid="class_ability_selection_controller_1a972e424cd6a2d9acb3f31964fd1d250d" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>OnNextAbilityLevel</name></member>
+      <member refid="class_ability_selection_controller_1a490860bbad01ac0a91c74c1bc8525351" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>OnReadyButton</name></member>
+      <member refid="class_ability_selection_controller_1a1603391272724a28739f1657f12eddee" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>overlayIcon</name></member>
+      <member refid="class_ability_selection_controller_1aa2cc6ebb6f5d206a1c97852a711be15b" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>player</name></member>
+      <member refid="class_ability_selection_controller_1a98f116fd27272e7e867f6d73ebf3cdbc" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>ready</name></member>
+      <member refid="class_ability_selection_controller_1a1ecedaf3603a3a7e1fa26f7965dddbd9" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>readyAndWaitingObject</name></member>
+      <member refid="class_ability_selection_controller_1a1035548dd62780539c7248a072508db9" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>readyButtonObject</name></member>
+      <member refid="class_ability_selection_controller_1aab7c88dacc94529b733b8f5c603cc8c0" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>sabotageAbilityButtons</name></member>
+      <member refid="class_ability_selection_controller_1ab5b2c848b0bfc6e89597cfd6cbd60d80" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selectedAbility</name></member>
+      <member refid="class_ability_selection_controller_1a302c334c4376050d6751cb293127278f" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selectedAbilityDescription</name></member>
+      <member refid="class_ability_selection_controller_1a0a92ad4d61ad13ff9646c8a7dd71579d" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selectedAbilityIcon</name></member>
+      <member refid="class_ability_selection_controller_1a6787b39b3fd7e6a1e98e97dac2375609" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selectedAbilityLevelDetail</name></member>
+      <member refid="class_ability_selection_controller_1ade54fb14ceb53207ec12e78f35a27e18" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selectedAbilityLevelDetails</name></member>
+      <member refid="class_ability_selection_controller_1a563812b03b55f4712e78aa047aefaada" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selectedAbilityLevelDuration</name></member>
+      <member refid="class_ability_selection_controller_1a6bd6d28e301e7effe39ab6435b8edb3a" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selectedAbilityLevelHappiness</name></member>
+      <member refid="class_ability_selection_controller_1a916630db9d91cab29c18dbb7a2246a7b" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selectedAbilityLevelHeader</name></member>
+      <member refid="class_ability_selection_controller_1a280f4a69cb34cb342ca5ad19e2b0b099" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selectedAbilityTitle</name></member>
+      <member refid="class_ability_selection_controller_1af8cd9950ecb873a084dee77458a37fc3" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>selfHelpAbilityButtons</name></member>
+      <member refid="class_ability_selection_controller_1a623c1f116ed061bdcbfb9391b9c1edbe" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>SoundButton</name></member>
+      <member refid="class_ability_selection_controller_1a49e56bcce5e915cb5e87990a4653f41b" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>SoundLobbyBGM</name></member>
+      <member refid="class_ability_selection_controller_1ae29e6ac154e0382408555bef0617c260" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>SoundStartGame</name></member>
+      <member refid="class_ability_selection_controller_1a6473a8e521ce39509292ed13de0d546f" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>Start</name></member>
+      <member refid="class_ability_selection_controller_1a602462d1d7993a46f0f3d16ad6647eb7" prot="public" virt="non-virtual"><scope>AbilitySelectionController</scope><name>StartCountdown</name></member>
+      <member refid="class_ability_selection_controller_1a2e07fcfc99de85e370bacdda5dd1b87c" prot="private" virt="non-virtual"><scope>AbilitySelectionController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

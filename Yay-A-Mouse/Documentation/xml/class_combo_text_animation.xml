@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_combo_text_animation" kind="class" language="C#" prot="public">
+    <compoundname>ComboTextAnimation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_combo_text_animation_1a9e06d858a94d99fe7afe1639a8d254cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ComboTextAnimation.OnComboTextEnd</definition>
+        <argsstring>()</argsstring>
+        <name>OnComboTextEnd</name>
+        <briefdescription>
+<para>End of combo text animation handler </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Animation Scripts/ComboTextAnimation.cs" line="12" column="1" bodyfile="Animation Scripts/ComboTextAnimation.cs" bodystart="12" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script to be calle on the end of the combo text animation </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="66">
+        <label>ComboTextAnimation</label>
+        <link refid="class_combo_text_animation"/>
+        <childnode refid="67" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="68">
+        <label>ComboTextAnimation</label>
+        <link refid="class_combo_text_animation"/>
+        <childnode refid="69" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Animation Scripts/ComboTextAnimation.cs" line="7" column="1" bodyfile="Animation Scripts/ComboTextAnimation.cs" bodystart="7" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_combo_text_animation_1a9e06d858a94d99fe7afe1639a8d254cd" prot="public" virt="non-virtual"><scope>ComboTextAnimation</scope><name>OnComboTextEnd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,518 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_lobby_player" kind="class" language="C#" prot="public">
+    <compoundname>LobbyPlayer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">NetworkLobbyPlayer</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_lobby_player_1a826c545393e538b832cb86d449d1cee5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LobbyPlayer.isLocal</definition>
+        <argsstring></argsstring>
+        <name>isLocal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="15" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1ac9eea450b902efd46c20afbcd89d3aa3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LobbyPlayer.isServe</definition>
+        <argsstring></argsstring>
+        <name>isServe</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="16" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1adf185694cd5cc40a2a1f8329e6de7562" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LobbyPlayer.PlayerReady</definition>
+        <argsstring></argsstring>
+        <name>PlayerReady</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="19" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1a8ccc60d9016456cf2f0d43e70cd6c07a" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string LobbyPlayer.PlayerName</definition>
+        <argsstring></argsstring>
+        <name>PlayerName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="22" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1a12cf8f95a697bcfdbc8f3fda9416362d" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color LobbyPlayer.PlayerColor</definition>
+        <argsstring></argsstring>
+        <name>PlayerColor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="25" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1a3461a5d730867b855a75ba5a5785895b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LobbyPlayer.PlayerPosition</definition>
+        <argsstring></argsstring>
+        <name>PlayerPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="37" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1a1abebb87fd99fa7b08a39c27f853e68a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LobbyPlayer.playerScale</definition>
+        <argsstring></argsstring>
+        <name>playerScale</name>
+        <initializer>= 0.25f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="40" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_lobby_player_1a57cd809197288090c05307c048450401" prot="private" static="no" mutable="no">
+        <type>Color[]</type>
+        <definition>Color [] LobbyPlayer.Colors</definition>
+        <argsstring></argsstring>
+        <name>Colors</name>
+        <initializer>= { new Color(51/255f, 92/255f, 114/255f), new Color(105/255f, 175/255f, 172/255f),
+        new Color(78/255f, 123/255f, 168/255f), new Color(0, 121/255f, 119/255f)}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="26" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1a256fd0a13ce9d20561e4b3a1d0f36ef8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LobbyPlayer.currentColorIndex</definition>
+        <argsstring></argsstring>
+        <name>currentColorIndex</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="28" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1ac6803b505e6af116229b930f0169a149" prot="private" static="no" mutable="no">
+        <type>Vector2[]</type>
+        <definition>Vector2 [] LobbyPlayer.lobbyPlayerPositions</definition>
+        <argsstring></argsstring>
+        <name>lobbyPlayerPositions</name>
+        <initializer>= { new Vector2(125, -15), new Vector2(125, -120), new Vector2(0, -120), new Vector2(-125, -120) }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="31" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1a73049e3021d950510725ce7e4a43238c" prot="private" static="no" mutable="no">
+        <type>RectTransform</type>
+        <definition>RectTransform LobbyPlayer.lobbyPlayerRectTransform</definition>
+        <argsstring></argsstring>
+        <name>lobbyPlayerRectTransform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="32" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1ac4e72ae1c1202654724bf54aeabc93ec" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LobbyPlayer.lobbyPlayerStartPos</definition>
+        <argsstring></argsstring>
+        <name>lobbyPlayerStartPos</name>
+        <initializer>= 140f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="33" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1ae97f93ca010e1d5b84bc1573c5c169c9" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LobbyPlayer.lobbyPlayerOffset</definition>
+        <argsstring></argsstring>
+        <name>lobbyPlayerOffset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="34" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1ae3751c0ef9ba9293f1bfaacc35aab4d9" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LobbyPlayer.canvasObj</definition>
+        <argsstring></argsstring>
+        <name>canvasObj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="41" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1af417d02e476b2a52a93d328848ff3d32" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image LobbyPlayer.playerImage</definition>
+        <argsstring></argsstring>
+        <name>playerImage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="42" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1ac0fd972534714578003c5e62f7b6e319" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text LobbyPlayer.playerNameText</definition>
+        <argsstring></argsstring>
+        <name>playerNameText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="43" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1aac956161514b01064821199891349d01" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LobbyPlayer.playerQuitButtonObj</definition>
+        <argsstring></argsstring>
+        <name>playerQuitButtonObj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="44" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1a9ce08d1007a628ae9cefdb363d198ea0" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LobbyPlayer.playerReadyButtonObj</definition>
+        <argsstring></argsstring>
+        <name>playerReadyButtonObj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="45" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_player_1a5e0f1b9f2aabaf053ded017c16cd2322" prot="private" static="no" mutable="no">
+        <type>Button</type>
+        <definition>Button LobbyPlayer.playerButton</definition>
+        <argsstring></argsstring>
+        <name>playerButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="46" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_lobby_player_1a998187c86123b750d306d1904b12159c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="49" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="49" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1a22d7af3d7f8387582b603da068e7aedf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.setColor</definition>
+        <argsstring>()</argsstring>
+        <name>setColor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="207" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="207" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1abab7da821cd8daf86903c897b35a15b9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="243" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="243" bodyend="245"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_lobby_player_1ab096684d09936df57757756ed8423eba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyPlayer.OnStartLocalPlayer</definition>
+        <argsstring>()</argsstring>
+        <name>OnStartLocalPlayer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="52" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="52" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1a3710f55538024e8d4efd7b8ebed1d9c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyPlayer.OnClientEnterLobby</definition>
+        <argsstring>()</argsstring>
+        <name>OnClientEnterLobby</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="70" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="70" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1a97e959180c405affeb819519f4df157b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyPlayer.OnClientReady</definition>
+        <argsstring>(bool readyState)</argsstring>
+        <name>OnClientReady</name>
+        <param>
+          <type>bool</type>
+          <declname>readyState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="110" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1ade2d40b6d30c3519164b3a4d91f966c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.OnChangeName</definition>
+        <argsstring>(string newName)</argsstring>
+        <name>OnChangeName</name>
+        <param>
+          <type>string</type>
+          <declname>newName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="116" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="116" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1a460d56ea88204153e7108c80b4ef1df3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.OnChangeColor</definition>
+        <argsstring>(Color newColor)</argsstring>
+        <name>OnChangeColor</name>
+        <param>
+          <type>Color</type>
+          <declname>newColor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="122" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="122" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1addcd027f59daff8995210bb67504ef4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.CmdChangeName</definition>
+        <argsstring>(string name)</argsstring>
+        <name>CmdChangeName</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="130" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="130" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1a6575d4f30dad50c67b23bb58284568c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.CmdChangeColor</definition>
+        <argsstring>(Color color)</argsstring>
+        <name>CmdChangeColor</name>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="136" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1a8d71a15da4ec49f81039ed0b988afd20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.OnReady</definition>
+        <argsstring>()</argsstring>
+        <name>OnReady</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="144" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="144" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1a6cb117d851e6ef57d9f19630a2542ea2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.OnToggleColor</definition>
+        <argsstring>()</argsstring>
+        <name>OnToggleColor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="169" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="169" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_player_1a05e468c00e731f9a180f67ffff8640e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyPlayer.OnQuit</definition>
+        <argsstring>()</argsstring>
+        <name>OnQuit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyPlayer.cs" line="177" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="177" bodyend="204"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Handles networking of lobby player state. Attached to the <ref refid="class_lobby_player" kindref="compound">LobbyPlayer</ref> prefab that is spawned by the <ref refid="class_lobby_manager" kindref="compound">LobbyManager</ref> </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="126">
+        <label>NetworkLobbyPlayer</label>
+      </node>
+      <node id="125">
+        <label>LobbyPlayer</label>
+        <link refid="class_lobby_player"/>
+        <childnode refid="126" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="128">
+        <label>NetworkLobbyPlayer</label>
+      </node>
+      <node id="127">
+        <label>LobbyPlayer</label>
+        <link refid="class_lobby_player"/>
+        <childnode refid="128" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Lobby/LobbyPlayer.cs" line="12" column="1" bodyfile="Lobby/LobbyPlayer.cs" bodystart="12" bodyend="246"/>
+    <listofallmembers>
+      <member refid="class_lobby_player_1ae3751c0ef9ba9293f1bfaacc35aab4d9" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>canvasObj</name></member>
+      <member refid="class_lobby_player_1a6575d4f30dad50c67b23bb58284568c7" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>CmdChangeColor</name></member>
+      <member refid="class_lobby_player_1addcd027f59daff8995210bb67504ef4d" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>CmdChangeName</name></member>
+      <member refid="class_lobby_player_1a57cd809197288090c05307c048450401" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>Colors</name></member>
+      <member refid="class_lobby_player_1a256fd0a13ce9d20561e4b3a1d0f36ef8" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>currentColorIndex</name></member>
+      <member refid="class_lobby_player_1a826c545393e538b832cb86d449d1cee5" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>isLocal</name></member>
+      <member refid="class_lobby_player_1ac9eea450b902efd46c20afbcd89d3aa3" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>isServe</name></member>
+      <member refid="class_lobby_player_1ae97f93ca010e1d5b84bc1573c5c169c9" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>lobbyPlayerOffset</name></member>
+      <member refid="class_lobby_player_1ac6803b505e6af116229b930f0169a149" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>lobbyPlayerPositions</name></member>
+      <member refid="class_lobby_player_1a73049e3021d950510725ce7e4a43238c" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>lobbyPlayerRectTransform</name></member>
+      <member refid="class_lobby_player_1ac4e72ae1c1202654724bf54aeabc93ec" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>lobbyPlayerStartPos</name></member>
+      <member refid="class_lobby_player_1a460d56ea88204153e7108c80b4ef1df3" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>OnChangeColor</name></member>
+      <member refid="class_lobby_player_1ade2d40b6d30c3519164b3a4d91f966c9" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>OnChangeName</name></member>
+      <member refid="class_lobby_player_1a3710f55538024e8d4efd7b8ebed1d9c8" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>OnClientEnterLobby</name></member>
+      <member refid="class_lobby_player_1a97e959180c405affeb819519f4df157b" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>OnClientReady</name></member>
+      <member refid="class_lobby_player_1a05e468c00e731f9a180f67ffff8640e2" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>OnQuit</name></member>
+      <member refid="class_lobby_player_1a8d71a15da4ec49f81039ed0b988afd20" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>OnReady</name></member>
+      <member refid="class_lobby_player_1ab096684d09936df57757756ed8423eba" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>OnStartLocalPlayer</name></member>
+      <member refid="class_lobby_player_1a6cb117d851e6ef57d9f19630a2542ea2" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>OnToggleColor</name></member>
+      <member refid="class_lobby_player_1a5e0f1b9f2aabaf053ded017c16cd2322" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>playerButton</name></member>
+      <member refid="class_lobby_player_1a12cf8f95a697bcfdbc8f3fda9416362d" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>PlayerColor</name></member>
+      <member refid="class_lobby_player_1af417d02e476b2a52a93d328848ff3d32" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>playerImage</name></member>
+      <member refid="class_lobby_player_1a8ccc60d9016456cf2f0d43e70cd6c07a" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>PlayerName</name></member>
+      <member refid="class_lobby_player_1ac0fd972534714578003c5e62f7b6e319" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>playerNameText</name></member>
+      <member refid="class_lobby_player_1a3461a5d730867b855a75ba5a5785895b" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>PlayerPosition</name></member>
+      <member refid="class_lobby_player_1aac956161514b01064821199891349d01" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>playerQuitButtonObj</name></member>
+      <member refid="class_lobby_player_1adf185694cd5cc40a2a1f8329e6de7562" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>PlayerReady</name></member>
+      <member refid="class_lobby_player_1a9ce08d1007a628ae9cefdb363d198ea0" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>playerReadyButtonObj</name></member>
+      <member refid="class_lobby_player_1a1abebb87fd99fa7b08a39c27f853e68a" prot="public" virt="non-virtual"><scope>LobbyPlayer</scope><name>playerScale</name></member>
+      <member refid="class_lobby_player_1a22d7af3d7f8387582b603da068e7aedf" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>setColor</name></member>
+      <member refid="class_lobby_player_1a998187c86123b750d306d1904b12159c" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>Start</name></member>
+      <member refid="class_lobby_player_1abab7da821cd8daf86903c897b35a15b9" prot="private" virt="non-virtual"><scope>LobbyPlayer</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

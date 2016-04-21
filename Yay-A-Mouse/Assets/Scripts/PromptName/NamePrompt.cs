@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+/// <summary>
+/// Controls UI in the NamePrompt scene
+/// </summary>
 public class NamePrompt : MonoBehaviour {
 
     public AudioClip SoundButton;

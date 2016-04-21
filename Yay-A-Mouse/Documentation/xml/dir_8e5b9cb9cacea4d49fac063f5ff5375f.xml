@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_8e5b9cb9cacea4d49fac063f5ff5375f" kind="dir">
+    <compoundname>HowToPlay</compoundname>
+    <innerfile refid="_how_to_play_controller_8cs">HowToPlayController.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="HowToPlay/"/>
+  </compounddef>
+</doxygen>

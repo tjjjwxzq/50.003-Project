@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_fearless" kind="class" language="C#" prot="public">
+    <compoundname>Fearless</compoundname>
+    <basecompoundref refid="class_ability" prot="public" virt="non-virtual">Ability</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_fearless_1a4d6e43905dc0ecf63e083c5faf4447a1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Fearless.DropHappiness</definition>
+        <argsstring></argsstring>
+        <name>DropHappiness</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="253" column="1" bodyfile="Main/Abilities.cs" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_fearless_1a5a8619fd14af033d934b4774889fd853" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Fearless.DropWeight</definition>
+        <argsstring></argsstring>
+        <name>DropWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="254" column="1" bodyfile="Main/Abilities.cs" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_fearless_1a499c79319b3238fff7c2ae563f3491f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Fearless.Fearless</definition>
+        <argsstring>(int level)</argsstring>
+        <name>Fearless</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="256" column="1" bodyfile="Main/Abilities.cs" bodystart="256" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="class_fearless_1ab5f61dc97edd9480901d1964467c12eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override string</type>
+        <definition>override string Fearless.GetDetails</definition>
+        <argsstring>()</argsstring>
+        <name>GetDetails</name>
+        <reimplements refid="class_ability_1ae212a441357426b070a0af254f5b97cc">GetDetails</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Abilities.cs" line="290" column="1" bodyfile="Main/Abilities.cs" bodystart="290" bodyend="296"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A player&apos;s <ref refid="class_fearless" kindref="compound">Fearless</ref> ability. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="87">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="86">
+        <label>Fearless</label>
+        <link refid="class_fearless"/>
+        <childnode refid="87" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="89">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="88">
+        <label>Fearless</label>
+        <link refid="class_fearless"/>
+        <childnode refid="89" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Abilities.cs" line="252" column="1" bodyfile="Main/Abilities.cs" bodystart="251" bodyend="297"/>
+    <listofallmembers>
+      <member refid="class_ability_1ae2d8aec43091f7b83e366137d43135ef" prot="public" virt="non-virtual"><scope>Fearless</scope><name>Cost</name></member>
+      <member refid="class_ability_1af41791e9c6a26592c29f8158fbeed0bf" prot="public" virt="non-virtual"><scope>Fearless</scope><name>Description</name></member>
+      <member refid="class_fearless_1a4d6e43905dc0ecf63e083c5faf4447a1" prot="public" virt="non-virtual"><scope>Fearless</scope><name>DropHappiness</name></member>
+      <member refid="class_fearless_1a5a8619fd14af033d934b4774889fd853" prot="public" virt="non-virtual"><scope>Fearless</scope><name>DropWeight</name></member>
+      <member refid="class_ability_1a5bfb4991a7a4cf857e10f3a33cdd3925" prot="public" virt="non-virtual"><scope>Fearless</scope><name>Duration</name></member>
+      <member refid="class_fearless_1a499c79319b3238fff7c2ae563f3491f4" prot="public" virt="non-virtual"><scope>Fearless</scope><name>Fearless</name></member>
+      <member refid="class_fearless_1ab5f61dc97edd9480901d1964467c12eb" prot="public" virt="virtual"><scope>Fearless</scope><name>GetDetails</name></member>
+      <member refid="class_ability_1a4ca153df49091be7325904960f49b810" prot="public" virt="non-virtual"><scope>Fearless</scope><name>Level</name></member>
+      <member refid="class_ability_1abdd222bf37890bf0f2dfdd5c8555593e" prot="public" virt="non-virtual"><scope>Fearless</scope><name>MaxLevel</name></member>
+      <member refid="class_ability_1a7d67b154e83cae1c52d821cac6f81abe" prot="public" virt="non-virtual"><scope>Fearless</scope><name>Name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

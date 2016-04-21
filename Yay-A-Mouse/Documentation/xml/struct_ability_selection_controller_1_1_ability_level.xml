@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="struct_ability_selection_controller_1_1_ability_level" kind="struct" language="C#" prot="private">
+    <compoundname>AbilitySelectionController::AbilityLevel</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_ability_selection_controller_1_1_ability_level_1ad6822eee4149f79cf53a5b06d0a255cc" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AbilitySelectionController.AbilityLevel.level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="83" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ability_selection_controller_1_1_ability_level_1aae32400b8295b9cc5df3bf45e2aff28a" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AbilitySelectionController.AbilityLevel.happiness</definition>
+        <argsstring></argsstring>
+        <name>happiness</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="84" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ability_selection_controller_1_1_ability_level_1a83bb4d74f2daf9e09ebcbf385074e486" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AbilitySelectionController.AbilityLevel.duration</definition>
+        <argsstring></argsstring>
+        <name>duration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="85" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ability_selection_controller_1_1_ability_level_1a1878f36ba2b04032c5749107c413913d" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AbilitySelectionController.AbilityLevel.description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="86" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_ability_selection_controller_1_1_ability_level_1a10712fbc3eace1f19eba3c22988c5c8c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AbilitySelectionController.AbilityLevel.AbilityLevel</definition>
+        <argsstring>(string level, string happiness, string duration, string description)</argsstring>
+        <name>AbilityLevel</name>
+        <param>
+          <type>string</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>happiness</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Ability Selection/AbilitySelectionController.cs" line="88" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="88" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Ability Selection/AbilitySelectionController.cs" line="82" column="1" bodyfile="Ability Selection/AbilitySelectionController.cs" bodystart="81" bodyend="95"/>
+    <listofallmembers>
+      <member refid="struct_ability_selection_controller_1_1_ability_level_1a10712fbc3eace1f19eba3c22988c5c8c" prot="public" virt="non-virtual"><scope>AbilitySelectionController::AbilityLevel</scope><name>AbilityLevel</name></member>
+      <member refid="struct_ability_selection_controller_1_1_ability_level_1a1878f36ba2b04032c5749107c413913d" prot="public" virt="non-virtual"><scope>AbilitySelectionController::AbilityLevel</scope><name>description</name></member>
+      <member refid="struct_ability_selection_controller_1_1_ability_level_1a83bb4d74f2daf9e09ebcbf385074e486" prot="public" virt="non-virtual"><scope>AbilitySelectionController::AbilityLevel</scope><name>duration</name></member>
+      <member refid="struct_ability_selection_controller_1_1_ability_level_1aae32400b8295b9cc5df3bf45e2aff28a" prot="public" virt="non-virtual"><scope>AbilitySelectionController::AbilityLevel</scope><name>happiness</name></member>
+      <member refid="struct_ability_selection_controller_1_1_ability_level_1ad6822eee4149f79cf53a5b06d0a255cc" prot="public" virt="non-virtual"><scope>AbilitySelectionController::AbilityLevel</scope><name>level</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

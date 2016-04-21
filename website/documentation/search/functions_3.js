@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['setdifficulty',['setDifficulty',['../class_food_controller.html#a33196e4fa774e489de86cedaff452e83',1,'FoodController']]],
-  ['setfearlessness',['setFearlessness',['../class_mouse.html#a4fac6637572e551f2bc72d82b3b9f251',1,'Mouse']]],
-  ['setfoodspawnweight',['setFoodSpawnWeight',['../class_food_controller.html#ae118c67950b39a9b3aaa8e15f027a37b',1,'FoodController']]],
-  ['setgrowthability',['setGrowthAbility',['../class_mouse.html#a591b2257ad6d7c1afe7fb1d99d3a49be',1,'Mouse']]],
-  ['setimmunity',['setImmunity',['../class_mouse.html#a2b85cb7132ba132f01827968b04cb96f',1,'Mouse']]],
-  ['setmaxfoodcount',['setMaxFoodCount',['../class_food_controller.html#a9f0f153ce5e90b4e081f4d903cf17808',1,'FoodController']]]
+  ['getabilities',['getAbilities',['../class_player.html#af69b6b04aaa34f9551ffd1613ac75179',1,'Player']]],
+  ['getfoodspawnweight',['getFoodSpawnWeight',['../class_food_controller.html#aa210ae3e7b1cc83ba3dab4a36970e19f',1,'FoodController']]],
+  ['getmaxfoodcount',['getMaxFoodCount',['../class_food_controller.html#af9fcb378c2333de7796093ef368bfd93',1,'FoodController']]],
+  ['getobj',['GetObj',['../class_object_pool.html#a40c9b63a283e6e5b93230e8a31e49f1a',1,'ObjectPool']]],
+  ['getusedcolors',['getUsedColors',['../class_lobby_manager.html#a542ed736fab7a96d25212be963edd4d9',1,'LobbyManager']]]
 ];

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_name_prompt" kind="class" language="C#" prot="public">
+    <compoundname>NamePrompt</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_name_prompt_1a188aef270479a1ede54b5095acf4313b" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip NamePrompt.SoundButton</definition>
+        <argsstring></argsstring>
+        <name>SoundButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="PromptName/NamePrompt.cs" line="11" column="1" bodyfile="PromptName/NamePrompt.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_name_prompt_1aa6dd6285c4975c02ec3095c539abd2fa" prot="private" static="no" mutable="no">
+        <type>AudioSource</type>
+        <definition>AudioSource NamePrompt.audio</definition>
+        <argsstring></argsstring>
+        <name>audio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="PromptName/NamePrompt.cs" line="12" column="1" bodyfile="PromptName/NamePrompt.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_name_prompt_1a6b789fef16bd5c380b756b6ec5e80323" prot="private" static="no" mutable="no">
+        <type>InputField</type>
+        <definition>InputField NamePrompt.nameInput</definition>
+        <argsstring></argsstring>
+        <name>nameInput</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="PromptName/NamePrompt.cs" line="16" column="1" bodyfile="PromptName/NamePrompt.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_name_prompt_1a9e12f6200364a31eabd8515280fcc5c1" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text NamePrompt.promptText</definition>
+        <argsstring></argsstring>
+        <name>promptText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="PromptName/NamePrompt.cs" line="17" column="1" bodyfile="PromptName/NamePrompt.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_name_prompt_1ab4d8eef9dedaf5cee82e7b81b15eebfe" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NamePrompt.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="PromptName/NamePrompt.cs" line="20" column="1" bodyfile="PromptName/NamePrompt.cs" bodystart="20" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_name_prompt_1ace3cd673ee9feea16c0abc8060967c87" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NamePrompt.OnOKButton</definition>
+        <argsstring>()</argsstring>
+        <name>OnOKButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="PromptName/NamePrompt.cs" line="26" column="1" bodyfile="PromptName/NamePrompt.cs" bodystart="26" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Controls UI in the <ref refid="class_name_prompt" kindref="compound">NamePrompt</ref> scene </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="138">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="137">
+        <label>NamePrompt</label>
+        <link refid="class_name_prompt"/>
+        <childnode refid="138" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="140">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="139">
+        <label>NamePrompt</label>
+        <link refid="class_name_prompt"/>
+        <childnode refid="140" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="PromptName/NamePrompt.cs" line="9" column="1" bodyfile="PromptName/NamePrompt.cs" bodystart="9" bodyend="46"/>
+    <listofallmembers>
+      <member refid="class_name_prompt_1aa6dd6285c4975c02ec3095c539abd2fa" prot="private" virt="non-virtual"><scope>NamePrompt</scope><name>audio</name></member>
+      <member refid="class_name_prompt_1a6b789fef16bd5c380b756b6ec5e80323" prot="private" virt="non-virtual"><scope>NamePrompt</scope><name>nameInput</name></member>
+      <member refid="class_name_prompt_1ace3cd673ee9feea16c0abc8060967c87" prot="public" virt="non-virtual"><scope>NamePrompt</scope><name>OnOKButton</name></member>
+      <member refid="class_name_prompt_1a9e12f6200364a31eabd8515280fcc5c1" prot="private" virt="non-virtual"><scope>NamePrompt</scope><name>promptText</name></member>
+      <member refid="class_name_prompt_1a188aef270479a1ede54b5095acf4313b" prot="public" virt="non-virtual"><scope>NamePrompt</scope><name>SoundButton</name></member>
+      <member refid="class_name_prompt_1ab4d8eef9dedaf5cee82e7b81b15eebfe" prot="private" virt="non-virtual"><scope>NamePrompt</scope><name>Start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

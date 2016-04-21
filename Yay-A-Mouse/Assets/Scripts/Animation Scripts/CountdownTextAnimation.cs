@@ -2,6 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/// <summary>
+/// Script to be called on the end of the countdown text animation
+/// </summary>
 public class CountdownTextAnimation : MonoBehaviour
 {
     private int numSeconds = 3;

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_deactivate_on_finish_animation" kind="class" language="C#" prot="public">
+    <compoundname>DeactivateOnFinishAnimation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_deactivate_on_finish_animation_1afd8836488922fb662dd90e5a5e1d3f0d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeactivateOnFinishAnimation.OnAnimationEnd</definition>
+        <argsstring>()</argsstring>
+        <name>OnAnimationEnd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Animation Scripts/DeactivateOnFinishAnimation.cs" line="9" column="1" bodyfile="Animation Scripts/DeactivateOnFinishAnimation.cs" bodystart="9" bodyend="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Script that deactivates Game Object on the end of its animation </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="74">
+        <label>DeactivateOnFinishAnimation</label>
+        <link refid="class_deactivate_on_finish_animation"/>
+        <childnode refid="75" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="76">
+        <label>DeactivateOnFinishAnimation</label>
+        <link refid="class_deactivate_on_finish_animation"/>
+        <childnode refid="77" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Animation Scripts/DeactivateOnFinishAnimation.cs" line="8" column="1" bodyfile="Animation Scripts/DeactivateOnFinishAnimation.cs" bodystart="7" bodyend="13"/>
+    <listofallmembers>
+      <member refid="class_deactivate_on_finish_animation_1afd8836488922fb662dd90e5a5e1d3f0d" prot="public" virt="non-virtual"><scope>DeactivateOnFinishAnimation</scope><name>OnAnimationEnd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

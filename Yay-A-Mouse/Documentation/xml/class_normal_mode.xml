@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_normal_mode" kind="class" language="C#" prot="public">
+    <compoundname>NormalMode</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_normal_mode_1aea8fb0e5b7615fb5955098e33fdfa123" prot="private" static="no" mutable="no">
+        <type>RaycastHit</type>
+        <definition>RaycastHit NormalMode.hit</definition>
+        <argsstring></argsstring>
+        <name>hit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="NormalMode.cs" line="8" column="1" bodyfile="NormalMode.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_normal_mode_1a6ceae4cc54d69043852fe9d0d0047850" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NormalMode.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="NormalMode.cs" line="11" column="1" bodyfile="NormalMode.cs" bodystart="11" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_normal_mode_1a14fd5d161b0fc3307a1e3eca69faae1b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NormalMode.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="NormalMode.cs" line="17" column="1" bodyfile="NormalMode.cs" bodystart="17" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="155">
+        <label>NormalMode</label>
+        <link refid="class_normal_mode"/>
+        <childnode refid="156" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="156">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="157">
+        <label>NormalMode</label>
+        <link refid="class_normal_mode"/>
+        <childnode refid="158" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="158">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="NormalMode.cs" line="6" column="1" bodyfile="NormalMode.cs" bodystart="5" bodyend="40"/>
+    <listofallmembers>
+      <member refid="class_normal_mode_1aea8fb0e5b7615fb5955098e33fdfa123" prot="private" virt="non-virtual"><scope>NormalMode</scope><name>hit</name></member>
+      <member refid="class_normal_mode_1a6ceae4cc54d69043852fe9d0d0047850" prot="private" virt="non-virtual"><scope>NormalMode</scope><name>Start</name></member>
+      <member refid="class_normal_mode_1a14fd5d161b0fc3307a1e3eca69faae1b" prot="private" virt="non-virtual"><scope>NormalMode</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

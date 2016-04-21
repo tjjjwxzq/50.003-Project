@@ -1,0 +1,1138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_level_controller" kind="class" language="C#" prot="public">
+    <compoundname>LevelController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_level_controller_1a8ebc7dce15d5299120bfcebe4f4446f1" prot="public" static="no">
+        <name>GameMode</name>
+        <enumvalue id="class_level_controller_1a8ebc7dce15d5299120bfcebe4f4446f1a960b44c579bc2f6818d2daaf9e4c16f0" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_level_controller_1a8ebc7dce15d5299120bfcebe4f4446f1a011b6e14743b342a0f04a708de1dce7b" prot="public">
+          <name>Frenzy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="35" column="1" bodyfile="Main/LevelController.cs" bodystart="35" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_level_controller_1a9d841d29e60a3fc57d0e598c2d56f7c2" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip LevelController.SoundInGameBGM</definition>
+        <argsstring></argsstring>
+        <name>SoundInGameBGM</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="15" column="1" bodyfile="Main/LevelController.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1afd28c21f58746a162810f3b9b80e15a8" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip LevelController.SoundCat</definition>
+        <argsstring></argsstring>
+        <name>SoundCat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="16" column="1" bodyfile="Main/LevelController.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1ae20d17899237a5d36846b56f9066131a" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip LevelController.SoundFrenzyMode</definition>
+        <argsstring></argsstring>
+        <name>SoundFrenzyMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="17" column="1" bodyfile="Main/LevelController.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a096d8159ff57d4142506515bd7fd149e" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip LevelController.SoundCombo</definition>
+        <argsstring></argsstring>
+        <name>SoundCombo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="18" column="1" bodyfile="Main/LevelController.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a54a2020e131c7b5bc9109f2c95a4c8b1" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip LevelController.SoundWin</definition>
+        <argsstring></argsstring>
+        <name>SoundWin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="19" column="1" bodyfile="Main/LevelController.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a3019306dd205123bc1b25c250a4ed055" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip LevelController.SoundLose</definition>
+        <argsstring></argsstring>
+        <name>SoundLose</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="20" column="1" bodyfile="Main/LevelController.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1aaeb95cbd318d49357da9f67fc8ed199e" prot="public" static="no" mutable="no">
+        <type>Sprite</type>
+        <definition>Sprite LevelController.YouWonSprite</definition>
+        <argsstring></argsstring>
+        <name>YouWonSprite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="26" column="1" bodyfile="Main/LevelController.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1abb3f583a7280793d40dbfaf71ec256b3" prot="public" static="no" mutable="no">
+        <type>Sprite</type>
+        <definition>Sprite LevelController.YouLostSprite</definition>
+        <argsstring></argsstring>
+        <name>YouLostSprite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="27" column="1" bodyfile="Main/LevelController.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a4a1ac9c3b1f1a2ddc0f6d6fa3c7d79b7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LevelController.NumPlayers</definition>
+        <argsstring></argsstring>
+        <name>NumPlayers</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="32" column="1" bodyfile="Main/LevelController.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a05dde6623c8f3a6b7640f0779b569f27" prot="public" static="no" mutable="no">
+        <type>Sprite</type>
+        <definition>Sprite LevelController.comboBGNormal</definition>
+        <argsstring></argsstring>
+        <name>comboBGNormal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="78" column="1" bodyfile="Main/LevelController.cs" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a51d2a209904b8527c9f360a1473b2311" prot="public" static="no" mutable="no">
+        <type>Sprite</type>
+        <definition>Sprite LevelController.comboBGHighlight</definition>
+        <argsstring></argsstring>
+        <name>comboBGHighlight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="79" column="1" bodyfile="Main/LevelController.cs" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_level_controller_1aec75c19237c3527a42a64a0ebec4faa7" prot="private" static="no" mutable="no">
+        <type>AudioSource</type>
+        <definition>AudioSource LevelController.audio</definition>
+        <argsstring></argsstring>
+        <name>audio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="23" column="1" bodyfile="Main/LevelController.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a82c40384891f86106d2a07f8d546fb15" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LevelController.isUISet</definition>
+        <argsstring></argsstring>
+        <name>isUISet</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="30" column="1" bodyfile="Main/LevelController.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a844056c73a04a98494c0b2a4b8e3adfb" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LevelController.numOpponents</definition>
+        <argsstring></argsstring>
+        <name>numOpponents</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="31" column="1" bodyfile="Main/LevelController.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a8879bd0f6f3f9c2e327cb5486d43b17d" prot="private" static="no" mutable="no">
+        <type>GameMode</type>
+        <definition>GameMode LevelController.mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <initializer>= GameMode.Normal</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="36" column="1" bodyfile="Main/LevelController.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a9c32c9ae630ae55f62b5da684ef611fc" prot="private" static="no" mutable="no">
+        <type><ref refid="class_food_controller" kindref="compound">FoodController</ref></type>
+        <definition>FoodController LevelController.foodController</definition>
+        <argsstring></argsstring>
+        <name>foodController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="39" column="1" bodyfile="Main/LevelController.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1ad8980b24451718dfa38a714172576a7d" prot="private" static="no" mutable="no">
+        <type><ref refid="class_mouse" kindref="compound">Mouse</ref></type>
+        <definition>Mouse LevelController.mouse</definition>
+        <argsstring></argsstring>
+        <name>mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="40" column="1" bodyfile="Main/LevelController.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a0727aa662a4f9780ab9200dfb23bf848" prot="private" static="no" mutable="no">
+        <type><ref refid="class_object_pool" kindref="compound">ObjectPool</ref></type>
+        <definition>ObjectPool LevelController.foodPool</definition>
+        <argsstring></argsstring>
+        <name>foodPool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="41" column="1" bodyfile="Main/LevelController.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1afe7de7129813eec972a2c049200b107e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_ability_controller" kindref="compound">AbilityController</ref></type>
+        <definition>AbilityController LevelController.abilityController</definition>
+        <argsstring></argsstring>
+        <name>abilityController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="42" column="1" bodyfile="Main/LevelController.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a6fdd7de369085ebe58639f786235f6b0" prot="private" static="no" mutable="no">
+        <type>string[]</type>
+        <definition>string [] LevelController.eligibleFoods</definition>
+        <argsstring></argsstring>
+        <name>eligibleFoods</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="45" column="1" bodyfile="Main/LevelController.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a5caf0289d75621cac9eb343a76104aee" prot="private" static="no" mutable="no">
+        <type>string[]</type>
+        <definition>string [] LevelController.foodCombo</definition>
+        <argsstring></argsstring>
+        <name>foodCombo</name>
+        <initializer>= new string[3]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="46" column="1" bodyfile="Main/LevelController.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a9bd213d15eacd2a51820abde2447dc16" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LevelController.minUpdateTime</definition>
+        <argsstring></argsstring>
+        <name>minUpdateTime</name>
+        <initializer>= 20f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="47" column="1" bodyfile="Main/LevelController.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a2297acf95c427c41f9b2ad03b02453d0" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LevelController.maxUpdateTime</definition>
+        <argsstring></argsstring>
+        <name>maxUpdateTime</name>
+        <initializer>= 40f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="48" column="1" bodyfile="Main/LevelController.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1aef018e020c752273fa4c1c39b0041cbb" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LevelController.WeightedFoodCountMin</definition>
+        <argsstring></argsstring>
+        <name>WeightedFoodCountMin</name>
+        <initializer>= 0.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="49" column="1" bodyfile="Main/LevelController.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a60ab307843ed05642619b042efe38ede" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int LevelController.ScoreBonus</definition>
+        <argsstring></argsstring>
+        <name>ScoreBonus</name>
+        <initializer>= 20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="50" column="1" bodyfile="Main/LevelController.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a7ada775b812a08a87e3ed9427344e6d8" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LevelController.ComboAnimTime</definition>
+        <argsstring></argsstring>
+        <name>ComboAnimTime</name>
+        <initializer>= 3f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="51" column="1" bodyfile="Main/LevelController.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a49b16076dac277ecc0b58e6715bd115a" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LevelController.comboAnimCountDown</definition>
+        <argsstring></argsstring>
+        <name>comboAnimCountDown</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="52" column="1" bodyfile="Main/LevelController.cs" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a3ffcb90c81e90bfe4c7fc6c0332f7db3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LevelController.numCombos</definition>
+        <argsstring></argsstring>
+        <name>numCombos</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="53" column="1" bodyfile="Main/LevelController.cs" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1acb46e9dbe2d9be01172cec24f34bc083" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LevelController.sequenceFed</definition>
+        <argsstring></argsstring>
+        <name>sequenceFed</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="54" column="1" bodyfile="Main/LevelController.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1af58a3387fe8e64ad400810341be8c4a1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LevelController.changedMode</definition>
+        <argsstring></argsstring>
+        <name>changedMode</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="57" column="1" bodyfile="Main/LevelController.cs" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a88ec387abd6df5777c9feee942f5401b" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int LevelController.FrenzyComboCount</definition>
+        <argsstring></argsstring>
+        <name>FrenzyComboCount</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="58" column="1" bodyfile="Main/LevelController.cs" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a1b6a2044462057600bd0a103ab9af072" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int LevelController.FrenzyModeTime</definition>
+        <argsstring></argsstring>
+        <name>FrenzyModeTime</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="59" column="1" bodyfile="Main/LevelController.cs" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1aba4a5c8d49b298b8ec4190bfcaab0004" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LevelController.frenzyTimer</definition>
+        <argsstring></argsstring>
+        <name>frenzyTimer</name>
+        <initializer>= FrenzyModeTime</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="60" column="1" bodyfile="Main/LevelController.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a65f4c5d9454e99cdd01eee5000bb44f3" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.frenzyText</definition>
+        <argsstring></argsstring>
+        <name>frenzyText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="62" column="1" bodyfile="Main/LevelController.cs" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1af63678a87e9dda747aff8dadb04932b9" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.frenzyBackground</definition>
+        <argsstring></argsstring>
+        <name>frenzyBackground</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="63" column="1" bodyfile="Main/LevelController.cs" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a6ad5b4ac524b747fcce794ea1124e941" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.frenzyFed</definition>
+        <argsstring></argsstring>
+        <name>frenzyFed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="64" column="1" bodyfile="Main/LevelController.cs" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1abe74d5ab1e7759ee1ebc2bcf33c14412" prot="private" static="no" mutable="no">
+        <type>Animator</type>
+        <definition>Animator LevelController.frenzyMouseAnimator</definition>
+        <argsstring></argsstring>
+        <name>frenzyMouseAnimator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="65" column="1" bodyfile="Main/LevelController.cs" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a8cf8a19bcc18a59bd6a7d451cfe623fe" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.scaryCatShock</definition>
+        <argsstring></argsstring>
+        <name>scaryCatShock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="69" column="1" bodyfile="Main/LevelController.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a14cb54c9c1d3ab775dd319558147b5be" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.scaryCat</definition>
+        <argsstring></argsstring>
+        <name>scaryCat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="70" column="1" bodyfile="Main/LevelController.cs" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a39d4831a03b75473da77591d13b64386" prot="private" static="no" mutable="no">
+        <type>GameObject[]</type>
+        <definition>GameObject [] LevelController.playerObjects</definition>
+        <argsstring></argsstring>
+        <name>playerObjects</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="73" column="1" bodyfile="Main/LevelController.cs" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1aaa4eefb8b74bef388f83a1d5a2e18a99" prot="private" static="no" mutable="no">
+        <type>GameObject[]</type>
+        <definition>GameObject [] LevelController.nonLocalPlayerObjects</definition>
+        <argsstring></argsstring>
+        <name>nonLocalPlayerObjects</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="74" column="1" bodyfile="Main/LevelController.cs" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a348f485705076cd8021fd70f827af81a" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.comboUI</definition>
+        <argsstring></argsstring>
+        <name>comboUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="80" column="1" bodyfile="Main/LevelController.cs" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1ac5eb404e499f3e0a95ff6a5d9b642f93" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.comboText</definition>
+        <argsstring></argsstring>
+        <name>comboText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="81" column="1" bodyfile="Main/LevelController.cs" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1ae98d3324e968d6770f095fe48ee2056f" prot="private" static="no" mutable="no">
+        <type>Animator</type>
+        <definition>Animator LevelController.comboTextAnimator</definition>
+        <argsstring></argsstring>
+        <name>comboTextAnimator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="82" column="1" bodyfile="Main/LevelController.cs" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a4b9947219cb4d8b4f7ecdf557cf211d5" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.comboChange</definition>
+        <argsstring></argsstring>
+        <name>comboChange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="83" column="1" bodyfile="Main/LevelController.cs" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a1603926f93f676689def0cec831a992e" prot="private" static="no" mutable="no">
+        <type>Animator</type>
+        <definition>Animator LevelController.comboChangeAnimator</definition>
+        <argsstring></argsstring>
+        <name>comboChangeAnimator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="84" column="1" bodyfile="Main/LevelController.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1aaaed2c7b7f4d221c8354be3090268b04" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.comboMouse</definition>
+        <argsstring></argsstring>
+        <name>comboMouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="85" column="1" bodyfile="Main/LevelController.cs" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a4076df1c44444a7d736b948b7cd1db81" prot="private" static="no" mutable="no">
+        <type>Image[]</type>
+        <definition>Image [] LevelController.comboBackgrounds</definition>
+        <argsstring></argsstring>
+        <name>comboBackgrounds</name>
+        <initializer>= new Image[3]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="86" column="1" bodyfile="Main/LevelController.cs" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1ab9f845ff1014cda6f617c319354e2d0a" prot="private" static="no" mutable="no">
+        <type>Image[]</type>
+        <definition>Image [] LevelController.comboImages</definition>
+        <argsstring></argsstring>
+        <name>comboImages</name>
+        <initializer>= new Image[3]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="87" column="1" bodyfile="Main/LevelController.cs" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a91542c30f76f4ea8339f003f014866c9" prot="private" static="no" mutable="no">
+        <type>Animator[]</type>
+        <definition>Animator [] LevelController.comboAnimators</definition>
+        <argsstring></argsstring>
+        <name>comboAnimators</name>
+        <initializer>= new Animator[3]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="88" column="1" bodyfile="Main/LevelController.cs" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1aec32a66ec208cfb163834ef686aff26a" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.playerAvatarUI</definition>
+        <argsstring></argsstring>
+        <name>playerAvatarUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="91" column="1" bodyfile="Main/LevelController.cs" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1ad9a34b52018bde2157f24b52a770305a" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.playerAvatar</definition>
+        <argsstring></argsstring>
+        <name>playerAvatar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="92" column="1" bodyfile="Main/LevelController.cs" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1acc7bfd3deb35b23a04f58a1641a65e5a" prot="private" static="no" mutable="no">
+        <type>GameObject[]</type>
+        <definition>GameObject [] LevelController.playerAvatars</definition>
+        <argsstring></argsstring>
+        <name>playerAvatars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="93" column="1" bodyfile="Main/LevelController.cs" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a3a3f2bdf681d77527f1b7429e64c25dd" prot="private" static="no" mutable="no">
+        <type>Color[]</type>
+        <definition>Color [] LevelController.playerColors</definition>
+        <argsstring></argsstring>
+        <name>playerColors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="94" column="1" bodyfile="Main/LevelController.cs" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a9596422b0482e54c4024bedcb39909e7" prot="private" static="no" mutable="no">
+        <type>string[]</type>
+        <definition>string [] LevelController.playerScores</definition>
+        <argsstring></argsstring>
+        <name>playerScores</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="95" column="1" bodyfile="Main/LevelController.cs" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a44d19aad0acbc04c9f33bd1ee36c162b" prot="private" static="no" mutable="no">
+        <type>Text[]</type>
+        <definition>Text [] LevelController.playerScoresText</definition>
+        <argsstring></argsstring>
+        <name>playerScoresText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="96" column="1" bodyfile="Main/LevelController.cs" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a39ce9e14c6fea281fa23cddb3a1f6164" prot="private" static="no" mutable="no">
+        <type>string[]</type>
+        <definition>string [] LevelController.playerNames</definition>
+        <argsstring></argsstring>
+        <name>playerNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="97" column="1" bodyfile="Main/LevelController.cs" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a959d17f99db343cfd2d700c3dd75d62b" prot="private" static="no" mutable="no">
+        <type>Text[]</type>
+        <definition>Text [] LevelController.playerNamesText</definition>
+        <argsstring></argsstring>
+        <name>playerNamesText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="98" column="1" bodyfile="Main/LevelController.cs" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_controller_1a204ce18aab99870ba572f93069d7af80" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LevelController.endGame</definition>
+        <argsstring></argsstring>
+        <name>endGame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="102" column="1" bodyfile="Main/LevelController.cs" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_level_controller_1a1c12e6c5d8b23ef6c5ebb5c4fb68217f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="106" column="1" bodyfile="Main/LevelController.cs" bodystart="106" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1a6c427f5d4c2983ef53424f65507599dd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.FixedUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>FixedUpdate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="186" column="1" bodyfile="Main/LevelController.cs" bodystart="186" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1a0debd800795b3ddf29e99998be15c07b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="212" column="1" bodyfile="Main/LevelController.cs" bodystart="212" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1a153eb2b8d4ba7d7ad74cb4dc3592d8ae" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator LevelController.updateFoodCombo</definition>
+        <argsstring>()</argsstring>
+        <name>updateFoodCombo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="292" column="1" bodyfile="Main/LevelController.cs" bodystart="292" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1a070f65514dc9dc74d09f04a554109934" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator LevelController.primer</definition>
+        <argsstring>()</argsstring>
+        <name>primer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="314" column="1" bodyfile="Main/LevelController.cs" bodystart="314" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1a92cadf84e207c9696aee31cf78500ac2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.checkComboStreak</definition>
+        <argsstring>()</argsstring>
+        <name>checkComboStreak</name>
+        <briefdescription>
+<para>To update the number of combo streaks and add weight (points) to the mouse </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="329" column="1" bodyfile="Main/LevelController.cs" bodystart="329" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1ad5c5bc89eae5560e128b0443ac9fc577" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.checkGameMode</definition>
+        <argsstring>()</argsstring>
+        <name>checkGameMode</name>
+        <briefdescription>
+<para>Checks and updates the game mode </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="362" column="1" bodyfile="Main/LevelController.cs" bodystart="362" bodyend="384"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1a0bc4527d8377b93ec113d0fb14d7774d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.enterNormal</definition>
+        <argsstring>()</argsstring>
+        <name>enterNormal</name>
+        <briefdescription>
+<para>Set up when entering normal mode </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="389" column="1" bodyfile="Main/LevelController.cs" bodystart="389" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1adb825b2b597964debddacc3455afcd0b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.enterFrenzy</definition>
+        <argsstring>()</argsstring>
+        <name>enterFrenzy</name>
+        <briefdescription>
+<para>Set up when entering frenzy mode </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="410" column="1" bodyfile="Main/LevelController.cs" bodystart="410" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1a199b745738e8ebcecd9c0da9a7fb486b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.runFrenzy</definition>
+        <argsstring>()</argsstring>
+        <name>runFrenzy</name>
+        <briefdescription>
+<para>Run frenzy mode. Detect taps on mouse and shoot food </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="435" column="1" bodyfile="Main/LevelController.cs" bodystart="435" bodyend="450"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1ab5bf7030275c6a9aa8027b78c4822da2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.updatePlayerScores</definition>
+        <argsstring>()</argsstring>
+        <name>updatePlayerScores</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="487" column="1" bodyfile="Main/LevelController.cs" bodystart="487" bodyend="495"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1a014a9d0e7e2f5afe797d31183023b9cf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.setupPlayerAvatarUI</definition>
+        <argsstring>()</argsstring>
+        <name>setupPlayerAvatarUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="498" column="1" bodyfile="Main/LevelController.cs" bodystart="498" bodyend="573"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1ad84c9b6f82bc375835400f9ff91970dc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.checkEndGame</definition>
+        <argsstring>()</argsstring>
+        <name>checkEndGame</name>
+        <briefdescription>
+<para>Checks to see if any player has won </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="578" column="1" bodyfile="Main/LevelController.cs" bodystart="578" bodyend="617"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_level_controller_1a285584baee67aac0bb530fe6f7048d7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.UpdateSequence</definition>
+        <argsstring>(string foodType)</argsstring>
+        <name>UpdateSequence</name>
+        <param>
+          <type>string</type>
+          <declname>foodType</declname>
+        </param>
+        <briefdescription>
+<para>To be called by the mouse script when the mouse is fed, to determine if food fed matches with the combo sequence </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>foodType</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="458" column="1" bodyfile="Main/LevelController.cs" bodystart="458" bodyend="474"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_controller_1a99bc6e4854acff79a4848726854c9b2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelController.ScaryCatAnimation</definition>
+        <argsstring>()</argsstring>
+        <name>ScaryCatAnimation</name>
+        <briefdescription>
+<para>Starts scary cat animation; to be called by the ability controller </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/LevelController.cs" line="479" column="1" bodyfile="Main/LevelController.cs" bodystart="479" bodyend="484"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Handles game state, such as the player&apos;s combo streak, whether or not the player is in frenzy feeding mode, and the number of players in a game. Handles state of combo and player avatar UI as well (?) </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="108">
+        <label>LevelController</label>
+        <link refid="class_level_controller"/>
+        <childnode refid="109" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="110">
+        <label>LevelController</label>
+        <link refid="class_level_controller"/>
+        <childnode refid="111" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Main/LevelController.cs" line="14" column="1" bodyfile="Main/LevelController.cs" bodystart="13" bodyend="623"/>
+    <listofallmembers>
+      <member refid="class_level_controller_1afe7de7129813eec972a2c049200b107e" prot="private" virt="non-virtual"><scope>LevelController</scope><name>abilityController</name></member>
+      <member refid="class_level_controller_1aec75c19237c3527a42a64a0ebec4faa7" prot="private" virt="non-virtual"><scope>LevelController</scope><name>audio</name></member>
+      <member refid="class_level_controller_1af58a3387fe8e64ad400810341be8c4a1" prot="private" virt="non-virtual"><scope>LevelController</scope><name>changedMode</name></member>
+      <member refid="class_level_controller_1a92cadf84e207c9696aee31cf78500ac2" prot="private" virt="non-virtual"><scope>LevelController</scope><name>checkComboStreak</name></member>
+      <member refid="class_level_controller_1ad84c9b6f82bc375835400f9ff91970dc" prot="private" virt="non-virtual"><scope>LevelController</scope><name>checkEndGame</name></member>
+      <member refid="class_level_controller_1ad5c5bc89eae5560e128b0443ac9fc577" prot="private" virt="non-virtual"><scope>LevelController</scope><name>checkGameMode</name></member>
+      <member refid="class_level_controller_1a91542c30f76f4ea8339f003f014866c9" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboAnimators</name></member>
+      <member refid="class_level_controller_1a49b16076dac277ecc0b58e6715bd115a" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboAnimCountDown</name></member>
+      <member refid="class_level_controller_1a7ada775b812a08a87e3ed9427344e6d8" prot="private" virt="non-virtual"><scope>LevelController</scope><name>ComboAnimTime</name></member>
+      <member refid="class_level_controller_1a4076df1c44444a7d736b948b7cd1db81" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboBackgrounds</name></member>
+      <member refid="class_level_controller_1a51d2a209904b8527c9f360a1473b2311" prot="public" virt="non-virtual"><scope>LevelController</scope><name>comboBGHighlight</name></member>
+      <member refid="class_level_controller_1a05dde6623c8f3a6b7640f0779b569f27" prot="public" virt="non-virtual"><scope>LevelController</scope><name>comboBGNormal</name></member>
+      <member refid="class_level_controller_1a4b9947219cb4d8b4f7ecdf557cf211d5" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboChange</name></member>
+      <member refid="class_level_controller_1a1603926f93f676689def0cec831a992e" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboChangeAnimator</name></member>
+      <member refid="class_level_controller_1ab9f845ff1014cda6f617c319354e2d0a" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboImages</name></member>
+      <member refid="class_level_controller_1aaaed2c7b7f4d221c8354be3090268b04" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboMouse</name></member>
+      <member refid="class_level_controller_1ac5eb404e499f3e0a95ff6a5d9b642f93" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboText</name></member>
+      <member refid="class_level_controller_1ae98d3324e968d6770f095fe48ee2056f" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboTextAnimator</name></member>
+      <member refid="class_level_controller_1a348f485705076cd8021fd70f827af81a" prot="private" virt="non-virtual"><scope>LevelController</scope><name>comboUI</name></member>
+      <member refid="class_level_controller_1a6fdd7de369085ebe58639f786235f6b0" prot="private" virt="non-virtual"><scope>LevelController</scope><name>eligibleFoods</name></member>
+      <member refid="class_level_controller_1a204ce18aab99870ba572f93069d7af80" prot="private" virt="non-virtual"><scope>LevelController</scope><name>endGame</name></member>
+      <member refid="class_level_controller_1adb825b2b597964debddacc3455afcd0b" prot="private" virt="non-virtual"><scope>LevelController</scope><name>enterFrenzy</name></member>
+      <member refid="class_level_controller_1a0bc4527d8377b93ec113d0fb14d7774d" prot="private" virt="non-virtual"><scope>LevelController</scope><name>enterNormal</name></member>
+      <member refid="class_level_controller_1a6c427f5d4c2983ef53424f65507599dd" prot="private" virt="non-virtual"><scope>LevelController</scope><name>FixedUpdate</name></member>
+      <member refid="class_level_controller_1a5caf0289d75621cac9eb343a76104aee" prot="private" virt="non-virtual"><scope>LevelController</scope><name>foodCombo</name></member>
+      <member refid="class_level_controller_1a9c32c9ae630ae55f62b5da684ef611fc" prot="private" virt="non-virtual"><scope>LevelController</scope><name>foodController</name></member>
+      <member refid="class_level_controller_1a0727aa662a4f9780ab9200dfb23bf848" prot="private" virt="non-virtual"><scope>LevelController</scope><name>foodPool</name></member>
+      <member refid="class_level_controller_1af63678a87e9dda747aff8dadb04932b9" prot="private" virt="non-virtual"><scope>LevelController</scope><name>frenzyBackground</name></member>
+      <member refid="class_level_controller_1a88ec387abd6df5777c9feee942f5401b" prot="private" virt="non-virtual"><scope>LevelController</scope><name>FrenzyComboCount</name></member>
+      <member refid="class_level_controller_1a6ad5b4ac524b747fcce794ea1124e941" prot="private" virt="non-virtual"><scope>LevelController</scope><name>frenzyFed</name></member>
+      <member refid="class_level_controller_1a1b6a2044462057600bd0a103ab9af072" prot="private" virt="non-virtual"><scope>LevelController</scope><name>FrenzyModeTime</name></member>
+      <member refid="class_level_controller_1abe74d5ab1e7759ee1ebc2bcf33c14412" prot="private" virt="non-virtual"><scope>LevelController</scope><name>frenzyMouseAnimator</name></member>
+      <member refid="class_level_controller_1a65f4c5d9454e99cdd01eee5000bb44f3" prot="private" virt="non-virtual"><scope>LevelController</scope><name>frenzyText</name></member>
+      <member refid="class_level_controller_1aba4a5c8d49b298b8ec4190bfcaab0004" prot="private" virt="non-virtual"><scope>LevelController</scope><name>frenzyTimer</name></member>
+      <member refid="class_level_controller_1a8ebc7dce15d5299120bfcebe4f4446f1" prot="public" virt="non-virtual"><scope>LevelController</scope><name>GameMode</name></member>
+      <member refid="class_level_controller_1a82c40384891f86106d2a07f8d546fb15" prot="private" virt="non-virtual"><scope>LevelController</scope><name>isUISet</name></member>
+      <member refid="class_level_controller_1a2297acf95c427c41f9b2ad03b02453d0" prot="private" virt="non-virtual"><scope>LevelController</scope><name>maxUpdateTime</name></member>
+      <member refid="class_level_controller_1a9bd213d15eacd2a51820abde2447dc16" prot="private" virt="non-virtual"><scope>LevelController</scope><name>minUpdateTime</name></member>
+      <member refid="class_level_controller_1a8879bd0f6f3f9c2e327cb5486d43b17d" prot="private" virt="non-virtual"><scope>LevelController</scope><name>mode</name></member>
+      <member refid="class_level_controller_1ad8980b24451718dfa38a714172576a7d" prot="private" virt="non-virtual"><scope>LevelController</scope><name>mouse</name></member>
+      <member refid="class_level_controller_1aaa4eefb8b74bef388f83a1d5a2e18a99" prot="private" virt="non-virtual"><scope>LevelController</scope><name>nonLocalPlayerObjects</name></member>
+      <member refid="class_level_controller_1a3ffcb90c81e90bfe4c7fc6c0332f7db3" prot="private" virt="non-virtual"><scope>LevelController</scope><name>numCombos</name></member>
+      <member refid="class_level_controller_1a844056c73a04a98494c0b2a4b8e3adfb" prot="private" virt="non-virtual"><scope>LevelController</scope><name>numOpponents</name></member>
+      <member refid="class_level_controller_1a4a1ac9c3b1f1a2ddc0f6d6fa3c7d79b7" prot="public" virt="non-virtual"><scope>LevelController</scope><name>NumPlayers</name></member>
+      <member refid="class_level_controller_1ad9a34b52018bde2157f24b52a770305a" prot="private" virt="non-virtual"><scope>LevelController</scope><name>playerAvatar</name></member>
+      <member refid="class_level_controller_1acc7bfd3deb35b23a04f58a1641a65e5a" prot="private" virt="non-virtual"><scope>LevelController</scope><name>playerAvatars</name></member>
+      <member refid="class_level_controller_1aec32a66ec208cfb163834ef686aff26a" prot="private" virt="non-virtual"><scope>LevelController</scope><name>playerAvatarUI</name></member>
+      <member refid="class_level_controller_1a3a3f2bdf681d77527f1b7429e64c25dd" prot="private" virt="non-virtual"><scope>LevelController</scope><name>playerColors</name></member>
+      <member refid="class_level_controller_1a39ce9e14c6fea281fa23cddb3a1f6164" prot="private" virt="non-virtual"><scope>LevelController</scope><name>playerNames</name></member>
+      <member refid="class_level_controller_1a959d17f99db343cfd2d700c3dd75d62b" prot="private" virt="non-virtual"><scope>LevelController</scope><name>playerNamesText</name></member>
+      <member refid="class_level_controller_1a39d4831a03b75473da77591d13b64386" prot="private" virt="non-virtual"><scope>LevelController</scope><name>playerObjects</name></member>
+      <member refid="class_level_controller_1a9596422b0482e54c4024bedcb39909e7" prot="private" virt="non-virtual"><scope>LevelController</scope><name>playerScores</name></member>
+      <member refid="class_level_controller_1a44d19aad0acbc04c9f33bd1ee36c162b" prot="private" virt="non-virtual"><scope>LevelController</scope><name>playerScoresText</name></member>
+      <member refid="class_level_controller_1a070f65514dc9dc74d09f04a554109934" prot="private" virt="non-virtual"><scope>LevelController</scope><name>primer</name></member>
+      <member refid="class_level_controller_1a199b745738e8ebcecd9c0da9a7fb486b" prot="private" virt="non-virtual"><scope>LevelController</scope><name>runFrenzy</name></member>
+      <member refid="class_level_controller_1a14cb54c9c1d3ab775dd319558147b5be" prot="private" virt="non-virtual"><scope>LevelController</scope><name>scaryCat</name></member>
+      <member refid="class_level_controller_1a99bc6e4854acff79a4848726854c9b2a" prot="public" virt="non-virtual"><scope>LevelController</scope><name>ScaryCatAnimation</name></member>
+      <member refid="class_level_controller_1a8cf8a19bcc18a59bd6a7d451cfe623fe" prot="private" virt="non-virtual"><scope>LevelController</scope><name>scaryCatShock</name></member>
+      <member refid="class_level_controller_1a60ab307843ed05642619b042efe38ede" prot="private" virt="non-virtual"><scope>LevelController</scope><name>ScoreBonus</name></member>
+      <member refid="class_level_controller_1acb46e9dbe2d9be01172cec24f34bc083" prot="private" virt="non-virtual"><scope>LevelController</scope><name>sequenceFed</name></member>
+      <member refid="class_level_controller_1a014a9d0e7e2f5afe797d31183023b9cf" prot="private" virt="non-virtual"><scope>LevelController</scope><name>setupPlayerAvatarUI</name></member>
+      <member refid="class_level_controller_1afd28c21f58746a162810f3b9b80e15a8" prot="public" virt="non-virtual"><scope>LevelController</scope><name>SoundCat</name></member>
+      <member refid="class_level_controller_1a096d8159ff57d4142506515bd7fd149e" prot="public" virt="non-virtual"><scope>LevelController</scope><name>SoundCombo</name></member>
+      <member refid="class_level_controller_1ae20d17899237a5d36846b56f9066131a" prot="public" virt="non-virtual"><scope>LevelController</scope><name>SoundFrenzyMode</name></member>
+      <member refid="class_level_controller_1a9d841d29e60a3fc57d0e598c2d56f7c2" prot="public" virt="non-virtual"><scope>LevelController</scope><name>SoundInGameBGM</name></member>
+      <member refid="class_level_controller_1a3019306dd205123bc1b25c250a4ed055" prot="public" virt="non-virtual"><scope>LevelController</scope><name>SoundLose</name></member>
+      <member refid="class_level_controller_1a54a2020e131c7b5bc9109f2c95a4c8b1" prot="public" virt="non-virtual"><scope>LevelController</scope><name>SoundWin</name></member>
+      <member refid="class_level_controller_1a1c12e6c5d8b23ef6c5ebb5c4fb68217f" prot="private" virt="non-virtual"><scope>LevelController</scope><name>Start</name></member>
+      <member refid="class_level_controller_1a0debd800795b3ddf29e99998be15c07b" prot="private" virt="non-virtual"><scope>LevelController</scope><name>Update</name></member>
+      <member refid="class_level_controller_1a153eb2b8d4ba7d7ad74cb4dc3592d8ae" prot="private" virt="non-virtual"><scope>LevelController</scope><name>updateFoodCombo</name></member>
+      <member refid="class_level_controller_1ab5bf7030275c6a9aa8027b78c4822da2" prot="private" virt="non-virtual"><scope>LevelController</scope><name>updatePlayerScores</name></member>
+      <member refid="class_level_controller_1a285584baee67aac0bb530fe6f7048d7f" prot="public" virt="non-virtual"><scope>LevelController</scope><name>UpdateSequence</name></member>
+      <member refid="class_level_controller_1aef018e020c752273fa4c1c39b0041cbb" prot="private" virt="non-virtual"><scope>LevelController</scope><name>WeightedFoodCountMin</name></member>
+      <member refid="class_level_controller_1abb3f583a7280793d40dbfaf71ec256b3" prot="public" virt="non-virtual"><scope>LevelController</scope><name>YouLostSprite</name></member>
+      <member refid="class_level_controller_1aaeb95cbd318d49357da9f67fc8ed199e" prot="public" virt="non-virtual"><scope>LevelController</scope><name>YouWonSprite</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

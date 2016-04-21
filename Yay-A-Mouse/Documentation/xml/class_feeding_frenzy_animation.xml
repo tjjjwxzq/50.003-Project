@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_feeding_frenzy_animation" kind="class" language="C#" prot="public">
+    <compoundname>FeedingFrenzyAnimation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_feeding_frenzy_animation_1a1a643eae75237a11dff44dc9e8dc3635" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeedingFrenzyAnimation.OnFeedFrenzyAnimationEnd</definition>
+        <argsstring>()</argsstring>
+        <name>OnFeedFrenzyAnimationEnd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Animation Scripts/FeedingFrenzyAnimation.cs" line="6" column="1" bodyfile="Animation Scripts/FeedingFrenzyAnimation.cs" bodystart="6" bodyend="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="97">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="96">
+        <label>FeedingFrenzyAnimation</label>
+        <link refid="class_feeding_frenzy_animation"/>
+        <childnode refid="97" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="99">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="98">
+        <label>FeedingFrenzyAnimation</label>
+        <link refid="class_feeding_frenzy_animation"/>
+        <childnode refid="99" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Animation Scripts/FeedingFrenzyAnimation.cs" line="5" column="1" bodyfile="Animation Scripts/FeedingFrenzyAnimation.cs" bodystart="4" bodyend="10"/>
+    <listofallmembers>
+      <member refid="class_feeding_frenzy_animation_1a1a643eae75237a11dff44dc9e8dc3635" prot="public" virt="non-virtual"><scope>FeedingFrenzyAnimation</scope><name>OnFeedFrenzyAnimationEnd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

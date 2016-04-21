@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_settings_controller" kind="class" language="C#" prot="public">
+    <compoundname>SettingsController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_settings_controller_1a7870b65f1661a29b16c49f5742b706e8" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip SettingsController.SoundLobby</definition>
+        <argsstring></argsstring>
+        <name>SoundLobby</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Settings/SettingsController.cs" line="10" column="1" bodyfile="Settings/SettingsController.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_settings_controller_1ab6a2aa723685b31f65bfa43a117ac75c" prot="public" static="no" mutable="no">
+        <type>AudioClip</type>
+        <definition>AudioClip SettingsController.SoundButton</definition>
+        <argsstring></argsstring>
+        <name>SoundButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Settings/SettingsController.cs" line="11" column="1" bodyfile="Settings/SettingsController.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_settings_controller_1a2bfe85dd119dd1d4e089d96bb512409d" prot="private" static="no" mutable="no">
+        <type>AudioSource</type>
+        <definition>AudioSource SettingsController.audio</definition>
+        <argsstring></argsstring>
+        <name>audio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Settings/SettingsController.cs" line="13" column="1" bodyfile="Settings/SettingsController.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_settings_controller_1a51a9d3ae10fe636d753380852febccb6" prot="private" static="no" mutable="no">
+        <type>InputField</type>
+        <definition>InputField SettingsController.inputField</definition>
+        <argsstring></argsstring>
+        <name>inputField</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Settings/SettingsController.cs" line="15" column="1" bodyfile="Settings/SettingsController.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_settings_controller_1a3e5777739f81b017043c91aa2c8e806e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SettingsController.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Settings/SettingsController.cs" line="18" column="1" bodyfile="Settings/SettingsController.cs" bodystart="18" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_settings_controller_1a76e78ae4702ca6b7dd90a5b630f7ff5c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SettingsController.OnOKButton</definition>
+        <argsstring>()</argsstring>
+        <name>OnOKButton</name>
+        <briefdescription>
+<para>Callback when OK button is pressed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Settings/SettingsController.cs" line="37" column="1" bodyfile="Settings/SettingsController.cs" bodystart="37" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Controls UI in the settings screen </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="166">
+        <label>SettingsController</label>
+        <link refid="class_settings_controller"/>
+        <childnode refid="167" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="167">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="168">
+        <label>SettingsController</label>
+        <link refid="class_settings_controller"/>
+        <childnode refid="169" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="169">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Settings/SettingsController.cs" line="9" column="1" bodyfile="Settings/SettingsController.cs" bodystart="9" bodyend="48"/>
+    <listofallmembers>
+      <member refid="class_settings_controller_1a2bfe85dd119dd1d4e089d96bb512409d" prot="private" virt="non-virtual"><scope>SettingsController</scope><name>audio</name></member>
+      <member refid="class_settings_controller_1a51a9d3ae10fe636d753380852febccb6" prot="private" virt="non-virtual"><scope>SettingsController</scope><name>inputField</name></member>
+      <member refid="class_settings_controller_1a76e78ae4702ca6b7dd90a5b630f7ff5c" prot="public" virt="non-virtual"><scope>SettingsController</scope><name>OnOKButton</name></member>
+      <member refid="class_settings_controller_1ab6a2aa723685b31f65bfa43a117ac75c" prot="public" virt="non-virtual"><scope>SettingsController</scope><name>SoundButton</name></member>
+      <member refid="class_settings_controller_1a7870b65f1661a29b16c49f5742b706e8" prot="public" virt="non-virtual"><scope>SettingsController</scope><name>SoundLobby</name></member>
+      <member refid="class_settings_controller_1a3e5777739f81b017043c91aa2c8e806e" prot="private" virt="non-virtual"><scope>SettingsController</scope><name>Start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

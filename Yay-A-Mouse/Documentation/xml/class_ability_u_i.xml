@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_ability_u_i" kind="class" language="C#" prot="public">
+    <compoundname>AbilityUI</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_ability_u_i_1aa93b65607edc1001e17f676529b3682e" prot="public" static="no" mutable="no">
+        <type>Sprite[]</type>
+        <definition>Sprite [] AbilityUI.abilitySprites</definition>
+        <argsstring></argsstring>
+        <name>abilitySprites</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="15" column="1" bodyfile="Main/AbilityUI.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1ab942ac734bf76084990e2b470cfed2a3" prot="public" static="no" mutable="no">
+        <type>IDictionary&lt; AbilityName, GameObject &gt;</type>
+        <definition>IDictionary&lt;AbilityName, GameObject&gt; AbilityUI.AbilityButtons</definition>
+        <argsstring></argsstring>
+        <name>AbilityButtons</name>
+        <initializer>= new Dictionary&lt;AbilityName, GameObject&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="26" column="1" bodyfile="Main/AbilityUI.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1aa3bb9a3aa88f873baa80bfb5c33bae73" prot="public" static="no" mutable="no">
+        <type>Dictionary&lt; AbilityName, Text &gt;</type>
+        <definition>Dictionary&lt;AbilityName, Text&gt; AbilityUI.Countdowns</definition>
+        <argsstring></argsstring>
+        <name>Countdowns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="29" column="1" bodyfile="Main/AbilityUI.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_ability_u_i_1af6cc222175e6b237abb1f5e932e214db" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilityUI.canvas</definition>
+        <argsstring></argsstring>
+        <name>canvas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="17" column="1" bodyfile="Main/AbilityUI.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1aa218928d01a0ef58e2419ae386bb6a2c" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilityUI.abilityButtonPrefab</definition>
+        <argsstring></argsstring>
+        <name>abilityButtonPrefab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="18" column="1" bodyfile="Main/AbilityUI.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1ab4cee14a08c4464cc9d5c6cfe44bb48c" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject AbilityUI.plusButtonPrefab</definition>
+        <argsstring></argsstring>
+        <name>plusButtonPrefab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="19" column="1" bodyfile="Main/AbilityUI.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1a1b3e733a8966ddb96911c97b4889de85" prot="private" static="no" mutable="no">
+        <type><ref refid="class_ability_controller" kindref="compound">AbilityController</ref></type>
+        <definition>AbilityController AbilityUI.abilityController</definition>
+        <argsstring></argsstring>
+        <name>abilityController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="21" column="1" bodyfile="Main/AbilityUI.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1adfc70a362a62aa21842b3ea715c481eb" prot="private" static="no" mutable="no">
+        <type><ref refid="class_player" kindref="compound">Player</ref></type>
+        <definition>Player AbilityUI.localPlayer</definition>
+        <argsstring></argsstring>
+        <name>localPlayer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="22" column="1" bodyfile="Main/AbilityUI.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1a350824e50c88e47d3a3f64cec978bb08" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_ability" kindref="compound">Ability</ref> &gt;</type>
+        <definition>List&lt;Ability&gt; AbilityUI.playerAbilities</definition>
+        <argsstring></argsstring>
+        <name>playerAbilities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="23" column="1" bodyfile="Main/AbilityUI.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1a5778e3851129e4b3fd1d352625c4d652" prot="private" static="no" mutable="no">
+        <type><ref refid="class_mouse" kindref="compound">Mouse</ref></type>
+        <definition>Mouse AbilityUI.mouse</definition>
+        <argsstring></argsstring>
+        <name>mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="24" column="1" bodyfile="Main/AbilityUI.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1a823c090f098345c25e8caec3e5227a2e" prot="private" static="no" mutable="no">
+        <type>IDictionary&lt; AbilityName, GameObject &gt;</type>
+        <definition>IDictionary&lt;AbilityName, GameObject&gt; AbilityUI.abilityUpgradeButtons</definition>
+        <argsstring></argsstring>
+        <name>abilityUpgradeButtons</name>
+        <initializer>= new Dictionary&lt;AbilityName, GameObject&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="27" column="1" bodyfile="Main/AbilityUI.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ability_u_i_1adff769d8724cabcc0b88aa6512624cad" prot="private" static="no" mutable="no">
+        <type>IDictionary&lt; AbilityName, Sprite &gt;</type>
+        <definition>IDictionary&lt;AbilityName, Sprite&gt; AbilityUI.abilitySpritesDict</definition>
+        <argsstring></argsstring>
+        <name>abilitySpritesDict</name>
+        <initializer>= new Dictionary&lt;AbilityName, Sprite&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="28" column="1" bodyfile="Main/AbilityUI.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_ability_u_i_1aa713c0f297130dff7197b84b22ff60e1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityUI.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="32" column="1" bodyfile="Main/AbilityUI.cs" bodystart="32" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_u_i_1aa8f06682b84f7f6397e6ae3bca355ae4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityUI.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="74" column="1" bodyfile="Main/AbilityUI.cs" bodystart="74" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_u_i_1a5f50ee508642c029af73486e4df26574" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityUI.InstantiateButton</definition>
+        <argsstring>(float yOffset, AbilityName ability)</argsstring>
+        <name>InstantiateButton</name>
+        <param>
+          <type>float</type>
+          <declname>yOffset</declname>
+        </param>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="108" column="1" bodyfile="Main/AbilityUI.cs" bodystart="108" bodyend="128"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_ability_u_i_1ab3fa778ae8eb05db222181e5d358b7d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbilityUI.UpdateAbilityLevelOnButton</definition>
+        <argsstring>(AbilityName abilityName)</argsstring>
+        <name>UpdateAbilityLevelOnButton</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>abilityName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="98" column="1" bodyfile="Main/AbilityUI.cs" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ability_u_i_1ac48ff10427ee30fbde82bb40d3ba6705" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AbilityUI.CheckIfMaxed</definition>
+        <argsstring>(AbilityName ability)</argsstring>
+        <name>CheckIfMaxed</name>
+        <param>
+          <type>AbilityName</type>
+          <declname>ability</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/AbilityUI.cs" line="103" column="1" bodyfile="Main/AbilityUI.cs" bodystart="103" bodyend="106"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Controls <ref refid="class_ability" kindref="compound">Ability</ref> UI components in the Main scene </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="51">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="50">
+        <label>AbilityUI</label>
+        <link refid="class_ability_u_i"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="53">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="52">
+        <label>AbilityUI</label>
+        <link refid="class_ability_u_i"/>
+        <childnode refid="53" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Main/AbilityUI.cs" line="13" column="1" bodyfile="Main/AbilityUI.cs" bodystart="12" bodyend="129"/>
+    <listofallmembers>
+      <member refid="class_ability_u_i_1aa218928d01a0ef58e2419ae386bb6a2c" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>abilityButtonPrefab</name></member>
+      <member refid="class_ability_u_i_1ab942ac734bf76084990e2b470cfed2a3" prot="public" virt="non-virtual"><scope>AbilityUI</scope><name>AbilityButtons</name></member>
+      <member refid="class_ability_u_i_1a1b3e733a8966ddb96911c97b4889de85" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>abilityController</name></member>
+      <member refid="class_ability_u_i_1aa93b65607edc1001e17f676529b3682e" prot="public" virt="non-virtual"><scope>AbilityUI</scope><name>abilitySprites</name></member>
+      <member refid="class_ability_u_i_1adff769d8724cabcc0b88aa6512624cad" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>abilitySpritesDict</name></member>
+      <member refid="class_ability_u_i_1a823c090f098345c25e8caec3e5227a2e" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>abilityUpgradeButtons</name></member>
+      <member refid="class_ability_u_i_1af6cc222175e6b237abb1f5e932e214db" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>canvas</name></member>
+      <member refid="class_ability_u_i_1ac48ff10427ee30fbde82bb40d3ba6705" prot="public" virt="non-virtual"><scope>AbilityUI</scope><name>CheckIfMaxed</name></member>
+      <member refid="class_ability_u_i_1aa3bb9a3aa88f873baa80bfb5c33bae73" prot="public" virt="non-virtual"><scope>AbilityUI</scope><name>Countdowns</name></member>
+      <member refid="class_ability_u_i_1a5f50ee508642c029af73486e4df26574" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>InstantiateButton</name></member>
+      <member refid="class_ability_u_i_1adfc70a362a62aa21842b3ea715c481eb" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>localPlayer</name></member>
+      <member refid="class_ability_u_i_1a5778e3851129e4b3fd1d352625c4d652" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>mouse</name></member>
+      <member refid="class_ability_u_i_1a350824e50c88e47d3a3f64cec978bb08" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>playerAbilities</name></member>
+      <member refid="class_ability_u_i_1ab4cee14a08c4464cc9d5c6cfe44bb48c" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>plusButtonPrefab</name></member>
+      <member refid="class_ability_u_i_1aa713c0f297130dff7197b84b22ff60e1" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>Start</name></member>
+      <member refid="class_ability_u_i_1aa8f06682b84f7f6397e6ae3bca355ae4" prot="private" virt="non-virtual"><scope>AbilityUI</scope><name>Update</name></member>
+      <member refid="class_ability_u_i_1ab3fa778ae8eb05db222181e5d358b7d0" prot="public" virt="non-virtual"><scope>AbilityUI</scope><name>UpdateAbilityLevelOnButton</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

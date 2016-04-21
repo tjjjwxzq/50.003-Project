@@ -6,6 +6,9 @@ using System.Linq;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controls Ability UI components in the Main scene
+/// </summary>
 public class AbilityUI : MonoBehaviour
 {
     // Ability sprites

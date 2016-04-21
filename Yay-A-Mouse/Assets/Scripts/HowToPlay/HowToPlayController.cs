@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+/// <summary>
+/// Controls the UI in the HowToPlay scene
+/// </summary>
 public class HowToPlayController : MonoBehaviour {
     public AudioClip SoundLobby;
     public AudioClip SoundButtonPress;

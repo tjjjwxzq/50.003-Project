@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_food" kind="class" language="C#" prot="public">
+    <compoundname>Food</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_food_1ad79e68a1ce0bceb9b7ac586d377ca9bd" prot="private" static="no" mutable="no">
+        <type>Rigidbody2D</type>
+        <definition>Rigidbody2D Food.rigidbody</definition>
+        <argsstring></argsstring>
+        <name>rigidbody</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="10" column="1" bodyfile="Main/Food.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_1a1542258e810eb85df66a2b86e4e89aa6" prot="private" static="no" mutable="no">
+        <type>SpriteRenderer</type>
+        <definition>SpriteRenderer Food.spriteRenderer</definition>
+        <argsstring></argsstring>
+        <name>spriteRenderer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="11" column="1" bodyfile="Main/Food.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_1a02f4b6fd3563b9849a8eba6a98e43c50" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Food.speedScale</definition>
+        <argsstring></argsstring>
+        <name>speedScale</name>
+        <initializer>= 0.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="12" column="1" bodyfile="Main/Food.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_1a97444ca01f4be9fb25c789f50251e5d6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Food.moveable</definition>
+        <argsstring></argsstring>
+        <name>moveable</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="15" column="1" bodyfile="Main/Food.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_1afa4329c3f032329c3d3f3595a9176ba3" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Food.SwipeDistance</definition>
+        <argsstring></argsstring>
+        <name>SwipeDistance</name>
+        <initializer>= Screen.height * 5f/ 100f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="17" column="1" bodyfile="Main/Food.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_1ae70d53fbb660f542d36812034fd1f00e" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Food.firstPos</definition>
+        <argsstring></argsstring>
+        <name>firstPos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="18" column="1" bodyfile="Main/Food.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_1a97b93383532a5eb6647241e70caa6f52" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Food.lastPos</definition>
+        <argsstring></argsstring>
+        <name>lastPos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="19" column="1" bodyfile="Main/Food.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_1ac52b97b25c87e44013e730b209be2f06" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float Food.MoveTime</definition>
+        <argsstring></argsstring>
+        <name>MoveTime</name>
+        <initializer>= 0.1f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="20" column="1" bodyfile="Main/Food.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_1a7a48e4ba23187d9404de3a5cd3a4a749" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Food.moveTimeCountDown</definition>
+        <argsstring></argsstring>
+        <name>moveTimeCountDown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="21" column="1" bodyfile="Main/Food.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_food_1a222e6263d31b64e4c65609ba4688e7df" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Food.NutritionalValue</definition>
+        <argsstring></argsstring>
+        <name>NutritionalValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="13" column="1" bodyfile="Main/Food.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_food_1ada3faa0f6a0b38caccd3b5930126b919" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Food.Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="14" column="1" bodyfile="Main/Food.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_food_1ad909bec75236a3bf3f61755d080227a0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Food.CreateFood</definition>
+        <argsstring>(GameObject food, int nutritionalValue, string type)</argsstring>
+        <name>CreateFood</name>
+        <param>
+          <type>GameObject</type>
+          <declname>food</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nutritionalValue</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Factory method to be called by the <ref refid="class_food_controller" kindref="compound">FoodController</ref> for programatically generating prefabs of each food type </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>food</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The food GameObject to create</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nutritionalValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The nutritional value of the food</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the food type</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="31" column="1" bodyfile="Main/Food.cs" bodystart="31" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_food_1a6523008d0c5b57949877fb1cd2b25707" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Food.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="39" column="1" bodyfile="Main/Food.cs" bodystart="39" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_1a6ebfde85cd834ad5bbc9185c86ffe28a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Food.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="46" column="1" bodyfile="Main/Food.cs" bodystart="46" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_1a316bec11283edbef3d4a6c496d1f1764" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Food.detectMouseSwipe</definition>
+        <argsstring>()</argsstring>
+        <name>detectMouseSwipe</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="81" column="1" bodyfile="Main/Food.cs" bodystart="81" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_1af74389b8e8961701bbf66b73ebeb87d7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Food.detectTouchSwipe</definition>
+        <argsstring>()</argsstring>
+        <name>detectTouchSwipe</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="99" column="1" bodyfile="Main/Food.cs" bodystart="99" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="class_food_1a791fae5687faeb36d34f614063d9fa2e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Food.detectTouch</definition>
+        <argsstring>(Vector2 touchPos)</argsstring>
+        <name>detectTouch</name>
+        <param>
+          <type>Vector2</type>
+          <declname>touchPos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Main/Food.cs" line="161" column="1" bodyfile="Main/Food.cs" bodystart="161" bodyend="175"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Component attached to <ref refid="class_food" kindref="compound">Food</ref> GameObjects that handles swipe detection </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="90">
+        <label>Food</label>
+        <link refid="class_food"/>
+        <childnode refid="91" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="91">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="92">
+        <label>Food</label>
+        <link refid="class_food"/>
+        <childnode refid="93" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Main/Food.cs" line="8" column="1" bodyfile="Main/Food.cs" bodystart="8" bodyend="177"/>
+    <listofallmembers>
+      <member refid="class_food_1ad909bec75236a3bf3f61755d080227a0" prot="public" virt="non-virtual"><scope>Food</scope><name>CreateFood</name></member>
+      <member refid="class_food_1a316bec11283edbef3d4a6c496d1f1764" prot="private" virt="non-virtual"><scope>Food</scope><name>detectMouseSwipe</name></member>
+      <member refid="class_food_1a791fae5687faeb36d34f614063d9fa2e" prot="private" virt="non-virtual"><scope>Food</scope><name>detectTouch</name></member>
+      <member refid="class_food_1af74389b8e8961701bbf66b73ebeb87d7" prot="private" virt="non-virtual"><scope>Food</scope><name>detectTouchSwipe</name></member>
+      <member refid="class_food_1ae70d53fbb660f542d36812034fd1f00e" prot="private" virt="non-virtual"><scope>Food</scope><name>firstPos</name></member>
+      <member refid="class_food_1a97b93383532a5eb6647241e70caa6f52" prot="private" virt="non-virtual"><scope>Food</scope><name>lastPos</name></member>
+      <member refid="class_food_1a97444ca01f4be9fb25c789f50251e5d6" prot="private" virt="non-virtual"><scope>Food</scope><name>moveable</name></member>
+      <member refid="class_food_1ac52b97b25c87e44013e730b209be2f06" prot="private" virt="non-virtual"><scope>Food</scope><name>MoveTime</name></member>
+      <member refid="class_food_1a7a48e4ba23187d9404de3a5cd3a4a749" prot="private" virt="non-virtual"><scope>Food</scope><name>moveTimeCountDown</name></member>
+      <member refid="class_food_1a222e6263d31b64e4c65609ba4688e7df" prot="public" virt="non-virtual"><scope>Food</scope><name>NutritionalValue</name></member>
+      <member refid="class_food_1ad79e68a1ce0bceb9b7ac586d377ca9bd" prot="private" virt="non-virtual"><scope>Food</scope><name>rigidbody</name></member>
+      <member refid="class_food_1a02f4b6fd3563b9849a8eba6a98e43c50" prot="private" virt="non-virtual"><scope>Food</scope><name>speedScale</name></member>
+      <member refid="class_food_1a1542258e810eb85df66a2b86e4e89aa6" prot="private" virt="non-virtual"><scope>Food</scope><name>spriteRenderer</name></member>
+      <member refid="class_food_1a6523008d0c5b57949877fb1cd2b25707" prot="private" virt="non-virtual"><scope>Food</scope><name>Start</name></member>
+      <member refid="class_food_1afa4329c3f032329c3d3f3595a9176ba3" prot="private" virt="non-virtual"><scope>Food</scope><name>SwipeDistance</name></member>
+      <member refid="class_food_1ada3faa0f6a0b38caccd3b5930126b919" prot="public" virt="non-virtual"><scope>Food</scope><name>Type</name></member>
+      <member refid="class_food_1a6ebfde85cd834ad5bbc9185c86ffe28a" prot="private" virt="non-virtual"><scope>Food</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_f4e982bca5d979afcf7d664254407d09" kind="dir">
+    <compoundname>Main</compoundname>
+    <innerfile refid="_abilities_8cs">Abilities.cs</innerfile>
+    <innerfile refid="_ability_controller_8cs">AbilityController.cs</innerfile>
+    <innerfile refid="_ability_u_i_8cs">AbilityUI.cs</innerfile>
+    <innerfile refid="_camera_controller_8cs">CameraController.cs</innerfile>
+    <innerfile refid="_food_8cs">Food.cs</innerfile>
+    <innerfile refid="_food_controller_8cs">FoodController.cs</innerfile>
+    <innerfile refid="_level_controller_8cs">LevelController.cs</innerfile>
+    <innerfile refid="_mouse_8cs">Mouse.cs</innerfile>
+    <innerfile refid="_object_pool_8cs">ObjectPool.cs</innerfile>
+    <innerfile refid="_player_8cs">Player.cs</innerfile>
+    <innerfile refid="_pool_member_8cs">PoolMember.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Main/"/>
+  </compounddef>
+</doxygen>

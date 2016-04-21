@@ -1,0 +1,725 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_lobby_manager" kind="class" language="C#" prot="public">
+    <compoundname>LobbyManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">NetworkLobbyManager</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_lobby_manager_1aa3a55fd3796d63373a991cbe9723eed6" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_lobby_player" kindref="compound">LobbyPlayer</ref> &gt;</type>
+        <definition>List&lt;LobbyPlayer&gt; LobbyManager.lobbyPlayers</definition>
+        <argsstring></argsstring>
+        <name>lobbyPlayers</name>
+        <initializer>= new List&lt;<ref refid="class_lobby_player" kindref="compound">LobbyPlayer</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="13" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1a7e4862564926f8bc0dd1b81995189c09" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_player" kindref="compound">Player</ref> &gt;</type>
+        <definition>List&lt;Player&gt; LobbyManager.players</definition>
+        <argsstring></argsstring>
+        <name>players</name>
+        <initializer>= new List&lt;<ref refid="class_player" kindref="compound">Player</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="15" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1ab1db9ae497c2b9b54577aacca9c1d0ec" prot="private" static="no" mutable="no">
+        <type><ref refid="class_my_network_discovery" kindref="compound">MyNetworkDiscovery</ref></type>
+        <definition>MyNetworkDiscovery LobbyManager.networkDiscovery</definition>
+        <argsstring></argsstring>
+        <name>networkDiscovery</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="16" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1aa9ce59293c289aa904bf56e47cd3a203" prot="private" static="no" mutable="no">
+        <type><ref refid="class_start_controller" kindref="compound">StartController</ref></type>
+        <definition>StartController LobbyManager.startController</definition>
+        <argsstring></argsstring>
+        <name>startController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="17" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1aa174128df04e81ecce0d94e876790dff" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LobbyManager.readyUIActive</definition>
+        <argsstring></argsstring>
+        <name>readyUIActive</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="18" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1a385dc0b5f5bce4d8c6953f5fe4189d39" prot="private" static="no" mutable="no">
+        <type>RectTransform</type>
+        <definition>RectTransform LobbyManager.lobbyPlayerRectTransform</definition>
+        <argsstring></argsstring>
+        <name>lobbyPlayerRectTransform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="21" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1aaa6e7dea79421c5a4e18ea897c7306ab" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LobbyManager.lobbyPlayerStartPos</definition>
+        <argsstring></argsstring>
+        <name>lobbyPlayerStartPos</name>
+        <initializer>= 140f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="22" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1ab52e55ce90dac85bcfdf2368c0b88f6f" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LobbyManager.lobbyPlayerOffset</definition>
+        <argsstring></argsstring>
+        <name>lobbyPlayerOffset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="23" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1acfe1f383c397d463fd3081c29087fd60" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LobbyManager.lobbyPlayerPosition</definition>
+        <argsstring></argsstring>
+        <name>lobbyPlayerPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="24" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1a2c1ba7692f307572d4706b49a51c4591" prot="private" static="no" mutable="no">
+        <type>GameObject</type>
+        <definition>GameObject LobbyManager.countdownUI</definition>
+        <argsstring></argsstring>
+        <name>countdownUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="26" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1a8be3d581616c692b72cb8cedac09189e" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LobbyManager.readyCountdown</definition>
+        <argsstring></argsstring>
+        <name>readyCountdown</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="27" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1a269751b43a7398bf3c9e97c3a4d525f5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LobbyManager.readyToPlay</definition>
+        <argsstring></argsstring>
+        <name>readyToPlay</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="28" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1ac35d2ea9248f6dbaac492b578c7a1a29" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LobbyManager.changingScene</definition>
+        <argsstring></argsstring>
+        <name>changingScene</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="29" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1a8bdad0d1d81ff77248ccc954e3eadba9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LobbyManager.isHost</definition>
+        <argsstring></argsstring>
+        <name>isHost</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="30" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_lobby_manager_1af34547554ed68b489e3a5ab93b7fe7c9" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color LobbyManager.PlayerColor</definition>
+        <argsstring></argsstring>
+        <name>PlayerColor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="33" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_lobby_manager_1ac5e53b0bcc19988bed8af9d0a90dc67f" prot="public" static="no" mutable="no">
+        <type><ref refid="class_abilities" kindref="compound">Abilities</ref></type>
+        <definition>Abilities LobbyManager.PlayerAbilities</definition>
+        <argsstring></argsstring>
+        <name>PlayerAbilities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="34" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_lobby_manager_1a967fdb7824ce1f6de983be556b989708" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LobbyManager.IsHost</definition>
+        <argsstring></argsstring>
+        <name>IsHost</name>
+        <briefdescription>
+<para>Flag for whether a player is a host or just a normal client </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="299" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_lobby_manager_1ace6da30a10e91f3d54a47636a0f8581c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyManager.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="37" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="37" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1ad16f199d1f965a9b561e41de29a7d09d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyManager.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="62" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="62" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a3d69b79f80537a99e2f2df23791c7ce5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LobbyManager.checkAllReady</definition>
+        <argsstring>()</argsstring>
+        <name>checkAllReady</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="230" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="230" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1ab399337c7cb17aeb33821803c929f345" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyManager.UpdateLobbyPlayers</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateLobbyPlayers</name>
+        <briefdescription>
+<para>Updates list of lobby players, removing objects which have become null (player has quit) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="257" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="257" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1aa109f9d1f6fc7b99a16397d59bd856b0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyManager.checkAbilitiesReady</definition>
+        <argsstring>()</argsstring>
+        <name>checkAbilitiesReady</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="291" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="291" bodyend="294"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_lobby_manager_1afb1f76966f91b13231d1cd2556b5620f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyManager.OnStartHost</definition>
+        <argsstring>()</argsstring>
+        <name>OnStartHost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="134" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="134" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1ad80428defffdda7094c89630dba4216e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyManager.OnLobbyClientEnter</definition>
+        <argsstring>()</argsstring>
+        <name>OnLobbyClientEnter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="142" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="142" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a2bd4b36db9f0c0818ab3c3cbf82ed09b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyManager.OnLobbyClientExit</definition>
+        <argsstring>()</argsstring>
+        <name>OnLobbyClientExit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="153" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="153" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a8bd1cd7be0dd34ed8391ac7811e0f9d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyManager.OnServerAddPlayer</definition>
+        <argsstring>(NetworkConnection conn, short playerControllerId)</argsstring>
+        <name>OnServerAddPlayer</name>
+        <param>
+          <type>NetworkConnection</type>
+          <declname>conn</declname>
+        </param>
+        <param>
+          <type>short</type>
+          <declname>playerControllerId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="160" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="160" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a64f4aa7b20d61828f493025c485e7273" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyManager.OnLobbyClientDisconnect</definition>
+        <argsstring>()</argsstring>
+        <name>OnLobbyClientDisconnect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="177" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a4eec6cd8e406dd2f941525946cec5021" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyManager.OnStopServer</definition>
+        <argsstring>()</argsstring>
+        <name>OnStopServer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="182" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a21ad877c6f9ef942877d3b2314cee4a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyManager.OnLobbyServerPlayersReady</definition>
+        <argsstring>()</argsstring>
+        <name>OnLobbyServerPlayersReady</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="188" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="188" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1afb0dff921773c41be7f94fd75e5f7723" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyManager.OnLobbyClientSceneChanged</definition>
+        <argsstring>(NetworkConnection conn)</argsstring>
+        <name>OnLobbyClientSceneChanged</name>
+        <param>
+          <type>NetworkConnection</type>
+          <declname>conn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="194" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="194" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a37ffc4ac78782687f030e62d24bbef3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyManager.OnClientSceneChanged</definition>
+        <argsstring>(NetworkConnection conn)</argsstring>
+        <name>OnClientSceneChanged</name>
+        <param>
+          <type>NetworkConnection</type>
+          <declname>conn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="204" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="204" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a15f4143f9baf5779e9e85ffb933b3eeb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void LobbyManager.OnServerSceneChanged</definition>
+        <argsstring>(string sceneName)</argsstring>
+        <name>OnServerSceneChanged</name>
+        <param>
+          <type>string</type>
+          <declname>sceneName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="210" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="210" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1afcc84910a29c2c484e981e9b49812ee6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override bool</type>
+        <definition>override bool LobbyManager.OnLobbyServerSceneLoadedForPlayer</definition>
+        <argsstring>(GameObject lobbyPlayer, GameObject gamePlayer)</argsstring>
+        <name>OnLobbyServerSceneLoadedForPlayer</name>
+        <param>
+          <type>GameObject</type>
+          <declname>lobbyPlayer</declname>
+        </param>
+        <param>
+          <type>GameObject</type>
+          <declname>gamePlayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="222" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="222" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1af35ad749b09311811a02ba26a330eeae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyManager.AddLobbyPlayer</definition>
+        <argsstring>(GameObject player)</argsstring>
+        <name>AddLobbyPlayer</name>
+        <param>
+          <type>GameObject</type>
+          <declname>player</declname>
+        </param>
+        <briefdescription>
+<para>Add lobby player to list when lobby player network behavior client starts </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="239" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="239" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a4756314fed47047098038f152e1082c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyManager.AddPlayer</definition>
+        <argsstring>(GameObject player)</argsstring>
+        <name>AddPlayer</name>
+        <param>
+          <type>GameObject</type>
+          <declname>player</declname>
+        </param>
+        <briefdescription>
+<para>Add spawned player to list when the player network behavior client starts </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="248" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="248" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a73b4da8e4b55680ac3c95a6dba3cf9e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyManager.setLocalPlayerColor</definition>
+        <argsstring>(Color color)</argsstring>
+        <name>setLocalPlayerColor</name>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Set the local player color Called by <ref refid="class_lobby_player" kindref="compound">LobbyPlayer</ref> when the player clicks the ready button in the lobby </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="269" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="269" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1a542ed736fab7a96d25212be963edd4d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; Color &gt;</type>
+        <definition>List&lt;Color&gt; LobbyManager.getUsedColors</definition>
+        <argsstring>()</argsstring>
+        <name>getUsedColors</name>
+        <briefdescription>
+<para>Get the list of currently used colors To be called by lobby player when setting color </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="279" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="279" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="class_lobby_manager_1ad644a4f7059885109e1a9d2084f135fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LobbyManager.OnStartGame</definition>
+        <argsstring>()</argsstring>
+        <name>OnStartGame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Lobby/LobbyManager.cs" line="285" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="285" bodyend="288"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Main class that handles networking and the multiplayer lobby </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="112">
+        <label>LobbyManager</label>
+        <link refid="class_lobby_manager"/>
+        <childnode refid="113" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>NetworkLobbyManager</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="123">
+        <label>ScaryCat</label>
+        <link refid="class_scary_cat"/>
+        <childnode refid="118" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="122">
+        <label>Immunity</label>
+        <link refid="class_immunity"/>
+        <childnode refid="118" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="118">
+        <label>Ability</label>
+        <link refid="class_ability"/>
+      </node>
+      <node id="114">
+        <label>LobbyManager</label>
+        <link refid="class_lobby_manager"/>
+        <childnode refid="115" relation="public-inheritance">
+        </childnode>
+        <childnode refid="116" relation="usage">
+          <edgelabel>PlayerAbilities</edgelabel>
+        </childnode>
+      </node>
+      <node id="119">
+        <label>Thief</label>
+        <link refid="class_thief"/>
+        <childnode refid="118" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="117">
+        <label>BeastlyBuffet</label>
+        <link refid="class_beastly_buffet"/>
+        <childnode refid="118" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>Abilities</label>
+        <link refid="class_abilities"/>
+        <childnode refid="117" relation="usage">
+          <edgelabel>BeastlyBuffet</edgelabel>
+        </childnode>
+        <childnode refid="119" relation="usage">
+          <edgelabel>Thief</edgelabel>
+        </childnode>
+        <childnode refid="120" relation="usage">
+          <edgelabel>TreatsGalore</edgelabel>
+        </childnode>
+        <childnode refid="121" relation="usage">
+          <edgelabel>FatMouse</edgelabel>
+        </childnode>
+        <childnode refid="122" relation="usage">
+          <edgelabel>Immunity</edgelabel>
+        </childnode>
+        <childnode refid="123" relation="usage">
+          <edgelabel>ScaryCat</edgelabel>
+        </childnode>
+        <childnode refid="124" relation="usage">
+          <edgelabel>Fearless</edgelabel>
+        </childnode>
+      </node>
+      <node id="115">
+        <label>NetworkLobbyManager</label>
+      </node>
+      <node id="121">
+        <label>FatMouse</label>
+        <link refid="class_fat_mouse"/>
+        <childnode refid="118" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>Fearless</label>
+        <link refid="class_fearless"/>
+        <childnode refid="118" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>TreatsGalore</label>
+        <link refid="class_treats_galore"/>
+        <childnode refid="118" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Lobby/LobbyManager.cs" line="10" column="1" bodyfile="Lobby/LobbyManager.cs" bodystart="10" bodyend="307"/>
+    <listofallmembers>
+      <member refid="class_lobby_manager_1af35ad749b09311811a02ba26a330eeae" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>AddLobbyPlayer</name></member>
+      <member refid="class_lobby_manager_1a4756314fed47047098038f152e1082c8" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>AddPlayer</name></member>
+      <member refid="class_lobby_manager_1ac35d2ea9248f6dbaac492b578c7a1a29" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>changingScene</name></member>
+      <member refid="class_lobby_manager_1aa109f9d1f6fc7b99a16397d59bd856b0" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>checkAbilitiesReady</name></member>
+      <member refid="class_lobby_manager_1a3d69b79f80537a99e2f2df23791c7ce5" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>checkAllReady</name></member>
+      <member refid="class_lobby_manager_1a2c1ba7692f307572d4706b49a51c4591" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>countdownUI</name></member>
+      <member refid="class_lobby_manager_1a542ed736fab7a96d25212be963edd4d9" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>getUsedColors</name></member>
+      <member refid="class_lobby_manager_1a967fdb7824ce1f6de983be556b989708" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>IsHost</name></member>
+      <member refid="class_lobby_manager_1a8bdad0d1d81ff77248ccc954e3eadba9" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>isHost</name></member>
+      <member refid="class_lobby_manager_1ab52e55ce90dac85bcfdf2368c0b88f6f" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>lobbyPlayerOffset</name></member>
+      <member refid="class_lobby_manager_1acfe1f383c397d463fd3081c29087fd60" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>lobbyPlayerPosition</name></member>
+      <member refid="class_lobby_manager_1a385dc0b5f5bce4d8c6953f5fe4189d39" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>lobbyPlayerRectTransform</name></member>
+      <member refid="class_lobby_manager_1aa3a55fd3796d63373a991cbe9723eed6" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>lobbyPlayers</name></member>
+      <member refid="class_lobby_manager_1aaa6e7dea79421c5a4e18ea897c7306ab" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>lobbyPlayerStartPos</name></member>
+      <member refid="class_lobby_manager_1ab1db9ae497c2b9b54577aacca9c1d0ec" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>networkDiscovery</name></member>
+      <member refid="class_lobby_manager_1a37ffc4ac78782687f030e62d24bbef3e" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnClientSceneChanged</name></member>
+      <member refid="class_lobby_manager_1a64f4aa7b20d61828f493025c485e7273" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnLobbyClientDisconnect</name></member>
+      <member refid="class_lobby_manager_1ad80428defffdda7094c89630dba4216e" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnLobbyClientEnter</name></member>
+      <member refid="class_lobby_manager_1a2bd4b36db9f0c0818ab3c3cbf82ed09b" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnLobbyClientExit</name></member>
+      <member refid="class_lobby_manager_1afb0dff921773c41be7f94fd75e5f7723" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnLobbyClientSceneChanged</name></member>
+      <member refid="class_lobby_manager_1a21ad877c6f9ef942877d3b2314cee4a8" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnLobbyServerPlayersReady</name></member>
+      <member refid="class_lobby_manager_1afcc84910a29c2c484e981e9b49812ee6" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnLobbyServerSceneLoadedForPlayer</name></member>
+      <member refid="class_lobby_manager_1a8bd1cd7be0dd34ed8391ac7811e0f9d7" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnServerAddPlayer</name></member>
+      <member refid="class_lobby_manager_1a15f4143f9baf5779e9e85ffb933b3eeb" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnServerSceneChanged</name></member>
+      <member refid="class_lobby_manager_1ad644a4f7059885109e1a9d2084f135fe" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnStartGame</name></member>
+      <member refid="class_lobby_manager_1afb1f76966f91b13231d1cd2556b5620f" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnStartHost</name></member>
+      <member refid="class_lobby_manager_1a4eec6cd8e406dd2f941525946cec5021" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>OnStopServer</name></member>
+      <member refid="class_lobby_manager_1ac5e53b0bcc19988bed8af9d0a90dc67f" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>PlayerAbilities</name></member>
+      <member refid="class_lobby_manager_1af34547554ed68b489e3a5ab93b7fe7c9" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>PlayerColor</name></member>
+      <member refid="class_lobby_manager_1a7e4862564926f8bc0dd1b81995189c09" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>players</name></member>
+      <member refid="class_lobby_manager_1a8be3d581616c692b72cb8cedac09189e" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>readyCountdown</name></member>
+      <member refid="class_lobby_manager_1a269751b43a7398bf3c9e97c3a4d525f5" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>readyToPlay</name></member>
+      <member refid="class_lobby_manager_1aa174128df04e81ecce0d94e876790dff" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>readyUIActive</name></member>
+      <member refid="class_lobby_manager_1a73b4da8e4b55680ac3c95a6dba3cf9e8" prot="public" virt="non-virtual"><scope>LobbyManager</scope><name>setLocalPlayerColor</name></member>
+      <member refid="class_lobby_manager_1ace6da30a10e91f3d54a47636a0f8581c" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>Start</name></member>
+      <member refid="class_lobby_manager_1aa9ce59293c289aa904bf56e47cd3a203" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>startController</name></member>
+      <member refid="class_lobby_manager_1ad16f199d1f965a9b561e41de29a7d09d" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>Update</name></member>
+      <member refid="class_lobby_manager_1ab399337c7cb17aeb33821803c929f345" prot="private" virt="non-virtual"><scope>LobbyManager</scope><name>UpdateLobbyPlayers</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
