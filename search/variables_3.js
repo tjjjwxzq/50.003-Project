@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pixelsperunit',['pixelsPerUnit',['../class_camera_controller.html#ae7f8453382d363abe462f24a4a025d77',1,'CameraController']]]
+  ['immunity',['Immunity',['../class_abilities.html#a1dd839f597a7474f0a1618ab8f326be4',1,'Abilities']]]
 ];

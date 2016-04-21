@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['returnobj',['returnObj',['../class_object_pool.html#a61d15dbf443949f7a0b59031c6a8d2e4',1,'ObjectPool']]]
+  ['hasability',['hasAbility',['../class_player.html#aea710f526c61cf47f9990439025701b1',1,'Player']]],
+  ['howtoplaycontroller',['HowToPlayController',['../class_how_to_play_controller.html',1,'']]]
 ];

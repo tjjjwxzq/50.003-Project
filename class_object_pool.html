@@ -25,7 +25,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Yay A Mouse
    </div>
-   <div id="projectbrief">Mobile game for 50.003 project</div>
+   <div id="projectbrief">50.003 Project</div>
   </td>
  </tr>
  </tbody>
@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#properties">Properties</a> &#124;
 <a href="class_object_pool-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ObjectPool Class Reference</div>  </div>
@@ -104,15 +105,12 @@ Inheritance diagram for ObjectPool:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1a2f42245b2acfef316e203e6a88c7f2"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_pool.html#a1a2f42245b2acfef316e203e6a88c7f2">getObj</a> ()</td></tr>
-<tr class="memdesc:a1a2f42245b2acfef316e203e6a88c7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an object from the pool. If the pool is empty, instantiates a new object and dynamically grows the pool.  <a href="#a1a2f42245b2acfef316e203e6a88c7f2">More...</a><br /></td></tr>
-<tr class="separator:a1a2f42245b2acfef316e203e6a88c7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61d15dbf443949f7a0b59031c6a8d2e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_pool.html#a61d15dbf443949f7a0b59031c6a8d2e4">returnObj</a> (GameObject <a class="el" href="class_object_pool.html#ab54421fb72fa4934d9cde669fe703919">obj</a>)</td></tr>
-<tr class="memdesc:a61d15dbf443949f7a0b59031c6a8d2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a specified object to the pool. To be called by <a class="el" href="class_pool_member.html#a6f883eaed133e4b288a3847aea3ff33a" title="Deactivates and returns the object to its pool ">PoolMember::Deactivate()</a>  <a href="#a61d15dbf443949f7a0b59031c6a8d2e4">More...</a><br /></td></tr>
-<tr class="separator:a61d15dbf443949f7a0b59031c6a8d2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfba780835d2ecfdae26e28e4f564382"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_pool.html#acfba780835d2ecfdae26e28e4f564382">getActiveObjects</a> ()</td></tr>
-<tr class="memdesc:acfba780835d2ecfdae26e28e4f564382"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of active objects that were released from the pool.  <a href="#acfba780835d2ecfdae26e28e4f564382">More...</a><br /></td></tr>
-<tr class="separator:acfba780835d2ecfdae26e28e4f564382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40c9b63a283e6e5b93230e8a31e49f1a"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_pool.html#a40c9b63a283e6e5b93230e8a31e49f1a">GetObj</a> ()</td></tr>
+<tr class="memdesc:a40c9b63a283e6e5b93230e8a31e49f1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an object from the pool. If the pool is empty, instantiates a new object and dynamically grows the pool.  <a href="#a40c9b63a283e6e5b93230e8a31e49f1a">More...</a><br /></td></tr>
+<tr class="separator:a40c9b63a283e6e5b93230e8a31e49f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8000b2df1a73afd9a0c9f3ad4c8b9a43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_pool.html#a8000b2df1a73afd9a0c9f3ad4c8b9a43">ReturnObj</a> (GameObject <a class="el" href="class_object_pool.html#ab54421fb72fa4934d9cde669fe703919">obj</a>)</td></tr>
+<tr class="memdesc:a8000b2df1a73afd9a0c9f3ad4c8b9a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a specified object to the pool. To be called by <a class="el" href="class_pool_member.html#a6f883eaed133e4b288a3847aea3ff33a" title="Deactivates and returns the object to its pool ">PoolMember::Deactivate()</a>  <a href="#a8000b2df1a73afd9a0c9f3ad4c8b9a43">More...</a><br /></td></tr>
+<tr class="separator:a8000b2df1a73afd9a0c9f3ad4c8b9a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -120,34 +118,25 @@ Public Attributes</h2></td></tr>
 GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_pool.html#ab54421fb72fa4934d9cde669fe703919">obj</a></td></tr>
 <tr class="memdesc:ab54421fb72fa4934d9cde669fe703919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specify which object to pool in inspector panel. <br /></td></tr>
 <tr class="separator:ab54421fb72fa4934d9cde669fe703919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a60d15ca98c4df8f2698431d968570eac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_pool.html#a60d15ca98c4df8f2698431d968570eac">ActiveObjects</a><code> [get]</code></td></tr>
+<tr class="memdesc:a60d15ca98c4df8f2698431d968570eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of active objects that were released from the pool.  <a href="#a60d15ca98c4df8f2698431d968570eac">More...</a><br /></td></tr>
+<tr class="separator:a60d15ca98c4df8f2698431d968570eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af622a34197dab76dbbc8a1affa43adf2"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_pool.html#af622a34197dab76dbbc8a1affa43adf2">PoolObject</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:af622a34197dab76dbbc8a1affa43adf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property to get and set object of the pool  <a href="#af622a34197dab76dbbc8a1affa43adf2">More...</a><br /></td></tr>
+<tr class="separator:af622a34197dab76dbbc8a1affa43adf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Generic class for handling object pooling. The type of game object to pool can be specified by assigning the public member obj in the inspector panel. Keeps track of active objects in the pool. Has methods to get object from pool and return object to the pool. Pool is maintained as a list and can grow dynamically. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="acfba780835d2ecfdae26e28e4f564382"></a>
+<a class="anchor" id="a40c9b63a283e6e5b93230e8a31e49f1a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ObjectPool.getActiveObjects </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the number of active objects that were released from the pool. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a1a2f42245b2acfef316e203e6a88c7f2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GameObject ObjectPool.getObj </td>
+          <td class="memname">GameObject ObjectPool.GetObj </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -160,12 +149,12 @@ GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 
 </div>
 </div>
-<a class="anchor" id="a61d15dbf443949f7a0b59031c6a8d2e4"></a>
+<a class="anchor" id="a8000b2df1a73afd9a0c9f3ad4c8b9a43"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ObjectPool.returnObj </td>
+          <td class="memname">void ObjectPool.ReturnObj </td>
           <td>(</td>
           <td class="paramtype">GameObject&#160;</td>
           <td class="paramname"><em>obj</em></td><td>)</td>
@@ -184,8 +173,54 @@ GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 
 </div>
 </div>
+<h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a60d15ca98c4df8f2698431d968570eac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ObjectPool.ActiveObjects</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of active objects that were released from the pool. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af622a34197dab76dbbc8a1affa43adf2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject ObjectPool.PoolObject</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Property to get and set object of the pool </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Assets/Scripts/ObjectPool.cs</li>
+<li>Main/ObjectPool.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
